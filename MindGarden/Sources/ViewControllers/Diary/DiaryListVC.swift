@@ -12,7 +12,6 @@ class DiaryListVC: UIViewController {
 
     
     @IBOutlet var diaryListTV: UITableView!
-    //    private var diaryListTV: UITableView!
     private let testArr: NSArray = ["First", "Second", "Third"]
     @IBOutlet var settingsBtn: UIBarButtonItem!
     
@@ -122,5 +121,18 @@ extension DiaryListVC: UITableViewDelegate {
 //        dvc.epIdx = episode.idx
         
         navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제", handler: { (ac:UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            
+            success(true)
+            
+        })
+        
+//        deleteAction.image = UIImage(named: "")
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
