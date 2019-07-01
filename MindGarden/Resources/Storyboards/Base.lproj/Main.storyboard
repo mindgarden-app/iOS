@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--MainVC-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="MainViewController" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="MainVC" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="5604.347826086957" y="829.6875"/>
         </scene>
-        <!--Pop Up View Controller-->
+        <!--Pop UpVC-->
         <scene sceneID="Rqq-tu-9gW">
             <objects>
-                <viewController storyboardIdentifier="PopUpViewController" id="PkX-dK-jUG" customClass="PopUpViewController" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpVC" id="PkX-dK-jUG" customClass="PopUpVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sU-7V-enD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

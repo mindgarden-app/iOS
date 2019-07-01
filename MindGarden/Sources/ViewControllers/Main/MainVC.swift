@@ -59,19 +59,19 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func writeBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "WriteViewController")
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @IBAction func listBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "ListViewController")
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @objc func dateBtnAction() {
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpViewController
         
         self.addChild(popUpVC)
         popUpVC.view.frame = self.view.frame

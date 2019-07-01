@@ -59,7 +59,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTVC", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DiaryListTVC", for: indexPath as IndexPath)
 //        cell.textLabel!.text = "\(testArr[indexPath.row])"
         
         cell.dateLabel.text = "16"

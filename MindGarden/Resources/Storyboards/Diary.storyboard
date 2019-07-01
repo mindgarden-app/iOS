@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Write View Controller-->
+        <!--Diary NewVC-->
         <scene sceneID="ZyK-8g-e1O">
             <objects>
-                <viewController storyboardIdentifier="WriteViewController" id="Y2I-Wb-1oe" customClass="WriteViewController" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryNewVC" id="Y2I-Wb-1oe" customClass="DiaryNewVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5z-cd-YcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="3784" y="1511"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Diary DetailVC-->
         <scene sceneID="kcY-UM-dal">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="bcZ-fZ-7dJ" customClass="DetailViewController" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailVC" id="bcZ-fZ-7dJ" customClass="DiaryDetailVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bD3-cM-alY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,16 +106,16 @@
             </objects>
             <point key="canvasLocation" x="4692.753623188406" y="2222.5446428571427"/>
         </scene>
-        <!--List View Controller-->
+        <!--Diary ListVC-->
         <scene sceneID="d2L-JB-DD2">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" id="8Ul-5h-2rS" customClass="ListViewController" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryListVC" id="8Ul-5h-2rS" customClass="DiaryListVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwC-PG-u57">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" id="DXQ-e8-evD" customClass="ListTVC" customModule="MindGarden" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" id="DXQ-e8-evD" customClass="DiaryListTVC">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXQ-e8-evD" id="h9T-Ky-fQo">
