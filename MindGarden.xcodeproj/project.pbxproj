@@ -7,29 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FD6F56BA51831F9A8E27976 /* Pods_MindGarden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F670888A5DBB32200B4D9BD /* Pods_MindGarden.framework */; };
 		DE06594922C8C3A600D000BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DE06594822C8C3A500D000BC /* .gitignore */; };
+		DE06595222C8EE6800D000BC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06595122C8EE6800D000BC /* Login.storyboard */; };
+		DE06595422C8FE5300D000BC /* Diary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06595322C8FE5300D000BC /* Diary.storyboard */; };
+		DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06595622C9005C00D000BC /* DiaryNewVC.swift */; };
+		DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06595B22C9012300D000BC /* DiaryDetailVC.swift */; };
+		DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06595E22C90F4C00D000BC /* PopUpVC.swift */; };
+		DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06596122C911E000D000BC /* UIView+Extensions.swift */; };
+		DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06596622C978B200D000BC /* DiaryListVC.swift */; };
+		DE06596C22C97E0D00D000BC /* DiaryListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */; };
+		DE06596D22C97E0D00D000BC /* DiaryListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */; };
+		DE06597122C9846400D000BC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06597022C9846400D000BC /* Settings.storyboard */; };
+		DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597322C9E15E00D000BC /* Date+Extensions.swift */; };
+		DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597622C9EE9600D000BC /* SettingsVC.swift */; };
 		DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */; };
 		DE33D70722C8C12D00F0F4E4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE33D70622C8C12D00F0F4E4 /* GameScene.sks */; };
 		DE33D70922C8C12D00F0F4E4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE33D70822C8C12D00F0F4E4 /* Actions.sks */; };
 		DE33D70B22C8C12D00F0F4E4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70A22C8C12D00F0F4E4 /* GameScene.swift */; };
-		DE33D70D22C8C12D00F0F4E4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70C22C8C12D00F0F4E4 /* GameViewController.swift */; };
+		DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */; };
 		DE33D71022C8C12D00F0F4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D70E22C8C12D00F0F4E4 /* Main.storyboard */; };
 		DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */; };
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindGarden.debug.xcconfig"; path = "Target Support Files/Pods-MindGarden/Pods-MindGarden.debug.xcconfig"; sourceTree = "<group>"; };
+		6F670888A5DBB32200B4D9BD /* Pods_MindGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MindGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE06594822C8C3A500D000BC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DE06595122C8EE6800D000BC /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		DE06595322C8FE5300D000BC /* Diary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Diary.storyboard; sourceTree = "<group>"; };
+		DE06595622C9005C00D000BC /* DiaryNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryNewVC.swift; sourceTree = "<group>"; };
+		DE06595B22C9012300D000BC /* DiaryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailVC.swift; sourceTree = "<group>"; };
+		DE06595E22C90F4C00D000BC /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
+		DE06596122C911E000D000BC /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		DE06596622C978B200D000BC /* DiaryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListVC.swift; sourceTree = "<group>"; };
+		DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListTVC.swift; sourceTree = "<group>"; };
+		DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryListTVC.xib; sourceTree = "<group>"; };
+		DE06597022C9846400D000BC /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		DE06597322C9E15E00D000BC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		DE06597622C9EE9600D000BC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		DE33D70122C8C12C00F0F4E4 /* MindGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE33D70622C8C12D00F0F4E4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		DE33D70822C8C12D00F0F4E4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		DE33D70A22C8C12D00F0F4E4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		DE33D70C22C8C12D00F0F4E4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		DE33D70F22C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE33D71422C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindGarden.release.xcconfig"; path = "Target Support Files/Pods-MindGarden/Pods-MindGarden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,18 +65,150 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD6F56BA51831F9A8E27976 /* Pods_MindGarden.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4975C709D6A0568C62F0E171 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */,
+				E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE06594A22C8EC6200D000BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DE06594B22C8EC7200D000BC /* Storyboards */,
+				DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */,
+				DE33D71622C8C12D00F0F4E4 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE06594B22C8EC7200D000BC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */,
+				DE33D70E22C8C12D00F0F4E4 /* Main.storyboard */,
+				DE06595122C8EE6800D000BC /* Login.storyboard */,
+				DE06595322C8FE5300D000BC /* Diary.storyboard */,
+				DE06597022C9846400D000BC /* Settings.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DE06594C22C8ED0200D000BC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596022C9115D00D000BC /* Extensions */,
+				DE06595022C8ED5100D000BC /* ViewControllers */,
+				DE06594F22C8ED4B00D000BC /* Views */,
+				DE06594E22C8ED3A00D000BC /* Model */,
+				DE06594D22C8ED3200D000BC /* APIServices */,
+				DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DE06594D22C8ED3200D000BC /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		DE06594E22C8ED3A00D000BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE06594F22C8ED4B00D000BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596F22C9844F00D000BC /* Settings */,
+				DE06596322C91C6D00D000BC /* Diary */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE06595022C8ED5100D000BC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596E22C9844800D000BC /* Settings */,
+				DE06595D22C9082800D000BC /* Main */,
+				DE06595522C8FF0700D000BC /* Diary */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DE06595522C8FF0700D000BC /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				DE06595622C9005C00D000BC /* DiaryNewVC.swift */,
+				DE06595B22C9012300D000BC /* DiaryDetailVC.swift */,
+				DE06596622C978B200D000BC /* DiaryListVC.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		DE06595D22C9082800D000BC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */,
+				DE06595E22C90F4C00D000BC /* PopUpVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DE06596022C9115D00D000BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596122C911E000D000BC /* UIView+Extensions.swift */,
+				DE06597322C9E15E00D000BC /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE06596322C91C6D00D000BC /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */,
+				DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		DE06596E22C9844800D000BC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE06597622C9EE9600D000BC /* SettingsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE06596F22C9844F00D000BC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		DE33D6F822C8C12C00F0F4E4 = {
 			isa = PBXGroup;
 			children = (
 				DE06594822C8C3A500D000BC /* .gitignore */,
 				DE33D70322C8C12C00F0F4E4 /* MindGarden */,
 				DE33D70222C8C12C00F0F4E4 /* Products */,
+				4975C709D6A0568C62F0E171 /* Pods */,
+				FDCE8B3B6BB9CE5792D00149 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,17 +223,21 @@
 		DE33D70322C8C12C00F0F4E4 /* MindGarden */ = {
 			isa = PBXGroup;
 			children = (
-				DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */,
+				DE06594C22C8ED0200D000BC /* Sources */,
+				DE06594A22C8EC6200D000BC /* Resources */,
 				DE33D70622C8C12D00F0F4E4 /* GameScene.sks */,
 				DE33D70822C8C12D00F0F4E4 /* Actions.sks */,
 				DE33D70A22C8C12D00F0F4E4 /* GameScene.swift */,
-				DE33D70C22C8C12D00F0F4E4 /* GameViewController.swift */,
-				DE33D70E22C8C12D00F0F4E4 /* Main.storyboard */,
-				DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */,
-				DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */,
-				DE33D71622C8C12D00F0F4E4 /* Info.plist */,
 			);
 			path = MindGarden;
+			sourceTree = "<group>";
+		};
+		FDCE8B3B6BB9CE5792D00149 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F670888A5DBB32200B4D9BD /* Pods_MindGarden.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE33D71922C8C12D00F0F4E4 /* Build configuration list for PBXNativeTarget "MindGarden" */;
 			buildPhases = (
+				FFDA491F830E9B2647D50D10 /* [CP] Check Pods Manifest.lock */,
 				DE33D6FD22C8C12C00F0F4E4 /* Sources */,
 				DE33D6FE22C8C12C00F0F4E4 /* Frameworks */,
 				DE33D6FF22C8C12C00F0F4E4 /* Resources */,
+				5A4DCE761021AA590CB83462 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,24 +300,85 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE06596D22C97E0D00D000BC /* DiaryListTVC.xib in Resources */,
+				DE06595422C8FE5300D000BC /* Diary.storyboard in Resources */,
 				DE33D71022C8C12D00F0F4E4 /* Main.storyboard in Resources */,
 				DE33D70722C8C12D00F0F4E4 /* GameScene.sks in Resources */,
+				DE06595222C8EE6800D000BC /* Login.storyboard in Resources */,
 				DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */,
 				DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */,
 				DE06594922C8C3A600D000BC /* .gitignore in Resources */,
 				DE33D70922C8C12D00F0F4E4 /* Actions.sks in Resources */,
+				DE06597122C9846400D000BC /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A4DCE761021AA590CB83462 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFDA491F830E9B2647D50D10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MindGarden-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE33D6FD22C8C12C00F0F4E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE33D70B22C8C12D00F0F4E4 /* GameScene.swift in Sources */,
-				DE33D70D22C8C12D00F0F4E4 /* GameViewController.swift in Sources */,
+				DE06596C22C97E0D00D000BC /* DiaryListTVC.swift in Sources */,
+				DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */,
+				DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */,
+				DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */,
+				DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */,
+				DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */,
+				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,
+				DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */,
 				DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,11 +523,12 @@
 		};
 		DE33D71A22C8C12D00F0F4E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
-				INFOPLIST_FILE = MindGarden/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,11 +542,12 @@
 		};
 		DE33D71B22C8C12D00F0F4E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
-				INFOPLIST_FILE = MindGarden/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

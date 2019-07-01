@@ -6,5 +6,5 @@ target 'MindGarden' do
   use_frameworks!
 
   # Pods for MindGarden
-
+  pod 'PopupDialog', '~> 1.1'
 end
