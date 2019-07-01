@@ -13,7 +13,7 @@
         <!--MainVC-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="MainVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BV1-FR-VrT" customClass="MainVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,20 +23,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="writeBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="lcp-2O-eqK"/>
+                                    <action selector="newBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="f2h-Tq-L4p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyC-eN-T1B">
                                 <rect key="frame" x="78" y="807" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="homeBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="gCW-aD-bQj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crc-fH-8oh">
                                 <rect key="frame" x="286" y="807" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="listBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="WMf-Sq-wwU"/>
+                                    <action selector="listBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Pp4-pA-hk5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,8 +50,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ueg-3F-mGX"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="listBtn" destination="crc-fH-8oh" id="iEM-tf-FmE"/>
-                        <outlet property="writeBtn" destination="C5J-ip-He5" id="JEh-hV-iQg"/>
+                        <outlet property="homeBtn" destination="PyC-eN-T1B" id="ktb-cv-IOm"/>
+                        <outlet property="listBtn" destination="crc-fH-8oh" id="Lid-Pe-IVk"/>
+                        <outlet property="newBtn" destination="C5J-ip-He5" id="czJ-a1-i5C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -58,7 +62,7 @@
         <!--Pop UpVC-->
         <scene sceneID="Rqq-tu-9gW">
             <objects>
-                <viewController storyboardIdentifier="PopUpVC" id="PkX-dK-jUG" customClass="PopUpVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopUpVC" id="PkX-dK-jUG" customClass="PopUpVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sU-7V-enD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

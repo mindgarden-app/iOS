@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DiaryDetailVC: UIViewController {
 
     @IBOutlet var backBtn: UIBarButtonItem!
     

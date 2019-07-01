@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WriteViewController: UIViewController {
+class DiaryNewVC: UIViewController {
 
     @IBOutlet var backBtn: UIBarButtonItem!
     

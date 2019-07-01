@@ -13,7 +13,7 @@
         <!--Diary NewVC-->
         <scene sceneID="ZyK-8g-e1O">
             <objects>
-                <viewController storyboardIdentifier="DiaryNewVC" id="Y2I-Wb-1oe" customClass="DiaryNewVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryNewVC" id="Y2I-Wb-1oe" customClass="DiaryNewVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5z-cd-YcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
         <!--Diary DetailVC-->
         <scene sceneID="kcY-UM-dal">
             <objects>
-                <viewController storyboardIdentifier="DiaryDetailVC" id="bcZ-fZ-7dJ" customClass="DiaryDetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailVC" id="bcZ-fZ-7dJ" customClass="DiaryDetailVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bD3-cM-alY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,13 +109,13 @@
         <!--Diary ListVC-->
         <scene sceneID="d2L-JB-DD2">
             <objects>
-                <viewController storyboardIdentifier="DiaryListVC" id="8Ul-5h-2rS" customClass="DiaryListVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryListVC" id="8Ul-5h-2rS" customClass="DiaryListVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwC-PG-u57">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" id="DXQ-e8-evD" customClass="DiaryListTVC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" id="DXQ-e8-evD" customClass="DiaryListTVC" customModule="MindGarden" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXQ-e8-evD" id="h9T-Ky-fQo">
@@ -127,10 +127,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="9LT-RN-KAa">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="Ctg-1y-8nB"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="wA7-0t-LTc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="wA7-0t-LTc">
+                            <connections>
+                                <action selector="settingsBtnAction:" destination="8Ul-5h-2rS" id="ROP-bn-w9c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="diaryListTV" destination="KwC-PG-u57" id="eJz-wg-2u5"/>
+                        <outlet property="settingsBtn" destination="wA7-0t-LTc" id="efQ-7a-3Lc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk5-uf-JXg" userLabel="First Responder" sceneMemberID="firstResponder"/>

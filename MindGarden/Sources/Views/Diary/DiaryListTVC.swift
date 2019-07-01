@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTVC: UITableViewCell {
+class DiaryListTVC: UITableViewCell {
 
     @IBOutlet var view: UIView!
     @IBOutlet var dateLabel: UILabel!

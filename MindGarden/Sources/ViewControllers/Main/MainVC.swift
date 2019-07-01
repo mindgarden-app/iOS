@@ -11,10 +11,10 @@ import SpriteKit
 import GameplayKit
 import PopupDialog
 
-class MainViewController: UIViewController {
+class MainVC: UIViewController {
     
-    
-    @IBOutlet var writeBtn: UIButton!
+    @IBOutlet var homeBtn: UIButton!
+    @IBOutlet var newBtn: UIButton!
     @IBOutlet var listBtn: UIButton!
     
     override func viewDidLoad() {
@@ -23,12 +23,9 @@ class MainViewController: UIViewController {
         setNavigationBar()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
-                // Present the scene
+
                 view.presentScene(scene)
             }
             
@@ -58,20 +55,26 @@ class MainViewController: UIViewController {
         self.navigationItem.titleView = dateBtn
     }
     
-    @IBAction func writeBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
+    @IBAction func homeBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
     
+    @IBAction func newBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
+
+        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+
     @IBAction func listBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
-        
+
         self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @objc func dateBtnAction() {
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpViewController
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
         
         self.addChild(popUpVC)
         popUpVC.view.frame = self.view.frame
