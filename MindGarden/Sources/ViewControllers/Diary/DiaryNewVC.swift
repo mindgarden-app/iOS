@@ -8,9 +8,10 @@
 
 import UIKit
 
-class DiaryNewVC: UIViewController {
+class DiaryNewVC: UIViewController, sendDataToViewProtocol {
 
     @IBOutlet var backBtn: UIBarButtonItem!
+    @IBOutlet var moodBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,20 @@ class DiaryNewVC: UIViewController {
 
     @IBAction func backBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func moodBtnAction(_ sender: Any) {
+        let popUpVC = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryPopUpVC") as! DiaryPopUpVC
+        popUpVC.delegate = self
+        self.addChild(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParent: self)
+    }
+    
+    func inputData(data: String) {
+        print(data)
+        moodBtn.setTitle(data, for: .normal)
     }
     
     /*
