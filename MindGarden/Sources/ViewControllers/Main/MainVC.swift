@@ -11,11 +11,13 @@ import SpriteKit
 import GameplayKit
 import PopupDialog
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, sendDataToViewProtocol {
     
     @IBOutlet var homeBtn: UIButton!
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var listBtn: UIButton!
+    
+    private var dateStr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ class MainVC: UIViewController {
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yyyy년 M월"
-        let dateStr = dateFormatter.string(from: today)
+        dateStr = dateFormatter.string(from: today)
         print(dateStr)
         
         let dateBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -75,7 +77,7 @@ class MainVC: UIViewController {
     
     @objc func dateBtnAction() {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
-        
+        popUpVC.delegate = self
         self.addChild(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
@@ -86,6 +88,11 @@ class MainVC: UIViewController {
         
 //        self.present(dvc, animated: true, completion: nil)
         print("click date!")
+    }
+    
+    func inputData(data: String) {
+        print(data)
+        dateStr = data
     }
 
     override var shouldAutorotate: Bool {
