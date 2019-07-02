@@ -16,11 +16,14 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         }
     }
     @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var tmpMainBtn: UIButton!
     
     var slides: [DescriptionSlide] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -131,14 +134,11 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func tmpMainBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
-    */
 
 }
