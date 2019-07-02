@@ -66,17 +66,6 @@ class SettingsVC: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension SettingsVC: UITableViewDataSource {
@@ -123,28 +112,11 @@ extension SettingsVC: UITableViewDataSource {
 extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        print(indexPath.section)
-        
-        if indexPath.section == 0 {
+
+        if indexPath.section == 1 {
             
-        } else if indexPath.section == 1 {
-            
-        } else {
+        } else if indexPath.section == 2{
             
         }
-//
-//        if indexPath.row == 0 {
-//
-//        } else {
-//
-//        }
-        
-//        let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
-//
-//        //        let episode = episodeList[indexPath.row]
-//        //        dvc.epIdx = episode.idx
-//
-//        navigationController?.pushViewController(dvc, animated: true)
     }
 }
