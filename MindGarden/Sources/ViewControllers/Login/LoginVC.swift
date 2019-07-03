@@ -27,7 +27,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
-        
+
         pageControl.numberOfPages = slides.count
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
@@ -136,7 +136,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
 
     
     @IBAction func tmpMainBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
+        let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }

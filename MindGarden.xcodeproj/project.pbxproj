@@ -29,6 +29,38 @@
 		DE33D71022C8C12D00F0F4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D70E22C8C12D00F0F4E4 /* Main.storyboard */; };
 		DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */; };
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
+		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
+		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
+		DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */; };
+		DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6C322CA780A00AD77EC /* LoginVC.swift */; };
+		DE7BC6C722CA78FE00AD77EC /* DescriptionSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6C622CA78FE00AD77EC /* DescriptionSlide.xib */; };
+		DE7BC6C922CA797E00AD77EC /* DescriptionSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6C822CA797E00AD77EC /* DescriptionSlide.swift */; };
+		DE7BC6CD22CB39A900AD77EC /* Lock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6CC22CB39A900AD77EC /* Lock.storyboard */; };
+		DE7BC6DA22CB40A000AD77EC /* NotoSansMonoCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6CF22CB40A000AD77EC /* NotoSansMonoCJKkr-Bold.otf */; };
+		DE7BC6DB22CB40A000AD77EC /* NotoSansMonoCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D022CB40A000AD77EC /* NotoSansMonoCJKkr-Regular.otf */; };
+		DE7BC6DC22CB40A000AD77EC /* NotoSansCJKkr-DemiLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D122CB40A000AD77EC /* NotoSansCJKkr-DemiLight.otf */; };
+		DE7BC6DD22CB40A000AD77EC /* NotoSansCJKkr-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D222CB40A000AD77EC /* NotoSansCJKkr-Black.otf */; };
+		DE7BC6DE22CB40A000AD77EC /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D322CB40A000AD77EC /* NotoSansCJKkr-Medium.otf */; };
+		DE7BC6DF22CB40A000AD77EC /* README in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D422CB40A000AD77EC /* README */; };
+		DE7BC6E022CB40A000AD77EC /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D522CB40A000AD77EC /* NotoSansCJKkr-Light.otf */; };
+		DE7BC6E122CB40A000AD77EC /* NotoSansCJKkr-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D622CB40A000AD77EC /* NotoSansCJKkr-Thin.otf */; };
+		DE7BC6E222CB40A000AD77EC /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D722CB40A000AD77EC /* NotoSansCJKkr-Regular.otf */; };
+		DE7BC6E322CB40A000AD77EC /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D822CB40A000AD77EC /* NotoSansCJKkr-Bold.otf */; };
+		DE7BC6E422CB40A000AD77EC /* LICENSE_OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6D922CB40A000AD77EC /* LICENSE_OFL.txt */; };
+		DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6E722CB464100AD77EC /* ProfileTVC.swift */; };
+		DE7BC6EA22CB464100AD77EC /* ProfileTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6E822CB464100AD77EC /* ProfileTVC.xib */; };
+		DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6EB22CB4A9A00AD77EC /* SettingsTVC.swift */; };
+		DE7BC6EE22CB4A9A00AD77EC /* SettingsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6EC22CB4A9A00AD77EC /* SettingsTVC.xib */; };
+		DE7BC6F022CB5C6A00AD77EC /* SettingsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6EF22CB5C6A00AD77EC /* SettingsDetailVC.swift */; };
+		DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */; };
+		DE7BC6F522CBB46C00AD77EC /* SettingsWithSwitchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */; };
+		DE7BC6F622CBB46C00AD77EC /* SettingsWithSwitchTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */; };
+		DE7BC6FB22CBB8B500AD77EC /* SettingsFontTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */; };
+		DE7BC6FC22CBB8B500AD77EC /* SettingsFontTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */; };
+		DE7BC6FE22CC37A300AD77EC /* SettingsPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6FD22CC37A300AD77EC /* SettingsPopUpVC.swift */; };
+		DE7BC70222CC863800AD77EC /* LockCodeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */; };
+		DE7BC70322CC863800AD77EC /* LockCodeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */; };
+		DE7BC70622CC871C00AD77EC /* LockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC70522CC871C00AD77EC /* LockVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +89,38 @@
 		DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE33D71422C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
+		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
+		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
+		DE7BC6C322CA780A00AD77EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		DE7BC6C622CA78FE00AD77EC /* DescriptionSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionSlide.xib; sourceTree = "<group>"; };
+		DE7BC6C822CA797E00AD77EC /* DescriptionSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionSlide.swift; sourceTree = "<group>"; };
+		DE7BC6CC22CB39A900AD77EC /* Lock.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lock.storyboard; sourceTree = "<group>"; };
+		DE7BC6CF22CB40A000AD77EC /* NotoSansMonoCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		DE7BC6D022CB40A000AD77EC /* NotoSansMonoCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMonoCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		DE7BC6D122CB40A000AD77EC /* NotoSansCJKkr-DemiLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-DemiLight.otf"; sourceTree = "<group>"; };
+		DE7BC6D222CB40A000AD77EC /* NotoSansCJKkr-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Black.otf"; sourceTree = "<group>"; };
+		DE7BC6D322CB40A000AD77EC /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		DE7BC6D422CB40A000AD77EC /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DE7BC6D522CB40A000AD77EC /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		DE7BC6D622CB40A000AD77EC /* NotoSansCJKkr-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Thin.otf"; sourceTree = "<group>"; };
+		DE7BC6D722CB40A000AD77EC /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		DE7BC6D822CB40A000AD77EC /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		DE7BC6D922CB40A000AD77EC /* LICENSE_OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_OFL.txt; sourceTree = "<group>"; };
+		DE7BC6E722CB464100AD77EC /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
+		DE7BC6E822CB464100AD77EC /* ProfileTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTVC.xib; sourceTree = "<group>"; };
+		DE7BC6EB22CB4A9A00AD77EC /* SettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
+		DE7BC6EC22CB4A9A00AD77EC /* SettingsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTVC.xib; sourceTree = "<group>"; };
+		DE7BC6EF22CB5C6A00AD77EC /* SettingsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailVC.swift; sourceTree = "<group>"; };
+		DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWithSwitchTVC.swift; sourceTree = "<group>"; };
+		DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWithSwitchTVC.xib; sourceTree = "<group>"; };
+		DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFontTVC.swift; sourceTree = "<group>"; };
+		DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsFontTVC.xib; sourceTree = "<group>"; };
+		DE7BC6FD22CC37A300AD77EC /* SettingsPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpVC.swift; sourceTree = "<group>"; };
+		DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockCodeCVC.swift; sourceTree = "<group>"; };
+		DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockCodeCVC.xib; sourceTree = "<group>"; };
+		DE7BC70522CC871C00AD77EC /* LockVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockVC.swift; sourceTree = "<group>"; };
 		E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindGarden.release.xcconfig"; path = "Target Support Files/Pods-MindGarden/Pods-MindGarden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +148,7 @@
 		DE06594A22C8EC6200D000BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE7BC6CE22CB40A000AD77EC /* NotoSansCJKkr-hinted */,
 				DE06594B22C8EC7200D000BC /* Storyboards */,
 				DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */,
 				DE33D71622C8C12D00F0F4E4 /* Info.plist */,
@@ -99,6 +164,7 @@
 				DE06595122C8EE6800D000BC /* Login.storyboard */,
 				DE06595322C8FE5300D000BC /* Diary.storyboard */,
 				DE06597022C9846400D000BC /* Settings.storyboard */,
+				DE7BC6CC22CB39A900AD77EC /* Lock.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -133,6 +199,8 @@
 		DE06594F22C8ED4B00D000BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE7BC6FF22CC848400AD77EC /* Lock */,
+				DE7BC6C522CA785E00AD77EC /* Login */,
 				DE06596F22C9844F00D000BC /* Settings */,
 				DE06596322C91C6D00D000BC /* Diary */,
 			);
@@ -142,6 +210,8 @@
 		DE06595022C8ED5100D000BC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DE7BC70422CC870000AD77EC /* Lock */,
+				DE7BC6C222CA77F800AD77EC /* Login */,
 				DE06596E22C9844800D000BC /* Settings */,
 				DE06595D22C9082800D000BC /* Main */,
 				DE06595522C8FF0700D000BC /* Diary */,
@@ -155,6 +225,7 @@
 				DE06595622C9005C00D000BC /* DiaryNewVC.swift */,
 				DE06595B22C9012300D000BC /* DiaryDetailVC.swift */,
 				DE06596622C978B200D000BC /* DiaryListVC.swift */,
+				DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -173,6 +244,7 @@
 			children = (
 				DE06596122C911E000D000BC /* UIView+Extensions.swift */,
 				DE06597322C9E15E00D000BC /* Date+Extensions.swift */,
+				DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +254,8 @@
 			children = (
 				DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */,
 				DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */,
+				DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */,
+				DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -190,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				DE06597622C9EE9600D000BC /* SettingsVC.swift */,
+				DE7BC6EF22CB5C6A00AD77EC /* SettingsDetailVC.swift */,
+				DE7BC6FD22CC37A300AD77EC /* SettingsPopUpVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -197,6 +273,14 @@
 		DE06596F22C9844F00D000BC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DE7BC6E722CB464100AD77EC /* ProfileTVC.swift */,
+				DE7BC6E822CB464100AD77EC /* ProfileTVC.xib */,
+				DE7BC6EB22CB4A9A00AD77EC /* SettingsTVC.swift */,
+				DE7BC6EC22CB4A9A00AD77EC /* SettingsTVC.xib */,
+				DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */,
+				DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */,
+				DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */,
+				DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -230,6 +314,59 @@
 				DE33D70A22C8C12D00F0F4E4 /* GameScene.swift */,
 			);
 			path = MindGarden;
+			sourceTree = "<group>";
+		};
+		DE7BC6C222CA77F800AD77EC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC6C322CA780A00AD77EC /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DE7BC6C522CA785E00AD77EC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC6C622CA78FE00AD77EC /* DescriptionSlide.xib */,
+				DE7BC6C822CA797E00AD77EC /* DescriptionSlide.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DE7BC6CE22CB40A000AD77EC /* NotoSansCJKkr-hinted */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC6CF22CB40A000AD77EC /* NotoSansMonoCJKkr-Bold.otf */,
+				DE7BC6D022CB40A000AD77EC /* NotoSansMonoCJKkr-Regular.otf */,
+				DE7BC6D122CB40A000AD77EC /* NotoSansCJKkr-DemiLight.otf */,
+				DE7BC6D222CB40A000AD77EC /* NotoSansCJKkr-Black.otf */,
+				DE7BC6D322CB40A000AD77EC /* NotoSansCJKkr-Medium.otf */,
+				DE7BC6D422CB40A000AD77EC /* README */,
+				DE7BC6D522CB40A000AD77EC /* NotoSansCJKkr-Light.otf */,
+				DE7BC6D622CB40A000AD77EC /* NotoSansCJKkr-Thin.otf */,
+				DE7BC6D722CB40A000AD77EC /* NotoSansCJKkr-Regular.otf */,
+				DE7BC6D822CB40A000AD77EC /* NotoSansCJKkr-Bold.otf */,
+				DE7BC6D922CB40A000AD77EC /* LICENSE_OFL.txt */,
+			);
+			name = "NotoSansCJKkr-hinted";
+			path = "../../../../../Downloads/NotoSansCJKkr-hinted";
+			sourceTree = "<group>";
+		};
+		DE7BC6FF22CC848400AD77EC /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */,
+				DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */,
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
+		DE7BC70422CC870000AD77EC /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC70522CC871C00AD77EC /* LockVC.swift */,
+			);
+			path = Lock;
 			sourceTree = "<group>";
 		};
 		FDCE8B3B6BB9CE5792D00149 /* Frameworks */ = {
@@ -300,16 +437,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7BC6DC22CB40A000AD77EC /* NotoSansCJKkr-DemiLight.otf in Resources */,
 				DE06596D22C97E0D00D000BC /* DiaryListTVC.xib in Resources */,
+				DE7BC6DD22CB40A000AD77EC /* NotoSansCJKkr-Black.otf in Resources */,
 				DE06595422C8FE5300D000BC /* Diary.storyboard in Resources */,
 				DE33D71022C8C12D00F0F4E4 /* Main.storyboard in Resources */,
+				DE7BC6EE22CB4A9A00AD77EC /* SettingsTVC.xib in Resources */,
+				DE7BC6E022CB40A000AD77EC /* NotoSansCJKkr-Light.otf in Resources */,
+				DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */,
 				DE33D70722C8C12D00F0F4E4 /* GameScene.sks in Resources */,
+				DE7BC6FC22CBB8B500AD77EC /* SettingsFontTVC.xib in Resources */,
+				DE7BC6E422CB40A000AD77EC /* LICENSE_OFL.txt in Resources */,
+				DE7BC6F622CBB46C00AD77EC /* SettingsWithSwitchTVC.xib in Resources */,
 				DE06595222C8EE6800D000BC /* Login.storyboard in Resources */,
+				DE7BC6E122CB40A000AD77EC /* NotoSansCJKkr-Thin.otf in Resources */,
 				DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */,
 				DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */,
+				DE7BC6DA22CB40A000AD77EC /* NotoSansMonoCJKkr-Bold.otf in Resources */,
+				DE7BC6DB22CB40A000AD77EC /* NotoSansMonoCJKkr-Regular.otf in Resources */,
 				DE06594922C8C3A600D000BC /* .gitignore in Resources */,
+				DE7BC6E322CB40A000AD77EC /* NotoSansCJKkr-Bold.otf in Resources */,
 				DE33D70922C8C12D00F0F4E4 /* Actions.sks in Resources */,
+				DE7BC6DF22CB40A000AD77EC /* README in Resources */,
+				DE7BC6C722CA78FE00AD77EC /* DescriptionSlide.xib in Resources */,
 				DE06597122C9846400D000BC /* Settings.storyboard in Resources */,
+				DE7BC6CD22CB39A900AD77EC /* Lock.storyboard in Resources */,
+				DE7BC6DE22CB40A000AD77EC /* NotoSansCJKkr-Medium.otf in Resources */,
+				DE7BC6E222CB40A000AD77EC /* NotoSansCJKkr-Regular.otf in Resources */,
+				DE7BC70322CC863800AD77EC /* LockCodeCVC.xib in Resources */,
+				DE7BC6EA22CB464100AD77EC /* ProfileTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,15 +481,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppLocker/AppLocker.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Valet/Valet.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppLocker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -369,17 +529,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7BC6FE22CC37A300AD77EC /* SettingsPopUpVC.swift in Sources */,
+				DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */,
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
+				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
 				DE33D70B22C8C12D00F0F4E4 /* GameScene.swift in Sources */,
+				DE7BC6FB22CBB8B500AD77EC /* SettingsFontTVC.swift in Sources */,
+				DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */,
 				DE06596C22C97E0D00D000BC /* DiaryListTVC.swift in Sources */,
+				DE7BC6F522CBB46C00AD77EC /* SettingsWithSwitchTVC.swift in Sources */,
+				DE7BC70622CC871C00AD77EC /* LockVC.swift in Sources */,
 				DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */,
 				DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */,
+				DE7BC6F022CB5C6A00AD77EC /* SettingsDetailVC.swift in Sources */,
 				DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */,
+				DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */,
 				DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */,
+				DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */,
+				DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */,
 				DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */,
 				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,
+				DE7BC6C922CA797E00AD77EC /* DescriptionSlide.swift in Sources */,
 				DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */,
 				DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */,
+				DE7BC70222CC863800AD77EC /* LockCodeCVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

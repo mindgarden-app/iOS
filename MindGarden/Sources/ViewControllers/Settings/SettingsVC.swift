@@ -57,7 +57,7 @@ class SettingsVC: UIViewController {
     }
     
     func setNavigationBar() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
     }
     
 }
