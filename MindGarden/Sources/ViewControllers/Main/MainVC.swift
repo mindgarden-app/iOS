@@ -53,7 +53,6 @@ class MainVC: UIViewController, sendDataToViewProtocol {
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yyyy년 M월"
         dateStr = dateFormatter.string(from: today)
-        print(dateStr)
         
         let dateBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         dateBtn.setTitle(dateStr, for: .normal)

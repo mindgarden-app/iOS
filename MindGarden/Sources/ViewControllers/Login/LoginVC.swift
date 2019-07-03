@@ -136,7 +136,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
 
     
     @IBAction func tmpMainBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
+        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }

@@ -8,8 +8,13 @@
 
 import UIKit
 
+public enum Mode {
+    case validate
+    case change
+    case create
+}
+
 class LockVC: UIViewController {
-    
     
     @IBOutlet var passcodeCV: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
@@ -18,6 +23,14 @@ class LockVC: UIViewController {
     @IBOutlet var passcodeView2: UIView!
     @IBOutlet var passcodeView3: UIView!
     @IBOutlet var passcodeView4: UIView!
+    
+    
+    var mode: Mode = .create
+//    fileprivate var mode: Mode {
+//        didSet {
+//            let mode = self.mode ?? validate
+//        }
+//    }
     
     var codeArr: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "<"]
     var inputNumber: String = ""
@@ -34,8 +47,16 @@ class LockVC: UIViewController {
     }
     
     func setDescriptionLabel() {
-        descriptionLabel.text = "비밀번호를 입력해주세요."
-        passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
+        switch mode {
+        case .create:
+            descriptionLabel.text = "비밀번호를 입력해주세요."
+        case .change:
+            print("sfasdf")
+//            changeModeAction()
+        case .validate:
+            descriptionLabel.text = "비밀번호를 입력해주세요."
+            passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
+        }
         descriptionLabel.textAlignment = .center
         descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
     }
@@ -63,8 +84,6 @@ class LockVC: UIViewController {
         let nibName = UINib(nibName: "LockCodeCVC", bundle: nil)
         passcodeCV.register(nibName, forCellWithReuseIdentifier: "LockCodeCVC")
     }
-    
-
 }
 
 
@@ -100,14 +119,22 @@ extension LockVC: UICollectionViewDelegate {
             setPasscodeViewColor(count: inputNumber.count)
             
             if inputNumber.count == 4 {
-                if(UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber)) {
-                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                if mode == .validate {
+                    if(UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber)) {
+                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                        
+                        self.navigationController!.pushViewController(dvc, animated: true)
+                    }
+                    inputNumber = ""
+                    setPasscodeViewColor(count: 0)
+                    print("here!!")
+                } else if mode == .create {
+                    UserDefaults.standard.set(inputNumber, forKey: "passcode")
+                    inputNumber = ""
+                    setPasscodeViewColor(count: 0)
+                } else if mode == .change {
                     
-                    self.navigationController!.pushViewController(dvc, animated: true)
                 }
-                inputNumber = ""
-                setPasscodeViewColor(count: 0)
-                print("here!!")
             }
             
         } else if indexPath.row == 11 {
