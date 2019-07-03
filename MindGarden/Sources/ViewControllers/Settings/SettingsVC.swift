@@ -96,6 +96,10 @@ extension SettingsVC: UITableViewDataSource {
             let settingsName = items[indexPath.section][indexPath.row]
 
             cell.settingsNameLabel.text = settingsName
+            
+            if indexPath.row == 3 {
+                cell.selectionStyle = .none
+            }
 
             return cell
         }
@@ -109,7 +113,7 @@ extension SettingsVC: UITableViewDelegate {
 
         if indexPath.section == 1 {
             
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 2 && indexPath.row != 3{
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
 
             dvc.paramSettings = indexPath.row
