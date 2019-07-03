@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum SettingsModelItemType {
-    case profile
-    case logout
-    case settings
-}
-
 class SettingsVC: UIViewController {
     
     @IBOutlet var settingsTV: UITableView!
@@ -115,8 +109,12 @@ extension SettingsVC: UITableViewDelegate {
 
         if indexPath.section == 1 {
             
-        } else if indexPath.section == 2{
-            
+        } else if indexPath.section == 2 {
+            let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
+
+            dvc.paramSettings = indexPath.row
+
+            self.navigationController!.pushViewController(dvc, animated: true)
         }
     }
 }

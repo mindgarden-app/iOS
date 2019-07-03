@@ -19,6 +19,11 @@ class MainVC: UIViewController, sendDataToViewProtocol {
     
     private var dateStr: String = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
