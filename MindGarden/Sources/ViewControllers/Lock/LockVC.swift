@@ -19,11 +19,10 @@ class LockVC: UIViewController {
     @IBOutlet var passcodeCV: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var passcodeResetBtn: UIButton!
-    @IBOutlet var passcodeView1: UIView!
-    @IBOutlet var passcodeView2: UIView!
-    @IBOutlet var passcodeView3: UIView!
-    @IBOutlet var passcodeView4: UIView!
-    
+    @IBOutlet var passcodeImg1: UIImageView!
+    @IBOutlet var passcodeImg2: UIImageView!
+    @IBOutlet var passcodeImg3: UIImageView!
+    @IBOutlet var passcodeImg4: UIImageView!
     
     var mode: Mode = .create
 //    fileprivate var mode: Mode {
@@ -38,8 +37,8 @@ class LockVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setPasscodeView()
         setDescriptionLabel()
+//        setPasscodeView()
         
         registerCVC()
         passcodeCV.delegate = self
@@ -52,7 +51,6 @@ class LockVC: UIViewController {
             descriptionLabel.text = "비밀번호를 입력해주세요."
         case .change:
             print("sfasdf")
-//            changeModeAction()
         case .validate:
             descriptionLabel.text = "비밀번호를 입력해주세요."
             passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
@@ -61,21 +59,14 @@ class LockVC: UIViewController {
         descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
     }
     
-    func setPasscodeView() {
-        passcodeView1.makeRounded(cornerRadius: 6)
-        passcodeView2.makeRounded(cornerRadius: 6)
-        passcodeView3.makeRounded(cornerRadius: 6)
-        passcodeView4.makeRounded(cornerRadius: 6)
-    }
-    
-    func setPasscodeViewColor(count: Int) {
-        let passcodeViewArr: [UIView] = [passcodeView1, passcodeView2, passcodeView3, passcodeView4]
+    func changePasscodeImg(count: Int) {
+        let passcodeImgArr: [UIImageView] = [passcodeImg1, passcodeImg2, passcodeImg3, passcodeImg4]
         
-        for i in 0...passcodeViewArr.count - 1 {
-            if(i < count) {
-                passcodeViewArr[i].backgroundColor = UIColor.lightGreen
+        for i in 0...passcodeImgArr.count - 1 {
+            if i < count {
+                passcodeImgArr[i].image = UIImage(named: "imgPasswordOn")
             } else {
-                passcodeViewArr[i].backgroundColor = UIColor.lightGray
+                passcodeImgArr[i].image = UIImage(named: "imgPasswordOff")
             }
         }
     }
@@ -116,7 +107,7 @@ extension LockVC: UICollectionViewDelegate {
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
             
-            setPasscodeViewColor(count: inputNumber.count)
+            changePasscodeImg(count: inputNumber.count)
             
             if inputNumber.count == 4 {
                 if mode == .validate {
@@ -126,12 +117,12 @@ extension LockVC: UICollectionViewDelegate {
                         self.navigationController!.pushViewController(dvc, animated: true)
                     }
                     inputNumber = ""
-                    setPasscodeViewColor(count: 0)
+                    changePasscodeImg(count: 0)
                     print("here!!")
                 } else if mode == .create {
                     UserDefaults.standard.set(inputNumber, forKey: "passcode")
                     inputNumber = ""
-                    setPasscodeViewColor(count: 0)
+                    changePasscodeImg(count: 0)
                 } else if mode == .change {
                     
                 }
@@ -141,7 +132,7 @@ extension LockVC: UICollectionViewDelegate {
             inputNumber = String(inputNumber.dropLast())
             print(inputNumber)
             
-            setPasscodeViewColor(count: inputNumber.count)
+            changePasscodeImg(count: inputNumber.count)
         }
     }
 }

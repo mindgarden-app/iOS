@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nmY-ak-qXe">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="BV1-FR-VrT" customClass="MainVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5J-ip-He5">
@@ -42,6 +42,11 @@
                                     <action selector="listBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Pp4-pA-hk5"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JL5-Xq-63d" customClass="SKView">
+                                <rect key="frame" x="36" y="176" width="303" height="443"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -50,6 +55,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ueg-3F-mGX"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="groundView" destination="JL5-Xq-63d" id="Ntr-FC-Qbi"/>
                         <outlet property="homeBtn" destination="PyC-eN-T1B" id="ktb-cv-IOm"/>
                         <outlet property="listBtn" destination="crc-fH-8oh" id="Lid-Pe-IVk"/>
                         <outlet property="newBtn" destination="C5J-ip-He5" id="czJ-a1-i5C"/>
@@ -57,14 +63,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5604.347826086957" y="829.6875"/>
+            <point key="canvasLocation" x="5604" y="829.06403940886707"/>
         </scene>
         <!--Pop UpVC-->
         <scene sceneID="Rqq-tu-9gW">
             <objects>
                 <viewController storyboardIdentifier="PopUpVC" id="PkX-dK-jUG" customClass="PopUpVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sU-7V-enD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-ZL-DGl">
@@ -75,11 +81,17 @@
                                         <rect key="frame" x="40" y="24" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="&lt;"/>
+                                        <connections>
+                                            <action selector="leftBtnAction:" destination="PkX-dK-jUG" eventType="touchUpInside" id="40X-G5-Fi7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKn-Vw-CP2">
                                         <rect key="frame" x="178" y="24" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="&gt;"/>
+                                        <connections>
+                                            <action selector="rightBtnAction:" destination="PkX-dK-jUG" eventType="touchUpInside" id="sg8-ua-hUV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-gr-RcL">
                                         <rect key="frame" x="16" y="85" width="30" height="30"/>
@@ -106,7 +118,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-cQ-m0m">
-                                        <rect key="frame" x="99" y="29" width="39" height="21"/>
+                                        <rect key="frame" x="99" y="29" width="47" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -121,7 +133,9 @@
                         <viewLayoutGuide key="safeArea" id="joe-8k-dh1"/>
                     </view>
                     <connections>
+                        <outlet property="leftBtn" destination="oNR-v0-k4k" id="2Bm-9f-Ugx"/>
                         <outlet property="popUpView" destination="KW2-ZL-DGl" id="MBq-BS-GvN"/>
+                        <outlet property="rightBtn" destination="GKn-Vw-CP2" id="q9U-41-bNo"/>
                         <outlet property="yearLabel" destination="xhC-cQ-m0m" id="rh1-Xp-7t2"/>
                     </connections>
                 </viewController>
@@ -135,7 +149,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nmY-ak-qXe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nVw-id-ylf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
