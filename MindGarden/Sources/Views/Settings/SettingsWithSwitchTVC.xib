@@ -51,7 +51,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="settingsNameLabel" destination="ceK-q9-B5s" id="IGi-TW-FLP"/>
-                <outlet property="settingsSwitch" destination="gXO-hM-TkG" id="52w-Eg-eyQ"/>
+                <outlet property="settingsSwitch" destination="gXO-hM-TkG" id="3E5-Yg-rck"/>
             </connections>
             <point key="canvasLocation" x="47.10144927536232" y="34.821428571428569"/>
         </tableViewCell>

@@ -15,11 +15,16 @@ class SettingsDetailVC: UIViewController {
     var paramSettings: Int = 0
     var settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
     
+    let datePicker = UIDatePicker()
+    var datePickerIndexPath: IndexPath?
+    var isOn: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         registerTVC()
         setNavigationBar(title: settingsTitleArr[paramSettings])
+        isOn = UserDefaults.standard.bool(forKey: settingsTitleArr[paramSettings])
         navigationController?.isNavigationBarHidden = false
         
         settingsDetailTV.delegate = self
@@ -31,6 +36,10 @@ class SettingsDetailVC: UIViewController {
             let settingsFontNibName = UINib(nibName: "SettingsFontTVC", bundle: nil)
             settingsDetailTV.register(settingsFontNibName, forCellReuseIdentifier: "SettingsFontTVC")
         } else {
+            if paramSettings == 2 {
+                let datePickerNibName = UINib(nibName: "DatePickerTVC", bundle: nil)
+                settingsDetailTV.register(datePickerNibName, forCellReuseIdentifier: "DatePickerTVC")
+            }
             let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
             let settingsWithSwitchNibName = UINib(nibName: "SettingsWithSwitchTVC", bundle: nil)
             settingsDetailTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
@@ -47,54 +56,49 @@ class SettingsDetailVC: UIViewController {
         // Todo. font와 size 지정 들어가야됨
     }
     
-    @objc func onDidChangeDate(sender: UIDatePicker) {
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
-        
-        let selectedDate: String = dateFormatter.string(from: sender.date)
-        print(selectedDate)
+    func indexPathToInsertDatePicker(indexPath: IndexPath) -> IndexPath {
+        if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row < indexPath.row {
+            return indexPath
+        } else {
+            return IndexPath(row: indexPath.row + 1, section: indexPath.section)
+        }
     }
 
 }
 
 extension SettingsDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if paramSettings == 1 {
-            return 1
+        var num = 1
+        
+        if paramSettings != 1 {
+            if datePickerIndexPath != nil {
+                num += 1
+            }
+            if isOn {
+                num += 1
+            }
         }
-        return 2
+
+        return num
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if paramSettings == 0 {
-            let switchObj = UISwitch(frame: CGRect(x: 1, y: 1, width: 20, height: 20))
-            
             if indexPath.row == 0 {
                 
-                let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
+                let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
                 
-                cell.settingsNameLabel.text = "암호 사용"
-            
-                switchObj.isOn = false
-                cell.accessoryView = switchObj
+                cell.settingsNameLabel.text = settingsTitleArr[paramSettings]
+                cell.setSwitch()
+                
+                cell.delegate = self
                 
                 return cell
-//                let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
-//
-//                cell.settingsNameLabel.text = "암호 사용"
-//
-//                return cell
-            } else {
+            } else{
                 let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
-                
+
                 cell.settingsNameLabel.text = "암호 변경"
-                
-                if switchObj.isOn {
-                    cell.settingsNameLabel.textColor = .red
-                } else {
-                    cell.settingsNameLabel.textColor = .blue
-                }
-                
+
                 return cell
             }
         } else if paramSettings == 1 {
@@ -108,15 +112,30 @@ extension SettingsDetailVC: UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
                 
-                cell.settingsNameLabel.text = "푸시 알림"
+                cell.settingsNameLabel.text = settingsTitleArr[paramSettings]
+                cell.setSwitch()
+                
+                cell.delegate = self
                 
                 return cell
             } else {
-                let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
-                
-                cell.settingsNameLabel.text = "시간 설정"
-                
-                return cell
+                if datePickerIndexPath == indexPath {
+                    let datePickerCell = settingsDetailTV.dequeueReusableCell(withIdentifier: "DatePickerTVC") as! DatePickerTVC
+                    if let inputTime: Date = UserDefaults.standard.object(forKey: "alarmTime") as? Date {
+                        datePickerCell.updateCell(date: inputTime, indexPath: indexPath)
+                    } else {
+                        datePickerCell.updateCell(date: Date(), indexPath: indexPath)
+                    }
+                    datePickerCell.delegate = self
+                    
+                    return datePickerCell
+                } else {
+                    let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
+                    
+                    cell.settingsNameLabel.text = "시간 설정"
+                    
+                    return cell
+                }
             }
         }
     }
@@ -125,16 +144,66 @@ extension SettingsDetailVC: UITableViewDataSource {
 extension SettingsDetailVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if paramSettings == 0 {
+            if(indexPath.row == 1) {
+                let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
+                
+//                dvc.mode = .
+                
+                self.navigationController!.pushViewController(dvc, animated: true)
+            }
+        } else if paramSettings == 1 {
         
-        if paramSettings == 2 && indexPath.row == 1 {
-            let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 150, width: self.view.frame.width, height: 200))
-            datePicker.timeZone = NSTimeZone.local
-            datePicker.backgroundColor = UIColor.white
-            datePicker.layer.cornerRadius = 5.0
-            datePicker.layer.shadowOpacity = 0.5
-            
-            datePicker.addTarget(self, action: #selector(onDidChangeDate(sender:)), for: .valueChanged)
+        } else if paramSettings == 2 && indexPath.row == 1 {
+            tableView.beginUpdates()
+            if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {
+                tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
+                self.datePickerIndexPath = nil
+            } else {
+                if let datePickerIndexPath = datePickerIndexPath {
+                    tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
+                }
+                datePickerIndexPath = indexPathToInsertDatePicker(indexPath: indexPath)
+                tableView.insertRows(at: [datePickerIndexPath!], with: .fade)
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            tableView.endUpdates()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if datePickerIndexPath == indexPath {
+            return 162
+        } else {
+            return 54
+        }
+    }
+}
+
+extension SettingsDetailVC: DatePickerDelegate {
+    
+    func didChangeDate(date: Date, indexPath: IndexPath) {
+        UserDefaults.standard.set(date, forKey: "alarmTime")
+        settingsDetailTV.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
+extension SettingsDetailVC: SwitchDelegate {
+    
+    func OnSwitch(name: String, isOn: Bool) {
+        self.isOn = isOn
+        settingsDetailTV.beginUpdates()
+        if isOn {
+            settingsDetailTV.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+        } else {
+            settingsDetailTV.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+            if datePickerIndexPath != nil {
+                settingsDetailTV.deleteRows(at: [IndexPath(row: 2, section: 0)], with: .fade)
+                self.datePickerIndexPath = nil
+            }
+        }
+        settingsDetailTV.endUpdates()
+        UserDefaults.standard.set(isOn, forKey: name)
     }
 }
 
