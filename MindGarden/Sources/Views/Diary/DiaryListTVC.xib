@@ -9,38 +9,62 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-DemiLight.otf">
+            <string>NotoSansCJKkr-DemiLight</string>
+        </array>
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryListTVC" id="KGk-i7-Jjw" customClass="DiaryListTVC" customModule="MindGarden" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ3-ux-bH3">
-                        <rect key="frame" x="16" y="4" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoL-Zh-dFK">
+                        <rect key="frame" x="25" y="26" width="12" height="20"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                        <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoL-Zh-dFK">
-                        <rect key="frame" x="16" y="24" width="42" height="14"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="022-qd-fYP">
+                        <rect key="frame" x="55" y="16" width="271" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ksd-UX-ruV"/>
+                            <constraint firstAttribute="width" constant="271" id="uAI-TX-fRn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
+                        <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="022-qd-fYP">
-                        <rect key="frame" x="75" y="11" width="229" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ3-ux-bH3">
+                        <rect key="frame" x="22" y="6" width="18" height="24"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                        <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="LZ3-ux-bH3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="BHW-Aa-cf6"/>
+                    <constraint firstItem="LZ3-ux-bH3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="FTa-Ad-OyO"/>
+                    <constraint firstAttribute="bottom" secondItem="XoL-Zh-dFK" secondAttribute="bottom" constant="5.5" id="NyN-Qj-zEa"/>
+                    <constraint firstItem="LZ3-ux-bH3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="6:17" id="RDw-Py-48b"/>
+                    <constraint firstItem="XoL-Zh-dFK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="WzR-io-RQH"/>
+                    <constraint firstItem="XoL-Zh-dFK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="4:17" id="oIV-rF-7Kn"/>
+                    <constraint firstItem="022-qd-fYP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="pcr-QK-v1d"/>
+                    <constraint firstAttribute="bottom" secondItem="022-qd-fYP" secondAttribute="bottom" constant="15.5" id="rZU-2D-bBv"/>
+                    <constraint firstItem="022-qd-fYP" firstAttribute="leading" secondItem="LZ3-ux-bH3" secondAttribute="trailing" constant="15" id="tAP-oK-b90"/>
+                    <constraint firstItem="XoL-Zh-dFK" firstAttribute="top" secondItem="LZ3-ux-bH3" secondAttribute="bottom" constant="-4" id="yXu-NB-AGC"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -49,7 +73,7 @@
                 <outlet property="titleLabel" destination="022-qd-fYP" id="jnM-rb-5gU"/>
                 <outlet property="view" destination="H2p-sc-9uM" id="3sd-24-Rlk"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+            <point key="canvasLocation" x="136.95652173913044" y="136.60714285714286"/>
         </tableViewCell>
     </objects>
 </document>

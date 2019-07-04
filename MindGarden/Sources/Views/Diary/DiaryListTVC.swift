@@ -19,17 +19,25 @@ class DiaryListTVC: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        view.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
+//        view.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
         
-        dateLabel.sizeToFit()
-        dayOfWeekLabel.sizeToFit()
-        titleLabel.sizeToFit()
+        setLabelEllipsis()
+        
+//        dateLabel.sizeToFit()
+//        dayOfWeekLabel.sizeToFit()
+//        titleLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setLabelEllipsis() {
+        titleLabel.adjustsFontSizeToFitWidth = false
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byTruncatingTail
     }
     
 }
