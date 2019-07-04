@@ -70,7 +70,8 @@
                     <connections>
                         <outlet property="backBtn" destination="pKd-gi-YMd" id="5XK-57-LKX"/>
                         <outlet property="inputTextView" destination="Goe-aA-uv6" id="ow6-hh-ctF"/>
-                        <outlet property="moodBtn" destination="hTS-zH-4UP" id="qug-gl-egQ"/>
+                        <outlet property="moodImgBtn" destination="MB3-de-BGq" id="cZe-65-CiH"/>
+                        <outlet property="moodTextBtn" destination="hTS-zH-4UP" id="Ldk-27-azv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-nz-7ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,40 +154,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04i-of-HGG">
-                                <rect key="frame" x="43" y="93" width="332" height="687"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBL-Do-rbG">
-                                        <rect key="frame" x="8" y="8" width="316" height="671"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryPopUpTVC" id="c4z-yn-gBN">
-                                                <rect key="frame" x="0.0" y="28" width="316" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c4z-yn-gBN" id="3n1-Aa-sTs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="43.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBL-Do-rbG">
+                                <rect key="frame" x="56" y="147" width="263" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryPopUpTVC" id="c4z-yn-gBN">
+                                        <rect key="frame" x="0.0" y="28" width="263" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c4z-yn-gBN" id="3n1-Aa-sTs">
+                                            <rect key="frame" x="0.0" y="0.0" width="263" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="leading" secondItem="MYU-DA-Go3" secondAttribute="leading" constant="56" id="Vxa-Cm-WtS"/>
+                            <constraint firstItem="MYU-DA-Go3" firstAttribute="bottom" secondItem="xBL-Do-rbG" secondAttribute="bottom" constant="117" id="g4A-GD-adt"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="width" secondItem="98R-rk-iJc" secondAttribute="height" multiplier="263:812" id="nV1-0t-kD4"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="top" secondItem="MYU-DA-Go3" secondAttribute="top" constant="103" id="uP1-es-L3d"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MYU-DA-Go3"/>
                     </view>
                     <connections>
                         <outlet property="moodTV" destination="xBL-Do-rbG" id="tqR-gX-Qgt"/>
-                        <outlet property="popUpView" destination="04i-of-HGG" id="Tsk-Iy-dx2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88P-rJ-xRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5857.971014492754" y="2223.8839285714284"/>
+            <point key="canvasLocation" x="5856.8000000000002" y="2223.3990147783252"/>
         </scene>
         <!--Diary ListVC-->
         <scene sceneID="d2L-JB-DD2">

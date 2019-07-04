@@ -9,35 +9,49 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DiaryPopUpTVC" customModule="MindGarden" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="263" height="43"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="263" height="42.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAt-Yz-mjg">
-                        <rect key="frame" x="16" y="3" width="43" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kAt-Yz-mjg">
+                        <rect key="frame" x="18" y="8" width="28.5" height="26"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcY-Y4-dzd">
-                        <rect key="frame" x="81" y="11" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcY-Y4-dzd">
+                        <rect key="frame" x="46" y="11" width="217" height="20"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                        <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="kAt-Yz-mjg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="29:43" id="0VJ-DD-f5o"/>
+                    <constraint firstAttribute="trailing" secondItem="LcY-Y4-dzd" secondAttribute="trailing" id="99S-0j-R9D"/>
+                    <constraint firstItem="kAt-Yz-mjg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="KD2-Qt-Sbm"/>
+                    <constraint firstItem="LcY-Y4-dzd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="McO-Xb-TZh"/>
+                    <constraint firstItem="kAt-Yz-mjg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wss-re-QEP"/>
+                    <constraint firstItem="kAt-Yz-mjg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Y3C-1e-0JW"/>
+                    <constraint firstItem="LcY-Y4-dzd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bVB-gI-hjB"/>
+                    <constraint firstItem="LcY-Y4-dzd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="47" id="gtu-sw-9vD"/>
+                    <constraint firstItem="LcY-Y4-dzd" firstAttribute="leading" secondItem="kAt-Yz-mjg" secondAttribute="trailing" constant="-0.5" id="jWj-FA-D2b"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="moodImage" destination="kAt-Yz-mjg" id="leA-5j-fXs"/>
                 <outlet property="moodLabel" destination="LcY-Y4-dzd" id="BWg-Ov-BXH"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+            <point key="canvasLocation" x="136.95652173913044" y="92.410714285714278"/>
         </tableViewCell>
     </objects>
 </document>

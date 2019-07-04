@@ -8,15 +8,23 @@
 
 import UIKit
 
-class DiaryNewVC: UIViewController, sendDataToViewProtocol {
+class DiaryNewVC: UIViewController {
 
     @IBOutlet var backBtn: UIBarButtonItem!
-    @IBOutlet var moodBtn: UIButton!
+    @IBOutlet var moodTextBtn: UIButton!
+    @IBOutlet var moodImgBtn: UIButton!
+    @IBOutlet var inputTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBar()
+        
+        setTextView()
+        inputTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func setNavigationBar() {
@@ -31,6 +39,11 @@ class DiaryNewVC: UIViewController, sendDataToViewProtocol {
         
         self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
     }
+    
+    func setTextView() {
+        inputTextView.text = "내용"
+        inputTextView.textColor = UIColor.lightGray
+    }
 
     @IBAction func backBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -44,20 +57,49 @@ class DiaryNewVC: UIViewController, sendDataToViewProtocol {
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self)
     }
-    
-    func inputData(data: String) {
-        print(data)
-        moodBtn.setTitle(data, for: .normal)
+
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print("notification: Keyboard will show")
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
     }
     
-    /*
-    // MARK: - Navigation
+    @objc func keyboardWillHide(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+}
 
+extension DiaryNewVC: UITextViewDelegate {
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "내용"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+}
+
+extension DiaryNewVC: MoodDelegate {
+    
+    func changeMood(img: String, text: String) {
+        print(img)
+        print(text)
+        moodImgBtn.setImage(UIImage(named: img), for: .normal)
+        moodTextBtn.setTitle(text, for: .normal)
+    }
+    
 }
