@@ -45,4 +45,8 @@ DerivedData/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+
+## for ClientID
+Info.plist
+AppDelegate.swift
 # End of https://www.gitignore.io/api/xcode,cocoapods
