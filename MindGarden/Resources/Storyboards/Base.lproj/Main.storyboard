@@ -59,9 +59,11 @@
                         <outlet property="homeBtn" destination="PyC-eN-T1B" id="ktb-cv-IOm"/>
                         <outlet property="listBtn" destination="crc-fH-8oh" id="Lid-Pe-IVk"/>
                         <outlet property="newBtn" destination="C5J-ip-He5" id="czJ-a1-i5C"/>
+                        <segue destination="XMy-pA-Yv8" kind="unwind" unwindAction="unwindToMain:" id="LNr-j2-hv4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <exit id="XMy-pA-Yv8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5604" y="829.06403940886707"/>
         </scene>

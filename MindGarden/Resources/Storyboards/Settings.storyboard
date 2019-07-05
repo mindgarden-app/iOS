@@ -152,12 +152,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-1L-G0U">
-                                <rect key="frame" x="56" y="298" width="263" height="216"/>
+                                <rect key="frame" x="56" y="303" width="263" height="216"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nv0-9h-tdL" customClass="DLRadioButton">
-                                        <rect key="frame" x="24" y="26" width="52" height="19"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nv0-9h-tdL" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="26" width="92" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="KNm-QV-75F"/>
+                                            <constraint firstAttribute="width" constant="92" id="mDN-Lo-L8G"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                         <state key="normal" title="아주 작게">
@@ -188,39 +189,12 @@
                                             <outletCollection property="otherButtons" destination="cX8-rh-q5D" id="SRQ-nm-jtp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="748" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlG-9E-R8F" customClass="DLRadioButton">
-                                        <rect key="frame" x="24" y="65" width="25" height="20"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13.5"/>
-                                        <state key="normal" title="작게">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                                <real key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                                <color key="value" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
-                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
-                                                <real key="value" value="11"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
-                                                <real key="value" value="19"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="fontBtnAction:" destination="9wT-tL-pRA" eventType="touchUpInside" id="2mB-BE-n1c"/>
-                                            <outletCollection property="otherButtons" destination="nv0-9h-tdL" id="wxf-Oz-CUn"/>
-                                            <outletCollection property="otherButtons" destination="uMa-Ja-OFx" id="tHG-Ac-Wlo"/>
-                                            <outletCollection property="otherButtons" destination="jbE-ZL-2j9" id="gOS-Xf-glg"/>
-                                            <outletCollection property="otherButtons" destination="cX8-rh-q5D" id="aH8-DC-d8v"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMa-Ja-OFx" customClass="DLRadioButton">
-                                        <rect key="frame" x="24" y="104" width="26" height="20"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMa-Ja-OFx" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="104" width="87" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="XYc-nN-8q3"/>
+                                            <constraint firstAttribute="width" constant="87" id="auh-QP-oie"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                         <state key="normal" title="보통">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -250,8 +224,12 @@
                                             <outletCollection property="otherButtons" destination="cX8-rh-q5D" id="RAU-Rp-hK5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-ZL-2j9" customClass="DLRadioButton">
-                                        <rect key="frame" x="24" y="143" width="27" height="22"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-ZL-2j9" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="143" width="101" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="LV7-df-KEd"/>
+                                            <constraint firstAttribute="width" constant="101" id="Qc3-Ej-rmt"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14.5"/>
                                         <state key="normal" title="크게">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -281,10 +259,11 @@
                                             <outletCollection property="otherButtons" destination="cX8-rh-q5D" id="D8p-TG-z0s"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cX8-rh-q5D" customClass="DLRadioButton">
-                                        <rect key="frame" x="24" y="182" width="59" height="22"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cX8-rh-q5D" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="182" width="129" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="YbW-Iy-Y0Y"/>
+                                            <constraint firstAttribute="width" constant="129" id="vC1-bA-j7Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14.5"/>
                                         <state key="normal" title="아주 크게">
@@ -315,6 +294,41 @@
                                             <outletCollection property="otherButtons" destination="jbE-ZL-2j9" id="lZi-OG-Mve"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlG-9E-R8F" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="65" width="129" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Agy-gd-7ji"/>
+                                            <constraint firstAttribute="width" constant="129" id="Vx7-Ft-I44"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13.5"/>
+                                        <state key="normal" title="작게">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="9wT-tL-pRA" eventType="touchUpInside" id="2mB-BE-n1c"/>
+                                            <outletCollection property="otherButtons" destination="nv0-9h-tdL" id="wxf-Oz-CUn"/>
+                                            <outletCollection property="otherButtons" destination="uMa-Ja-OFx" id="tHG-Ac-Wlo"/>
+                                            <outletCollection property="otherButtons" destination="jbE-ZL-2j9" id="gOS-Xf-glg"/>
+                                            <outletCollection property="otherButtons" destination="cX8-rh-q5D" id="aH8-DC-d8v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -322,7 +336,6 @@
                                     <constraint firstItem="uMa-Ja-OFx" firstAttribute="leading" secondItem="7TK-1L-G0U" secondAttribute="leading" constant="24" id="8Yx-Py-D0V"/>
                                     <constraint firstItem="nv0-9h-tdL" firstAttribute="leading" secondItem="7TK-1L-G0U" secondAttribute="leading" constant="24" id="Gwf-aF-7TD"/>
                                     <constraint firstItem="jbE-ZL-2j9" firstAttribute="top" secondItem="uMa-Ja-OFx" secondAttribute="bottom" constant="19" id="Pkf-24-Cfs"/>
-                                    <constraint firstAttribute="width" constant="263" id="Uhc-i8-85k"/>
                                     <constraint firstItem="cX8-rh-q5D" firstAttribute="leading" secondItem="7TK-1L-G0U" secondAttribute="leading" constant="24" id="Uzd-sj-r4P"/>
                                     <constraint firstAttribute="height" constant="216" id="Wwu-UH-QAm"/>
                                     <constraint firstItem="LlG-9E-R8F" firstAttribute="top" secondItem="nv0-9h-tdL" secondAttribute="bottom" constant="20" id="g3P-ce-xmh"/>
@@ -337,10 +350,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7TK-1L-G0U" firstAttribute="top" secondItem="IZO-n2-H9N" secondAttribute="top" constant="254" id="8g2-fG-RNI"/>
+                            <constraint firstItem="7TK-1L-G0U" firstAttribute="centerY" secondItem="IZO-n2-H9N" secondAttribute="centerY" id="7rg-I3-dls"/>
                             <constraint firstItem="7TK-1L-G0U" firstAttribute="leading" secondItem="IZO-n2-H9N" secondAttribute="leading" constant="56" id="Cnp-ja-AVZ"/>
                             <constraint firstItem="IZO-n2-H9N" firstAttribute="trailing" secondItem="7TK-1L-G0U" secondAttribute="trailing" constant="56" id="Mdf-te-gLX"/>
-                            <constraint firstItem="IZO-n2-H9N" firstAttribute="bottom" secondItem="7TK-1L-G0U" secondAttribute="bottom" constant="264" id="TL8-wd-pno"/>
                             <constraint firstItem="7TK-1L-G0U" firstAttribute="centerX" secondItem="DCR-1j-WQ5" secondAttribute="centerX" id="loS-eX-Ec9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IZO-n2-H9N"/>
