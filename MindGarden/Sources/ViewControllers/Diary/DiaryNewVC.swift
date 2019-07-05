@@ -13,8 +13,8 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var backBtn: UIBarButtonItem!
     @IBOutlet var moodTextBtn: UIButton!
     @IBOutlet var moodImgBtn: UIButton!
+    @IBOutlet var galleryBtn: UIButton!
     @IBOutlet var inputTextView: UITextView!
-    @IBOutlet var inputImageView: UIImageView!
     @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
     var imageView: UIImageView!
@@ -35,6 +35,9 @@ class DiaryNewVC: UIViewController {
         inputTextView.delegate = self
         
         self.hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification , object: nil)
         
     }
     
@@ -90,18 +93,21 @@ class DiaryNewVC: UIViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            print("notification: Keyboard will show")
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+//            print("notification: Keyboard will show")
+//            if self.view.frame.origin.y == 0{
+//                self.view.frame.origin.y -= keyboardSize.height
+//            }
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
-            }
+            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y + keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+//            print("notification: Keyboard will hide")
+//            if self.view.frame.origin.y != 0 {
+//                self.view.frame.origin.y += keyboardSize.height
+//            }
         }
     }
 }
