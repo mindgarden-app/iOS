@@ -8,14 +8,15 @@
 
 import UIKit
 
-protocol sendDataToViewProtocol {
-    func inputData(data:String)
+protocol DateDelegate {
+    func changeDate(year: Int, month: Int)
 }
 
 class PopUpVC: UIViewController {
     
-    var delegate:sendDataToViewProtocol? = nil
+    var delegate:DateDelegate? = nil
     private var year: Int = 0;
+    private var month: Int = 0;
 
     @IBOutlet var popUpView: UIView!
     @IBOutlet var yearLabel: UILabel!
@@ -35,6 +36,7 @@ class PopUpVC: UIViewController {
     
     func setYearLabel(year: Int) {
         if year != 0 {
+            self.year = year
             yearLabel.text = String(year)
         } else {
             let calendar = Calendar.current
@@ -55,9 +57,10 @@ class PopUpVC: UIViewController {
         setYearLabel(year: year)
     }
     
-    @IBAction func numBtnAction(_ sender: Any) {
+    @IBAction func numBtnAction(_ sender: UIButton) {
         if(delegate != nil){
-            delegate?.inputData(data: yearLabel.text!)
+            month = sender.tag
+            delegate?.changeDate(year: year, month: month)
             self.view.removeFromSuperview()
         }
     }

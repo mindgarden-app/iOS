@@ -14,6 +14,7 @@ class SettingsDetailVC: UIViewController {
     
     var paramSettings: Int = 0
     var settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
+    let fontSizeDict : Dictionary<Float, String> = [13: "아주 작게", 13.5: "작게", 14: "보통", 14.5: "크게", 15: "아주 크게"]
     
     let datePicker = UIDatePicker()
     var datePickerIndexPath: IndexPath?
@@ -111,7 +112,7 @@ extension SettingsDetailVC: UITableViewDataSource {
             let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsFontTVC") as! SettingsFontTVC
             
             cell.settingsNameLabel.text = "크기"
-            cell.fontSizeLabel.text = "보통"
+            cell.fontSizeLabel.text = fontSizeDict[UserDefaults.standard.float(forKey: "fontSize")] ?? "보통"
             
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor
@@ -156,8 +157,6 @@ extension SettingsDetailVC: UITableViewDataSource {
                 }
             }
         }
-        
-        
     }
 }
 
@@ -174,8 +173,9 @@ extension SettingsDetailVC: UITableViewDelegate {
             }
         } else if paramSettings == 1 {
             let popUpVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsPopUpVC") as! SettingsPopUpVC
+            popUpVC.delegate = self
             self.addChild(popUpVC)
-            popUpVC.view.frame = self.view.frame
+//            popUpVC.view.frame = self.view.frame
             self.view.addSubview(popUpVC.view)
             popUpVC.didMove(toParent: self)
         } else if paramSettings == 2 && indexPath.row == 1 {
@@ -232,3 +232,8 @@ extension SettingsDetailVC: SwitchDelegate {
 }
 
 
+extension SettingsDetailVC: FontSizeDelegate {
+    func changeFontSizeText() {
+        self.settingsDetailTV.reloadData()
+    }
+}

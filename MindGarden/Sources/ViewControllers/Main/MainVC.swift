@@ -11,11 +11,13 @@ import SpriteKit
 import GameplayKit
 import PopupDialog
 
-class MainVC: UIViewController, sendDataToViewProtocol {
+class MainVC: UIViewController {
     
     @IBOutlet var homeBtn: UIButton!
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var listBtn: UIButton!
+    
+    @IBOutlet var groundView: UIView!
     
     private var dateStr: String = ""
     
@@ -29,10 +31,10 @@ class MainVC: UIViewController, sendDataToViewProtocol {
         
         setNavigationBar()
         
-        if let view = self.view as! SKView? {
+        if let view = self.groundView as! SKView? {
             if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .aspectFill
-
+                scene.scaleMode = .aspectFit
+                
                 view.presentScene(scene)
             }
             
@@ -86,17 +88,6 @@ class MainVC: UIViewController, sendDataToViewProtocol {
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self)
-        
-        //close할 때
-//        self.view.removeFromSuperview()
-        
-//        self.present(dvc, animated: true, completion: nil)
-        print("click date!")
-    }
-    
-    func inputData(data: String) {
-        print(data)
-        dateStr = data
     }
 
     override var shouldAutorotate: Bool {
@@ -113,5 +104,12 @@ class MainVC: UIViewController, sendDataToViewProtocol {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+
+extension MainVC: DateDelegate {
+    func changeDate(year: Int, month: Int) {
+        dateStr = String(year)
     }
 }
