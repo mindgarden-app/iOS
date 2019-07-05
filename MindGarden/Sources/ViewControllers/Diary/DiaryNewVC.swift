@@ -16,6 +16,7 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var inputTextView: UITextView!
     @IBOutlet var inputImageView: UIImageView!
     
+    var imageView: UIImageView!
     let picker = UIImagePickerController()
     var placeholder = "내용"
     var moodText: String = ""
@@ -31,6 +32,8 @@ class DiaryNewVC: UIViewController {
         
         setTextView()
         inputTextView.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
         
     }
     
@@ -132,9 +135,19 @@ UINavigationControllerDelegate{
             return
         }
 
-//        inputImageView.frame.size = CGSize(width: 100, height: 100)
-        inputImageView.image = pickedImage
-        inputImageView.frame = CGRect(x: 0, y: 0, width: 50, height: UIScreen.main.bounds.height * 0.2)
+        if imageView != nil {
+           imageView.image = nil
+        }
+        
+        imageView = UIImageView(image: pickedImage)
+        imageView.frame = CGRect(x: self.view.center.x - 100, y: 171, width: 200, height: pickedImage.size.height * 300 / pickedImage.size.width)
+        imageView.contentMode = .scaleAspectFit
+        
+        view.addSubview(imageView)
+        
+        let verticalSpace = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: inputTextView, attribute: .bottom, multiplier: 1, constant: 100)
+        
+        NSLayoutConstraint.activate([verticalSpace])
 
         self.dismiss(animated: true, completion: nil)
     }

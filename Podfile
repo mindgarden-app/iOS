@@ -7,4 +7,6 @@ target 'MindGarden' do
 
   # Pods for MindGarden
   pod 'PopupDialog', '~> 1.1'
+  pod 'DLRadioButton', '~> 1.4'
+  pod 'Kingfisher'
 end
