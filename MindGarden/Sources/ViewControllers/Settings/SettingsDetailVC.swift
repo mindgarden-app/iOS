@@ -165,9 +165,9 @@ extension SettingsDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if paramSettings == 0 {
             if(indexPath.row == 1) {
-                let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
+                let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
                 
-//                dvc.mode = .
+                dvc.mode = LockMode.change
                 
                 self.navigationController!.pushViewController(dvc, animated: true)
             }
@@ -228,6 +228,14 @@ extension SettingsDetailVC: SwitchDelegate {
         }
         settingsDetailTV.endUpdates()
         UserDefaults.standard.set(isOn, forKey: name)
+        
+        if name == "암호 설정" && isOn {
+            let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+            
+            dvc.mode = LockMode.create
+            
+            self.navigationController!.pushViewController(dvc, animated: true)
+        }
     }
 }
 

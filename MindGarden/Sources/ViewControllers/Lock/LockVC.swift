@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum Mode {
+public enum LockMode {
     case validate
     case change
     case create
@@ -24,21 +24,18 @@ class LockVC: UIViewController {
     @IBOutlet var passcodeImg3: UIImageView!
     @IBOutlet var passcodeImg4: UIImageView!
     
-    var mode: Mode = .create
-//    fileprivate var mode: Mode {
-//        didSet {
-//            let mode = self.mode ?? validate
-//        }
-//    }
-    
+    var mode: LockMode!
+    var stageForChange: Int = 0
     var codeArr: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "<"]
     var inputNumber: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        print(mode)
+        navigationController?.isNavigationBarHidden = true
+        
         setDescriptionLabel()
-//        setPasscodeView()
         
         registerCVC()
         passcodeCV.delegate = self
@@ -46,17 +43,27 @@ class LockVC: UIViewController {
     }
     
     func setDescriptionLabel() {
-        switch mode {
-        case .create:
+        if mode == .create {
             descriptionLabel.text = "비밀번호를 입력해주세요."
-        case .change:
-            print("sfasdf")
-        case .validate:
+        } else if mode == .change {
+            descriptionLabel.text = "기존 비밀번호를 입력해주세요."
+        } else if mode == .validate {
             descriptionLabel.text = "비밀번호를 입력해주세요."
             passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
+            descriptionLabel.textAlignment = .center
+            descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
         }
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
+//        switch mode {
+//        case LockMode.create:
+//            descriptionLabel.text = "비밀번호를 입력해주세요."
+//        case .change:
+//            print("sfasdf")
+//        case .validate:
+//            descriptionLabel.text = "비밀번호를 입력해주세요."
+//            passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
+//        descriptionLabel.textAlignment = .center
+//        descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
+//        }
     }
     
     func changePasscodeImg(count: Int) {
@@ -98,11 +105,6 @@ extension LockVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (0 <= indexPath.row && indexPath.row < 9) || indexPath.row == 10 {
-//            let cell = passcodeCV.cellForItem(at: indexPath)
-//            let cell = passcodeCV.(indexPath)
-//            cell.codeLabel.backgroundColor = UIColor.lightGray
-//            cell?.contentView.backgroundColor = UIColor
-//            cell.codeLabel.backgroundColor = UIColor.lightGray
             
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
@@ -111,20 +113,30 @@ extension LockVC: UICollectionViewDelegate {
             
             if inputNumber.count == 4 {
                 if mode == .validate {
-                    if(UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber)) {
-                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                    if UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
+//                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
                         
                         self.navigationController!.pushViewController(dvc, animated: true)
+                    } else {
+                        inputNumber = ""
+                        changePasscodeImg(count: 0)
                     }
-                    inputNumber = ""
-                    changePasscodeImg(count: 0)
-                    print("here!!")
                 } else if mode == .create {
                     UserDefaults.standard.set(inputNumber, forKey: "passcode")
+                    self.navigationController?.popViewController(animated: true)
+                } else if mode == .change {
+                    if stageForChange == 0 && UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
+                        descriptionLabel.text = "비밀번호를 입력해주세요."
+                        stageForChange = 1
+                        passcodeCV.reloadData()
+                    } else if stageForChange == 1 {
+                        UserDefaults.standard.set(Int(inputNumber), forKey: "passcode")
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
                     inputNumber = ""
                     changePasscodeImg(count: 0)
-                } else if mode == .change {
-                    
                 }
             }
             

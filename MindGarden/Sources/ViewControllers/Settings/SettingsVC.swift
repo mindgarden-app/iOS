@@ -119,7 +119,6 @@ extension SettingsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if indexPath.section == 1 {
-            print("Logout!")
             GIDSignIn.sharedInstance()?.signOut()
             
             performSegue(withIdentifier: "unwindToLogin", sender: self)
