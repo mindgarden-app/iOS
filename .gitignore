@@ -47,6 +47,6 @@ DerivedData/
 
 
 ## for ClientID
-Info.plist
+MindGarden/Resources/Info.plist
 AppDelegate.swift
 # End of https://www.gitignore.io/api/xcode,cocoapods
