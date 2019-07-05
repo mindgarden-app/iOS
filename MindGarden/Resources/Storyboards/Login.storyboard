@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jwh-Mv-Bll">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,6 +28,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="googleLoginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Z5c-dr-Nwq"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
                                 <rect key="frame" x="62" y="217" width="290" height="310"/>
@@ -47,18 +50,40 @@
                                     <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="cQe-FM-qi9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6o-b9-NFE">
+                                <rect key="frame" x="56" y="145" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="임시 글쓰기 버튼"/>
+                                <connections>
+                                    <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="LAd-AT-X8g"/>
+                                    <action selector="tmpWriteBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="V3s-bH-m7t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqb-75-Yj9">
+                                <rect key="frame" x="180" y="179" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="임시 리스트 버튼"/>
+                                <connections>
+                                    <action selector="tmpListBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Lur-0j-rzG"/>
+                                    <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="y3g-eD-LEl"/>
+                                    <action selector="tmpWriteBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="cZ7-wR-OIe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Eeo-vs-Qkh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yzO-Fl-6aC"/>
                     <connections>
                         <outlet property="descriptionSV" destination="EWV-rU-jIe" id="TRr-OR-TbY"/>
+                        <outlet property="googleLoginBtn" destination="MGH-0h-ZBE" id="Utv-38-FRW"/>
                         <outlet property="pageControl" destination="f97-gM-uCP" id="20P-gv-ApZ"/>
                         <outlet property="tmpMainBtn" destination="GHh-Ne-YtZ" id="nG6-gR-iNk"/>
+                        <outlet property="tmpWriteBtn" destination="A6o-b9-NFE" id="Eoy-gb-n4e"/>
+                        <segue destination="FJg-7g-qhL" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToLoginWithSegue:" id="UuJ-MB-DY4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46I-EK-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FJg-7g-qhL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="984.05797101449286" y="168.75"/>
         </scene>

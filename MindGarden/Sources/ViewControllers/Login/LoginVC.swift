@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LoginVC: UIViewController, UIScrollViewDelegate {
     
@@ -16,14 +17,16 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         }
     }
     @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var googleLoginBtn: UIButton!
     @IBOutlet var tmpMainBtn: UIButton!
+    @IBOutlet var tmpWriteBtn: UIButton!
     
     var slides: [DescriptionSlide] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -133,12 +136,75 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         // return the fade colour
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
-
+    
+    @IBAction func googleLoginBtnAction(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}
     
     @IBAction func tmpMainBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
-        
+        let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
+
         self.navigationController!.pushViewController(dvc, animated: true)
     }
 
+
+    @IBAction func tmpWriteBtnAction(_ sender: Any) {
+        let tmpdvc1 = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+
+//        let transition = CATransition()
+//        transition.duration = 0.5
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//
+//        self.present(tmpdvc1, animated: false)
+        self.navigationController!.pushViewController(tmpdvc1, animated: true)
+    }
+    
+    @IBAction func tmpListBtnAction(_ sender: Any) {
+        let tmpdvc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+        
+        self.navigationController!.pushViewController(tmpdvc2, animated: true)
+    }
+    
+    
+}
+
+extension LoginVC: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("사용자가 로그인 취소, \(error)")
+            let alert = UIAlertController(title: "An error occured", message: "로그인을 취소하였습니다.", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(defaultAction)
+            present(alert, animated: false, completion: nil)
+
+            return
+        } else if let user = user {
+            print("userID: \(user.userID)")
+            print("idToken: \(user.authentication.idToken)")
+            print("name: \(user.profile.name)")
+            print("email: \(user.profile.email)")
+            
+            let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+            
+            self.navigationController!.pushViewController(dvc, animated: true)
+        }
+    }
+}
+
+extension LoginVC: GIDSignInUIDelegate {
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        self.present(viewController, animated: true, completion: nil)
+    }
 }

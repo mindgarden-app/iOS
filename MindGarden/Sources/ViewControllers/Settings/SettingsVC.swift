@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class SettingsVC: UIViewController {
     
@@ -59,7 +60,7 @@ class SettingsVC: UIViewController {
     func setNavigationBar() {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
     }
-    
+
 }
 
 extension SettingsVC: UITableViewDataSource {
@@ -118,6 +119,10 @@ extension SettingsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if indexPath.section == 1 {
+            print("Logout!")
+            GIDSignIn.sharedInstance()?.signOut()
+            
+            performSegue(withIdentifier: "unwindToLogin", sender: self)
             
         } else if indexPath.section == 2 && indexPath.row != 3{
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
