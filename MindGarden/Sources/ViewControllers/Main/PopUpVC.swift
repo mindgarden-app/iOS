@@ -58,12 +58,18 @@ class PopUpVC: UIViewController {
     }
     
     @IBAction func numBtnAction(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.lightGreenForButton
+        sender.makeRounded(cornerRadius: 20)
         if(delegate != nil){
             month = sender.tag
             delegate?.changeDate(year: year, month: month)
-            self.view.removeFromSuperview()
+            UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
+                           completion: {(value: Bool) in
+                            self.view.removeFromSuperview()
+            })
         }
     }
+
     
     /*
     // MARK: - Navigation
