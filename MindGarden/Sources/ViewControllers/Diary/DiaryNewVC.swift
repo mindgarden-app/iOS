@@ -15,6 +15,7 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var moodImgBtn: UIButton!
     @IBOutlet var inputTextView: UITextView!
     @IBOutlet var inputImageView: UIImageView!
+    @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
     var imageView: UIImageView!
     let picker = UIImagePickerController()
@@ -81,6 +82,12 @@ class DiaryNewVC: UIViewController {
         present(picker, animated: true, completion: nil)
     }
     
+    @IBAction func saveBtnAction(_ sender: Any) {
+        let tmpdvc2 = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "Diary")
+        
+        self.navigationController!.pushViewController(tmpdvc2, animated: true)
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             print("notification: Keyboard will show")
@@ -113,13 +120,31 @@ extension DiaryNewVC: UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print(self.inputTextView.contentSize.height)
+        
+        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height
+//        let fixedWidth = textView.frame.size.width
+//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        var newFrame = textView.frame
+//        print(newSize.height)
+//        newFrame.size = CGSize(width: fixedWidth, height: newSize.height)
+//        textView.frame = newFrame
+//
+        if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
+//            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 247 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
+            // 위에거는 부드럷게 내려가는데 폭이 너무 큼.. 아래는 부드럽지 않은데 폭 유지.
+            // 아무래도 같이 바뀌지않아서 텀때문에 부드럽지 않아 보이는 것 같음..
+            imageView.frame = CGRect(x: imageView.frame.origin.x, y: inputTextView.frame.maxY + 5, width: imageView.frame.size.width, height: imageView.frame.size.height)
+        }
+    }
 }
 
 extension DiaryNewVC: MoodDelegate {
     
     func changeMood(img: String, text: String) {
-        print(img)
-        print(text)
         moodImgBtn.setImage(UIImage(named: img), for: .normal)
         moodTextBtn.setTitle(text, for: .normal)
         moodTextBtn.setTitleColor(UIColor.Gray, for: .normal)
@@ -140,14 +165,14 @@ UINavigationControllerDelegate{
         }
         
         imageView = UIImageView(image: pickedImage)
-        imageView.frame = CGRect(x: self.view.center.x - 100, y: 171, width: 200, height: pickedImage.size.height * 300 / pickedImage.size.width)
+        imageView.frame = CGRect(x: self.view.center.x - 100, y: inputTextView.frame.maxY + 5, width: 200, height: pickedImage.size.height * 300 / pickedImage.size.width)
         imageView.contentMode = .scaleAspectFit
         
         view.addSubview(imageView)
         
-        let verticalSpace = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: inputTextView, attribute: .bottom, multiplier: 1, constant: 100)
-        
-        NSLayoutConstraint.activate([verticalSpace])
+//        let verticalSpace = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: inputTextView, attribute: .bottom, multiplier: 1, constant: 100)
+//
+//        NSLayoutConstraint.activate([verticalSpace])
 
         self.dismiss(animated: true, completion: nil)
     }
