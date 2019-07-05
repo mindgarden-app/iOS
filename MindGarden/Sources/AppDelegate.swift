@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         
+        GIDSignIn.sharedInstance().clientID = clientId + "apps.googleusercontent.com"
+        
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        guard let scheme = url.scheme else { return true }
+        if #available(iOS 9.0, *) {
+            if scheme.contains("com.googleusercontent.apps") {
+                return GIDSignIn.sharedInstance().handle(url as URL?,
+                                                         sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                         annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+            }
+        }
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        guard let scheme = url.scheme else { return true }
+        if scheme.contains("com.googleusercontent.apps") {
+            return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        }
         return true
     }
 

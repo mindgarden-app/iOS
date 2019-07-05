@@ -9,4 +9,5 @@ target 'MindGarden' do
   pod 'PopupDialog', '~> 1.1'
   pod 'DLRadioButton', '~> 1.4'
   pod 'Kingfisher'
+  pod 'GoogleSignIn'
 end
