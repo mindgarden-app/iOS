@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsTVC: UITableViewCell {
 
+    @IBOutlet var settingsCell: UIView!
     @IBOutlet var settingsNameLabel: UILabel!
     
     override func awakeFromNib() {

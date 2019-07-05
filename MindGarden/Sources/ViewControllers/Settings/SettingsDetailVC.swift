@@ -93,11 +93,17 @@ extension SettingsDetailVC: UITableViewDataSource {
                 
                 cell.delegate = self
                 
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+                
                 return cell
             } else{
                 let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
 
                 cell.settingsNameLabel.text = "암호 변경"
+                
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
 
                 return cell
             }
@@ -106,6 +112,9 @@ extension SettingsDetailVC: UITableViewDataSource {
             
             cell.settingsNameLabel.text = "크기"
             cell.fontSizeLabel.text = "보통"
+            
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
             
             return cell
         } else {
@@ -116,6 +125,9 @@ extension SettingsDetailVC: UITableViewDataSource {
                 cell.setSwitch()
                 
                 cell.delegate = self
+                
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
                 
                 return cell
             } else {
@@ -128,16 +140,24 @@ extension SettingsDetailVC: UITableViewDataSource {
                     }
                     datePickerCell.delegate = self
                     
+                    datePickerCell.layer.borderWidth = 1
+                    datePickerCell.layer.borderColor = UIColor.whiteForBorder.cgColor
+                    
                     return datePickerCell
                 } else {
                     let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
                     
                     cell.settingsNameLabel.text = "시간 설정"
                     
+                    cell.layer.borderWidth = 1
+                    cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+                    
                     return cell
                 }
             }
         }
+        
+        
     }
 }
 
@@ -153,7 +173,11 @@ extension SettingsDetailVC: UITableViewDelegate {
                 self.navigationController!.pushViewController(dvc, animated: true)
             }
         } else if paramSettings == 1 {
-        
+            let popUpVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsPopUpVC") as! SettingsPopUpVC
+            self.addChild(popUpVC)
+            popUpVC.view.frame = self.view.frame
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParent: self)
         } else if paramSettings == 2 && indexPath.row == 1 {
             tableView.beginUpdates()
             if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {

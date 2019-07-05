@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileTVC: UITableViewCell {
 
+    @IBOutlet var profileCell: UIView!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!

@@ -93,11 +93,12 @@
             <connections>
                 <outlet property="emailLabel" destination="Wwx-MW-Gjp" id="TVt-AX-80s"/>
                 <outlet property="nameLabel" destination="BIC-R4-OoY" id="FqE-qf-1YO"/>
+                <outlet property="profileCell" destination="H2p-sc-9uM" id="Uk3-u6-4fd"/>
                 <outlet property="profileImage" destination="eXx-Wc-kH5" id="mEo-U3-BkF"/>
                 <outlet property="typeLabel" destination="VdX-v4-Nux" id="oiA-u3-PCT"/>
                 <outlet property="typeView" destination="thZ-iK-VXo" id="ynF-QU-c8r"/>
             </connections>
-            <point key="canvasLocation" x="48.550724637681164" y="34.821428571428569"/>
+            <point key="canvasLocation" x="-105" y="48"/>
         </tableViewCell>
     </objects>
     <resources>

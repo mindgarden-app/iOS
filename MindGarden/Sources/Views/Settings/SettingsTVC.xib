@@ -30,7 +30,7 @@
                             <constraint firstAttribute="height" constant="21" id="HeU-6O-a9W"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                        <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -42,6 +42,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="settingsCell" destination="H2p-sc-9uM" id="N3y-Fl-IRN"/>
                 <outlet property="settingsNameLabel" destination="45E-lW-3pP" id="9hj-md-Nb4"/>
             </connections>
             <point key="canvasLocation" x="48.550724637681164" y="34.821428571428569"/>

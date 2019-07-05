@@ -88,6 +88,9 @@ extension SettingsVC: UITableViewDataSource {
             cell.nameLabel.text = "이성희"
             cell.typeLabel.text = "무료회원"
             cell.emailLabel.text = "630sunghee@naver.com"
+            
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
 
             return cell
         } else {
@@ -96,6 +99,9 @@ extension SettingsVC: UITableViewDataSource {
             let settingsName = items[indexPath.section][indexPath.row]
 
             cell.settingsNameLabel.text = settingsName
+            
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
             
             if indexPath.row == 3 {
                 cell.selectionStyle = .none
