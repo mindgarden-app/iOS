@@ -105,8 +105,8 @@ class DiaryListVC: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         emptyView.backgroundColor = UIColor.whiteForBorder
-        let emptyImageView = UIImageView(image: UIImage(named: "imgWeather1"))
-        emptyImageView.frame = CGRect(x: 173, y: 287, width: emptyImageView.frame.size.width, height: emptyImageView.frame.size.height)
+        let emptyImageView = UIImageView(image: UIImage(named: "imgListzero"))
+        emptyImageView.frame = CGRect(x: 117, y: 136, width: emptyImageView.frame.size.width, height: emptyImageView.frame.size.height)
         emptyView.addSubview(emptyImageView)
         self.view.addSubview(emptyView)
     }
