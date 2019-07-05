@@ -155,11 +155,16 @@ extension DiaryListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "삭제", handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+            
+            tableView.beginUpdates()
+            
             print(indexPath.row)
             
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             // 데이터 삭제하는 부분.. 서버 연동하면 바꿔야됨.
             self.testArr.remove(at: 0)
+            
+            tableView.endUpdates()
             
             success(true)
             
