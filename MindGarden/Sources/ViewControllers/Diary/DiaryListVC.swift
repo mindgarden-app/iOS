@@ -34,7 +34,9 @@ class DiaryListVC: UIViewController {
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC") as! DiaryNewVC
+        
+        dvc.mode = DiaryMode.new
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }

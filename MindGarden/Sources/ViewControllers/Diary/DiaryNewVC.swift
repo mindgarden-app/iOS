@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum DiaryMode {
+    case new
+    case edit
+}
+
 class DiaryNewVC: UIViewController {
 
     @IBOutlet var backBtn: UIBarButtonItem!
@@ -17,21 +22,26 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var inputTextView: UITextView!
     @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
+    var mode: DiaryMode!
     var imageView: UIImageView!
     let picker = UIImagePickerController()
     var placeholder = "내용"
-    var moodText: String = ""
-    var moodImg: String = ""
-    var body: String = ""
+    var moodText: String = "기분 수정 중"
+    var moodImg: String = "imgWeather1"
+    var image: String = "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
+    var body: String = "본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 "
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBar()
+        setTextView()
+        
+        if mode == .edit {
+            setData()
+        }
         
         picker.delegate = self
-        
-        setTextView()
         inputTextView.delegate = self
         
         self.hideKeyboardWhenTappedAround()
@@ -53,8 +63,15 @@ class DiaryNewVC: UIViewController {
         
         self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
         
-//        let rightBtn = UIBarButtonItem(image: UIImage(named: "btnRegister"), style: .plain, target: self, action: Selector(""))
-//        self.navigationItem.rightBarButtonItem = rightBtn
+        if mode == .new {
+            let rightBtn = UIBarButtonItem(image: UIImage(named: "btnRegister"), style: .plain, target: self, action: #selector(saveBtnAction(_:)))
+            rightBtn.tintColor = UIColor.lightGreen
+            self.navigationItem.rightBarButtonItem = rightBtn
+        } else if mode == .edit {
+            let rightBtn = UIBarButtonItem(image: UIImage(named: "btnComplete"), style: .plain, target: self, action: #selector(completeBtnAction(_:)))
+            rightBtn.tintColor = UIColor.lightGreen
+            self.navigationItem.rightBarButtonItem = rightBtn
+        }
     }
     
     func setTextView() {
@@ -62,9 +79,24 @@ class DiaryNewVC: UIViewController {
         inputTextView.textColor = UIColor.lightGray
     }
     
-//    func setImageView() {
-//        let imageView = UIImageView(image: image!)
-//    }
+    func setData() {
+        moodTextBtn.setTitle(moodText, for: .normal)
+        moodTextBtn.setTitleColor(UIColor.GrayForFont, for: .normal)
+        moodImgBtn.setImage(UIImage(named: moodImg), for: .normal)
+        inputTextView.text = body
+        inputTextView.textColor = UIColor.GrayForFont
+        inputTextView.textContainerInset = UIEdgeInsets.zero
+        inputTextView.textContainer.lineFragmentPadding = 0
+        inputTextViewHeightConstraint.constant = inputTextView.contentSize.height
+        
+        if !image.isEmpty {
+            imageView = UIImageView(image: UIImage(named: "imgWeather0"))
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
+            imageView.frame = CGRect(x: self.view.center.x - 100, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 200, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
+            self.view.addSubview(imageView)
+        }
+    }
 
     @IBAction func backBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -86,28 +118,26 @@ class DiaryNewVC: UIViewController {
     }
     
     @IBAction func saveBtnAction(_ sender: Any) {
-        let tmpdvc2 = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "Diary")
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC")
+
+        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func completeBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
-        self.navigationController!.pushViewController(tmpdvc2, animated: true)
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
-//            print("notification: Keyboard will show")
-//            if self.view.frame.origin.y == 0{
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y + keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
-//            print("notification: Keyboard will hide")
-//            if self.view.frame.origin.y != 0 {
-//                self.view.frame.origin.y += keyboardSize.height
-//            }
         }
     }
 }
@@ -123,7 +153,7 @@ extension DiaryNewVC: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = placeholder
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor.Gray
         }
     }
     
