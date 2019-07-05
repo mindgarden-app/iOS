@@ -16,24 +16,29 @@ class DiaryDetailVC: UIViewController {
     @IBOutlet var moodLabel: UILabel!
     @IBOutlet var timeLabel: UITextField!
     @IBOutlet var bodyTextView: UITextView!
+    @IBOutlet var bodyTextViewHeightConstraint: NSLayoutConstraint!
     
     var imageView: UIImageView!
-    var moodText: String = ""
-    var moodImg: String = ""
-    var time: String = ""
-    var image: String = ""
-    var body: String = ""
+    var moodText: String = "기분이 좋아"
+    var moodImg: String = "imgWeather1"
+    var time: String = "21:00:00"
+    var image: String = "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
+    var body: String = "여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 여기는 본문입니다 "
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBar()
         
-        setImageView()
+        setData()
+        if !image.isEmpty {
+            print("image is not empty!")
+            imageView = UIImageView(image: UIImage(named: "imgWeather0"))
+            setImageView()
+        }
     }
     
     func setNavigationBar() {
-        // 중앙 날짜 버튼
         let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
@@ -45,25 +50,21 @@ class DiaryDetailVC: UIViewController {
         self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
     }
     
-//    func setData() {
-//        moodImageView.image = UIImage(data: <#T##Data#>)
-//    }
-    
+    func setData() {
+        moodImageView = UIImageView(image: UIImage(named: moodImg))
+        moodLabel.text = moodText
+        timeLabel.text = time
+        bodyTextView.text = body
+        bodyTextView.textContainerInset = UIEdgeInsets.zero
+        bodyTextView.textContainer.lineFragmentPadding = 0
+        bodyTextViewHeightConstraint.constant = bodyTextView.contentSize.height
+    }
+
     func setImageView() {
-//        let url = URL(string: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png")
-        moodImageView.kf.indicatorType = .activity
-        moodImageView.kf.setImage(with: URL(string: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
-//        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-//        view.addSubview(imageView)
-        // https://cocoapods.org/pods/Kingfisher
-//        let url = URL(string: "")
-//        do {
-//            let data = try Data(contentsOf: url!)
-//            let image = UIImage(data: data)
-//
-//        }catch let err {
-//            print("Error : \(err.localizedDescription)")
-//        }
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
+        imageView.frame = CGRect(x: self.view.center.x - 100, y: bodyTextView.frame.maxY + 5 + bodyTextView.contentSize.height, width: 200, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
+        self.view.addSubview(imageView)
     }
     
     @IBAction func backBtnAction(_ sender: Any) {

@@ -29,33 +29,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-de-BGq">
-                                <rect key="frame" x="29" y="121" width="19" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="imgWeather0"/>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-aA-uv6">
-                                <rect key="frame" x="23" y="195" width="333" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-aA-uv6">
+                                <rect key="frame" x="23" y="195" width="333" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="8hY-GX-xDF"/>
+                                </constraints>
                                 <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTS-zH-4UP">
-                                <rect key="frame" x="137" y="119" width="102" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-0h-esM">
+                                <rect key="frame" x="15" y="106" width="344" height="58"/>
+                                <state key="normal" image="btnWeatherSelect1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-eQ-9qR">
+                                <rect key="frame" x="15" y="106" width="57" height="58"/>
+                                <state key="normal" image="btnWeatherSelect0"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-aa-Jkk">
+                                <rect key="frame" x="33" y="126" width="20" height="19"/>
+                                <state key="normal" title="Button" image="imgWeather0"/>
+                                <connections>
+                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="mBb-is-zMN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-I7-vXX">
+                                <rect key="frame" x="71" y="118" width="261" height="32"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
                                 <state key="normal" title="기분을 선택하세요">
-                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="fgy-kc-7OM"/>
+                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Brj-vV-x9Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-Ek-dRZ">
+                                <rect key="frame" x="325" y="746" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4ft-HM-aDc"/>
+                                    <constraint firstAttribute="width" constant="35" id="xK3-Tf-HJ2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icnGallary"/>
+                                <connections>
+                                    <action selector="galleryBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Xmc-cr-u22"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="aaB-aa-Jkk" secondAttribute="trailing" constant="-38" id="3vy-v8-tsO"/>
+                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="31" id="4wB-9T-NVy"/>
+                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="18" id="6Z6-Dc-8E3"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="uxo-eQ-9qR" secondAttribute="bottom" constant="614" id="6ZB-nR-zZe"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="16" id="6eO-dL-Lu4"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="18" id="DQB-ei-evH"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="-1" id="E60-xV-WaG"/>
+                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="aaB-aa-Jkk" secondAttribute="bottom" constant="50" id="KIQ-xK-mck"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="-57" id="Le0-Iw-Uia"/>
+                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="5:203" id="PDU-za-x5V"/>
+                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="325" id="PjR-YU-lri"/>
+                            <constraint firstItem="Goe-aA-uv6" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="23" id="TvI-ht-AlK"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="86:203" id="UfC-3P-ZjS"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="uxo-eQ-9qR" secondAttribute="top" id="Uie-sl-yIw"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qTw-Ek-dRZ" secondAttribute="bottom" constant="-3" id="aAr-sJ-4s0"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="aaB-aa-Jkk" secondAttribute="bottom" constant="633" id="eJW-uG-1PI"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="Goe-aA-uv6" secondAttribute="trailing" constant="19" id="fhf-WE-flF"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="15" id="g4L-gy-eEC"/>
+                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="33" id="gPR-c5-8Gj"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="qTw-Ek-dRZ" secondAttribute="trailing" constant="15" id="giO-Gc-Prf"/>
+                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="38" id="h7l-E5-icZ"/>
+                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="LFe-I7-vXX" secondAttribute="bottom" constant="45" id="l2V-xN-hky"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="30" id="lgv-Nf-P4c"/>
+                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="uxo-eQ-9qR" secondAttribute="bottom" constant="31" id="nfO-d4-R3b"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="LFe-I7-vXX" secondAttribute="bottom" constant="628" id="oFB-v9-LeB"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="9:28" id="oS5-31-xoO"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="-288" id="tZH-pf-bQQ"/>
+                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="5:116" id="vKG-KY-kbQ"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="614" id="vMs-8b-gCb"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="71" id="yTW-6Z-kXi"/>
+                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="15" id="zvo-ux-Huf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k0h-0G-1Ja"/>
                     </view>
                     <navigationItem key="navigationItem" id="X7U-tb-rrf">
@@ -65,13 +118,20 @@
                                 <action selector="backBtnAction:" destination="Y2I-Wb-1oe" id="tZa-0z-w7Z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="btnRegister" style="done" id="CAE-ND-cyv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="btnRegister" id="BSH-va-4FW">
+                            <color key="tintColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="saveBtnAction:" destination="Y2I-Wb-1oe" id="lt3-hG-ya1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="pKd-gi-YMd" id="5XK-57-LKX"/>
+                        <outlet property="galleryBtn" destination="qTw-Ek-dRZ" id="KAc-24-kDJ"/>
                         <outlet property="inputTextView" destination="Goe-aA-uv6" id="ow6-hh-ctF"/>
-                        <outlet property="moodImgBtn" destination="MB3-de-BGq" id="cZe-65-CiH"/>
-                        <outlet property="moodTextBtn" destination="hTS-zH-4UP" id="Ldk-27-azv"/>
+                        <outlet property="inputTextViewHeightConstraint" destination="8hY-GX-xDF" id="CAE-Oh-5BM"/>
+                        <outlet property="moodImgBtn" destination="aaB-aa-Jkk" id="IuC-dM-TUD"/>
+                        <outlet property="moodTextBtn" destination="LFe-I7-vXX" id="6GB-Y5-bRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-nz-7ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,24 +167,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-eP-3HB">
-                                <rect key="frame" x="23" y="195" width="333" height="267"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-eP-3HB">
+                                <rect key="frame" x="23" y="195" width="333" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="qyp-gN-upb"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</string>
                                 <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7na-yK-dsl">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7na-yK-dsl">
                                 <rect key="frame" x="23" y="171" width="52" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="trG-rB-4gX"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWeather1" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-yY-wvO">
+                                <rect key="frame" x="24" y="115" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9pQ-yY-wvO" secondAttribute="height" multiplier="1:1" id="Iad-J3-hTA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-6J-9VG">
+                                <rect key="frame" x="77" y="119" width="232" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="qAj-vh-EDW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7na-yK-dsl" firstAttribute="top" secondItem="9pQ-yY-wvO" secondAttribute="bottom" constant="26" id="0NJ-Bu-dQl"/>
+                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="6pw-cP-7PD"/>
+                            <constraint firstItem="WGg-6J-9VG" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="31" id="OCc-EN-CIs"/>
+                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="24" id="XFG-Wl-hPJ"/>
+                            <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="WGg-6J-9VG" secondAttribute="trailing" constant="66" id="aHU-EY-eOD"/>
+                            <constraint firstItem="7na-yK-dsl" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="e82-wC-gYa"/>
+                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="leading" secondItem="7na-yK-dsl" secondAttribute="leading" id="elR-U3-qJE"/>
+                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="27" id="fTE-Ac-SCL"/>
+                            <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="7Xa-eP-3HB" secondAttribute="trailing" constant="19" id="gpZ-bx-VId"/>
+                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="top" secondItem="7na-yK-dsl" secondAttribute="bottom" constant="6" id="hGp-mN-9Ia"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pu5-h3-cX3"/>
                     </view>
                     <navigationItem key="navigationItem" id="fTm-de-p0W">
@@ -136,15 +227,23 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="btnEdit" id="KsS-pM-hIr">
                             <color key="tintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editBtnAction:" destination="bcZ-fZ-7dJ" id="Ypb-HA-Ibb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="qXJ-iW-u92" id="GCk-b9-smj"/>
+                        <outlet property="bodyTextView" destination="7Xa-eP-3HB" id="Klf-Kx-LrP"/>
+                        <outlet property="bodyTextViewHeightConstraint" destination="qyp-gN-upb" id="XVM-Ah-mUM"/>
+                        <outlet property="moodImageView" destination="9pQ-yY-wvO" id="hoV-KA-F9e"/>
+                        <outlet property="moodLabel" destination="WGg-6J-9VG" id="PNg-Jf-8eL"/>
+                        <outlet property="timeLabel" destination="7na-yK-dsl" id="MFu-dh-MM0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vr1-Pg-An6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4692.753623188406" y="2222.5446428571427"/>
+            <point key="canvasLocation" x="4692" y="2221.92118226601"/>
         </scene>
         <!--Diary Pop UpVC-->
         <scene sceneID="wUa-vL-k71">
@@ -214,6 +313,9 @@
                         <leftBarButtonItems>
                             <barButtonItem title="Item" image="btnBack" id="Ctg-1y-8nB">
                                 <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="backBtnAction:" destination="8Ul-5h-2rS" id="LdG-WL-1dd"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="btnUpdown" id="QDq-Kf-NHc">
                                 <color key="tintColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -240,16 +342,18 @@
                     <connections>
                         <outlet property="diaryListTV" destination="KwC-PG-u57" id="eJz-wg-2u5"/>
                         <outlet property="settingsBtn" destination="wA7-0t-LTc" id="efQ-7a-3Lc"/>
+                        <segue destination="5aY-27-WGz" kind="unwind" unwindAction="unwindToList:" id="I5t-53-0MU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk5-uf-JXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5aY-27-WGz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4692" y="2925.3694581280788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Mn-W9-tAT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zp0-eL-wOU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DiaryListNC" automaticallyAdjustsScrollViewInsets="NO" id="Zp0-eL-wOU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SDE-Ao-BqG">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -289,7 +393,11 @@
         <image name="btnRegister" width="44" height="26"/>
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnUpdown" width="22" height="17.333333969116211"/>
+        <image name="btnWeatherSelect0" width="57" height="58"/>
+        <image name="btnWeatherSelect1" width="354" height="58"/>
         <image name="btnWriting" width="20.666666030883789" height="20.666666030883789"/>
+        <image name="icnGallary" width="35" height="35"/>
         <image name="imgWeather0" width="20" height="19"/>
+        <image name="imgWeather1" width="30" height="30"/>
     </resources>
 </document>
