@@ -15,7 +15,7 @@ class SettingsDetailVC: UIViewController {
     
     var paramSettings: Int = 0
     var settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
-    let fontSizeDict : Dictionary<Float, String> = [13: "아주 작게", 13.5: "작게", 14: "보통", 14.5: "크게", 15: "아주 크게"]
+    let fontSizeStrArr: [String] = ["아주 작게", "작게", "보통", "크게", "아주 크게"]
     
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
@@ -129,7 +129,7 @@ extension SettingsDetailVC: UITableViewDataSource {
             let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsFontTVC") as! SettingsFontTVC
             
             cell.settingsNameLabel.text = "크기"
-            cell.fontSizeLabel.text = fontSizeDict[UserDefaults.standard.float(forKey: "fontSize")] ?? "보통"
+            cell.fontSizeLabel.text = fontSizeStrArr[UserDefaults.standard.integer(forKey: "fontSize")] ?? "보통"
             
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor

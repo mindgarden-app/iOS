@@ -360,6 +360,11 @@
                         <viewLayoutGuide key="safeArea" id="IZO-n2-H9N"/>
                     </view>
                     <connections>
+                        <outlet property="fontSizeBtn1" destination="nv0-9h-tdL" id="Mcz-Gw-fYC"/>
+                        <outlet property="fontSizeBtn2" destination="LlG-9E-R8F" id="FQg-aA-aSu"/>
+                        <outlet property="fontSizeBtn3" destination="uMa-Ja-OFx" id="Dsx-Kd-IO9"/>
+                        <outlet property="fontSizeBtn4" destination="jbE-ZL-2j9" id="Ocz-zR-119"/>
+                        <outlet property="fontSizeBtn5" destination="cX8-rh-q5D" id="T5c-VQ-E8h"/>
                         <outlet property="popUpView" destination="7TK-1L-G0U" id="bCE-Ah-vrb"/>
                     </connections>
                 </viewController>
