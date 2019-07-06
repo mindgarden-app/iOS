@@ -32,7 +32,6 @@ class LockVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print(mode)
         navigationController?.isNavigationBarHidden = true
         
         setDescriptionLabel()
@@ -53,17 +52,6 @@ class LockVC: UIViewController {
             descriptionLabel.textAlignment = .center
             descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
         }
-//        switch mode {
-//        case LockMode.create:
-//            descriptionLabel.text = "비밀번호를 입력해주세요."
-//        case .change:
-//            print("sfasdf")
-//        case .validate:
-//            descriptionLabel.text = "비밀번호를 입력해주세요."
-//            passcodeResetBtn.setTitle("비밀번호를 잊어버리셨나요?", for: .normal)
-//        descriptionLabel.textAlignment = .center
-//        descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
-//        }
     }
     
     func changePasscodeImg(count: Int) {
@@ -114,8 +102,10 @@ extension LockVC: UICollectionViewDelegate {
             if inputNumber.count == 4 {
                 if mode == .validate {
                     if UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
-//                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-                        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
+                        let dvc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+                        
+                        inputNumber = ""
+                        changePasscodeImg(count: 0)
                         
                         self.navigationController!.pushViewController(dvc, animated: true)
                     } else {
@@ -133,6 +123,7 @@ extension LockVC: UICollectionViewDelegate {
                     } else if stageForChange == 1 {
                         UserDefaults.standard.set(Int(inputNumber), forKey: "passcode")
                         self.navigationController?.popViewController(animated: true)
+                        self.navigationController?.isNavigationBarHidden = false
                     }
                     
                     inputNumber = ""
