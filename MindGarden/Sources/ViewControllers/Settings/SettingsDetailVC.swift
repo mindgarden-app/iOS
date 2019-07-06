@@ -24,6 +24,8 @@ class SettingsDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = false
+        
         setDateFormatter()
 
         registerTVC()
