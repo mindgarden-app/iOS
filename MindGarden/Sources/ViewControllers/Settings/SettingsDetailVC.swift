@@ -17,11 +17,14 @@ class SettingsDetailVC: UIViewController {
     let fontSizeDict : Dictionary<Float, String> = [13: "아주 작게", 13.5: "작게", 14: "보통", 14.5: "크게", 15: "아주 크게"]
     
     let datePicker = UIDatePicker()
+    let dateFormatter = DateFormatter()
     var datePickerIndexPath: IndexPath?
     var isOn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setDateFormatter()
 
         registerTVC()
         setNavigationBar(title: settingsTitleArr[paramSettings])
@@ -55,6 +58,12 @@ class SettingsDetailVC: UIViewController {
     func setNavigationBar(title: String) {
         self.navigationItem.title = title
         // Todo. font와 size 지정 들어가야됨
+    }
+    
+    func setDateFormatter() {
+        dateFormatter.locale = Locale(identifier: "ko_kr")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "HH:mm"
     }
     
     func indexPathToInsertDatePicker(indexPath: IndexPath) -> IndexPath {
@@ -207,6 +216,8 @@ extension SettingsDetailVC: UITableViewDelegate {
 extension SettingsDetailVC: DatePickerDelegate {
     
     func didChangeDate(date: Date, indexPath: IndexPath) {
+        var dateToStr = dateFormatter.string(from: date)
+        print(dateToStr)
         UserDefaults.standard.set(date, forKey: "alarmTime")
         settingsDetailTV.reloadRows(at: [indexPath], with: .none)
     }
