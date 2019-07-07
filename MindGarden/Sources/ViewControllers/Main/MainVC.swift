@@ -33,7 +33,7 @@ class MainVC: UIViewController {
         
         if let view = self.groundView as! SKView? {
             if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .aspectFit
+                scene.scaleMode = .aspectFill
                 
                 view.presentScene(scene)
             }

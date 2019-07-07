@@ -11,13 +11,26 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var groundTileMapNode:SKTileMapNode = SKTileMapNode()
+    var objectTileMap:SKTileMapNode!
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var objectsTileMap: SKTileMapNode!
+    
     override func didMove(to view: SKView) {
+        //--
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTapFrom(recognizer:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGestureRecognizer)
+        //--
+        
+        
+        setupObjects()
         
         // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
+        self.label = self.childNode(withName: "helloLabel") as? SKLabelNode
         if let label = self.label {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
@@ -35,6 +48,71 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+    }
+    
+    func setupObjects() {
+        let columns = 30
+        let rows = 30
+        let size = CGSize(width: 15, height: 15)
+        
+        guard let tileSet = SKTileSet(named: "Decoration Tile") else {
+            fatalError("Object Tiles Tile Set not found")
+        }
+        
+        objectTileMap = SKTileMapNode(tileSet: tileSet, columns: columns, rows: rows, tileSize: size)
+        
+        addChild(objectTileMap)
+        
+        let tileGroups = tileSet.tileGroups
+        
+        guard let decorationTile = tileGroups.first(where: {$0.name == "flower1"}) else {
+            fatalError("No flower1 tile definintion found")
+        }
+        
+        guard let flowerTile = tileGroups.first(where: {$0.name == "flower1"}) else {
+            fatalError("No Flower2 tile definition found")
+        }
+        
+        let numberOfObjects = 64
+        
+        for i in 1...numberOfObjects {
+
+            let column = 30
+            let row = 25
+
+            let groundTile = groundTileMapNode.tileDefinition(atColumn: columns, row: rows)
+
+            let tile = groundTile == nil ? flowerTile : decorationTile
+
+            objectTileMap.setTileGroup(tile, forColumn: column, row: row)
+        }
+    }
+    
+    @objc func handleTapFrom(recognizer: UITapGestureRecognizer) {
+        if recognizer.state != .ended {
+            return
+        }
+        
+        let recognizerLocation = recognizer.location(in: recognizer.view!)
+        let location = self.convertPoint(fromView: recognizerLocation)
+        
+        
+        let map = self.childNode(withName: "Tile Map Node") as! SKTileMapNode
+//            else {
+//            fatalError("Background node not loaded")
+//        }
+        
+        let column = map.tileColumnIndex(fromPosition: location)
+        let row = map.tileRowIndex(fromPosition: location)
+        let tile = map.tileDefinition(atColumn: column, row: row)
+        
+        
+        
+        print("============")
+        print(column)
+        print(row)
+        print(tile)
+        print("============")
     }
     
     

@@ -23,8 +23,6 @@ class SettingsDetailVC: UIViewController {
     var isOn: Bool = false
     
     let center = UNUserNotificationCenter.current()
-//    center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-//    }
     let content = UNMutableNotificationContent()
     
     override func viewDidLoad() {
@@ -233,20 +231,19 @@ extension SettingsDetailVC: DatePickerDelegate {
         content.title = "오늘의 정원을 가꿀 시간이에요"
         content.body = "당신의 이야기를 들려주세요"
         content.badge = 1
+        content.sound = UNNotificationSound.default
+
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let currentDate = Date()
-        let calendar = Calendar.current
-        
-        var dateComponents = calendar.dateComponents([.year, .month, .day], from: currentDate)
-        
-        dateComponents.hour = calendar.component(.hour, from: date)
-        dateComponents.minute = calendar.component(.minute, from: date)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         
+        center.removeAllPendingNotificationRequests()
         center.add(request) { (error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)s")
+            }
         }
     }
 }
