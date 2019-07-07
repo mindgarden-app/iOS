@@ -61,26 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        guard let scheme = url.scheme else { return true }
-        if #available(iOS 9.0, *) {
-            if scheme.contains("com.googleusercontent.apps") {
-                return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                         sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                         annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-            }
-        }
-        return true
-    }
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        guard let scheme = url.scheme else { return true }
-        if scheme.contains("com.googleusercontent.apps") {
-            return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
-        }
-        return true
-    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
