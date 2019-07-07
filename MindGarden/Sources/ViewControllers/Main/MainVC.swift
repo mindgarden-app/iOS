@@ -16,6 +16,8 @@ class MainVC: UIViewController {
     @IBOutlet var homeBtn: UIButton!
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var listBtn: UIButton!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
     private var dateStr: String = ""
     
@@ -48,20 +50,20 @@ class MainVC: UIViewController {
         self.navigationItem.titleView = dateBtn
     }
     
-    @IBAction func homeBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-        
-        self.navigationController!.pushViewController(dvc, animated: true)
-    }
-    
     @IBAction func newBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
 
         self.navigationController!.pushViewController(dvc, animated: true)
     }
-
+    
     @IBAction func listBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func settingsBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsVC")
 
         self.navigationController!.pushViewController(dvc, animated: true)
     }
@@ -74,21 +76,12 @@ class MainVC: UIViewController {
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self)
     }
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
+    
+    @IBAction func treeAddBtnAction(_ sender: Any) {
+        // balloon이 있는 경우 판별하기
+        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
 }
 

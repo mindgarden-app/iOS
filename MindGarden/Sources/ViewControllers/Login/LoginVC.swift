@@ -25,7 +25,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
