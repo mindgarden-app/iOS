@@ -8,18 +8,18 @@
 
 import UIKit
 
-//protocol sendDataToViewProtocol {
-//    func inputData(data:String)
-//}
+protocol MoodDelegate: class {
+    func changeMood(img: String, text: String)
+}
 
 class DiaryPopUpVC: UIViewController {
 
-    @IBOutlet var popUpView: UIView!
     @IBOutlet var moodTV: UITableView!
     
-    var delegate:sendDataToViewProtocol? = nil
+    var delegate: MoodDelegate? = nil
     
-    var testArr: [String] = ["좋음", "별로", "보통", "아주 좋음", "그냥", "자고 싶음", "배고픔"]
+    var testArr: [String] = ["기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분 선택 안함"]
+    var imgArr: [String] = ["imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather0"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +27,14 @@ class DiaryPopUpVC: UIViewController {
         registerTVC()
         moodTV.delegate = self
         moodTV.dataSource = self
-        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        popUpView.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
-        popUpView.makeRounded(cornerRadius: 15)
-        popUpView.dropShadow(color: UIColor.gray, offSet: CGSize(width: 0.0, height: 3.0), opacity: 0.52, radius: 3)
-        // Do any additional setup after loading the view.
+        moodTV.makeRounded(cornerRadius: 10)
     }
     
     func registerTVC() {
         let nibName = UINib(nibName: "DiaryPopUpTVC", bundle: nil)
         moodTV.register(nibName, forCellReuseIdentifier: "DiaryPopUpTVC")
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension DiaryPopUpVC: UITableViewDataSource {
@@ -66,7 +49,7 @@ extension DiaryPopUpVC: UITableViewDataSource {
         
         let moodText = testArr[indexPath.row]
         
-//        cell.moodImage =
+        cell.moodImage.image = UIImage(named: imgArr[indexPath.row])
         cell.moodLabel.text = moodText
         
         return cell
@@ -79,7 +62,8 @@ extension DiaryPopUpVC: UITableViewDelegate {
         
         if(delegate != nil){
             let moodText = testArr[indexPath.row]
-            delegate?.inputData(data: moodText)
+            let moodImg = imgArr[indexPath.row]
+            delegate?.changeMood(img: moodImg, text: moodText)
             self.view.removeFromSuperview()
         }
         

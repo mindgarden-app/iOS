@@ -51,7 +51,7 @@
                 <outlet property="moodImage" destination="kAt-Yz-mjg" id="leA-5j-fXs"/>
                 <outlet property="moodLabel" destination="LcY-Y4-dzd" id="BWg-Ov-BXH"/>
             </connections>
-            <point key="canvasLocation" x="136.95652173913044" y="92.410714285714278"/>
+            <point key="canvasLocation" x="136.95652173913044" y="92.075892857142847"/>
         </tableViewCell>
     </objects>
 </document>

@@ -30,12 +30,15 @@ class DiaryNewVC: UIViewController {
     var moodImg: String = "imgWeather1"
     var image: String = "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
     var body: String = "본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 "
+    var galleryBtnMinY: CGFloat!
+    var galleryBtnMaxY: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBar()
         setTextView()
+        setgalleryBtnY()
         
         if mode == .edit {
             setData()
@@ -77,6 +80,12 @@ class DiaryNewVC: UIViewController {
     func setTextView() {
         inputTextView.text = placeholder
         inputTextView.textColor = UIColor.lightGray
+//        inputTextView.textContainerInset = UIEdgeInsets.zero
+//        inputTextView.textContainer.lineFragmentPadding = 0
+    }
+    
+    func setgalleryBtnY() {
+        galleryBtnMaxY = galleryBtn.frame.origin.y
     }
     
     func setData() {
@@ -93,7 +102,7 @@ class DiaryNewVC: UIViewController {
             imageView = UIImageView(image: UIImage(named: "imgWeather0"))
             imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
-            imageView.frame = CGRect(x: self.view.center.x - 100, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 200, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
+            imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 375, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
             self.view.addSubview(imageView)
         }
     }
@@ -131,13 +140,18 @@ class DiaryNewVC: UIViewController {
     
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+            galleryBtnMinY = galleryBtnMaxY - keyboardSize.size.height
+            print(galleryBtn.frame.origin.y)
+            print("show")
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtn.frame.origin.y + keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMinY + keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+            print(galleryBtn.frame.origin.y)
+            print("hide")
         }
     }
 }
@@ -201,7 +215,7 @@ UINavigationControllerDelegate{
         }
         
         imageView = UIImageView(image: pickedImage)
-        imageView.frame = CGRect(x: self.view.center.x - 100, y: inputTextView.frame.maxY + 5, width: 200, height: pickedImage.size.height * 300 / pickedImage.size.width)
+        imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5, width: 375, height: pickedImage.size.height * 300 / pickedImage.size.width)
         imageView.contentMode = .scaleAspectFit
         
         view.addSubview(imageView)

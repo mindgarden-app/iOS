@@ -10,4 +10,6 @@ target 'MindGarden' do
   pod 'DLRadioButton', '~> 1.4'
   pod 'Kingfisher'
   pod 'GoogleSignIn'
+  pod 'Alamofire', '~> 4.8.2'
+  pod 'SwiftGifOrigin', '~> 1.7.0'
 end

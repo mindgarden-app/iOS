@@ -30,19 +30,6 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         
         setNavigationBar()
-        
-        if let view = self.groundView as! SKView? {
-            if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .aspectFill
-                
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
     }
     
     func setNavigationBar() {

@@ -63,7 +63,7 @@ class DiaryDetailVC: UIViewController {
     func setImageView() {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
-        imageView.frame = CGRect(x: self.view.center.x - 100, y: bodyTextView.frame.maxY + 5 + bodyTextView.contentSize.height, width: 200, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
+        imageView.frame = CGRect(x: self.view.center.x - 166, y: bodyTextView.frame.maxY + 5 + bodyTextView.contentSize.height, width: 333, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
         self.view.addSubview(imageView)
     }
     
