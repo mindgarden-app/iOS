@@ -135,7 +135,7 @@ extension DiaryListVC: UITableViewDataSource {
         let date = Calendar.current.date(from: dateComponents)
         
         cell.dateLabel.text = String(day)
-        cell.dayOfWeekLabel.text = date?.getDayOfTheWeek()
+        cell.dayOfWeekLabel.text = date?.getDayOfTheWeek(lang: "ko")
         cell.titleLabel.text = "여기에 본문이 들어감 여기에 본문이 들어감 여기에 본문이 들어감"
         
         cell.layer.borderWidth = 1

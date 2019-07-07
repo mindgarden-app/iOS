@@ -12,10 +12,9 @@ import GameplayKit
 import PopupDialog
 
 class MainVC: UIViewController {
-    
-    @IBOutlet var homeBtn: UIButton!
+ 
     @IBOutlet var newBtn: UIButton!
-    @IBOutlet var listBtn: UIButton!
+    @IBOutlet var balloonImageView: UIImageView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
@@ -29,13 +28,16 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar()
+        // 말풍선 유무로 플러스 버튼 이미지 변경되어야함.
+//        balloonImageView.isHidden = true
+        
+        
+        setDate()
     }
     
-    func setNavigationBar() {
+    func setDate() {
         navigationController?.navigationBar.barTintColor = UIColor.white
-        
-        // 중앙 날짜 버튼
+
         let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
@@ -48,12 +50,22 @@ class MainVC: UIViewController {
         dateBtn.setTitleColor(.black, for: .normal)
         dateBtn.addTarget(self, action: #selector(dateBtnAction), for: .touchUpInside)
         self.navigationItem.titleView = dateBtn
+        
+        let calendar = Calendar.current
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .ordinal
+        let day = numberFormatter.string(from: calendar.component(.day, from: today) as NSNumber)
+        let dayOfTheWeek: String = today.getDayOfTheWeek(lang: "en")!
+        dateLabel.text = "\(day!). \(dayOfTheWeek)"
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC")
 
         self.navigationController!.pushViewController(dvc, animated: true)
+        
+        // 일기를 이미 작성한 경우
+//        self.simpleAlert(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
     }
     
     @IBAction func listBtnAction(_ sender: Any) {
@@ -77,11 +89,18 @@ class MainVC: UIViewController {
         popUpVC.didMove(toParent: self)
     }
     
-    @IBAction func treeAddBtnAction(_ sender: Any) {
-        // balloon이 있는 경우 판별하기
-        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC")
+    func setDateLabel() {
         
-        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func treeAddBtnAction(_ sender: Any) {
+        if !balloonImageView.isHidden {
+            let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC")
+            
+            self.navigationController!.pushViewController(dvc, animated: true)
+        } else {
+            self.simpleAlert(title: "Oops!", message: "일기를 작성해야 나무를 심을 수 있어요!ㅠㅠ")
+        }
     }
 }
 

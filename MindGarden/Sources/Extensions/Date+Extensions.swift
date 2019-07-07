@@ -21,8 +21,8 @@ enum DateFormatType: String {
 
 extension Date {
     
-    func getDayOfTheWeek() -> String? {
-        let weekdays = [
+    func getDayOfTheWeek(lang: String) -> String? {
+        let weekdaysInKorean = [
             "일",
             "월",
             "화",
@@ -32,8 +32,23 @@ extension Date {
             "토"
         ]
         
+        let weekdaysInEnglish = [
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat"
+        ]
+        
         let calendar = Calendar.current.component(.weekday, from: self)
-        return weekdays[calendar - 1]
+        
+        if lang == "ko" {
+            return weekdaysInKorean[calendar - 1]
+        } else {
+            return weekdaysInEnglish[calendar - 1]
+        }
     }
     
     func converToString(dateformat formatType: DateFormatType) -> String {

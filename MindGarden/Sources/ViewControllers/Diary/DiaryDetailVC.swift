@@ -45,7 +45,7 @@ class DiaryDetailVC: UIViewController {
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yy.MM.dd"
         let dateStr = dateFormatter.string(from: today)
-        let dayOfTheWeekStr: String? = today.getDayOfTheWeek()
+        let dayOfTheWeekStr: String? = today.getDayOfTheWeek(lang: "ko")
         
         self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
     }

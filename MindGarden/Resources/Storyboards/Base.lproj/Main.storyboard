@@ -38,106 +38,106 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_land" translatesAutoresizingMaskIntoConstraints="NO" id="bBN-cr-a7K">
-                                <rect key="frame" x="28" y="329" width="319" height="310"/>
+                                <rect key="frame" x="28" y="329" width="319" height="141.66666666666663"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="15" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="n3m-17-Dhe">
-                                <rect key="frame" x="28" y="378" width="54" height="61"/>
+                                <rect key="frame" x="66" y="423" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-0x-TlL">
-                                <rect key="frame" x="161" y="301" width="54" height="61"/>
+                                <rect key="frame" x="161" y="346" width="54" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree12" translatesAutoresizingMaskIntoConstraints="NO" id="VW6-gE-ZPy">
-                                <rect key="frame" x="135" y="316" width="54" height="61"/>
+                                <rect key="frame" x="173" y="361" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-vT-4jp">
-                                <rect key="frame" x="188" y="316" width="54" height="61"/>
+                                <rect key="frame" x="188" y="361" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="T52-SW-lU4">
-                                <rect key="frame" x="161" y="331" width="54" height="61"/>
+                                <rect key="frame" x="161" y="376" width="54" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-LT-V0Z">
-                                <rect key="frame" x="108" y="331" width="54" height="61"/>
+                                <rect key="frame" x="146" y="376" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree11" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-lt-R4Z">
-                                <rect key="frame" x="214" y="331" width="54" height="61"/>
+                                <rect key="frame" x="214" y="376" width="54" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree1" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-pr-KEd">
-                                <rect key="frame" x="188" y="347" width="54" height="61"/>
+                                <rect key="frame" x="188" y="392" width="54" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="u6c-9e-e7K">
-                                <rect key="frame" x="135" y="347" width="54" height="61"/>
+                                <rect key="frame" x="135" y="392" width="54" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="DDJ-mF-01O">
-                                <rect key="frame" x="81" y="347" width="54" height="61"/>
+                                <rect key="frame" x="119" y="392" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="vEk-9U-NC1">
-                                <rect key="frame" x="241" y="347" width="54" height="61"/>
+                                <rect key="frame" x="241" y="392" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree13" translatesAutoresizingMaskIntoConstraints="NO" id="Qa4-qO-9go">
-                                <rect key="frame" x="54" y="361" width="54" height="61"/>
+                                <rect key="frame" x="92" y="406" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="yC5-kH-8dn">
-                                <rect key="frame" x="108" y="361" width="54" height="61"/>
+                                <rect key="frame" x="146" y="406" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="13" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-J0-U2G">
-                                <rect key="frame" x="214" y="361" width="54" height="61"/>
+                                <rect key="frame" x="214" y="406" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="14" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree4" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-89-2CT">
-                                <rect key="frame" x="267" y="361" width="54" height="61"/>
+                                <rect key="frame" x="267" y="406" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="16" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="g8q-Uq-1Wi">
-                                <rect key="frame" x="81" y="377" width="54" height="61"/>
+                                <rect key="frame" x="119" y="422" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="17" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree9" translatesAutoresizingMaskIntoConstraints="NO" id="i7a-DB-UBc">
-                                <rect key="frame" x="241" y="377" width="54" height="61"/>
+                                <rect key="frame" x="241" y="422" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="18" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-vr-QyC">
-                                <rect key="frame" x="294" y="378" width="54" height="61"/>
+                                <rect key="frame" x="294" y="423" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="19" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="0Ap-he-9q3">
-                                <rect key="frame" x="55" y="392" width="54" height="61"/>
+                                <rect key="frame" x="93" y="437" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="1UI-PT-dsV">
-                                <rect key="frame" x="108" y="392" width="54" height="61"/>
+                                <rect key="frame" x="146" y="437" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_weeds" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-uM-hSi">
-                                <rect key="frame" x="214" y="392" width="54" height="61"/>
+                                <rect key="frame" x="214" y="437" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="zHK-MG-9rK">
-                                <rect key="frame" x="267" y="392" width="54" height="61"/>
+                                <rect key="frame" x="267" y="437" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="23" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree8" translatesAutoresizingMaskIntoConstraints="NO" id="Psf-85-YUG">
-                                <rect key="frame" x="81" y="407" width="54" height="61"/>
+                                <rect key="frame" x="119" y="452" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="24" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree7" translatesAutoresizingMaskIntoConstraints="NO" id="Dv3-9I-Deq">
-                                <rect key="frame" x="134" y="407" width="54" height="61"/>
+                                <rect key="frame" x="172" y="452" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree4" translatesAutoresizingMaskIntoConstraints="NO" id="GK4-F7-8bM">
-                                <rect key="frame" x="188" y="407" width="54" height="61"/>
+                                <rect key="frame" x="188" y="452" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="26" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree4" translatesAutoresizingMaskIntoConstraints="NO" id="cJ3-2z-rJo">
-                                <rect key="frame" x="241" y="407" width="54" height="61"/>
+                                <rect key="frame" x="241" y="452" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="27" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree4" translatesAutoresizingMaskIntoConstraints="NO" id="I25-Mv-Drm">
-                                <rect key="frame" x="108" y="422" width="54" height="61"/>
+                                <rect key="frame" x="146" y="467" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="28" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree4" translatesAutoresizingMaskIntoConstraints="NO" id="YJd-bw-6tG">
-                                <rect key="frame" x="161" y="422" width="54" height="61"/>
+                                <rect key="frame" x="161" y="467" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="29" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_weeds" translatesAutoresizingMaskIntoConstraints="NO" id="iF7-X5-g2v">
-                                <rect key="frame" x="134" y="438" width="54" height="61"/>
+                                <rect key="frame" x="172" y="483" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree6" translatesAutoresizingMaskIntoConstraints="NO" id="sUR-FC-n1R">
-                                <rect key="frame" x="188" y="438" width="54" height="61"/>
+                                <rect key="frame" x="188" y="483" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="31" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree14" translatesAutoresizingMaskIntoConstraints="NO" id="FpA-Hb-rzW">
-                                <rect key="frame" x="161" y="453" width="54" height="61"/>
+                                <rect key="frame" x="161" y="498" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_tree15" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-AZ-832">
-                                <rect key="frame" x="217" y="422" width="54" height="61"/>
+                                <rect key="frame" x="217" y="467" width="16" height="16"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-ZP-4Bc">
-                                <rect key="frame" x="170" y="400.66666666666669" width="35" height="29.333333333333314"/>
+                                <rect key="frame" x="170" y="414" width="16" height="16"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVd-u5-m1h">
                                 <rect key="frame" x="321" y="222" width="25" height="25"/>
@@ -151,7 +151,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-Cw-VdR">
-                                <rect key="frame" x="221" y="132" width="125" height="27"/>
+                                <rect key="frame" x="221" y="132" width="125" height="25.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="bOh-Bj-LF8"/>
                                 </constraints>
@@ -273,6 +273,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="balloonImageView" destination="Gnd-ZP-4Bc" id="AWS-5m-F89"/>
                         <outlet property="dateLabel" destination="JG9-Cw-VdR" id="yGQ-cN-d6c"/>
                         <outlet property="descriptionLabel" destination="bJI-GJ-Pxa" id="Mqd-hc-84i"/>
                         <outlet property="newBtn" destination="C5J-ip-He5" id="czJ-a1-i5C"/>
@@ -282,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="5604" y="829.06403940886707"/>
         </scene>
-        <!--Main GridVC-->
+        <!--나무 심기-->
         <scene sceneID="5CK-pe-EJD">
             <objects>
                 <viewController storyboardIdentifier="MainGridVC" id="PzX-bi-yDg" customClass="MainGridVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -290,35 +291,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s21-Dr-KaT">
+                                <rect key="frame" x="0.0" y="708" width="375" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tAl-U6-dHl">
-                                <rect key="frame" x="0.0" y="698" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="720" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4g1-s6-FCY">
-                                    <size key="itemSize" width="97" height="98"/>
+                                    <size key="itemSize" width="54" height="52"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AOy-gD-PbH">
-                                        <rect key="frame" x="0.0" y="-9" width="97" height="98"/>
+                                        <rect key="frame" x="0.0" y="11" width="54" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="97" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTL-Ne-Qdt">
-                                                    <rect key="frame" x="7" y="10" width="82" height="78"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sbm-UM-ivu">
-                                <rect key="frame" x="31" y="229" width="305" height="395"/>
+                                <rect key="frame" x="16" y="282" width="343" height="343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5jl-9m-rCf">
@@ -338,15 +338,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9r6-Kz-Kwe">
-                                <rect key="frame" x="0.0" y="670" width="375" height="124"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgMap" translatesAutoresizingMaskIntoConstraints="NO" id="qAH-2e-Fqq">
+                                <rect key="frame" x="209" y="129" width="149" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPointTop" translatesAutoresizingMaskIntoConstraints="NO" id="HwS-YR-dlJ">
+                                <rect key="frame" x="349" y="260" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPointTop" translatesAutoresizingMaskIntoConstraints="NO" id="FTa-4e-Mti">
+                                <rect key="frame" x="11" y="632" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btnCheck" translatesAutoresizingMaskIntoConstraints="NO" id="1rs-36-5jR">
+                                <rect key="frame" x="329" y="666" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xfv-1K-D9Z"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EAx-vD-2Sr">
+                    <navigationItem key="navigationItem" title="나무 심기" id="EAx-vD-2Sr">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="btnBack" id="iPq-vX-sF7">
                             <color key="tintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -356,6 +368,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gridCV" destination="Sbm-UM-ivu" id="MIp-lR-Em6"/>
+                        <outlet property="inventoryBackgroundView" destination="s21-Dr-KaT" id="TOy-Xz-pCr"/>
                         <outlet property="treeInventoryCV" destination="tAl-U6-dHl" id="MuM-sg-uE7"/>
                     </connections>
                 </viewController>
@@ -639,6 +652,7 @@
     </scenes>
     <resources>
         <image name="btnBack" width="13" height="27"/>
+        <image name="btnCheck" width="36.666667938232422" height="36.666667938232422"/>
         <image name="btnLeft" width="8.6666669845581055" height="12.333333015441895"/>
         <image name="btnList" width="20" height="20"/>
         <image name="btnPlus" width="25" height="25"/>
@@ -646,6 +660,8 @@
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnWritngMain" width="49" height="49"/>
         <image name="imgBalloon" width="33" height="29.333333969116211"/>
+        <image name="imgMap" width="149" height="73"/>
+        <image name="imgPointTop" width="15" height="15"/>
         <image name="ios_land" width="319" height="310"/>
         <image name="ios_tree1" width="54" height="61"/>
         <image name="ios_tree11" width="54" height="61"/>
