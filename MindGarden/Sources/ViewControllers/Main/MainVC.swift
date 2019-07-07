@@ -17,8 +17,6 @@ class MainVC: UIViewController {
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var listBtn: UIButton!
     
-    @IBOutlet var groundView: UIView!
-    
     private var dateStr: String = ""
     
     override func viewWillAppear(_ animated: Bool) {
