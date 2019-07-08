@@ -54,8 +54,10 @@ class PopUpVC: UIViewController {
             rightBtn.isHidden = false
             year -= 1
             setYearLabel(year: year)
-        } else {
-            leftBtn.isHidden = true
+            
+            if year == currentYear - 5 {
+                leftBtn.isHidden = true
+            }
         }
     }
     
@@ -66,8 +68,10 @@ class PopUpVC: UIViewController {
             rightBtn.isHidden = false
             year += 1
             setYearLabel(year: year)
-        } else {
-            rightBtn.isHidden = true
+            
+            if year == currentYear + 5 {
+                rightBtn.isHidden = true
+            }
         }
     }
     
