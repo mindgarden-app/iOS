@@ -102,7 +102,7 @@ extension LockVC: UICollectionViewDelegate {
             if inputNumber.count == 4 {
                 if mode == .validate {
                     if UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
-                        let dvc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
                         
                         inputNumber = ""
                         changePasscodeImg(count: 0)

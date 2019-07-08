@@ -20,21 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
     
         
-        if UserDefaults.standard.bool(forKey: "암호 설정") {
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
-            dvc.mode = LockMode.validate
-            let navigationController = UINavigationController(rootViewController: dvc)
-            self.window?.rootViewController = navigationController
-            self.window?.makeKeyAndVisible()
-        } else {
+//        if UserDefaults.standard.bool(forKey: "암호 설정") {
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+//            dvc.mode = LockMode.validate
+//            let navigationController = UINavigationController(rootViewController: dvc)
+//            self.window?.rootViewController = navigationController
+//            self.window?.makeKeyAndVisible()
+//        } else {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "LoginVC")
             let navigationController = UINavigationController(rootViewController: viewController)
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
-        }
+//        }
         
         return true
     }

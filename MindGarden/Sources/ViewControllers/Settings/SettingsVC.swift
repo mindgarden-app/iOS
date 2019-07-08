@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleSignIn
 
 class SettingsVC: UIViewController {
     
@@ -118,11 +117,9 @@ extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if indexPath.section == 1 {
-            GIDSignIn.sharedInstance()?.signOut()
-            
+        if indexPath.section == 1 { // 로그아웃 선택 시
+            UserDefaults.standard.set(false, forKey: "암호 설정")
             performSegue(withIdentifier: "unwindToLogin", sender: self)
-            
         } else if indexPath.section == 2 && indexPath.row != 3{
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
 
