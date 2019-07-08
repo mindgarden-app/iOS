@@ -15,10 +15,11 @@ protocol DateDelegate {
 class PopUpVC: UIViewController {
     
     var delegate:DateDelegate? = nil
-    private var year: Int = 0;
+    var year: Int = 0;
     private var currentYear: Int!
     private var month: Int = 0;
 
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet var popUpView: UIView!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var leftBtn: UIButton!
@@ -27,7 +28,9 @@ class PopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBackgroundViewAction()
         setYearLabel(year: year)
+        setBtn()
 
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         popUpView.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
@@ -35,16 +38,32 @@ class PopUpVC: UIViewController {
         popUpView.dropShadow(color: UIColor.gray, offSet: CGSize(width: 0.0, height: 3.0), opacity: 0.52, radius: 3)
     }
     
+    func addBackgroundViewAction() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(removePopUp))
+        self.backgroundView.addGestureRecognizer(gesture)
+    }
+    
     func setYearLabel(year: Int) {
+        let calendar = Calendar.current
+        let defaultYear = calendar.component(.year, from: Date())
+        self.currentYear = defaultYear
+        
         if year != 0 {
             self.year = year
             yearLabel.text = String(year)
         } else {
-            let calendar = Calendar.current
-            let defaultYear = calendar.component(.year, from: Date())
             self.year = defaultYear
-            self.currentYear = defaultYear
             yearLabel.text = String(defaultYear)
+        }
+    }
+    
+    func setBtn() {
+        if year == currentYear - 5 {
+            leftBtn.isHidden = true
+        }
+        
+        if year == currentYear + 5 {
+            rightBtn.isHidden = true
         }
     }
     
@@ -81,10 +100,18 @@ class PopUpVC: UIViewController {
         if(delegate != nil){
             month = sender.tag
             delegate?.changeDate(year: year, month: month)
-            UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
-                           completion: {(value: Bool) in
-                            self.view.removeFromSuperview()
-            })
+            removePopUp()
+//            UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
+//                           completion: {(value: Bool) in
+//                            self.view.removeFromSuperview()
+//            })
         }
+    }
+    
+    @objc func removePopUp() {
+        UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
+                       completion: {(value: Bool) in
+                        self.view.removeFromSuperview()
+        })
     }
 }
