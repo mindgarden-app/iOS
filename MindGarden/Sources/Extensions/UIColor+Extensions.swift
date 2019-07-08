@@ -9,19 +9,7 @@
 import UIKit
 
 extension UIColor {
-    
-    @nonobjc class var yellow: UIColor {
-        return UIColor(red: 254.0 / 255.0, green: 207.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-    }
-    
-    @nonobjc class var lightOrange: UIColor {
-        return UIColor(red: 253.0 / 255.0, green: 189.0 / 255.0, blue: 57.0 / 255.0, alpha: 1.0)
-    }
-    
-    @nonobjc class var peach: UIColor {
-        return UIColor(red: 238.0 / 255.0, green: 103.0 / 255.0, blue: 35.0 / 255.0, alpha: 1.0)
-    }
-    
+
     @nonobjc class var darkGray: UIColor {
         return UIColor(red: 60.0 / 255.0, green: 60.0 / 255.0, blue: 60.0 / 255.0, alpha: 1.0)
     }
@@ -46,8 +34,16 @@ extension UIColor {
         return UIColor(red: 248.0 / 255.0, green: 248.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var whiteForMainBorder: UIColor {
+        return UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0)
+    }
+    
     @nonobjc class var lightGreenForButton: UIColor {
         return UIColor(red: 154.0 / 255.0, green: 238.0 / 255.0, blue: 200.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var lightGreenForGrid: UIColor {
+        return UIColor(red: 225.0 / 255.0, green: 255.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
     }
     
 }

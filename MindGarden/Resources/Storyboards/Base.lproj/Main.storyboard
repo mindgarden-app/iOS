@@ -150,19 +150,33 @@
                                     <action selector="treeAddBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9Wp-u4-JSg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-Cw-VdR">
-                                <rect key="frame" x="221" y="132" width="125" height="25.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정원이 복작복작 해졌어요." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJI-GJ-Pxa">
+                                <rect key="frame" x="28" y="175" width="318" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="318" id="TBU-4L-gXK"/>
+                                    <constraint firstAttribute="height" constant="18" id="evX-VY-9e1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-Cw-VdR">
+                                <rect key="frame" x="221" y="132" width="125" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="bOh-Bj-LF8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MontserratAlternates-BoldItalic" family="Montserrat Alternates" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.47058823529411764" green="0.87058823529411766" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="정원이 복작복작 해졌어요.  이번 달 마무리를 잘 해봅시다!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJI-GJ-Pxa">
-                                <rect key="frame" x="182" y="178" width="164" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 달 마무리를 잘 해봅시다!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUu-7E-WRf">
+                                <rect key="frame" x="28" y="195" width="318" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="318" id="9pc-yd-Dk0"/>
+                                    <constraint firstAttribute="height" constant="18" id="HXC-2G-5uv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
-                                <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -179,7 +193,6 @@
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="I25-Mv-Drm" secondAttribute="trailing" constant="-134" id="5Qc-ev-iVw"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="241" id="5mJ-ZC-wqW"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="i7a-DB-UBc" secondAttribute="bottom" constant="-109" id="5ye-i1-xDO"/>
-                            <constraint firstItem="bJI-GJ-Pxa" firstAttribute="top" secondItem="JG9-Cw-VdR" secondAttribute="bottom" constant="19" id="6Ge-Dz-gvg"/>
                             <constraint firstItem="Gnd-ZP-4Bc" firstAttribute="width" secondItem="bBN-cr-a7K" secondAttribute="height" multiplier="7:62" id="6Ki-en-IZB"/>
                             <constraint firstItem="0ob-vT-4jp" firstAttribute="leading" secondItem="6Az-0x-TlL" secondAttribute="trailing" constant="-27" id="7Ef-wL-v9J"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="VW6-gE-ZPy" secondAttribute="trailing" constant="-161" id="7cc-0s-aLw"/>
@@ -193,10 +206,11 @@
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="iF7-X5-g2v" secondAttribute="trailing" constant="-160" id="C3q-NT-XIB"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="Qa4-qO-9go" secondAttribute="trailing" constant="-80" id="CN3-xl-ASw"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="JG9-Cw-VdR" secondAttribute="trailing" constant="29" id="CuE-uf-LRJ"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="bJI-GJ-Pxa" secondAttribute="trailing" constant="29" id="D9u-kT-XUR"/>
                             <constraint firstItem="Gnd-ZP-4Bc" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-177" id="Dah-Xi-HTm"/>
                             <constraint firstItem="cJ3-2z-rJo" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-106" id="EPf-e4-ecD"/>
+                            <constraint firstItem="EVd-u5-m1h" firstAttribute="top" secondItem="aUu-7E-WRf" secondAttribute="bottom" constant="9" id="GEU-fq-9CH"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="sUR-FC-n1R" secondAttribute="bottom" constant="-170" id="Gst-Fl-o2P"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="bJI-GJ-Pxa" secondAttribute="trailing" constant="29" id="Jgh-a8-x3N"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="yC5-kH-8dn" secondAttribute="bottom" constant="-93" id="KGV-1B-kEZ"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="EVd-u5-m1h" secondAttribute="trailing" constant="29" id="O0E-jx-S9N"/>
                             <constraint firstItem="Gzb-vr-QyC" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-53" id="PxS-4F-QV3"/>
@@ -210,6 +224,7 @@
                             <constraint firstItem="ffC-pr-KEd" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-159" id="VlK-Jb-bkI"/>
                             <constraint firstItem="C5J-ip-He5" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-177" id="Vvz-ek-GH5"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="VW6-gE-ZPy" secondAttribute="bottom" constant="-48" id="WCt-h7-7VG"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="aUu-7E-WRf" secondAttribute="trailing" constant="29" id="X0w-Fm-q0O"/>
                             <constraint firstItem="T52-SW-lU4" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-186" id="aek-eG-DJL"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="0ob-vT-4jp" secondAttribute="bottom" constant="-48" id="ahn-vu-d0q"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="Dv3-9I-Deq" secondAttribute="bottom" constant="-139" id="ay0-Bj-54U"/>
@@ -236,10 +251,11 @@
                             <constraint firstItem="0ob-vT-4jp" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-159" id="kLl-t1-iBg"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="Qa4-qO-9go" secondAttribute="bottom" constant="-93" id="lgA-GE-gOl"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="T52-SW-lU4" secondAttribute="bottom" constant="-63" id="lty-hb-tG0"/>
+                            <constraint firstItem="aUu-7E-WRf" firstAttribute="top" secondItem="bJI-GJ-Pxa" secondAttribute="bottom" constant="2" id="n7p-6O-xWv"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="Dv3-9I-Deq" secondAttribute="trailing" constant="-160" id="nmy-CW-JJe"/>
-                            <constraint firstItem="EVd-u5-m1h" firstAttribute="leading" secondItem="bJI-GJ-Pxa" secondAttribute="trailing" constant="-25" id="oRa-6X-nFU"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="FpA-Hb-rzW" secondAttribute="bottom" constant="-185" id="oyq-f3-vNJ"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="u6c-9e-e7K" secondAttribute="trailing" constant="-161" id="p8a-N3-hfn"/>
+                            <constraint firstItem="bJI-GJ-Pxa" firstAttribute="top" secondItem="JG9-Cw-VdR" secondAttribute="bottom" constant="16" id="pN8-ex-ax7"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="Tfr-AZ-832" secondAttribute="bottom" constant="-154" id="qk1-uG-D75"/>
                             <constraint firstItem="6Az-0x-TlL" firstAttribute="leading" secondItem="VW6-gE-ZPy" secondAttribute="trailing" constant="-28" id="s9B-2c-mKK"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="leading" secondItem="n3m-17-Dhe" secondAttribute="trailing" constant="-54" id="t3u-B9-Xw5"/>
@@ -259,12 +275,6 @@
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <navigationItem key="navigationItem" id="ifp-p6-4HK">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="btnList" id="vuU-FT-2D1">
-                            <color key="tintColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="listBtnAction:" destination="BV1-FR-VrT" id="z6d-UB-drk"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="btnSetting" id="ueg-3F-mGX">
                             <color key="tintColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -275,7 +285,8 @@
                     <connections>
                         <outlet property="balloonImageView" destination="Gnd-ZP-4Bc" id="AWS-5m-F89"/>
                         <outlet property="dateLabel" destination="JG9-Cw-VdR" id="yGQ-cN-d6c"/>
-                        <outlet property="descriptionLabel" destination="bJI-GJ-Pxa" id="Mqd-hc-84i"/>
+                        <outlet property="descriptionFirstLabel" destination="bJI-GJ-Pxa" id="l6s-BS-zXL"/>
+                        <outlet property="descriptionSecondLabel" destination="aUu-7E-WRf" id="DcK-Wg-hHG"/>
                         <outlet property="newBtn" destination="C5J-ip-He5" id="czJ-a1-i5C"/>
                     </connections>
                 </viewController>
@@ -346,7 +357,7 @@
                                 <rect key="frame" x="349" y="260" width="15" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPointTop" translatesAutoresizingMaskIntoConstraints="NO" id="FTa-4e-Mti">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPointBottom" translatesAutoresizingMaskIntoConstraints="NO" id="FTa-4e-Mti">
                                 <rect key="frame" x="11" y="632" width="15" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -354,6 +365,11 @@
                                 <rect key="frame" x="329" y="666" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-Yk-5og">
+                                <rect key="frame" x="132" y="398" width="111" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.49019607843137253" green="0.9137254901960784" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xfv-1K-D9Z"/>
@@ -371,6 +387,7 @@
                         <outlet property="gridCV" destination="Sbm-UM-ivu" id="MIp-lR-Em6"/>
                         <outlet property="inventoryBackgroundView" destination="s21-Dr-KaT" id="TOy-Xz-pCr"/>
                         <outlet property="treeInventoryCV" destination="tAl-U6-dHl" id="MuM-sg-uE7"/>
+                        <outlet property="waterView" destination="FZC-Yk-5og" id="UfO-X3-Wfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8J9-Pt-UPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -655,13 +672,13 @@
         <image name="btnBack" width="13" height="27"/>
         <image name="btnCheck" width="36.666667938232422" height="36.666667938232422"/>
         <image name="btnLeft" width="8.6666669845581055" height="12.333333015441895"/>
-        <image name="btnList" width="20" height="20"/>
         <image name="btnPlus" width="25" height="25"/>
         <image name="btnRight" width="8.6666669845581055" height="12.333333015441895"/>
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnWritngMain" width="49" height="49"/>
         <image name="imgBalloon" width="33" height="29.333333969116211"/>
         <image name="imgMap" width="149" height="73"/>
+        <image name="imgPointBottom" width="14.666666984558105" height="14.333333015441895"/>
         <image name="imgPointTop" width="15" height="15"/>
         <image name="ios_land" width="319" height="310"/>
         <image name="ios_tree1" width="54" height="61"/>
