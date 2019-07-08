@@ -161,6 +161,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnWeatherSelect1" translatesAutoresizingMaskIntoConstraints="NO" id="XiJ-FS-275">
+                                <rect key="frame" x="15" y="106" width="345" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="DxO-QN-xIt"/>
+                                    <constraint firstAttribute="width" secondItem="XiJ-FS-275" secondAttribute="height" multiplier="345:49" id="JAy-eI-f5U"/>
+                                </constraints>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-eP-3HB">
                                 <rect key="frame" x="23" y="195" width="333" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,6 +188,12 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnWeatherSelect0" translatesAutoresizingMaskIntoConstraints="NO" id="0vH-lw-Kvc">
+                                <rect key="frame" x="15" y="106" width="48" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="4oL-m5-8Qw"/>
+                                </constraints>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWeather1" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-yY-wvO">
                                 <rect key="frame" x="24" y="115" width="30" height="30"/>
                                 <constraints>
@@ -201,7 +214,12 @@
                         <constraints>
                             <constraint firstItem="7na-yK-dsl" firstAttribute="top" secondItem="9pQ-yY-wvO" secondAttribute="bottom" constant="26" id="0NJ-Bu-dQl"/>
                             <constraint firstItem="7Xa-eP-3HB" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="6pw-cP-7PD"/>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="15" id="88t-zY-TeZ"/>
+                            <constraint firstItem="XiJ-FS-275" firstAttribute="height" secondItem="0vH-lw-Kvc" secondAttribute="height" id="CPU-a6-haM"/>
+                            <constraint firstItem="WGg-6J-9VG" firstAttribute="leading" secondItem="XiJ-FS-275" secondAttribute="trailing" constant="-283" id="Cv8-kt-jwZ"/>
+                            <constraint firstItem="XiJ-FS-275" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="OCA-sk-IyE"/>
                             <constraint firstItem="WGg-6J-9VG" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="31" id="OCc-EN-CIs"/>
+                            <constraint firstItem="XiJ-FS-275" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="15" id="WqT-jJ-uII"/>
                             <constraint firstItem="9pQ-yY-wvO" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="24" id="XFG-Wl-hPJ"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="WGg-6J-9VG" secondAttribute="trailing" constant="66" id="aHU-EY-eOD"/>
                             <constraint firstItem="7na-yK-dsl" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="e82-wC-gYa"/>
@@ -209,6 +227,7 @@
                             <constraint firstItem="9pQ-yY-wvO" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="27" id="fTE-Ac-SCL"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="7Xa-eP-3HB" secondAttribute="trailing" constant="19" id="gpZ-bx-VId"/>
                             <constraint firstItem="7Xa-eP-3HB" firstAttribute="top" secondItem="7na-yK-dsl" secondAttribute="bottom" constant="6" id="hGp-mN-9Ia"/>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="jpj-Yn-nYn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pu5-h3-cX3"/>
                     </view>
