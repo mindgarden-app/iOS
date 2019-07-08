@@ -16,6 +16,7 @@ class PopUpVC: UIViewController {
     
     var delegate:DateDelegate? = nil
     private var year: Int = 0;
+    private var currentYear: Int!
     private var month: Int = 0;
 
     @IBOutlet var popUpView: UIView!
@@ -42,19 +43,32 @@ class PopUpVC: UIViewController {
             let calendar = Calendar.current
             let defaultYear = calendar.component(.year, from: Date())
             self.year = defaultYear
+            self.currentYear = defaultYear
             yearLabel.text = String(defaultYear)
         }
     }
     
     @IBAction func leftBtnAction(_ sender: Any) {
-        year -= 1
-        setYearLabel(year: year)
+        if year - 1 >= currentYear - 5 {
+            leftBtn.isHidden = false
+            rightBtn.isHidden = false
+            year -= 1
+            setYearLabel(year: year)
+        } else {
+            leftBtn.isHidden = true
+        }
     }
     
     
     @IBAction func rightBtnAction(_ sender: Any) {
-        year += 1
-        setYearLabel(year: year)
+        if year + 1 <= currentYear + 5 {
+            leftBtn.isHidden = false
+            rightBtn.isHidden = false
+            year += 1
+            setYearLabel(year: year)
+        } else {
+            rightBtn.isHidden = true
+        }
     }
     
     @IBAction func numBtnAction(_ sender: UIButton) {
