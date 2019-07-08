@@ -300,18 +300,18 @@
                                 <rect key="frame" x="0.0" y="720" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4g1-s6-FCY">
-                                    <size key="itemSize" width="54" height="52"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="4g1-s6-FCY">
+                                    <size key="itemSize" width="55" height="55"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AOy-gD-PbH">
-                                        <rect key="frame" x="0.0" y="11" width="54" height="52"/>
+                                        <rect key="frame" x="0.0" y="9.6666666666666661" width="55" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
@@ -367,6 +367,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gardenGridCV" destination="Sbm-UM-ivu" id="C5e-qP-kEr"/>
                         <outlet property="gridCV" destination="Sbm-UM-ivu" id="MIp-lR-Em6"/>
                         <outlet property="inventoryBackgroundView" destination="s21-Dr-KaT" id="TOy-Xz-pCr"/>
                         <outlet property="treeInventoryCV" destination="tAl-U6-dHl" id="MuM-sg-uE7"/>
