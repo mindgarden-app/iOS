@@ -67,13 +67,9 @@ class DiaryNewVC: UIViewController {
         self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
         
         if mode == .new {
-            let rightBtn = UIBarButtonItem(image: UIImage(named: "btnRegister"), style: .plain, target: self, action: #selector(saveBtnAction(_:)))
-            rightBtn.tintColor = UIColor.lightGreen
-            self.navigationItem.rightBarButtonItem = rightBtn
+            self.setNavigationBarItem(image: "btnRegister.png", target: self, action: #selector(saveBtnAction), direction: "right")
         } else if mode == .edit {
-            let rightBtn = UIBarButtonItem(image: UIImage(named: "btnComplete"), style: .plain, target: self, action: #selector(completeBtnAction(_:)))
-            rightBtn.tintColor = UIColor.lightGreen
-            self.navigationItem.rightBarButtonItem = rightBtn
+            self.setNavigationBarItem(image: "btnComplete.png", target: self, action: #selector(completeBtnAction), direction: "right")
         }
     }
     

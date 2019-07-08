@@ -118,12 +118,6 @@
                                 <action selector="backBtnAction:" destination="Y2I-Wb-1oe" id="tZa-0z-w7Z"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="btnRegister" id="BSH-va-4FW">
-                            <color key="tintColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="saveBtnAction:" destination="Y2I-Wb-1oe" id="lt3-hG-ya1"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="pKd-gi-YMd" id="5XK-57-LKX"/>
@@ -390,7 +384,6 @@
     <resources>
         <image name="btnBack" width="13" height="27"/>
         <image name="btnEdit" width="44" height="26"/>
-        <image name="btnRegister" width="44" height="26"/>
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnUpdown" width="22" height="17.333333969116211"/>
         <image name="btnWeatherSelect0" width="57" height="58"/>

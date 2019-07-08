@@ -51,6 +51,20 @@ extension UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func setNavigationBarItem(image: String, target: AnyObject, action: Selector, direction: String) {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: image), for: .normal)
+        button.addTarget(target, action: action, for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        if direction == "left" {
+            self.navigationItem.leftBarButtonItem = barButton
+        } else {
+            self.navigationItem.rightBarButtonItem = barButton
+        }
+    }
+    
     func setNavigationBarClear() {
         let bar: UINavigationBar! = self.navigationController?.navigationBar
         
