@@ -21,7 +21,10 @@ class MainVC: UIViewController {
     
     private var dateStr: String = ""
     var inputDate: DateComponents!
-    var year: Int!
+    var inputYear: Int!
+    var inputMonth: Int!
+    var currentYear: Int!
+    var currentMonth: Int!
     var day: String!
     var dayOfTheWeek: String!
     var isBalloon: Bool = false
@@ -65,7 +68,10 @@ class MainVC: UIViewController {
         if inputDate == nil {
             let today = Date()
             let calendar = Calendar.current
-            year = calendar.component(.year, from: today)
+            currentYear = calendar.component(.year, from: today)
+            inputYear = calendar.component(.year, from: today)
+            currentMonth = calendar.component(.month, from: today)
+            inputMonth = calendar.component(.month, from: today)
             inputDate = DateComponents(year: calendar.component(.year, from: today), month: calendar.component(.month, from: today), day: calendar.component(.day, from: today))
             dateStr = dateFormatter.string(from: today)
             day = numberFormatter.string(from: calendar.component(.day, from: today) as NSNumber)
@@ -83,7 +89,12 @@ class MainVC: UIViewController {
         dateBtn.addTarget(self, action: #selector(dateBtnAction), for: .touchUpInside)
         self.navigationItem.titleView = dateBtn
         
-        dateLabel.text = "\(day!). \(dayOfTheWeek!)"
+        if currentYear == inputYear && currentMonth == inputMonth {
+            dateLabel.isHidden = false
+            dateLabel.text = "\(day!). \(dayOfTheWeek!)"
+        } else {
+            dateLabel.isHidden = true
+        }
     }
     
     func setDescriptionLabel() {
@@ -116,7 +127,7 @@ class MainVC: UIViewController {
     @objc func dateBtnAction() {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
         popUpVC.delegate = self
-        popUpVC.year = year
+        popUpVC.year = inputYear
         self.addChild(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
@@ -138,7 +149,8 @@ class MainVC: UIViewController {
 extension MainVC: DateDelegate {
     func changeDate(year: Int, month: Int) {
         inputDate = DateComponents(year: year, month: month)
-        self.year = year
+        self.inputYear = year
+        self.inputMonth = month
         
         setDate()
     }
