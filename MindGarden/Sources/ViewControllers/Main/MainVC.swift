@@ -25,13 +25,13 @@ class MainVC: UIViewController {
     var inputMonth: Int!
     var currentYear: Int!
     var currentMonth: Int!
+    var isCurrent: Bool! = true
     var day: String!
     var dayOfTheWeek: String!
-    var isBalloon: Bool = false
     var treeNum: Int = 0
     var treeList: [Tree] = []
     var descriptionArr: [[String]] = [["이번 달 정원도 잘 꾸며볼까요?", "함께 멋있는 정원을 만들어보아요."], ["오늘 기분은 어땠어요?", "정원이 조금씩 채워지고 있어요"], ["정원이 복작복작 해졌어요", "이번 달 마무리를 잘해봅시다!"], ["축하해요!", "정원을 멋지게 완성했네요"]]
-//    var previousDescriptionArr: [[String]] = [["나무가 하나도 없어요", "정원이 휑하네요"], ["\(self.treeNum)개의 나무를 심었네요", "많이 바빴나요?"], ["\(self.treeNum)개의 나무를 심었네요", "꽤 멋있는데요!"], ["\(self.treeNum)개의 나무를 심었네요", "수고했어요 짝짝짝"]]
+    var previousDescriptionArr: [[String]] = [["나무가 하나도 없어요", "정원이 휑하네요"], ["개의 나무를 심었네요", "많이 바빴나요?"], ["개의 나무를 심었네요", "꽤 멋있는데요!"], ["개의 나무를 심었네요", "수고했어요 짝짝짝"]]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -41,14 +41,11 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 말풍선 유무로 플러스 버튼 이미지 변경되어야함.
-//        balloonImageView.isHidden = true
-        
         balloonImageView.isHidden = true
         
         setDate()
         setBarButtonItem()
-        getGarden(date: "2019-07")
+        getGarden(date: "\(inputYear!)-\(String(format: "%02d", inputMonth!))")
     }
     
     func getGarden(date: String) {
@@ -65,6 +62,7 @@ class MainVC: UIViewController {
                 self.treeList = res as! [Tree]
                 print(self.treeList)
                 self.makeGarden()
+                self.setDescriptionLabel(treeNum: self.treeList[0].treeNum, current: self.isCurrent)
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
@@ -83,6 +81,8 @@ class MainVC: UIViewController {
     }
     
     func makeGarden() {
+        var locationArr: [Int] = Array(1...32)
+        
         if treeList[0].balloon == 1 {
             balloonImageView.isHidden = false
         }
@@ -91,6 +91,12 @@ class MainVC: UIViewController {
             let imageName: String = tree.treeIdx != 16 ? "ios_tree\(tree.treeIdx + 1)": "ios_weeds"
             let treeImageView = self.view.viewWithTag(tree.location) as! UIImageView
             treeImageView.image = UIImage(named: imageName)
+            locationArr.removeAll{ $0 == tree.location }
+        }
+        
+        for location in locationArr {
+            let treeImageView = self.view.viewWithTag(location) as! UIImageView
+            treeImageView.image = nil
         }
     }
     
@@ -110,7 +116,7 @@ class MainVC: UIViewController {
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yyyy년 M월"
         
-        if inputDate == nil {
+        if inputDate == nil || isCurrent == true {
             let today = Date()
             let calendar = Calendar.current
             currentYear = calendar.component(.year, from: today)
@@ -142,8 +148,42 @@ class MainVC: UIViewController {
         }
     }
     
-    func setDescriptionLabel() {
-        
+    func setDescriptionLabel(treeNum: Int, current: Bool) {
+        if current {
+            switch treeNum {
+            case 0:
+                descriptionFirstLabel.text = descriptionArr[0][0]
+                descriptionSecondLabel.text = descriptionArr[0][1]
+            case 1...10:
+                descriptionFirstLabel.text = descriptionArr[1][0]
+                descriptionSecondLabel.text = descriptionArr[1][1]
+            case 11...20:
+                descriptionFirstLabel.text = descriptionArr[2][0]
+                descriptionSecondLabel.text = descriptionArr[2][1]
+            case 21...32:
+                descriptionFirstLabel.text = descriptionArr[3][0]
+                descriptionSecondLabel.text = descriptionArr[3][1]
+            default:
+                break
+            }
+        } else {
+            switch treeNum {
+            case 0:
+                descriptionFirstLabel.text = previousDescriptionArr[0][0]
+                descriptionSecondLabel.text = previousDescriptionArr[0][1]
+            case 1...10:
+                descriptionFirstLabel.text = "\(treeNum)" + previousDescriptionArr[1][0]
+                descriptionSecondLabel.text = previousDescriptionArr[1][1]
+            case 11...20:
+                descriptionFirstLabel.text = "\(treeNum)" + previousDescriptionArr[2][0]
+                descriptionSecondLabel.text = previousDescriptionArr[2][1]
+            case 21...32:
+                descriptionFirstLabel.text = "\(treeNum)" + previousDescriptionArr[3][0]
+                descriptionSecondLabel.text = previousDescriptionArr[3][1]
+            default:
+                break
+            }
+        }
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
@@ -197,7 +237,14 @@ extension MainVC: DateDelegate {
         self.inputYear = year
         self.inputMonth = month
         
+        if currentYear == inputYear && currentMonth == inputMonth {
+            isCurrent = true
+        } else {
+            isCurrent = false
+        }
+        
         setDate()
+        getGarden(date: "\(inputYear!)-\(String(format: "%02d", inputMonth!))")
     }
 }
 
