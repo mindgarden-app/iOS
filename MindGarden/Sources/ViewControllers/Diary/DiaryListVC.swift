@@ -12,10 +12,10 @@ class DiaryListVC: UIViewController {
 
     
     @IBOutlet var diaryListTV: UITableView!
-//    var testArr: [String] = []
     private var testArr: [String] = ["First", "Second", "Third"]
     var inputDate: DateComponents!
     var dateStr: String = ""
+    var diaryList: [Diary] = []
     @IBOutlet var settingsBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -23,6 +23,7 @@ class DiaryListVC: UIViewController {
 
         navigationController?.isNavigationBarHidden = false
         
+        getDiaryList(date: "2019-07")
         setNavigationBar()
         registerTVC()
         diaryListTV.delegate = self
@@ -107,8 +108,9 @@ class DiaryListVC: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         emptyView.backgroundColor = UIColor.whiteForBorder
-        let emptyImageView = UIImageView(image: UIImage(named: "imgListzero"))
-        emptyImageView.frame = CGRect(x: 117, y: 136, width: emptyImageView.frame.size.width, height: emptyImageView.frame.size.height)
+        let image: UIImage = UIImage(named: "imgListZero")!
+        let emptyImageView = UIImageView(image: image)
+        emptyImageView.frame = CGRect(x: 117, y: 225, width: image.size.width, height: image.size.height)
         emptyView.addSubview(emptyImageView)
         self.view.addSubview(emptyView)
     }
@@ -117,14 +119,14 @@ class DiaryListVC: UIViewController {
 extension DiaryListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if testArr.count == 0 {
+        if diaryList.count == 0 {
             tableView.backgroundView?.isHidden = false
             addEmptyView()
         } else {
             tableView.backgroundView?.isHidden = true
         }
         
-        return testArr.count
+        return diaryList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

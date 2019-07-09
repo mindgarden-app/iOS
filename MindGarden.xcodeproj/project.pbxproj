@@ -89,6 +89,7 @@
 		DE8D714822D430B000A29973 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8D714722D430B000A29973 /* LocalAuthentication.framework */; };
 		DE8D714A22D492D800A29973 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714922D492D800A29973 /* Login.swift */; };
 		DE8D714C22D4F4F100A29973 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714B22D4F4F100A29973 /* Tree.swift */; };
+		DE8D714E22D5265E00A29973 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714D22D5265E00A29973 /* Diary.swift */; };
 		DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235022D04668009657C3 /* NetworkResult.swift */; };
 		DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235222D046A5009657C3 /* APIConstants.swift */; };
 		DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235422D0471A009657C3 /* ResponseString.swift */; };
@@ -182,6 +183,7 @@
 		DE8D714722D430B000A29973 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		DE8D714922D492D800A29973 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DE8D714B22D4F4F100A29973 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		DE8D714D22D5265E00A29973 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		DE9F235022D04668009657C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		DE9F235222D046A5009657C3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		DE9F235422D0471A009657C3 /* ResponseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseString.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				DE8D714322D390A400A29973 /* DefaultRes.swift */,
 				DE8D714922D492D800A29973 /* Login.swift */,
 				DE8D714B22D4F4F100A29973 /* Tree.swift */,
+				DE8D714D22D5265E00A29973 /* Diary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */,
 				DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */,
 				DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */,
+				DE8D714E22D5265E00A29973 /* Diary.swift in Sources */,
 				DE8D714222D38EA600A29973 /* GardenService.swift in Sources */,
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
