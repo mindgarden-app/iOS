@@ -82,6 +82,12 @@
 		DE8D713C22D25C1100A29973 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713122D25C1100A29973 /* NotoSansCJKkr-Regular.otf */; };
 		DE8D713D22D25C1100A29973 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713222D25C1100A29973 /* NotoSansCJKkr-Bold.otf */; };
 		DE8D713E22D25C1100A29973 /* LICENSE_OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713322D25C1100A29973 /* LICENSE_OFL.txt */; };
+		DE8D714022D38E1900A29973 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D713F22D38E1900A29973 /* LoginService.swift */; };
+		DE8D714222D38EA600A29973 /* GardenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714122D38EA600A29973 /* GardenService.swift */; };
+		DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714322D390A400A29973 /* DefaultRes.swift */; };
+		DE8D714622D3919F00A29973 /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714522D3919F00A29973 /* DiaryService.swift */; };
+		DE8D714822D430B000A29973 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8D714722D430B000A29973 /* LocalAuthentication.framework */; };
+		DE8D714A22D492D800A29973 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714922D492D800A29973 /* Login.swift */; };
 		DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235022D04668009657C3 /* NetworkResult.swift */; };
 		DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235222D046A5009657C3 /* APIConstants.swift */; };
 		DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235422D0471A009657C3 /* ResponseString.swift */; };
@@ -168,6 +174,12 @@
 		DE8D713122D25C1100A29973 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		DE8D713222D25C1100A29973 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		DE8D713322D25C1100A29973 /* LICENSE_OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_OFL.txt; sourceTree = "<group>"; };
+		DE8D713F22D38E1900A29973 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		DE8D714122D38EA600A29973 /* GardenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenService.swift; sourceTree = "<group>"; };
+		DE8D714322D390A400A29973 /* DefaultRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRes.swift; sourceTree = "<group>"; };
+		DE8D714522D3919F00A29973 /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
+		DE8D714722D430B000A29973 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		DE8D714922D492D800A29973 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DE9F235022D04668009657C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		DE9F235222D046A5009657C3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		DE9F235422D0471A009657C3 /* ResponseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseString.swift; sourceTree = "<group>"; };
@@ -181,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8D714822D430B000A29973 /* LocalAuthentication.framework in Frameworks */,
 				4FD6F56BA51831F9A8E27976 /* Pods_MindGarden.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				DE9F235222D046A5009657C3 /* APIConstants.swift */,
+				DE8D713F22D38E1900A29973 /* LoginService.swift */,
+				DE8D714122D38EA600A29973 /* GardenService.swift */,
+				DE8D714522D3919F00A29973 /* DiaryService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -248,6 +264,8 @@
 				DE9F235022D04668009657C3 /* NetworkResult.swift */,
 				DE9F235422D0471A009657C3 /* ResponseString.swift */,
 				DE9F235622D04737009657C3 /* ResponseArray.swift */,
+				DE8D714322D390A400A29973 /* DefaultRes.swift */,
+				DE8D714922D492D800A29973 /* Login.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +493,7 @@
 		FDCE8B3B6BB9CE5792D00149 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE8D714722D430B000A29973 /* LocalAuthentication.framework */,
 				6F670888A5DBB32200B4D9BD /* Pods_MindGarden.framework */,
 			);
 			name = Frameworks;
@@ -687,14 +706,17 @@
 				DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */,
 				DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */,
 				DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */,
+				DE8D714222D38EA600A29973 /* GardenService.swift in Sources */,
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
+				DE8D714622D3919F00A29973 /* DiaryService.swift in Sources */,
 				DE7BC6FB22CBB8B500AD77EC /* SettingsFontTVC.swift in Sources */,
 				DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */,
 				DE2D927522CD132A00A391E1 /* DatePickerTVC.swift in Sources */,
 				DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */,
 				DE06596C22C97E0D00D000BC /* DiaryListTVC.swift in Sources */,
 				DE7BC6F522CBB46C00AD77EC /* SettingsWithSwitchTVC.swift in Sources */,
+				DE8D714A22D492D800A29973 /* Login.swift in Sources */,
 				DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */,
 				DE7BC70622CC871C00AD77EC /* LockVC.swift in Sources */,
 				DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */,
@@ -705,7 +727,9 @@
 				DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */,
 				DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */,
 				DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */,
+				DE8D714022D38E1900A29973 /* LoginService.swift in Sources */,
 				DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */,
+				DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */,
 				DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */,
 				DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */,
 				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,

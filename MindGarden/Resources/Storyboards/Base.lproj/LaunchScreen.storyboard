@@ -18,15 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="splash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcA-bx-SDF">
-                                <rect key="frame" x="144" y="421" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rRL-nA-YOz">
+                                <rect key="frame" x="58" y="354" width="261" height="45"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rRL-nA-YOz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="7wo-HA-w8P"/>
+                            <constraint firstItem="rRL-nA-YOz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58" id="YRO-b9-n6d"/>
+                            <constraint firstItem="rRL-nA-YOz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="9:28" id="bp7-30-5cf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rRL-nA-YOz" secondAttribute="trailing" constant="56" id="jzY-C9-pZr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -35,4 +37,7 @@
             <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="imgSplashLogo" width="261" height="45"/>
+    </resources>
 </document>
