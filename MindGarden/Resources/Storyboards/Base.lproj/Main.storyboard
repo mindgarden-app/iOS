@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios_land" translatesAutoresizingMaskIntoConstraints="NO" id="bBN-cr-a7K">
-                                <rect key="frame" x="28" y="329" width="319" height="16"/>
+                                <rect key="frame" x="28" y="329" width="319" height="141.66666666666663"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="15" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n3m-17-Dhe">
                                 <rect key="frame" x="28" y="378" width="54" height="61"/>
@@ -136,8 +136,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-AZ-832">
                                 <rect key="frame" x="217" y="422" width="54" height="61"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-ZP-4Bc">
-                                <rect key="frame" x="170" y="400.66666666666674" width="1.6666666666666572" height="29.333333333333314"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-ZP-4Bc">
+                                <rect key="frame" x="170" y="414" width="16" height="16"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVd-u5-m1h">
                                 <rect key="frame" x="321" y="222" width="25" height="25"/>
@@ -689,6 +689,7 @@
         <image name="btnRight" width="8.6666669845581055" height="12.333333015441895"/>
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnWritngMain" width="49" height="49"/>
+        <image name="imgBalloon" width="33" height="29.333333969116211"/>
         <image name="imgMap" width="149" height="73"/>
         <image name="imgPointBottom" width="14.666666984558105" height="14.333333015441895"/>
         <image name="imgPointTop" width="15" height="15"/>

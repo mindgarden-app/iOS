@@ -44,7 +44,7 @@ class MainVC: UIViewController {
         // 말풍선 유무로 플러스 버튼 이미지 변경되어야함.
 //        balloonImageView.isHidden = true
         
-        
+        balloonImageView.isHidden = true
         
         setDate()
         setBarButtonItem()
@@ -83,8 +83,12 @@ class MainVC: UIViewController {
     }
     
     func makeGarden() {
+        if treeList[0].balloon == 1 {
+            balloonImageView.isHidden = false
+        }
+        
         for tree in treeList {
-            let imageName = "ios_tree\(tree.treeIdx)"
+            let imageName: String = tree.treeIdx != 16 ? "ios_tree\(tree.treeIdx + 1)": "ios_weeds"
             let treeImageView = self.view.viewWithTag(tree.location) as! UIImageView
             treeImageView.image = UIImage(named: imageName)
         }
