@@ -94,7 +94,7 @@ class DiaryNewVC: UIViewController {
         inputTextViewHeightConstraint.constant = inputTextView.contentSize.height
         
         if !image.isEmpty {
-            imageView = UIImageView(image: UIImage(named: "imgWeather0"))
+            imageView = UIImageView(image: UIImage(named: "imgWeather11None"))
             imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
             imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 375, height: imageView.frame.size.height * 300 / imageView.frame.size.width)

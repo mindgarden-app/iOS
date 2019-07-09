@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-aA-uv6">
-                                <rect key="frame" x="23" y="195" width="333" height="34"/>
+                                <rect key="frame" x="23" y="189" width="333" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="8hY-GX-xDF"/>
                                 </constraints>
@@ -39,28 +39,32 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-0h-esM">
-                                <rect key="frame" x="15" y="106" width="344" height="58"/>
+                                <rect key="frame" x="15" y="105" width="344" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="344" id="26D-4G-A6Q"/>
+                                    <constraint firstAttribute="height" constant="49" id="tX2-J1-xlL"/>
+                                </constraints>
                                 <state key="normal" image="btnWeatherSelect1"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-eQ-9qR">
-                                <rect key="frame" x="15" y="106" width="57" height="58"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-eQ-9qR">
+                                <rect key="frame" x="12" y="104" width="52" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uxo-eQ-9qR" secondAttribute="height" multiplier="52:51" id="3wT-ay-c6e"/>
+                                    <constraint firstAttribute="width" constant="52" id="4EM-ls-5vL"/>
+                                    <constraint firstAttribute="height" constant="51" id="Ooh-NO-Arv"/>
+                                </constraints>
                                 <state key="normal" image="btnWeatherSelect0"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-aa-Jkk">
-                                <rect key="frame" x="33" y="126" width="20" height="19"/>
-                                <state key="normal" title="Button" image="imgWeather0"/>
+                                <rect key="frame" x="17" y="108" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JS8-bU-3zO"/>
+                                    <constraint firstAttribute="width" constant="40" id="hre-DI-sfs"/>
+                                    <constraint firstAttribute="width" secondItem="aaB-aa-Jkk" secondAttribute="height" multiplier="1:1" id="lUA-aI-YXK"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="imgWeather11None"/>
                                 <connections>
                                     <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="mBb-is-zMN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-I7-vXX">
-                                <rect key="frame" x="71" y="118" width="261" height="32"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                <state key="normal" title="기분을 선택하세요">
-                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Brj-vV-x9Z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-Ek-dRZ">
@@ -74,40 +78,40 @@
                                     <action selector="galleryBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Xmc-cr-u22"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-I7-vXX">
+                                <rect key="frame" x="72" y="112" width="261" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LFe-I7-vXX" secondAttribute="height" multiplier="261:32" id="uNi-U6-ETy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <state key="normal" title="기분을 선택하세요">
+                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Brj-vV-x9Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="aaB-aa-Jkk" secondAttribute="trailing" constant="-38" id="3vy-v8-tsO"/>
-                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="31" id="4wB-9T-NVy"/>
-                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="18" id="6Z6-Dc-8E3"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="uxo-eQ-9qR" secondAttribute="bottom" constant="614" id="6ZB-nR-zZe"/>
                             <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="16" id="6eO-dL-Lu4"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="18" id="DQB-ei-evH"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="-1" id="E60-xV-WaG"/>
-                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="aaB-aa-Jkk" secondAttribute="bottom" constant="50" id="KIQ-xK-mck"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="-57" id="Le0-Iw-Uia"/>
-                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="5:203" id="PDU-za-x5V"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="24" id="7wF-6l-nze"/>
+                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="17" id="9j7-Mp-o4Q"/>
+                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="20" id="JtA-ca-e34"/>
                             <constraint firstItem="qTw-Ek-dRZ" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="325" id="PjR-YU-lri"/>
+                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="16" id="R9L-za-XD2"/>
                             <constraint firstItem="Goe-aA-uv6" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="23" id="TvI-ht-AlK"/>
                             <constraint firstItem="ME0-0h-esM" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="86:203" id="UfC-3P-ZjS"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="uxo-eQ-9qR" secondAttribute="top" id="Uie-sl-yIw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qTw-Ek-dRZ" secondAttribute="bottom" constant="-3" id="aAr-sJ-4s0"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="aaB-aa-Jkk" secondAttribute="bottom" constant="633" id="eJW-uG-1PI"/>
                             <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="Goe-aA-uv6" secondAttribute="trailing" constant="19" id="fhf-WE-flF"/>
                             <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="15" id="g4L-gy-eEC"/>
-                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="33" id="gPR-c5-8Gj"/>
                             <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="qTw-Ek-dRZ" secondAttribute="trailing" constant="15" id="giO-Gc-Prf"/>
-                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="38" id="h7l-E5-icZ"/>
                             <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="LFe-I7-vXX" secondAttribute="bottom" constant="45" id="l2V-xN-hky"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="30" id="lgv-Nf-P4c"/>
-                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="uxo-eQ-9qR" secondAttribute="bottom" constant="31" id="nfO-d4-R3b"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="LFe-I7-vXX" secondAttribute="bottom" constant="628" id="oFB-v9-LeB"/>
                             <constraint firstItem="LFe-I7-vXX" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="9:28" id="oS5-31-xoO"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="-288" id="tZH-pf-bQQ"/>
+                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="8" id="pbZ-uJ-AN0"/>
+                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="17" id="uib-2N-AOi"/>
                             <constraint firstItem="qTw-Ek-dRZ" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="5:116" id="vKG-KY-kbQ"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="614" id="vMs-8b-gCb"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="71" id="yTW-6Z-kXi"/>
-                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="15" id="zvo-ux-Huf"/>
+                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="12" id="wOD-Cz-vbO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k0h-0G-1Ja"/>
                     </view>
@@ -410,7 +414,7 @@
         <image name="btnWeatherSelect1" width="354" height="58"/>
         <image name="btnWriting" width="20.666666030883789" height="20.666666030883789"/>
         <image name="icnGallary" width="35" height="35"/>
-        <image name="imgWeather0" width="20" height="19"/>
         <image name="imgWeather1" width="30" height="30"/>
+        <image name="imgWeather11None" width="45" height="45"/>
     </resources>
 </document>
