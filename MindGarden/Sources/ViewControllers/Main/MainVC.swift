@@ -29,6 +29,7 @@ class MainVC: UIViewController {
     var dayOfTheWeek: String!
     var isBalloon: Bool = false
     var treeNum: Int = 0
+    var treeList: [Tree] = []
     var descriptionArr: [[String]] = [["이번 달 정원도 잘 꾸며볼까요?", "함께 멋있는 정원을 만들어보아요."], ["오늘 기분은 어땠어요?", "정원이 조금씩 채워지고 있어요"], ["정원이 복작복작 해졌어요", "이번 달 마무리를 잘해봅시다!"], ["축하해요!", "정원을 멋지게 완성했네요"]]
 //    var previousDescriptionArr: [[String]] = [["나무가 하나도 없어요", "정원이 휑하네요"], ["\(self.treeNum)개의 나무를 심었네요", "많이 바빴나요?"], ["\(self.treeNum)개의 나무를 심었네요", "꽤 멋있는데요!"], ["\(self.treeNum)개의 나무를 심었네요", "수고했어요 짝짝짝"]]
     
@@ -47,6 +48,46 @@ class MainVC: UIViewController {
         
         setDate()
         setBarButtonItem()
+        getGarden(date: "2019-07")
+    }
+    
+    func getGarden(date: String) {
+        let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+        
+        GardenService.shared.getGarden(userIdx: userIdx, date: date) {
+            [weak self]
+            data in
+            
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let res):
+                self.treeList = res as! [Tree]
+                print(self.treeList)
+                self.makeGarden()
+                break
+            case .requestErr(let err):
+                print(".requestErr(\(err))")
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                break
+            }
+        }
+    }
+    
+    func makeGarden() {
+        for tree in treeList {
+            let imageName = "ios_tree\(tree.treeIdx)"
+            let treeImageView = self.view.viewWithTag(tree.location) as! UIImageView
+            treeImageView.image = UIImage(named: imageName)
+        }
     }
     
     func setBarButtonItem() {

@@ -7,11 +7,19 @@
 //
 
 struct APIConstants {
-    static let BaseURL = "http://hyunjkluz.ml:2424/api"
+    static let BaseURL = "http://13.125.190.74:3000"
+    
     static let AuthURL = BaseURL + "/auth"
-    static let LoginURL = AuthURL + "/signin"
-    static let WebtoonURL = BaseURL + "/webtoons"
-    static let WebtoonMainURL = WebtoonURL + "/main"
-    static let EpisodeURL = WebtoonURL + "/episodes"
-    static let CommentURL = EpisodeURL + "/cmts"
+    static let KaKaoLoginURL = AuthURL + "/login/kakao"
+    static let LogoutURL = AuthURL + "/mail"
+    
+    static let GardenURL = BaseURL + "/garden"
+    static let GardenAddURL = GardenURL + "/plant"
+    
+    static let DiaryURL = BaseURL + "/diary"
+    static let DiaryDetailURL = DiaryURL + "/click"
+    static let DiaryListURL = BaseURL + "/diarylist"
+    static let DiaryDeleteURL = DiaryListURL + "/delete"
+    static let DiaryAddURL = DiaryURL + "/save"
+    static let DiaryEditURL = DiaryURL + "/complete"
 }
