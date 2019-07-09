@@ -267,7 +267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBL-Do-rbG">
-                                <rect key="frame" x="56" y="147" width="263" height="514"/>
+                                <rect key="frame" x="56" y="151" width="263" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryPopUpTVC" id="c4z-yn-gBN">
@@ -284,9 +284,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xBL-Do-rbG" firstAttribute="leading" secondItem="MYU-DA-Go3" secondAttribute="leading" constant="56" id="Vxa-Cm-WtS"/>
-                            <constraint firstItem="MYU-DA-Go3" firstAttribute="bottom" secondItem="xBL-Do-rbG" secondAttribute="bottom" constant="117" id="g4A-GD-adt"/>
+                            <constraint firstItem="MYU-DA-Go3" firstAttribute="bottom" secondItem="xBL-Do-rbG" secondAttribute="bottom" constant="106" id="axp-ek-utb"/>
                             <constraint firstItem="xBL-Do-rbG" firstAttribute="width" secondItem="98R-rk-iJc" secondAttribute="height" multiplier="263:812" id="nV1-0t-kD4"/>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="top" secondItem="MYU-DA-Go3" secondAttribute="top" constant="103" id="uP1-es-L3d"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="top" secondItem="MYU-DA-Go3" secondAttribute="top" constant="107" id="uvP-LS-ucC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MYU-DA-Go3"/>
                     </view>

@@ -18,8 +18,8 @@ class DiaryPopUpVC: UIViewController {
     
     var delegate: MoodDelegate? = nil
     
-    var testArr: [String] = ["기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분이 너무 좋아요", "기분 선택 안함"]
-    var imgArr: [String] = ["imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather1", "imgWeather0"]
+    var testArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
+    var imgArr: [String] = ["imgWeather1Good", "imgWeather2Excited", "imgWeather3Soso", "imgWeather4Bored", "imgWeather5Funny", "imgWeather6Rainbow", "imgWeather7Notgood", "imgWeather8Sad", "imgWeather9Annoying", "imgWeather10Lightning", "imgWeather11None"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DiaryPopUpVC: UIViewController {
         moodTV.delegate = self
         moodTV.dataSource = self
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        moodTV.makeRounded(cornerRadius: 10)
+        moodTV.makeRounded(cornerRadius: 8)
     }
     
     func registerTVC() {

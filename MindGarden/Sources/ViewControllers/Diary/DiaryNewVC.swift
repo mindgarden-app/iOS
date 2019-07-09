@@ -51,7 +51,6 @@ class DiaryNewVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification , object: nil)
-        
     }
     
     func setNavigationBar() {
@@ -104,7 +103,7 @@ class DiaryNewVC: UIViewController {
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.pop()
     }
     
     @IBAction func moodBtnAction(_ sender: Any) {
