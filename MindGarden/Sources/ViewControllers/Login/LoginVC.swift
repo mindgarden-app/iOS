@@ -16,7 +16,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
         }
     }
     @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var googleLoginBtn: UIButton!
+    @IBOutlet var loginBtn: UIButton!
     @IBOutlet var tmpMainBtn: UIButton!
     @IBOutlet var tmpWriteBtn: UIButton!
     
@@ -37,133 +37,72 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
     
     func createSlides() -> [DescriptionSlide] {
         let slide1: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide1.logoImage.image = UIImage(named: "")
-        slide1.descriptionText.text = "1. 어쩌고 어쩌고"
+        slide1.logoImage.image = UIImage(named: "imgLogIn1")
         
         let slide2: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide2.logoImage.image = UIImage(named: "")
-        slide2.descriptionText.text = "2. 어쩌고 어쩌고"
+        slide2.logoImage.image = UIImage(named: "imgLogIn2")
         
         let slide3: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide3.logoImage.image = UIImage(named: "")
-        slide3.descriptionText.text = "3. 어쩌고 어쩌고"
+        slide3.logoImage.image = UIImage(named: "imgLogIn3")
         
         let slide4: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide4.logoImage.image = UIImage(named: "")
-        slide4.descriptionText.text = "4. 어쩌고 어쩌고"
+        slide4.logoImage.image = UIImage(named: "imgLogIn1")
         
         return [slide1, slide2, slide3, slide4]
     }
     
     func setupSlideScrollView(slides : [DescriptionSlide]) {
-//        descriptionSV.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-//        descriptionSV.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: 100)
-        descriptionSV.contentSize = CGSize(width: 290 * CGFloat(slides.count), height: 310)
+        descriptionSV.contentSize = CGSize(width: 301 * CGFloat(slides.count), height: 208)
         descriptionSV.isPagingEnabled = true
         
         for i in 0 ..< slides.count {
-//            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
-            slides[i].frame = CGRect(x: 290 * CGFloat(i), y: 0, width: 290, height: 310)
+            slides[i].frame = CGRect(x: 301 * CGFloat(i), y: 0, width: 301, height: 208)
             descriptionSV.addSubview(slides[i])
         }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let pageIndex = round(descriptionSV.contentOffset.x/view.frame.width)
-        let pageIndex = round(descriptionSV.contentOffset.x/290)
+        let pageIndex = round(descriptionSV.contentOffset.x/301)
         pageControl.currentPage = Int(pageIndex)
-        
-        let maximumHorizontalOffset: CGFloat = descriptionSV.contentSize.width - descriptionSV.frame.width
-        let currentHorizontalOffset: CGFloat = descriptionSV.contentOffset.x
-        
-        let maximumVerticalOffset: CGFloat = descriptionSV.contentSize.height - descriptionSV.frame.height
-        let currentVerticalOffset: CGFloat = descriptionSV.contentOffset.y
-        
-        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-        
-        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-        
-        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-            
-            slides[0].logoImage.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-            slides[1].logoImage.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-            
-        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-            slides[1].logoImage.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-            slides[2].logoImage.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-            
-        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-            slides[2].logoImage.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-            slides[3].logoImage.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-            
-        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-            slides[3].logoImage.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].logoImage.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-        }
     }
-    
-    func scrollView(_ scrollView: UIScrollView, didScrollToPercentageOffset percentageHorizontalOffset: CGFloat) {
-        if(pageControl.currentPage == 0) {
-            let pageUnselectedColor: UIColor = fade(fromRed: 255/255, fromGreen: 255/255, fromBlue: 255/255, fromAlpha: 1, toRed: 103/255, toGreen: 58/255, toBlue: 183/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
-            pageControl.pageIndicatorTintColor = pageUnselectedColor
-            
-            
-            let bgColor: UIColor = fade(fromRed: 103/255, fromGreen: 58/255, fromBlue: 183/255, fromAlpha: 1, toRed: 255/255, toGreen: 255/255, toBlue: 255/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
-            slides[pageControl.currentPage].backgroundColor = bgColor
-            
-            let pageSelectedColor: UIColor = fade(fromRed: 81/255, fromGreen: 36/255, fromBlue: 152/255, fromAlpha: 1, toRed: 103/255, toGreen: 58/255, toBlue: 183/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
-            pageControl.currentPageIndicatorTintColor = pageSelectedColor
-        }
-    }
-    
-    func fade(fromRed: CGFloat,
-              fromGreen: CGFloat,
-              fromBlue: CGFloat,
-              fromAlpha: CGFloat,
-              toRed: CGFloat,
-              toGreen: CGFloat,
-              toBlue: CGFloat,
-              toAlpha: CGFloat,
-              withPercentage percentage: CGFloat) -> UIColor {
+
+    @IBAction func loginBtnAction(_ sender: Any) {
         
-        let red: CGFloat = (toRed - fromRed) * percentage + fromRed
-        let green: CGFloat = (toGreen - fromGreen) * percentage + fromGreen
-        let blue: CGFloat = (toBlue - fromBlue) * percentage + fromBlue
-        let alpha: CGFloat = (toAlpha - fromAlpha) * percentage + fromAlpha
+//        LoginService.shared.login() {
+//            data in
+//
+//            switch data {
+//            case .success(let token):
+//                UserDefaults.standard.set(token, forKey: "token")
         
-        // return the fade colour
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                    
+                    dvc.mode = LockMode.validate
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                } else {
+                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                }
+                
+//                break
+//            case .requestErr(let err):
+//                self.simpleAlert(title: "로그인 실패", message: err as! String)
+//                break
+//            case .pathErr:
+//                print("경로 에러")
+//                break
+//            case .serverErr:
+//                print("서버 에러")
+//                break
+//            case .networkFail:
+//                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+//                break
+//            }
+//        }
     }
     
     @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}
-    
-    @IBAction func tmpMainBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC")
-
-        self.navigationController!.pushViewController(dvc, animated: true)
-    }
-
-
-    @IBAction func tmpWriteBtnAction(_ sender: Any) {
-        let tmpdvc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-
-//        let transition = CATransition()
-//        transition.duration = 0.5
-//        transition.type = CATransitionType.push
-//        transition.subtype = CATransitionSubtype.fromRight
-//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-//        view.window!.layer.add(transition, forKey: kCATransition)
-//
-//        self.present(tmpdvc1, animated: false)
-        self.navigationController!.pushViewController(tmpdvc1, animated: true)
-    }
-    
-    @IBAction func tmpListBtnAction(_ sender: Any) {
-        let tmpdvc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-        
-        self.navigationController!.pushViewController(tmpdvc2, animated: true)
-    }
-    
-    
 }

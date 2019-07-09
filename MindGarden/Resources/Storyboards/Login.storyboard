@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="NotoSansCJKkr-Regular.otf">
-            <string>NotoSansCJKkr-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="ELi-jC-geS">
@@ -23,69 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-0h-ZBE">
-                                <rect key="frame" x="160" y="689" width="55" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-0h-ZBE">
+                                <rect key="frame" x="32" y="729" width="311" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="tLE-Me-dVh"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="btnLogInKakao"/>
                                 <connections>
-                                    <action selector="googleLoginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Z5c-dr-Nwq"/>
+                                    <action selector="loginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="D0m-Zv-YIn"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
-                                <rect key="frame" x="62" y="217" width="290" height="310"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
+                                <rect key="frame" x="37" y="279" width="301" height="208"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="f97-gM-uCP">
-                                <rect key="frame" x="188" y="590" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="f97-gM-uCP">
+                                <rect key="frame" x="161" y="518" width="52" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHh-Ne-YtZ">
-                                <rect key="frame" x="245" y="106" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="임시 메인 버튼"/>
-                                <connections>
-                                    <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="cQe-FM-qi9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6o-b9-NFE">
-                                <rect key="frame" x="56" y="145" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="임시 글쓰기 버튼"/>
-                                <connections>
-                                    <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="LAd-AT-X8g"/>
-                                    <action selector="tmpWriteBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="V3s-bH-m7t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqb-75-Yj9">
-                                <rect key="frame" x="180" y="179" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="임시 리스트 버튼"/>
-                                <connections>
-                                    <action selector="tmpListBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Lur-0j-rzG"/>
-                                    <action selector="tmpMainBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="y3g-eD-LEl"/>
-                                    <action selector="tmpWriteBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="cZ7-wR-OIe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MGH-0h-ZBE" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="32" id="70O-pA-MRh"/>
+                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="9" id="7yR-WN-ylH"/>
+                            <constraint firstItem="f97-gM-uCP" firstAttribute="top" secondItem="EWV-rU-jIe" secondAttribute="bottom" constant="31" id="E4L-1V-E6N"/>
+                            <constraint firstItem="EWV-rU-jIe" firstAttribute="top" secondItem="Eeo-vs-Qkh" secondAttribute="top" constant="235" id="Qjb-co-DGc"/>
+                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="f97-gM-uCP" secondAttribute="trailing" constant="162" id="Sdn-sw-flB"/>
+                            <constraint firstItem="EWV-rU-jIe" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="37" id="T6g-X5-CBL"/>
+                            <constraint firstItem="MGH-0h-ZBE" firstAttribute="top" secondItem="f97-gM-uCP" secondAttribute="bottom" constant="174" id="XAc-71-boC"/>
+                            <constraint firstItem="f97-gM-uCP" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="161" id="XAz-ko-zYd"/>
+                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="EWV-rU-jIe" secondAttribute="trailing" constant="37" id="aNz-c7-M86"/>
+                            <constraint firstItem="EWV-rU-jIe" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="thi-iw-HIb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Eeo-vs-Qkh"/>
                     </view>
                     <connections>
                         <outlet property="descriptionSV" destination="EWV-rU-jIe" id="TRr-OR-TbY"/>
-                        <outlet property="googleLoginBtn" destination="MGH-0h-ZBE" id="Utv-38-FRW"/>
+                        <outlet property="loginBtn" destination="MGH-0h-ZBE" id="gkV-VA-GqY"/>
                         <outlet property="pageControl" destination="f97-gM-uCP" id="20P-gv-ApZ"/>
-                        <outlet property="tmpMainBtn" destination="GHh-Ne-YtZ" id="nG6-gR-iNk"/>
-                        <outlet property="tmpWriteBtn" destination="A6o-b9-NFE" id="Eoy-gb-n4e"/>
                         <segue destination="FJg-7g-qhL" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToLoginWithSegue:" id="UuJ-MB-DY4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46I-EK-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FJg-7g-qhL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="984.05797101449286" y="168.75"/>
+            <point key="canvasLocation" x="983.20000000000005" y="168.4729064039409"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btnLogInKakao" width="311" height="40"/>
+    </resources>
 </document>
