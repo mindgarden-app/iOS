@@ -28,6 +28,7 @@ class DiaryPopUpVC: UIViewController {
         moodTV.delegate = self
         moodTV.dataSource = self
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        self.moodTV.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0);
         moodTV.makeRounded(cornerRadius: 8)
     }
     
@@ -66,13 +67,6 @@ extension DiaryPopUpVC: UITableViewDelegate {
             delegate?.changeMood(img: moodImg, text: moodText)
             self.view.removeFromSuperview()
         }
-        
-//        let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
-//
-//        //        let episode = episodeList[indexPath.row]
-//        //        dvc.epIdx = episode.idx
-//
-//        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
