@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import SpriteKit
-import GameplayKit
-import PopupDialog
 
 class MainVC: UIViewController {
  
@@ -220,13 +217,13 @@ class MainVC: UIViewController {
     }
     
     @IBAction func treeAddBtnAction(_ sender: Any) {
-        if !balloonImageView.isHidden {
+//        if !balloonImageView.isHidden {
             let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC")
             
             self.navigationController!.pushViewController(dvc, animated: true)
-        } else {
-            self.simpleAlert(title: "Oops!", message: "일기를 작성해야 나무를 심을 수 있어요!ㅠㅠ")
-        }
+//        } else {
+//            self.simpleAlert(title: "Oops!", message: "일기를 작성해야 나무를 심을 수 있어요!ㅠㅠ")
+//        }
     }
 }
 
