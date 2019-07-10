@@ -172,7 +172,7 @@
                                     <constraint firstAttribute="width" secondItem="XiJ-FS-275" secondAttribute="height" multiplier="345:49" id="JAy-eI-f5U"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-eP-3HB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xa-eP-3HB">
                                 <rect key="frame" x="23" y="195" width="333" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -183,10 +183,10 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7na-yK-dsl">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7na-yK-dsl">
                                 <rect key="frame" x="23" y="171" width="52" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="trG-rB-4gX"/>
+                                    <constraint firstAttribute="width" constant="52" id="Yzc-j9-Lf6"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
@@ -228,11 +228,11 @@
                             <constraint firstItem="9pQ-yY-wvO" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="20" id="OUa-LY-HUE"/>
                             <constraint firstItem="XiJ-FS-275" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="15" id="WqT-jJ-uII"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="WGg-6J-9VG" secondAttribute="trailing" constant="66" id="aHU-EY-eOD"/>
-                            <constraint firstItem="7na-yK-dsl" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="e82-wC-gYa"/>
-                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="leading" secondItem="7na-yK-dsl" secondAttribute="leading" id="elR-U3-qJE"/>
+                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="top" secondItem="7na-yK-dsl" secondAttribute="bottom" constant="6" id="aXM-FD-J4d"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="7Xa-eP-3HB" secondAttribute="trailing" constant="19" id="gpZ-bx-VId"/>
-                            <constraint firstItem="7Xa-eP-3HB" firstAttribute="top" secondItem="7na-yK-dsl" secondAttribute="bottom" constant="6" id="hGp-mN-9Ia"/>
                             <constraint firstItem="0vH-lw-Kvc" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="jpj-Yn-nYn"/>
+                            <constraint firstItem="7na-yK-dsl" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="kpx-yI-7Ho"/>
+                            <constraint firstItem="7na-yK-dsl" firstAttribute="top" secondItem="XiJ-FS-275" secondAttribute="bottom" constant="16" id="tYo-nf-evy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pu5-h3-cX3"/>
                     </view>
@@ -414,7 +414,7 @@
         <image name="btnWeatherSelect1" width="354" height="58"/>
         <image name="btnWriting" width="20.666666030883789" height="20.666666030883789"/>
         <image name="icnGallary" width="35" height="35"/>
-        <image name="imgWeather1" width="30" height="30"/>
+        <image name="imgWeather1" width="45" height="45"/>
         <image name="imgWeather11None" width="45" height="45"/>
     </resources>
 </document>
