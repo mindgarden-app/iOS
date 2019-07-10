@@ -12,22 +12,56 @@ class DiaryListVC: UIViewController {
 
     
     @IBOutlet var diaryListTV: UITableView!
-    private var testArr: [String] = ["First", "Second", "Third"]
     var inputDate: DateComponents!
     var dateStr: String = ""
     var diaryList: [Diary] = []
     @IBOutlet var settingsBtn: UIBarButtonItem!
+    let dateFormatter = DateFormatter()
+    var emptyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.isNavigationBarHidden = false
         
+        dateFormatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "KST") as TimeZone?
+        
         getDiaryList(date: "2019-07")
         setNavigationBar()
         registerTVC()
         diaryListTV.delegate = self
         diaryListTV.dataSource = self
+    }
+    
+    func getDiaryList(date: String) {
+        let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+        
+        DiaryService.shared.getDiaryList(userIdx: userIdx, date: date) {
+            [weak self]
+            data in
+            
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let res):
+                self.diaryList = res as! [Diary]
+                self.diaryListTV.reloadData()
+                break
+            case .requestErr(let err):
+                print(".requestErr(\(err))")
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                break
+            }
+        }
     }
     
     @IBAction func sortBtnAction(_ sender: Any) {
@@ -49,16 +83,6 @@ class DiaryListVC: UIViewController {
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
-//        let dvc: UIViewController! = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
-////
-////        self.navigationController!.popToViewController(dvc, animated: true)
-//        for controller in self.navigationController!.viewControllers as Array {
-//            if controller.isKind(of: dvc) {
-//                self.navigationController!.popToViewController(controller, animated: true)
-//                break
-//            }
-//        }
-        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -83,11 +107,6 @@ class DiaryListVC: UIViewController {
         dateBtn.setTitleColor(.black, for: .normal)
         dateBtn.addTarget(self, action: #selector(dateBtnAction), for: .touchUpInside)
         self.navigationItem.titleView = dateBtn
-        
-//        let comps = DateComponents(year: 2019, month: 3, day: 1)
-//        date = calendar.date(from: comps)
-//
-//        self.navigationItem.title = dateStr
     }
     
     @objc func dateBtnAction() {
@@ -106,7 +125,7 @@ class DiaryListVC: UIViewController {
 
     func addEmptyView() {
         let screenSize: CGRect = UIScreen.main.bounds
-        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         emptyView.backgroundColor = UIColor.whiteForBorder
         let image: UIImage = UIImage(named: "imgListZero")!
         let emptyImageView = UIImageView(image: image)
@@ -121,10 +140,13 @@ extension DiaryListVC: UITableViewDataSource {
         
         if diaryList.count == 0 {
             tableView.backgroundView?.isHidden = false
-            addEmptyView()
+//            addEmptyView()
         } else {
             tableView.backgroundView?.isHidden = true
+//            emptyView.removeFromSuperview()
         }
+        
+        print(diaryList.count)
         
         return diaryList.count
     }
@@ -132,13 +154,12 @@ extension DiaryListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = diaryListTV.dequeueReusableCell(withIdentifier: "DiaryListTVC") as! DiaryListTVC
         
-        let day = 16
-        let dateComponents = DateComponents(year: inputDate.year, month: inputDate.month, day: day)
-        let date = Calendar.current.date(from: dateComponents)
+        let date: Date = dateFormatter.date(from: diaryList[indexPath.row].date)!
+        let day = Calendar.current.component(.day, from: date)
         
         cell.dateLabel.text = String(day)
-        cell.dayOfWeekLabel.text = date?.getDayOfTheWeek(lang: "ko")
-        cell.titleLabel.text = "여기에 본문이 들어감 여기에 본문이 들어감 여기에 본문이 들어감"
+        cell.dayOfWeekLabel.text = date.getDayOfTheWeek(lang: "ko")
+        cell.titleLabel.text = diaryList[indexPath.row].diary_content
         
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.whiteForBorder.cgColor
@@ -152,6 +173,8 @@ extension DiaryListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
+    
+        dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))"
 
         navigationController?.pushViewController(dvc, animated: true)
     }
@@ -162,11 +185,9 @@ extension DiaryListVC: UITableViewDelegate {
             
             tableView.beginUpdates()
             
-            print(indexPath.row)
-            
             tableView.deleteRows(at: [indexPath], with: .automatic)
             // 데이터 삭제하는 부분.. 서버 연동하면 바꿔야됨.
-            self.testArr.remove(at: 0)
+//            self.testArr.remove(at: 0)
             
             tableView.endUpdates()
             
