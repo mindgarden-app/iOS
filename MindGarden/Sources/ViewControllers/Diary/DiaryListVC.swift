@@ -18,6 +18,7 @@ class DiaryListVC: UIViewController {
     @IBOutlet var settingsBtn: UIBarButtonItem!
     let dateFormatter = DateFormatter()
     var emptyView: UIView!
+    var isAscending: Bool! = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,15 @@ class DiaryListVC: UIViewController {
     }
     
     @IBAction func sortBtnAction(_ sender: Any) {
-        // diaryListTV.reloadData()
+        if isAscending {
+            isAscending = false
+            diaryList.sort() { $0.date > $1.date }
+            diaryListTV.reloadData()
+        } else {
+            isAscending = true
+            diaryList.sort() { $0.date < $1.date }
+            diaryListTV.reloadData()
+        }
     }
     
     @IBAction func newBtnAction(_ sender: Any) {
