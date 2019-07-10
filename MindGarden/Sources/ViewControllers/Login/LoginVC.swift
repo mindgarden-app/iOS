@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import WebKit
+
+enum AuthType: String {
+    case kakao = "http://13.125.190.74:3000/auth/login/kakao"
+}
 
 class LoginVC: UIViewController, UIScrollViewDelegate {
     
@@ -17,14 +22,15 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
     }
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var loginBtn: UIButton!
-    @IBOutlet var tmpMainBtn: UIButton!
-    @IBOutlet var tmpWriteBtn: UIButton!
+    var webView: WKWebView!
+    var authType: AuthType!
     
+    let decoder = JSONDecoder()
     var slides: [DescriptionSlide] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
@@ -67,42 +73,49 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func loginBtnAction(_ sender: Any) {
+        authType = .kakao
         
-//        LoginService.shared.login() {
-//            data in
-//
-//            switch data {
-//            case .success(let token):
-//                UserDefaults.standard.set(token, forKey: "token")
+        let url = NSURL(string: authType.rawValue)
+        let request = NSURLRequest(url: url! as URL)
         
-                if UserDefaults.standard.bool(forKey: "암호 설정") {
-                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
-                    
-                    dvc.mode = LockMode.validate
-                    
-                    self.navigationController!.pushViewController(dvc, animated: true)
-                } else {
-                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-                    
-                    self.navigationController!.pushViewController(dvc, animated: true)
-                }
-                
-//                break
-//            case .requestErr(let err):
-//                self.simpleAlert(title: "로그인 실패", message: err as! String)
-//                break
-//            case .pathErr:
-//                print("경로 에러")
-//                break
-//            case .serverErr:
-//                print("서버 에러")
-//                break
-//            case .networkFail:
-//                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-//                break
-//            }
-//        }
+        webView = WKWebView(frame: self.view.frame)
+        webView.navigationDelegate = self
+        webView.load(request as URLRequest)
+        self.view.addSubview(webView)
     }
     
     @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}
+}
+
+extension LoginVC: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if let url = webView.url?.absoluteString {
+            if url == "http://13.125.190.74:3000/auth/login/success" {
+                webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
+                    let dataStr = data as! String
+                    if let result = dataStr.data(using: .utf8) {
+                        if self.authType == .kakao {
+                            do {
+                                let kakao = try JSONDecoder().decode(Login.self, from: result)
+                                UserDefaults.standard.set(kakao.data.userIdx, forKey: "userIdx")
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }
+                })
+                webView.removeFromSuperview()
+                
+                let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                
+                self.navigationController!.pushViewController(dvc, animated: true)
+                
+            } else if url == "http://13.125.190.74:3000/auth/login/fail" {
+                self.simpleAlert(title: "Oops!", message: "로그인을 다시 시도해주세요")
+                webView.removeFromSuperview()
+            }
+        }
+    }
+    
 }
