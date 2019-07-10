@@ -1,56 +1,24 @@
 PODS:
   - Alamofire (4.8.2)
   - DLRadioButton (1.4.12)
-  - DynamicBlurView (3.0.1)
-  - GoogleSignIn (4.4.0):
-    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
-    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.2.1):
-    - GoogleToolboxForMac/Defines (= 2.2.1)
-  - GoogleToolboxForMac/Defines (2.2.1)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.1)":
-    - GoogleToolboxForMac/DebugUtils (= 2.2.1)
-    - GoogleToolboxForMac/Defines (= 2.2.1)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.1)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.2.1)"
-  - GTMSessionFetcher/Core (1.2.2)
   - Kingfisher (5.6.0)
-  - PopupDialog (1.1.0):
-    - DynamicBlurView (~> 3.0.1)
-  - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - DLRadioButton (~> 1.4)
-  - GoogleSignIn
   - Kingfisher
-  - PopupDialog (~> 1.1)
-  - SwiftGifOrigin (~> 1.7.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - DLRadioButton
-    - DynamicBlurView
-    - GoogleSignIn
-    - GoogleToolboxForMac
-    - GTMSessionFetcher
     - Kingfisher
-    - PopupDialog
-    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
-  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
-  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
-  GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
-  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
-  PopupDialog: 42fb7a0bc4fafdf89fef8b5b2b127a6023f3e1cc
-  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: a053a74a2a5d8bbb9150a580e4015e6226e972af
+PODFILE CHECKSUM: 84fb2fdfcf4a5889b3fe853c1cb65657eaf82900
 
 COCOAPODS: 1.6.2
