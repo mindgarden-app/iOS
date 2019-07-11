@@ -21,8 +21,8 @@ class MainGridVC: UIViewController {
     let treeInventoryCellSize = 55
     let gardenGridSpacing: CGFloat = 7
     let treeInventorySpacing: CGFloat = 8
-    let userIdx = 2
-//    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+//    let userIdx = 2
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     var date: String!
     var selectedTree: Int? = nil

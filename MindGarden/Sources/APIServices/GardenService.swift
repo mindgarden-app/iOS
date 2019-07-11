@@ -70,9 +70,13 @@ struct GardenService {
             "treeIdx": treeIdx
         ]
         
+        print(userIdx)
+        print(location)
+        print(treeIdx)
+        
         Alamofire.request(APIConstants.GardenAddURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
             .responseData { response in
-                
+                print(response)
                 switch response.result {
                 case .success:
                     if let value = response.result.value {
@@ -80,11 +84,13 @@ struct GardenService {
                             switch status {
                             case 200:
                                 do {
+                                    print(APIConstants.GardenAddURL)
                                     let decoder = JSONDecoder()
                                     let result = try decoder.decode(ResponseString.self, from: value)
                                     
                                     switch result.success {
                                     case true:
+                                        print(result.message)
                                         completion(.success(result.message))
                                     case false:
                                         completion(.requestErr(result.message))

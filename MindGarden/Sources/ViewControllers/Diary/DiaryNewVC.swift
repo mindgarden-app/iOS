@@ -30,8 +30,8 @@ class DiaryNewVC: UIViewController {
     var date: String!
     var imageView: UIImageView!
     let picker = UIImagePickerController()
-//    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-    let userIdx = 2
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+//    let userIdx = 2
     var weatherIdx: Int!
     var placeholder = "내용"
     var moodText: String = "기분 수정 중"
