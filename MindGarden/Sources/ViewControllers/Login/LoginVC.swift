@@ -8,12 +8,13 @@
 
 import UIKit
 import WebKit
+import NVActivityIndicatorView
 
 enum AuthType: String {
     case kakao = "http://13.125.190.74:3000/auth/login/kakao"
 }
 
-class LoginVC: UIViewController, UIScrollViewDelegate {
+class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewable {
     
     @IBOutlet var descriptionSV: UIScrollView! {
         didSet {
@@ -88,17 +89,27 @@ class LoginVC: UIViewController, UIScrollViewDelegate {
 }
 
 extension LoginVC: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        let size = CGSize(width: 60, height: 60)
+        let activityData = ActivityData(size: size, message: "Loading", type: .lineSpinFadeLoader, color: UIColor.lightGreen, textColor: UIColor.lightGreen)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let url = webView.url?.absoluteString {
             if url == "http://13.125.190.74:3000/auth/login/success" {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
                     let dataStr = data as! String
+                    print(dataStr)
                     if let result = dataStr.data(using: .utf8) {
                         if self.authType == .kakao {
                             do {
                                 let kakao = try JSONDecoder().decode(Login.self, from: result)
                                 UserDefaults.standard.set(kakao.data.userIdx, forKey: "userIdx")
+                                UserDefaults.standard.set(kakao.data.email, forKey: "email")
+                                UserDefaults.standard.set(kakao.data.name, forKey: "name")
                             } catch {
                                 print(error)
                             }
@@ -107,9 +118,17 @@ extension LoginVC: WKNavigationDelegate {
                 })
                 webView.removeFromSuperview()
                 
-                let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-                
-                self.navigationController!.pushViewController(dvc, animated: true)
+                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                    
+                    dvc.mode = LockMode.validate
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                } else {
+                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                }
                 
             } else if url == "http://13.125.190.74:3000/auth/login/fail" {
                 self.simpleAlert(title: "Oops!", message: "로그인을 다시 시도해주세요")

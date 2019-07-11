@@ -22,6 +22,8 @@
 		DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597322C9E15E00D000BC /* Date+Extensions.swift */; };
 		DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597622C9EE9600D000BC /* SettingsVC.swift */; };
 		DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */; };
+		DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */; };
+		DE1C6DDD22D79B150099477A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDC22D79B150099477A /* AuthService.swift */; };
 		DE2D927522CD132A00A391E1 /* DatePickerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2D927322CD132A00A391E1 /* DatePickerTVC.swift */; };
 		DE2D927622CD132A00A391E1 /* DatePickerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */; };
 		DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */; };
@@ -83,7 +85,6 @@
 		DE8D713C22D25C1100A29973 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713122D25C1100A29973 /* NotoSansCJKkr-Regular.otf */; };
 		DE8D713D22D25C1100A29973 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713222D25C1100A29973 /* NotoSansCJKkr-Bold.otf */; };
 		DE8D713E22D25C1100A29973 /* LICENSE_OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE8D713322D25C1100A29973 /* LICENSE_OFL.txt */; };
-		DE8D714022D38E1900A29973 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D713F22D38E1900A29973 /* LoginService.swift */; };
 		DE8D714222D38EA600A29973 /* GardenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714122D38EA600A29973 /* GardenService.swift */; };
 		DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714322D390A400A29973 /* DefaultRes.swift */; };
 		DE8D714622D3919F00A29973 /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714522D3919F00A29973 /* DiaryService.swift */; };
@@ -115,6 +116,8 @@
 		DE06597322C9E15E00D000BC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DE06597622C9EE9600D000BC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		DE1C6DDC22D79B150099477A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		DE2D927322CD132A00A391E1 /* DatePickerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTVC.swift; sourceTree = "<group>"; };
 		DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerTVC.xib; sourceTree = "<group>"; };
 		DE33D70122C8C12C00F0F4E4 /* MindGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,7 +181,6 @@
 		DE8D713122D25C1100A29973 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		DE8D713222D25C1100A29973 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		DE8D713322D25C1100A29973 /* LICENSE_OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_OFL.txt; sourceTree = "<group>"; };
-		DE8D713F22D38E1900A29973 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		DE8D714122D38EA600A29973 /* GardenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenService.swift; sourceTree = "<group>"; };
 		DE8D714322D390A400A29973 /* DefaultRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRes.swift; sourceTree = "<group>"; };
 		DE8D714522D3919F00A29973 /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
@@ -246,7 +248,7 @@
 				DE06596022C9115D00D000BC /* Extensions */,
 				DE06595022C8ED5100D000BC /* ViewControllers */,
 				DE06594F22C8ED4B00D000BC /* Views */,
-				DE06594E22C8ED3A00D000BC /* Model */,
+				DE06594E22C8ED3A00D000BC /* Models */,
 				DE06594D22C8ED3200D000BC /* APIServices */,
 				DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */,
 			);
@@ -257,14 +259,14 @@
 			isa = PBXGroup;
 			children = (
 				DE9F235222D046A5009657C3 /* APIConstants.swift */,
-				DE8D713F22D38E1900A29973 /* LoginService.swift */,
 				DE8D714122D38EA600A29973 /* GardenService.swift */,
 				DE8D714522D3919F00A29973 /* DiaryService.swift */,
+				DE1C6DDC22D79B150099477A /* AuthService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
 		};
-		DE06594E22C8ED3A00D000BC /* Model */ = {
+		DE06594E22C8ED3A00D000BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DE9F235022D04668009657C3 /* NetworkResult.swift */,
@@ -275,7 +277,7 @@
 				DE8D714B22D4F4F100A29973 /* Tree.swift */,
 				DE8D714D22D5265E00A29973 /* Diary.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DE06594F22C8ED4B00D000BC /* Views */ = {
@@ -331,6 +333,7 @@
 				DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */,
 				DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */,
 				DE730A9522D63E2800A2541C /* UIImageView+Extensions.swift */,
+				DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */,
 				DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */,
 				DE8D714E22D5265E00A29973 /* Diary.swift in Sources */,
+				DE1C6DDD22D79B150099477A /* AuthService.swift in Sources */,
 				DE8D714222D38EA600A29973 /* GardenService.swift in Sources */,
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
@@ -708,12 +712,12 @@
 				DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */,
 				DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */,
 				DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */,
-				DE8D714022D38E1900A29973 /* LoginService.swift in Sources */,
 				DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */,
 				DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */,
 				DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */,
 				DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */,
 				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,
+				DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */,
 				DE7BC6C922CA797E00AD77EC /* DescriptionSlide.swift in Sources */,
 				DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */,
 				DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */,
