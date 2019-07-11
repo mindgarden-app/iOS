@@ -38,6 +38,7 @@ class SettingsVC: UIViewController {
         
         setNavigationBar()
         navigationController?.isNavigationBarHidden = false
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         settingsTV.delegate = self
         settingsTV.dataSource = self
@@ -53,7 +54,7 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.pop()
     }
     
     func setNavigationBar() {
@@ -117,8 +118,10 @@ extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if indexPath.section == 1 { // 로그아웃 선택 시
+        if indexPath.section == 1 {
             UserDefaults.standard.set(false, forKey: "암호 설정")
+            UserDefaults.standard.set(nil, forKey: "userIdx")
+            navigationController?.isNavigationBarHidden = true
             performSegue(withIdentifier: "unwindToLogin", sender: self)
         } else if indexPath.section == 2 && indexPath.row != 3{
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
