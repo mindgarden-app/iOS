@@ -39,6 +39,8 @@ class MainGridVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         getGardenData()
         setWaterview()
         setInventoryBackgroundView()
@@ -64,8 +66,6 @@ class MainGridVC: UIViewController {
             case .success(let res):
                 self.treeList = res as! [Tree]
                 self.treeDict = Dictionary(uniqueKeysWithValues: self.treeList.map { ($0.location, $0) })
-                
-                print(self.treeDict)
 
                 self.gardenGridCV.reloadData()
                 
@@ -277,3 +277,13 @@ extension MainGridVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension MainGridVC : UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if (self.navigationController?.viewControllers.count)! > 1 {
+            return true
+        }
+        
+        return false
+    }
+}

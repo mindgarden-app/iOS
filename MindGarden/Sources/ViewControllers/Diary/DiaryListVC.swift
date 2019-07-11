@@ -17,16 +17,19 @@ class DiaryListVC: UIViewController {
     var diaryList: [Diary] = []
     @IBOutlet var settingsBtn: UIBarButtonItem!
     let dateFormatter = DateFormatter()
-    var emptyView: UIView!
+//    var emptyView: UIView!
     var isAscending: Bool! = true
 //    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
+    @IBOutlet var emptyView: UIView!
     let userIdx = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.isNavigationBarHidden = false
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        diaryListTV.backgroundView = emptyView
         
         dateFormatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "KST") as TimeZone?
@@ -146,13 +149,17 @@ class DiaryListVC: UIViewController {
 }
 
 extension DiaryListVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if diaryList.count == 0 {
-//            tableView.backgroundView?.isHidden = false
+//            tableView.setEmptyView()
+            tableView.backgroundView?.isHidden = false
 //            addEmptyView()
         } else {
-//            tableView.backgroundView?.isHidden = true
+//            tableView.restore()
+            tableView.backgroundView?.isHidden = true
+//            emptyView.isHidden = true
 //            emptyView.removeFromSuperview()
         }
         
@@ -258,3 +265,15 @@ extension DiaryListVC: DateDelegate {
         getDiaryList(date: "\(year)-\(String(format: "%02d", month))")
     }
 }
+
+extension DiaryListVC : UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if (self.navigationController?.viewControllers.count)! > 1 {
+            return true
+        }
+        
+        return false
+    }
+}
+

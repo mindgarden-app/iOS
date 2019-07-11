@@ -38,7 +38,7 @@ class SettingsVC: UIViewController {
         
         setNavigationBar()
         navigationController?.isNavigationBarHidden = false
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         settingsTV.delegate = self
         settingsTV.dataSource = self
@@ -130,5 +130,16 @@ extension SettingsVC: UITableViewDelegate {
 
             self.navigationController!.pushViewController(dvc, animated: true)
         }
+    }
+}
+
+extension SettingsVC : UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if (self.navigationController?.viewControllers.count)! > 1 {
+            return true
+        }
+        
+        return false
     }
 }

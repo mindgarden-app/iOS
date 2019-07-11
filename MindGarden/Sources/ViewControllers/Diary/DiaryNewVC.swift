@@ -45,15 +45,14 @@ class DiaryNewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         setNavigationBar()
         setTextView()
         setgalleryBtnY()
         
         if mode == .edit {
-            print("edit mode!!!")
             getData()
         }
         
@@ -97,9 +96,6 @@ class DiaryNewVC: UIViewController {
     }
     
     func getData() {
-        print(date!)
-        print(userIdx)
-        print("일기 가져오기")
         
         DiaryService.shared.getDiary(userIdx: userIdx, date: date!) {
             data in
@@ -183,12 +179,21 @@ class DiaryNewVC: UIViewController {
             return
         }
         
-        DiaryService.shared.addDiary(userIdx: userIdx, diaryContent: inputTextView.text, diaryImage: imageView.image!, weatherIdx: weatherIdx!) {
+        let image = imageView != nil ? imageView.image : nil
+        
+        DiaryService.shared.addDiary(userIdx: userIdx, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
             data in
             
             switch data {
-            case .success(_):
-                self.simpleAlert(title: "일기 등록", message: "일기 등록 웅앵")
+            case .success(let message):
+                if String(describing: message) == "이미 일기를 등록 하셨습니다!" {
+                    self.simpleAlertWithPop(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
+//                    self.simpleAlert(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
+//                    self.pop()
+//                    self.navigationController!.popToRootViewController(animated: true)
+                    
+                    break
+                }
                 
                 let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
                 
@@ -223,19 +228,12 @@ class DiaryNewVC: UIViewController {
     @IBAction func completeBtnAction(_ sender: Any) {
         let image = imageView != nil ? imageView.image : nil
         
-        print("edit start!!!!")
-        print(userIdx)
-        print(date)
-        print(inputTextView.text)
-        print(weatherIdx)
-        print(".......................")
-        
-        DiaryService.shared.editDiary(userIdx: userIdx, date: date!, diaryContent: inputTextView.text!, diaryImage: nil, weatherIdx: weatherIdx!) {
+        DiaryService.shared.editDiary(userIdx: userIdx, date: date!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
             data in
             
             switch data {
             case .success(_):
-                self.simpleAlert(title: "일기 수정", message: "일기 수정 완료")
+                self.simpleAlert(title: "수정 완료", message: "일기가 수정되었습니다")
                 
 //                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
 //
@@ -366,5 +364,16 @@ UINavigationControllerDelegate {
 //        NSLayoutConstraint.activate([verticalSpace])
 
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension DiaryNewVC : UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if (self.navigationController?.viewControllers.count)! > 1 {
+            return true
+        }
+        
+        return false
     }
 }
