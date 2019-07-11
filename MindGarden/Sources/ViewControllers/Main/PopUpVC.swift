@@ -27,8 +27,7 @@ class PopUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addBackgroundViewAction()
+
         setYearLabel(year: year)
         setBtn()
 
@@ -38,9 +37,11 @@ class PopUpVC: UIViewController {
         popUpView.dropShadow(color: UIColor.gray, offSet: CGSize(width: 0.0, height: 3.0), opacity: 0.52, radius: 3)
     }
     
-    func addBackgroundViewAction() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(removePopUp))
-        self.backgroundView.addGestureRecognizer(gesture)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view?.tag != 100 {
+            removePopUp()
+            super.touchesEnded(touches , with: event)
+        }
     }
     
     func setYearLabel(year: Int) {
@@ -101,10 +102,6 @@ class PopUpVC: UIViewController {
             month = sender.tag
             delegate?.changeDate(year: year, month: month)
             removePopUp()
-//            UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
-//                           completion: {(value: Bool) in
-//                            self.view.removeFromSuperview()
-//            })
         }
     }
     
