@@ -24,10 +24,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TYd-0g-v46">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="dct-ki-QiJ">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="621"/>
+                                    <rect key="frame" x="0.0" y="72" width="375" height="652"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.96863394975662231" green="0.9686158299446106" blue="0.96862810850143433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
@@ -46,10 +46,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TYd-0g-v46" firstAttribute="leading" secondItem="aTk-vz-0zM" secondAttribute="leading" id="Bjo-oF-wZb"/>
-                            <constraint firstItem="aTk-vz-0zM" firstAttribute="bottom" secondItem="TYd-0g-v46" secondAttribute="bottom" id="MKp-mM-VcU"/>
+                            <constraint firstAttribute="bottom" secondItem="TYd-0g-v46" secondAttribute="bottom" id="Mt4-8k-6N5"/>
                             <constraint firstItem="TYd-0g-v46" firstAttribute="width" secondItem="5hT-LH-uP2" secondAttribute="width" id="fdd-Et-Qji"/>
                             <constraint firstItem="aTk-vz-0zM" firstAttribute="trailing" secondItem="TYd-0g-v46" secondAttribute="trailing" id="jIn-QA-24i"/>
+                            <constraint firstItem="TYd-0g-v46" firstAttribute="leading" secondItem="aTk-vz-0zM" secondAttribute="leading" id="jzZ-2H-h3P"/>
+                            <constraint firstItem="TYd-0g-v46" firstAttribute="top" secondItem="aTk-vz-0zM" secondAttribute="top" id="q5y-Vr-52z"/>
                             <constraint firstItem="TYd-0g-v46" firstAttribute="top" secondItem="aTk-vz-0zM" secondAttribute="top" id="vWm-ZZ-Hg0"/>
+                            <constraint firstItem="TYd-0g-v46" firstAttribute="trailing" secondItem="aTk-vz-0zM" secondAttribute="trailing" id="vsG-YZ-lKG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aTk-vz-0zM"/>
                     </view>
@@ -101,10 +104,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qT-1o-73O">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="mNu-1Y-ych">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="619"/>
+                                    <rect key="frame" x="0.0" y="72" width="375" height="659"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.96863394975662231" green="0.9686158299446106" blue="0.96862810850143433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
@@ -123,9 +126,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5qT-1o-73O" firstAttribute="top" secondItem="NVE-3I-IqS" secondAttribute="top" id="EwI-os-qnS"/>
-                            <constraint firstItem="NVE-3I-IqS" firstAttribute="bottom" secondItem="5qT-1o-73O" secondAttribute="bottom" id="KPb-FT-P5r"/>
                             <constraint firstItem="5qT-1o-73O" firstAttribute="leading" secondItem="NVE-3I-IqS" secondAttribute="leading" id="NoH-py-9dN"/>
+                            <constraint firstItem="5qT-1o-73O" firstAttribute="top" secondItem="NVE-3I-IqS" secondAttribute="top" id="UP5-Bh-jSw"/>
+                            <constraint firstItem="5qT-1o-73O" firstAttribute="trailing" secondItem="NVE-3I-IqS" secondAttribute="trailing" id="WGS-k8-StR"/>
+                            <constraint firstItem="5qT-1o-73O" firstAttribute="leading" secondItem="NVE-3I-IqS" secondAttribute="leading" id="qj3-x0-N0c"/>
                             <constraint firstItem="NVE-3I-IqS" firstAttribute="trailing" secondItem="5qT-1o-73O" secondAttribute="trailing" id="sUq-pg-GNJ"/>
+                            <constraint firstAttribute="bottom" secondItem="5qT-1o-73O" secondAttribute="bottom" id="sq5-RK-ncU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NVE-3I-IqS"/>
                     </view>
