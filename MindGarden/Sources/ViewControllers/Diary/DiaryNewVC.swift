@@ -22,9 +22,17 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var inputTextView: UITextView!
     @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
+    let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
+    
+    var diary: Diary!
+    
     var mode: DiaryMode!
+    var date: String!
     var imageView: UIImageView!
     let picker = UIImagePickerController()
+//    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userIdx = 2
+    var weatherIdx: Int!
     var placeholder = "내용"
     var moodText: String = "기분 수정 중"
     var moodImg: String = "imgWeather1"
@@ -32,16 +40,21 @@ class DiaryNewVC: UIViewController {
     var body: String = "본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 "
     var galleryBtnMinY: CGFloat!
     var galleryBtnMaxY: CGFloat!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
 
         setNavigationBar()
         setTextView()
         setgalleryBtnY()
         
         if mode == .edit {
-            setData()
+            print("edit mode!!!")
+            getData()
         }
         
         picker.delegate = self
@@ -83,23 +96,61 @@ class DiaryNewVC: UIViewController {
         galleryBtnMaxY = galleryBtn.frame.origin.y
     }
     
+    func getData() {
+        print(date!)
+        print(userIdx)
+        print("일기 가져오기")
+        
+        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) {
+            data in
+            
+            switch data {
+            case .success(let res):
+                print("success")
+                self.diary = res as? Diary
+                self.setData()
+                if self.diary.diary_img != nil {
+                    self.setImageView()
+                }
+                break
+            case .requestErr(let err):
+                print(err)
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                print("네트워크 에러")
+                break
+            }
+        }
+    }
+    
     func setData() {
-        moodTextBtn.setTitle(moodText, for: .normal)
+        print("setData")
+        weatherIdx = diary.weatherIdx
+        let moodImage = "imgWeather\(diary.weatherIdx + 1)"
+        moodImgBtn.setImage(UIImage(named: moodImage), for: .normal)
+        moodTextBtn.setTitle(moodTextArr[diary.weatherIdx], for: .normal)
         moodTextBtn.setTitleColor(UIColor.GrayForFont, for: .normal)
-        moodImgBtn.setImage(UIImage(named: moodImg), for: .normal)
-        inputTextView.text = body
+    
+        inputTextView.text = diary.diary_content
         inputTextView.textColor = UIColor.GrayForFont
         inputTextView.textContainerInset = UIEdgeInsets.zero
         inputTextView.textContainer.lineFragmentPadding = 0
-        inputTextViewHeightConstraint.constant = inputTextView.contentSize.height
+        inputTextViewHeightConstraint.constant = inputTextView.contentSize.height + 50
+    }
+    
+    func setImageView() {
+        imageView = UIImageView(image: UIImage(named: "imgWeather11"))
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
         
-        if !image.isEmpty {
-            imageView = UIImageView(image: UIImage(named: "imgWeather11None"))
-            imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: URL(string: image), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
-            imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 375, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
-            self.view.addSubview(imageView)
-        }
+        imageView.frame = CGRect(x: self.view.center.x - 166, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 333, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
+        self.view.addSubview(imageView)
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
@@ -122,12 +173,101 @@ class DiaryNewVC: UIViewController {
     }
     
     @IBAction func saveBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC")
-
-        self.navigationController!.pushViewController(dvc, animated: true)
+        if inputTextView.text == placeholder {
+            self.simpleAlert(title: "Oops!", message: "일기를 작성해주세요")
+            return
+        }
+        
+        if weatherIdx == nil {
+            self.simpleAlert(title: "Oops!", message: "기분을 선택해주세요")
+            return
+        }
+        
+        DiaryService.shared.addDiary(userIdx: userIdx, diaryContent: inputTextView.text, diaryImage: imageView.image!, weatherIdx: weatherIdx!) {
+            data in
+            
+            switch data {
+            case .success(_):
+                self.simpleAlert(title: "일기 등록", message: "일기 등록 웅앵")
+                
+                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
+                
+                let today = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "ko_kr")
+                dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+                dateFormatter.dateFormat = "yyyy-MM"
+                let dateStr = dateFormatter.string(from: today)
+                
+                dvc.date = dateStr
+                
+                self.navigationController!.pushViewController(dvc, animated: true)
+                
+                break
+            case .requestErr(let err):
+                print(err)
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                print("네트워크 에러")
+                break
+            }
+        }
     }
     
     @IBAction func completeBtnAction(_ sender: Any) {
+        let image = imageView != nil ? imageView.image : nil
+        
+        print("edit start!!!!")
+        print(userIdx)
+        print(date)
+        print(inputTextView.text)
+        print(weatherIdx)
+        print(".......................")
+        
+        DiaryService.shared.editDiary(userIdx: userIdx, date: date!, diaryContent: inputTextView.text!, diaryImage: nil, weatherIdx: weatherIdx!) {
+            data in
+            
+            switch data {
+            case .success(_):
+                self.simpleAlert(title: "일기 수정", message: "일기 수정 완료")
+                
+//                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
+//
+//                // Todo
+//                // 오늘이 아니라 받은 날짜로 해야됨
+//                let today = Date()
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.locale = Locale(identifier: "ko_kr")
+//                dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+//                dateFormatter.dateFormat = "yyyy-MM"
+//                let dateStr = dateFormatter.string(from: today)
+//
+//                dvc.date = dateStr
+//
+//                self.navigationController!.pushViewController(dvc, animated: true)
+                
+                break
+            case .requestErr(let err):
+                print(err)
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                print("네트워크 에러")
+                break
+            }
+        }
+        
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
@@ -144,7 +284,7 @@ class DiaryNewVC: UIViewController {
     
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMinY + keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: (galleryBtnMinY == nil ? 746 :  galleryBtnMinY + keyboardSize.size.height), width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
             print(galleryBtn.frame.origin.y)
             print("hide")
         }
@@ -167,9 +307,9 @@ extension DiaryNewVC: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        print(self.inputTextView.contentSize.height)
+//        print(self.inputTextView.contentSize.height)
         
-        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height
+        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
 //        let fixedWidth = textView.frame.size.width
 //        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
 //        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -177,28 +317,34 @@ extension DiaryNewVC: UITextViewDelegate {
 //        print(newSize.height)
 //        newFrame.size = CGSize(width: fixedWidth, height: newSize.height)
 //        textView.frame = newFrame
+//        print("==============================")
+//        print(galleryBtn.frame.origin.y)
+//        print("==============================")
+        
+        galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: 455, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
 //
         if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
-//            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 247 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
+            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 247 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
             // 위에거는 부드럷게 내려가는데 폭이 너무 큼.. 아래는 부드럽지 않은데 폭 유지.
             // 아무래도 같이 바뀌지않아서 텀때문에 부드럽지 않아 보이는 것 같음..
-            imageView.frame = CGRect(x: imageView.frame.origin.x, y: inputTextView.frame.maxY + 5, width: imageView.frame.size.width, height: imageView.frame.size.height)
+//            imageView.frame = CGRect(x: imageView.frame.origin.x, y: inputTextView.frame.maxY + 5, width: imageView.frame.size.width, height: imageView.frame.size.height)
         }
     }
 }
 
 extension DiaryNewVC: MoodDelegate {
     
-    func changeMood(img: String, text: String) {
+    func changeMood(img: String, text: String, index: Int) {
         moodImgBtn.setImage(UIImage(named: img), for: .normal)
         moodTextBtn.setTitle(text, for: .normal)
         moodTextBtn.setTitleColor(UIColor.Gray, for: .normal)
+        weatherIdx = index
     }
     
 }
 
 extension DiaryNewVC : UIImagePickerControllerDelegate,
-UINavigationControllerDelegate{
+UINavigationControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {

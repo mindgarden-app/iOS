@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MoodDelegate: class {
-    func changeMood(img: String, text: String)
+    func changeMood(img: String, text: String, index: Int)
 }
 
 class DiaryPopUpVC: UIViewController {
@@ -18,8 +18,7 @@ class DiaryPopUpVC: UIViewController {
     
     var delegate: MoodDelegate? = nil
     
-    var testArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
-    var imgArr: [String] = ["imgWeather1Good", "imgWeather2Excited", "imgWeather3Soso", "imgWeather4Bored", "imgWeather5Funny", "imgWeather6Rainbow", "imgWeather7Notgood", "imgWeather8Sad", "imgWeather9Annoying", "imgWeather10Lightning", "imgWeather11None"]
+    var moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +40,16 @@ class DiaryPopUpVC: UIViewController {
 extension DiaryPopUpVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return testArr.count
+        return moodTextArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = moodTV.dequeueReusableCell(withIdentifier: "DiaryPopUpTVC") as! DiaryPopUpTVC
         
-        let moodText = testArr[indexPath.row]
+        let moodText = moodTextArr[indexPath.row]
         
-        cell.moodImage.image = UIImage(named: imgArr[indexPath.row])
+        cell.moodImage.image = UIImage(named: "imgWeather\(indexPath.row + 1)")
         cell.moodLabel.text = moodText
         
         return cell
@@ -62,9 +61,9 @@ extension DiaryPopUpVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if(delegate != nil){
-            let moodText = testArr[indexPath.row]
-            let moodImg = imgArr[indexPath.row]
-            delegate?.changeMood(img: moodImg, text: moodText)
+            let moodText = moodTextArr[indexPath.row]
+            let moodImg = "imgWeather\(indexPath.row + 1)"
+            delegate?.changeMood(img: moodImg, text: moodText, index: indexPath.row)
             self.view.removeFromSuperview()
         }
     }

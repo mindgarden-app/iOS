@@ -189,7 +189,7 @@ extension DiaryListVC: UITableViewDelegate {
         
         let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
     
-        dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!)))"
+        dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
 
         navigationController?.pushViewController(dvc, animated: true)
     }
