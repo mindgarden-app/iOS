@@ -19,11 +19,14 @@ class DiaryListVC: UIViewController {
     let dateFormatter = DateFormatter()
     var emptyView: UIView!
     var isAscending: Bool! = true
+//    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
+    let userIdx = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.isNavigationBarHidden = false
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         dateFormatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "KST") as TimeZone?
@@ -36,8 +39,6 @@ class DiaryListVC: UIViewController {
     }
     
     func getDiaryList(date: String) {
-        let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-        
         DiaryService.shared.getDiaryList(userIdx: userIdx, date: date) {
             [weak self]
             data in
@@ -148,10 +149,10 @@ extension DiaryListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if diaryList.count == 0 {
-            tableView.backgroundView?.isHidden = false
+//            tableView.backgroundView?.isHidden = false
 //            addEmptyView()
         } else {
-            tableView.backgroundView?.isHidden = true
+//            tableView.backgroundView?.isHidden = true
 //            emptyView.removeFromSuperview()
         }
         
@@ -162,6 +163,9 @@ extension DiaryListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = diaryListTV.dequeueReusableCell(withIdentifier: "DiaryListTVC") as! DiaryListTVC
+        
+        print(indexPath.row)
+        print(diaryList[indexPath.row].date)
         
         let date: Date = dateFormatter.date(from: diaryList[indexPath.row].date)!
         let day = Calendar.current.component(.day, from: date)
@@ -185,7 +189,7 @@ extension DiaryListVC: UITableViewDelegate {
         
         let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
     
-        dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(cell.dateLabel.text!)"
+        dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!)))"
 
         navigationController?.pushViewController(dvc, animated: true)
     }
@@ -194,13 +198,47 @@ extension DiaryListVC: UITableViewDelegate {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "삭제", handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
             
-            tableView.beginUpdates()
+            let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
             
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            // 데이터 삭제하는 부분.. 서버 연동하면 바꿔야됨.
-//            self.testArr.remove(at: 0)
             
-            tableView.endUpdates()
+            let date = "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
+            
+            DiaryService.shared.deleteDiary(userIdx: self.userIdx, date: date) {
+                [weak self]
+                data in
+                
+                guard let `self` = self else { return }
+                
+                switch data {
+                case .success(let message):
+                    self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
+                    
+                    print(message)
+                    
+                    tableView.beginUpdates()
+                    
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                    
+                    self.diaryList.remove(at: indexPath.row)
+                    
+                    tableView.endUpdates()
+                    
+                    break
+                case .requestErr(let err):
+                    print(".requestErr(\(err))")
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
+                }
+
+            }
             
             success(true)
             
@@ -216,6 +254,7 @@ extension DiaryListVC: DateDelegate {
         inputDate = DateComponents(year: year, month: month)
         
         setNavigationBar()
-        diaryListTV.reloadData()
+        print("\(year)-\(String(format: "%02d", month))")
+        getDiaryList(date: "\(year)-\(String(format: "%02d", month))")
     }
 }
