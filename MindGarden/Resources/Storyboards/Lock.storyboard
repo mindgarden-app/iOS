@@ -49,6 +49,9 @@
                                 <state key="normal">
                                     <color key="titleColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetBtnAction:" destination="j42-nx-sMC" eventType="touchUpInside" id="7ev-FB-sWG"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPasswordOff" translatesAutoresizingMaskIntoConstraints="NO" id="zA2-JA-Wdq">
                                 <rect key="frame" x="121" y="284" width="12" height="12"/>

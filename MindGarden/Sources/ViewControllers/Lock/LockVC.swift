@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 public enum LockMode {
     case validate
@@ -24,10 +25,15 @@ class LockVC: UIViewController {
     @IBOutlet var passcodeImg3: UIImageView!
     @IBOutlet var passcodeImg4: UIImageView!
     
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    
     var mode: LockMode!
     var stageForChange: Int = 0
     var codeArr: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "<"]
     var inputNumber: String = ""
+    var currentIdx: Int!
+    var passcodeTextField: UITextField?
+    var error: NSError?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +45,8 @@ class LockVC: UIViewController {
         registerCVC()
         passcodeCV.delegate = self
         passcodeCV.dataSource = self
+        
+//        let errorDescription = error?.userInfo["NSLocalizedDescription"] ?? ""
     }
     
     func setDescriptionLabel() {
@@ -70,6 +78,110 @@ class LockVC: UIViewController {
         let nibName = UINib(nibName: "LockCodeCVC", bundle: nil)
         passcodeCV.register(nibName, forCellWithReuseIdentifier: "LockCodeCVC")
     }
+    
+    @IBAction func resetBtnAction(_ sender: Any) {
+        AuthService.shared.resetPasscode(userIdx: userIdx) {
+            [weak self]
+            data in
+            
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let rand):
+                self.displayPasscodeAlert(rand: rand as! String)
+                
+                break
+            case .requestErr(let err):
+                print(".requestErr(\(err))")
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                break
+            }
+        }
+    }
+    
+    func displayPasscodeAlert(rand: String) {
+        let alertController = UIAlertController(title: "비밀번호 찾기", message: "전송된 메일의 번호를 하단에 입력하세요", preferredStyle: .alert)
+        
+        alertController.addTextField()
+        
+        let okAction = UIAlertAction(title: "입력", style: .default) { (ok) in
+            if rand == alertController.textFields?[0].text {
+                
+            } else {
+                alertController.message = "올바르지 않은 번호입니다"
+            }
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+    }
+    
+    func showfailAnimation() {
+        UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.passcodeImg1.center.x += 10
+            self.passcodeImg2.center.x += 10
+            self.passcodeImg3.center.x += 10
+            self.passcodeImg4.center.x += 10
+        }, completion: nil)
+        UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.passcodeImg1.center.x -= 20
+            self.passcodeImg2.center.x -= 20
+            self.passcodeImg3.center.x -= 20
+            self.passcodeImg4.center.x -= 20
+        }, completion: nil)
+        UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.passcodeImg1.center.x += 10
+            self.passcodeImg2.center.x += 10
+            self.passcodeImg3.center.x += 10
+            self.passcodeImg4.center.x += 10
+        }, completion: nil)
+    }
+    
+    func useBiometricAuthentication() {
+        
+        
+        let authContext = LAContext()
+        authContext.localizedFallbackTitle = ""
+
+        var description: String!
+        
+        if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            switch authContext.biometryType {
+            case .faceID:
+                description = "앱에 접근하기 위해서 Face ID로 인증합니다."
+                break
+            case .touchID:
+                description = "앱에 접근하기 위해서 Touch ID로 인증합니다"
+                break
+            case .none:
+                description = ""
+                break
+            }
+        
+        authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: description) { (success, error) in
+            if success {
+                print("인증 성공")
+                let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                self.navigationController!.pushViewController(dvc, animated: true)
+            } else {
+                print("인증 실패")
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        }
+    }
 }
 
 
@@ -84,6 +196,14 @@ extension LockVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LockCodeCVC", for: indexPath) as! LockCodeCVC
         
         cell.codeLabel.text = codeArr[indexPath.row]
+//        cell.codeLabel.
+//        cell.codeLabel.backgroundColor = UIColor.white
+        
+//        if currentIdx == indexPath.row {
+//            cell.codeLabel.backgroundColor = UIColor.red
+//        } else {
+//            cell.codeLabel.backgroundColor = UIColor.white
+//        }
         
         return cell
     }
@@ -94,6 +214,10 @@ extension LockVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (0 <= indexPath.row && indexPath.row < 9) || indexPath.row == 10 {
             
+            let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
+            
+//            cell.codeLabel.backgroundColor = UIColor.white
+
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
             
@@ -109,34 +233,45 @@ extension LockVC: UICollectionViewDelegate {
                         
                         self.navigationController!.pushViewController(dvc, animated: true)
                     } else {
+                        showfailAnimation()
                         inputNumber = ""
                         changePasscodeImg(count: 0)
                     }
                 } else if mode == .create {
                     UserDefaults.standard.set(inputNumber, forKey: "passcode")
-                    self.navigationController?.popViewController(animated: true)
+                    self.pop()
+                    navigationController?.isNavigationBarHidden = false
                 } else if mode == .change {
                     if stageForChange == 0 && UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
-                        descriptionLabel.text = "비밀번호를 입력해주세요."
+                        descriptionLabel.text = "새 비밀번호를 입력해주세요."
                         stageForChange = 1
                         passcodeCV.reloadData()
                     } else if stageForChange == 1 {
                         UserDefaults.standard.set(Int(inputNumber), forKey: "passcode")
-                        self.navigationController?.popViewController(animated: true)
-                        self.navigationController?.isNavigationBarHidden = false
+                        self.pop()
+                        navigationController?.isNavigationBarHidden = false
                     }
-                    
+                    showfailAnimation()
                     inputNumber = ""
                     changePasscodeImg(count: 0)
                 }
             }
-            
         } else if indexPath.row == 11 {
             inputNumber = String(inputNumber.dropLast())
-            print(inputNumber)
             
             changePasscodeImg(count: inputNumber.count)
         }
+        
+//        currentIdx = indexPath.row
+        collectionView.reloadData()
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
+        
+//        cell.codeLabel.backgroundColor = UIColor.white
+    
     }
 }
 
