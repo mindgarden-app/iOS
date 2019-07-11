@@ -21,6 +21,7 @@ class DiaryListVC: UIViewController {
     var isAscending: Bool! = true
 //    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
     @IBOutlet var emptyView: UIView!
+    @IBOutlet var grayView: UIView!
     let userIdx = 2
     
     override func viewDidLoad() {
@@ -135,17 +136,6 @@ class DiaryListVC: UIViewController {
         let nibName = UINib(nibName: "DiaryListTVC", bundle: nil)
         diaryListTV.register(nibName, forCellReuseIdentifier: "DiaryListTVC")
     }
-
-    func addEmptyView() {
-        let screenSize: CGRect = UIScreen.main.bounds
-        emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        emptyView.backgroundColor = UIColor.whiteForBorder
-        let image: UIImage = UIImage(named: "imgListZero")!
-        let emptyImageView = UIImageView(image: image)
-        emptyImageView.frame = CGRect(x: 117, y: 225, width: image.size.width, height: image.size.height)
-        emptyView.addSubview(emptyImageView)
-        self.view.addSubview(emptyView)
-    }
 }
 
 extension DiaryListVC: UITableViewDataSource {
@@ -153,17 +143,13 @@ extension DiaryListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if diaryList.count == 0 {
-//            tableView.setEmptyView()
-            tableView.backgroundView?.isHidden = false
-//            addEmptyView()
+            tableView.setEmptyView()
+            grayView.isHidden = true
         } else {
-//            tableView.restore()
-            tableView.backgroundView?.isHidden = true
-//            emptyView.isHidden = true
-//            emptyView.removeFromSuperview()
+            tableView.restore()
+            grayView.isHidden = false
+
         }
-        
-        print(diaryList.count)
         
         return diaryList.count
     }
