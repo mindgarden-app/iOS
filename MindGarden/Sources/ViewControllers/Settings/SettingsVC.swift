@@ -19,20 +19,6 @@ class SettingsVC: UIViewController {
         ["암호 설정", "글꼴 설정", "알림 설정", "프리미엄 전환 (광고 제거)"]
     ]
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        // Hide the navigation bar on the this view controller
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        // Show the navigation bar on other view controllers
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,9 +72,9 @@ extension SettingsVC: UITableViewDataSource {
             let cell = settingsTV.dequeueReusableCell(withIdentifier: "ProfileTVC") as! ProfileTVC
 
             cell.profileImage.image = UIImage(named: "imgProfile")
-            cell.nameLabel.text = "이성희"
+            cell.nameLabel.text = UserDefaults.standard.string(forKey: "name")
             cell.typeLabel.text = "무료회원"
-            cell.emailLabel.text = "630sunghee@naver.com"
+            cell.emailLabel.text = UserDefaults.standard.string(forKey: "email")
             
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor

@@ -8,6 +8,8 @@
 
 struct User: Codable {
     let userIdx: Int
+    let email: String
+    let name: String
 }
 
 struct Login: Codable {
