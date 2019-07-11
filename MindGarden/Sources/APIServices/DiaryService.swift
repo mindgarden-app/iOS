@@ -179,6 +179,56 @@ struct DiaryService {
         }
     }
     
+    func deleteDiary(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryDeleteURL + "/\(userIdx)/\(date)"
+        
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/x-www-form-urlencoded"
+        ]
+        
+        Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: header)
+            .responseData { response in
+                switch response.result {
+                    
+                case .success:
+                    if let value = response.result.value {
+                        if let status = response.response?.statusCode {
+                            
+                            switch status {
+                            case 200:
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let result = try decoder.decode(ResponseString.self, from: value)
+                                    
+                                    switch result.success {
+                                    case true:
+                                        completion(.success(result.message))
+                                    case false:
+                                        completion(.requestErr(result.message))
+                                    }
+                                } catch {
+                                    completion(.pathErr)
+                                }
+                            case 400:
+                                completion(.pathErr)
+                            case 500:
+                                completion(.serverErr)
+                                
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    break
+                    
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(.networkFail)
+                    break
+                }
+        }
+    }
+    
     func getDiaryList(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let URL = APIConstants.DiaryListURL + "/\(userIdx)/\(date)"
         

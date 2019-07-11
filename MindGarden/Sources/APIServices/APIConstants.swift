@@ -11,14 +11,14 @@ struct APIConstants {
     
     static let AuthURL = BaseURL + "/auth"
     static let KaKaoLoginURL = AuthURL + "/login/kakao"
-    static let LogoutURL = AuthURL + "/mail"
+    static let ResetPasscodeURL = AuthURL + "/mail"
     
     static let GardenURL = BaseURL + "/garden"
     static let GardenAddURL = GardenURL + "/plant"
     
     static let DiaryURL = BaseURL + "/diary"
-    static let DiaryDetailURL = DiaryURL + "/click"
     static let DiaryListURL = BaseURL + "/diarylist"
+    static let DiaryDetailURL = DiaryListURL + "/click"
     static let DiaryDeleteURL = DiaryListURL + "/delete"
     static let DiaryAddURL = DiaryURL + "/save"
     static let DiaryEditURL = DiaryURL + "/complete"
