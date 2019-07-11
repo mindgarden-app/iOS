@@ -192,18 +192,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnWeatherSelect0" translatesAutoresizingMaskIntoConstraints="NO" id="0vH-lw-Kvc">
-                                <rect key="frame" x="15" y="106" width="48" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="4oL-m5-8Qw"/>
-                                </constraints>
+                                <rect key="frame" x="12" y="106" width="52" height="51"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWeather1" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-yY-wvO">
-                                <rect key="frame" x="17" y="108" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9pQ-yY-wvO" secondAttribute="height" multiplier="1:1" id="BO3-mI-Md5"/>
-                                    <constraint firstAttribute="height" constant="45" id="OQ5-pZ-Asl"/>
-                                    <constraint firstAttribute="width" constant="45" id="rNf-On-95E"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWeather11" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-yY-wvO">
+                                <rect key="frame" x="17" y="109" width="40" height="40"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-6J-9VG">
                                 <rect key="frame" x="77" y="119" width="232" height="20"/>
@@ -217,21 +209,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="12" id="08W-es-aqy"/>
                             <constraint firstItem="7Xa-eP-3HB" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="6pw-cP-7PD"/>
-                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="15" id="88t-zY-TeZ"/>
-                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="17" id="AsL-bK-vW6"/>
-                            <constraint firstItem="XiJ-FS-275" firstAttribute="height" secondItem="0vH-lw-Kvc" secondAttribute="height" id="CPU-a6-haM"/>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="leading" secondItem="9pQ-yY-wvO" secondAttribute="trailing" constant="-45" id="7xK-Dt-dcG"/>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="top" secondItem="9pQ-yY-wvO" secondAttribute="bottom" constant="-43" id="ASX-Xx-roR"/>
+                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="17" id="ASq-aj-FKi"/>
                             <constraint firstItem="WGg-6J-9VG" firstAttribute="leading" secondItem="XiJ-FS-275" secondAttribute="trailing" constant="-283" id="Cv8-kt-jwZ"/>
                             <constraint firstItem="XiJ-FS-275" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="OCA-sk-IyE"/>
                             <constraint firstItem="WGg-6J-9VG" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="31" id="OCc-EN-CIs"/>
-                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="20" id="OUa-LY-HUE"/>
                             <constraint firstItem="XiJ-FS-275" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="15" id="WqT-jJ-uII"/>
+                            <constraint firstItem="9pQ-yY-wvO" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="21" id="aFw-mP-Hve"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="WGg-6J-9VG" secondAttribute="trailing" constant="66" id="aHU-EY-eOD"/>
                             <constraint firstItem="7Xa-eP-3HB" firstAttribute="top" secondItem="7na-yK-dsl" secondAttribute="bottom" constant="6" id="aXM-FD-J4d"/>
                             <constraint firstItem="pu5-h3-cX3" firstAttribute="trailing" secondItem="7Xa-eP-3HB" secondAttribute="trailing" constant="19" id="gpZ-bx-VId"/>
-                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="jpj-Yn-nYn"/>
+                            <constraint firstItem="XiJ-FS-275" firstAttribute="leading" secondItem="0vH-lw-Kvc" secondAttribute="trailing" constant="-49" id="ilr-Jl-wKn"/>
                             <constraint firstItem="7na-yK-dsl" firstAttribute="leading" secondItem="pu5-h3-cX3" secondAttribute="leading" constant="23" id="kpx-yI-7Ho"/>
+                            <constraint firstItem="0vH-lw-Kvc" firstAttribute="top" secondItem="pu5-h3-cX3" secondAttribute="top" constant="18" id="oYe-pZ-8So"/>
                             <constraint firstItem="7na-yK-dsl" firstAttribute="top" secondItem="XiJ-FS-275" secondAttribute="bottom" constant="16" id="tYo-nf-evy"/>
+                            <constraint firstItem="7na-yK-dsl" firstAttribute="top" secondItem="0vH-lw-Kvc" secondAttribute="bottom" constant="14" id="ykY-MX-NMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pu5-h3-cX3"/>
                     </view>
@@ -358,11 +353,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="diaryListTV" destination="KwC-PG-u57" id="eJz-wg-2u5"/>
+                        <outlet property="emptyView" destination="BNl-9N-irq" id="LY6-vg-bap"/>
                         <outlet property="settingsBtn" destination="wA7-0t-LTc" id="efQ-7a-3Lc"/>
                         <segue destination="5aY-27-WGz" kind="unwind" unwindAction="unwindToList:" id="I5t-53-0MU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk5-uf-JXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="BNl-9N-irq">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="safeArea" id="sJF-eA-oPg"/>
+                </view>
                 <exit id="5aY-27-WGz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4692" y="2925.3694581280788"/>
@@ -413,7 +415,6 @@
         <image name="btnWeatherSelect1" width="354" height="58"/>
         <image name="btnWriting" width="20.666666030883789" height="20.666666030883789"/>
         <image name="icnGallery" width="35" height="35"/>
-        <image name="imgWeather1" width="45" height="45"/>
         <image name="imgWeather11" width="45" height="45"/>
     </resources>
 </document>
