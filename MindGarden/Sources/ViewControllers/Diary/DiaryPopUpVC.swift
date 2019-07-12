@@ -35,6 +35,20 @@ class DiaryPopUpVC: UIViewController {
         let nibName = UINib(nibName: "DiaryPopUpTVC", bundle: nil)
         moodTV.register(nibName, forCellReuseIdentifier: "DiaryPopUpTVC")
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view?.tag != 100 {
+            removePopUp()
+            super.touchesEnded(touches , with: event)
+        }
+    }
+    
+    @objc func removePopUp() {
+        UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
+                       completion: {(value: Bool) in
+                        self.view.removeFromSuperview()
+        })
+    }
 }
 
 extension DiaryPopUpVC: UITableViewDataSource {

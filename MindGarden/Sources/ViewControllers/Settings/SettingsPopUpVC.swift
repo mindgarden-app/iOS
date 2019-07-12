@@ -35,6 +35,13 @@ class SettingsPopUpVC: UIViewController {
         popUpView.makeRounded(cornerRadius: 15)
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view?.tag != 100 {
+            removePopUp()
+            super.touchesEnded(touches , with: event)
+        }
+    }
+    
     func setBtnSelected() {
         var fontSizeBtnArr: [DLRadioButton] = [fontSizeBtn1, fontSizeBtn2, fontSizeBtn3, fontSizeBtn4, fontSizeBtn5]
         
@@ -46,6 +53,13 @@ class SettingsPopUpVC: UIViewController {
     @IBAction func fontBtnAction(_ sender: DLRadioButton) {
         UserDefaults.standard.set(sender.tag, forKey: "fontSize")
         delegate?.changeFontSizeText()
+        UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
+                       completion: {(value: Bool) in
+                        self.view.removeFromSuperview()
+        })
+    }
+    
+    @objc func removePopUp() {
         UIView.animate(withDuration: 0.2, animations: {self.view.alpha = 0.0},
                        completion: {(value: Bool) in
                         self.view.removeFromSuperview()
