@@ -14,8 +14,6 @@ protocol FontSizeDelegate: class {
 }
 
 class SettingsPopUpVC: UIViewController {
-    
-    var delegate: FontSizeDelegate? = nil
 
     @IBOutlet var popUpView: UIView!
     @IBOutlet var fontSizeBtn1: DLRadioButton!
@@ -24,6 +22,7 @@ class SettingsPopUpVC: UIViewController {
     @IBOutlet var fontSizeBtn4: DLRadioButton!
     @IBOutlet var fontSizeBtn5: DLRadioButton!
 
+    var delegate: FontSizeDelegate? = nil
     var radioBtnValue: String!
     
     override func viewDidLoad() {
@@ -31,8 +30,8 @@ class SettingsPopUpVC: UIViewController {
         
         setBtnSelected()
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         popUpView.makeRounded(cornerRadius: 15)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

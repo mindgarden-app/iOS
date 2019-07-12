@@ -21,7 +21,6 @@ class SettingsWithSwitchTVC: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         initView()
     }
 

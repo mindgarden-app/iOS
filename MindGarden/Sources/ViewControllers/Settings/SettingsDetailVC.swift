@@ -12,33 +12,42 @@ import UserNotifications
 class SettingsDetailVC: UIViewController {
 
     @IBOutlet var settingsDetailTV: UITableView!
-    
-    var paramSettings: Int = 0
-    var settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
-    let fontSizeStrArr: [String] = ["아주 작게", "작게", "보통", "크게", "아주 크게"]
-    
+
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
+    let center = UNUserNotificationCenter.current()
+    let content = UNMutableNotificationContent()
+    let settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
+    let fontSizeStrArr: [String] = ["아주 작게", "작게", "보통", "크게", "아주 크게"]
+    
+    var paramSettings: Int = 0
     var datePickerIndexPath: IndexPath?
     var isOn: Bool = false
     
-    let center = UNUserNotificationCenter.current()
-    let content = UNMutableNotificationContent()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.isNavigationBarHidden = false
-        
-        setDateFormatter()
-
-        registerTVC()
+ 
         setNavigationBar(title: settingsTitleArr[paramSettings])
         isOn = UserDefaults.standard.bool(forKey: settingsTitleArr[paramSettings])
-        navigationController?.isNavigationBarHidden = false
         
+        setDateFormatter()
+        
+        registerTVC()
         settingsDetailTV.delegate = self
         settingsDetailTV.dataSource = self
+    }
+    
+    func setNavigationBar(title: String) {
+        navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = title
+    }
+    
+    func setDateFormatter() {
+        dateFormatter.locale = Locale(identifier: "ko_kr")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        dateFormatter.dateFormat = "HH:mm"
     }
     
     func registerTVC() {
@@ -58,20 +67,9 @@ class SettingsDetailVC: UIViewController {
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.pop()
     }
-    
-    func setNavigationBar(title: String) {
-        self.navigationItem.title = title
-        // Todo. font와 size 지정 들어가야됨
-    }
-    
-    func setDateFormatter() {
-        dateFormatter.locale = Locale(identifier: "ko_kr")
-        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-        dateFormatter.dateFormat = "HH:mm"
-    }
-    
+
     func indexPathToInsertDatePicker(indexPath: IndexPath) -> IndexPath {
         if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row < indexPath.row {
             return indexPath
@@ -79,7 +77,6 @@ class SettingsDetailVC: UIViewController {
             return IndexPath(row: indexPath.row + 1, section: indexPath.section)
         }
     }
-
 }
 
 extension SettingsDetailVC: UITableViewDataSource {
@@ -186,13 +183,14 @@ extension SettingsDetailVC: UITableViewDelegate {
                 
                 self.navigationController!.pushViewController(dvc, animated: true)
             }
+            
         } else if paramSettings == 1 {
             let popUpVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsPopUpVC") as! SettingsPopUpVC
             popUpVC.delegate = self
             self.addChild(popUpVC)
-//            popUpVC.view.frame = self.view.frame
             self.view.addSubview(popUpVC.view)
             popUpVC.didMove(toParent: self)
+            
         } else if paramSettings == 2 && indexPath.row == 1 {
             tableView.beginUpdates()
             if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {
@@ -208,6 +206,7 @@ extension SettingsDetailVC: UITableViewDelegate {
             }
             tableView.endUpdates()
         }
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -222,8 +221,6 @@ extension SettingsDetailVC: UITableViewDelegate {
 extension SettingsDetailVC: DatePickerDelegate {
     
     func didChangeDate(date: Date, indexPath: IndexPath) {
-        var dateToStr = dateFormatter.string(from: date)
-        print(dateToStr)
         UserDefaults.standard.set(date, forKey: "alarmTime")
         settingsDetailTV.reloadRows(at: [indexPath], with: .none)
         
@@ -238,7 +235,7 @@ extension SettingsDetailVC: DatePickerDelegate {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
+
         center.removeAllPendingNotificationRequests()
         center.add(request) { (error) in
             if let error = error {

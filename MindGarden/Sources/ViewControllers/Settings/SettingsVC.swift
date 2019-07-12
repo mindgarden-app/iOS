@@ -23,13 +23,16 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         setNavigationBar()
-        navigationController?.isNavigationBarHidden = false
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
+
+        registerTVC()
         settingsTV.delegate = self
         settingsTV.dataSource = self
-        
-        registerTVC()
+    }
+    
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func registerTVC() {
@@ -42,11 +45,6 @@ class SettingsVC: UIViewController {
     @IBAction func backBtnAction(_ sender: Any) {
         self.pop()
     }
-    
-    func setNavigationBar() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-    }
-
 }
 
 extension SettingsVC: UITableViewDataSource {
@@ -86,7 +84,6 @@ extension SettingsVC: UITableViewDataSource {
             let settingsName = items[indexPath.section][indexPath.row]
 
             cell.settingsNameLabel.text = settingsName
-            
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor
             
@@ -107,6 +104,8 @@ extension SettingsVC: UITableViewDelegate {
         if indexPath.section == 1 {
             UserDefaults.standard.set(false, forKey: "암호 설정")
             UserDefaults.standard.set(nil, forKey: "userIdx")
+            UserDefaults.standard.set(nil, forKey: "email")
+            UserDefaults.standard.set(nil, forKey: "name")
             navigationController?.isNavigationBarHidden = true
             performSegue(withIdentifier: "unwindToLogin", sender: self)
         } else if indexPath.section == 2 && indexPath.row != 3{
@@ -115,6 +114,7 @@ extension SettingsVC: UITableViewDelegate {
             dvc.paramSettings = indexPath.row
 
             self.navigationController!.pushViewController(dvc, animated: true)
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         }
     }
 }

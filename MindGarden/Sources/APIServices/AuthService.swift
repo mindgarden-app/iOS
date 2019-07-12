@@ -18,7 +18,6 @@ struct AuthService {
     
     func resetPasscode(userIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let URL = APIConstants.ResetPasscodeURL + "/\(userIdx)"
-        print(URL)
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)
             .responseData { response in
@@ -33,7 +32,7 @@ struct AuthService {
                                 do {
                                     let decoder = JSONDecoder()
                                     let result = try decoder.decode(ResponseString.self, from: value)
-                                    print(result)
+                                    
                                     switch result.success {
                                     case true:
                                         completion(.success(result.data))

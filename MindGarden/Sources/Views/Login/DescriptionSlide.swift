@@ -11,5 +11,4 @@ import UIKit
 class DescriptionSlide: UIView {
 
     @IBOutlet var logoImage: UIImageView!
-    
 }

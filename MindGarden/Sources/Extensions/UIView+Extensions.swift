@@ -11,7 +11,6 @@ import UIKit
 extension UIView {
     
     func makeRounded(cornerRadius : CGFloat?){
-        
         if let cornerRadius_ = cornerRadius {
             self.layer.cornerRadius = cornerRadius_
         }  else {

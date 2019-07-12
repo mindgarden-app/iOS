@@ -124,12 +124,10 @@ struct DiaryService {
                     }
                     break
                 case .failure(let err):
-                    // 연결이 끊겼을 때 어떻게 할 것인지.
                     print(err.localizedDescription)
                     completion(.networkFail)
                     break
                 }
-                
         }
     }
     
@@ -156,8 +154,6 @@ struct DiaryService {
 
                                     switch result.success {
                                     case true:
-                                        print("==========")
-                                        print(result.data![0])
                                         completion(.success(result.data![0]))
                                     case false:
                                         completion(.requestErr(result.message))

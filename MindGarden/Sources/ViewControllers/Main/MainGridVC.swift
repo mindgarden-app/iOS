@@ -21,7 +21,6 @@ class MainGridVC: UIViewController {
     let treeInventoryCellSize = 55
     let gardenGridSpacing: CGFloat = 7
     let treeInventorySpacing: CGFloat = 8
-//    let userIdx = 2
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     var date: String!
@@ -33,7 +32,7 @@ class MainGridVC: UIViewController {
     let gridIdxArr: [Int] = [1, 3, 6, 10, 14, 18, 2, 5, 9, 13, 17, 22, 4, 8, 0, 0, 21, 26, 7, 12, 0, 0, 25, 29, 11, 16, 20, 24, 28, 31, 15, 19, 23, 27, 30, 32]
     let gridInverseIdxArr: [Int] = [0, 6, 1, 12, 7, 2, 18, 13, 8, 3, 24, 19, 9, 4, 30, 25, 10, 5, 31, 26, 16, 11, 32, 27, 22, 17, 33, 28, 23, 34, 29, 35]
     
-    let treeImageArr: [String] = ["ios_tree1", "ios_tree2", "ios_tree3", "ios_tree4", "ios_tree5", "ios_tree6", "ios_tree7", "ios_tree8", "ios_tree9", "ios_tree10", "ios_tree11", "ios_tree11", "ios_tree12", "ios_tree13", "ios_tree14", "ios_tree15", "ios_tree16"]
+    let treeImageArr: [String] = ["ios_tree1", "ios_tree2", "ios_tree3", "ios_tree4", "ios_tree5", "ios_tree6", "ios_tree7", "ios_tree8", "ios_tree9", "ios_tree10", "ios_tree11", "ios_tree12", "ios_tree13", "ios_tree14", "ios_tree15", "ios_tree16"]
     
 
     override func viewDidLoad() {
@@ -132,14 +131,11 @@ class MainGridVC: UIViewController {
             case .success(let message):
                 let messageStr = String(describing: message)
                 if messageStr == "일기를 써야 심을 수 있어요!" {
-                    self.simpleAlert(title: "Oops!", message: messageStr)
-                    self.pop()
+                    self.simpleAlertWithPop(title: "Oops!", message: messageStr)
                 } else if messageStr == "이미 심으셨습니다!" {
-                    self.simpleAlert(title: "Oops!", message: messageStr)
-                    self.pop()
+                    self.simpleAlertWithPop(title: "Oops!", message: messageStr)
                 } else {
-                    // Todo
-                    // 일기 성공했을 때 리로드되어야됨..
+                    self.simpleAlertWithPop(title: "성공!", message: "오늘의 나무를 심으셨습니다.")
                 }
                 break
             case .requestErr:

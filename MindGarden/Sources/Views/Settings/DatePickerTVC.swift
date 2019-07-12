@@ -29,7 +29,6 @@ class DatePickerTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
     func initView() {
         datePicker.addTarget(self, action: #selector(changeDate), for: .valueChanged)
     }
@@ -43,5 +42,4 @@ class DatePickerTVC: UITableViewCell {
         let indexPathForDisplayDate = IndexPath(row: indexPath.row - 1, section: indexPath.section)
         delegate?.didChangeDate(date: sender.date, indexPath: indexPathForDisplayDate)
     }
-    
 }

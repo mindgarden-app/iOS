@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 extension UIViewController {
     
@@ -21,13 +22,21 @@ extension UIViewController {
     }
     
     func simpleAlert(title: String, message: String) {
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .default)
+        let okAction = UIAlertAction(title: "확인", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-
+    
+    func simpleAlertWithPop(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "확인", style: .default) { (action: UIAlertAction!) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(OKAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func simpleAlertwithHandler(title: String, message: String, okHandler : ((UIAlertAction) -> Void)?, cancleHandler : ((UIAlertAction) -> Void)?){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인",style: .default, handler: okHandler)
@@ -64,47 +73,4 @@ extension UIViewController {
             self.navigationItem.rightBarButtonItem = barButton
         }
     }
-    
-    func setNavigationBarClear() {
-        let bar: UINavigationBar! = self.navigationController?.navigationBar
-        
-        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        bar.shadowImage = UIImage()
-        bar.backgroundColor = UIColor.clear
-    }
-    
-    func setNavigationBarShadow() {
-        let bar: UINavigationBar! = self.navigationController?.navigationBar
-        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        bar.backgroundColor = UIColor.white
-    }
-    
-    func gsno(_ value: String?) -> String{
-        guard let value_ = value else {
-            return ""
-        }
-        return value_
-    }//func gsno
-    
-    func gino(_ value: Int?) -> Int{
-        guard let value_ = value else {
-            return 0
-        }
-        return value_
-    }//func gino
-    
-    func gbno(_ value: Bool?) -> Bool{
-        guard let value_ = value else {
-            return false
-        }
-        return value_
-    }//func gbno
-    
-    func gfno(_ value: Float?) -> Float{
-        guard let value_ = value else{
-            return 0
-        }
-        return value_
-    }//func gfno
-    
 }

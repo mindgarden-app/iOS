@@ -32,7 +32,6 @@
 		DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */; };
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
 		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
-		DE730A9622D63E2800A2541C /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE730A9522D63E2800A2541C /* UIImageView+Extensions.swift */; };
 		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
 		DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */; };
 		DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6C322CA780A00AD77EC /* LoginVC.swift */; };
@@ -129,7 +128,6 @@
 		DE33D71422C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
-		DE730A9522D63E2800A2541C /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
 		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
 		DE7BC6C322CA780A00AD77EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -335,7 +333,6 @@
 				DE06597322C9E15E00D000BC /* Date+Extensions.swift */,
 				DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */,
 				DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */,
-				DE730A9522D63E2800A2541C /* UIImageView+Extensions.swift */,
 				DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -685,7 +682,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE730A9622D63E2800A2541C /* UIImageView+Extensions.swift in Sources */,
 				DE7BC6FE22CC37A300AD77EC /* SettingsPopUpVC.swift in Sources */,
 				DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */,
 				DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */,

@@ -33,25 +33,19 @@ class LockVC: UIViewController {
     var stageForChange: Int = 0
     var codeArr: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "<"]
     var inputNumber: String = ""
-    var currentIdx: Int!
-    var passcodeTextField: UITextField?
-    var error: NSError?
     var newPasscode: Int!
+    var error: NSError?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-        
         navigationController?.isNavigationBarHidden = true
-        
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         setDescriptionLabel()
         
         registerCVC()
         passcodeCV.delegate = self
         passcodeCV.dataSource = self
-        
-//        let errorDescription = error?.userInfo["NSLocalizedDescription"] ?? ""
     }
     
     func setDescriptionLabel() {
@@ -93,7 +87,7 @@ class LockVC: UIViewController {
             
             switch data {
             case .success(let rand):
-                self.passcodeResetBtn.setTitle("메일로 새 비밀번호를 전송했습니다.", for: .normal)
+                self.passcodeResetBtn.setTitle("메일로 발송된 번호를 입력하세요.", for: .normal)
                 UserDefaults.standard.set(rand, forKey: "passcode")
                 break
             case .requestErr(let err):
@@ -111,28 +105,6 @@ class LockVC: UIViewController {
             }
         }
     }
-    
-//    func displayPasscodeAlert(rand: String) {
-//        let alertController = UIAlertController(title: "비밀번호 찾기", message: "전송된 메일의 번호를 하단에 입력하세요", preferredStyle: .alert)
-//
-//        alertController.addTextField()
-//        alertController.textFields![0].keyboardType = UIKeyboardType.decimalPad
-//
-//        let okAction = UIAlertAction(title: "입력", style: .default) { (ok) in
-//            if rand == alertController.textFields?[0].text {
-//
-//            } else {
-//                self.present(alertController, animated: true, completion: nil)
-//                alertController.textFields![0].text = ""
-//                alertController.message = "올바르지 않은 번호입니다"
-//            }
-//        }
-//        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-//        alertController.addAction(okAction)
-//        alertController.addAction(cancelAction)
-//
-//        self.present(alertController, animated: true)
-//    }
     
     func showfailAnimation() {
         UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
@@ -156,8 +128,6 @@ class LockVC: UIViewController {
     }
     
     func useBiometricAuthentication() {
-        
-        
         let authContext = LAContext()
         authContext.localizedFallbackTitle = ""
 
@@ -196,7 +166,6 @@ class LockVC: UIViewController {
 extension LockVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return codeArr.count
     }
     
@@ -214,8 +183,6 @@ extension LockVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (0 <= indexPath.row && indexPath.row < 9) || indexPath.row == 10 {
-            
-            let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
             
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
@@ -274,18 +241,9 @@ extension LockVC: UICollectionViewDelegate {
             
             changePasscodeImg(count: inputNumber.count)
         }
-        
-//        currentIdx = indexPath.row
+    
         collectionView.reloadData()
         
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
-    
-//        cell.contentView.backgroundColor = UIColor.white
-//        cell.codeLabel.backgroundColor = UIColor.white
-    
     }
 }
 

@@ -13,17 +13,17 @@ protocol DateDelegate {
 }
 
 class PopUpVC: UIViewController {
-    
-    var delegate:DateDelegate? = nil
-    var year: Int = 0;
-    private var currentYear: Int!
-    private var month: Int = 0;
 
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var popUpView: UIView!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var leftBtn: UIButton!
     @IBOutlet var rightBtn: UIButton!
+    
+    var delegate:DateDelegate? = nil
+    var year: Int = 0;
+    var currentYear: Int!
+    var month: Int = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +80,6 @@ class PopUpVC: UIViewController {
             }
         }
     }
-    
     
     @IBAction func rightBtnAction(_ sender: Any) {
         if year + 1 <= currentYear + 5 {

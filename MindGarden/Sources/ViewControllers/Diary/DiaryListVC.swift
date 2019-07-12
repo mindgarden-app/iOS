@@ -29,6 +29,12 @@ class DiaryListVC: UIViewController {
         getDiaryList(date: "2019-07")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        getDiaryList(date: "2019-07")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -182,9 +188,7 @@ extension DiaryListVC: UITableViewDataSource {
 extension DiaryListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
-        
         let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
     
         dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
@@ -193,12 +197,8 @@ extension DiaryListVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         let deleteAction = UIContextualAction(style: .destructive, title: "삭제", handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
-            
             let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
-            
-            
             let date = "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
             
             DiaryService.shared.deleteDiary(userIdx: self.userIdx, date: date) {
@@ -210,11 +210,8 @@ extension DiaryListVC: UITableViewDelegate {
                 switch data {
                 case .success(let message):
                     self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
-                    
-                    print(message)
-                    
+                
                     tableView.beginUpdates()
-                    
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                     
                     self.diaryList.remove(at: indexPath.row)
@@ -246,7 +243,6 @@ extension DiaryListVC: UITableViewDelegate {
     }
 }
 
-
 extension DiaryListVC: DateDelegate {
     func changeDate(year: Int, month: Int) {
         inputDate = DateComponents(year: year, month: month)
@@ -263,7 +259,6 @@ extension DiaryListVC : UIGestureRecognizerDelegate {
         if (self.navigationController?.viewControllers.count)! > 1 {
             return true
         }
-        
         return false
     }
 }

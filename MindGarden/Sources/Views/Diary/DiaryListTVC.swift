@@ -17,21 +17,12 @@ class DiaryListTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-//        view.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
         
         setLabelEllipsis()
-        
-//        dateLabel.sizeToFit()
-//        dayOfWeekLabel.sizeToFit()
-//        titleLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setLabelEllipsis() {
@@ -39,5 +30,4 @@ class DiaryListTVC: UITableViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byTruncatingTail
     }
-    
 }

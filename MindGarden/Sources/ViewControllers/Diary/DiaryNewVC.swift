@@ -205,25 +205,12 @@ class DiaryNewVC: UIViewController {
                     break
                 }
                 
-                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
-                
-                let today = Date()
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "ko_kr")
-                dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-                dateFormatter.dateFormat = "yyyy-MM"
-                let dateStr = dateFormatter.string(from: today)
-                
-                dvc.date = dateStr
+                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
                 
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-                if (viewControllers.count) != nil && viewControllers.count > 2 {
-                    viewControllers.removeLast(viewControllers.count - 2)
-                }
+                viewControllers.removeLast(3)
                 viewControllers.append(dvc)
                 self.navigationController?.setViewControllers(viewControllers, animated: false)
-                
-//                self.navigationController!.pushViewController(dvc, animated: true)
                 
                 break
             case .requestErr(let err):
@@ -252,21 +239,6 @@ class DiaryNewVC: UIViewController {
             case .success(_):
                 self.simpleAlert(title: "수정 완료", message: "일기가 수정되었습니다")
                 
-//                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
-//
-//                // Todo
-//                // 오늘이 아니라 받은 날짜로 해야됨
-//                let today = Date()
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.locale = Locale(identifier: "ko_kr")
-//                dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-//                dateFormatter.dateFormat = "yyyy-MM"
-//                let dateStr = dateFormatter.string(from: today)
-//
-//                dvc.date = dateStr
-//
-//                self.navigationController!.pushViewController(dvc, animated: true)
-                
                 break
             case .requestErr(let err):
                 print(err)
@@ -286,13 +258,22 @@ class DiaryNewVC: UIViewController {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
         var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-        if (viewControllers.count) != nil && viewControllers.count > 2 {
-            viewControllers.removeLast(viewControllers.count - 2)
+//        for vc in viewControllers {
+//            print(vc)
+//        }
+        if UserDefaults.standard.bool(forKey: "암호 설정") {
+//            print("암호?")
+            viewControllers.removeLast(3)
+        } else {
+//            print("암호??????")
+            viewControllers.removeLast(3)
         }
+//        for vc in viewControllers {
+//            print(vc)
+//        }
         viewControllers.append(dvc)
         self.navigationController?.setViewControllers(viewControllers, animated: false)
         
-//        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @objc func keyboardWillShow(notification: Notification) {

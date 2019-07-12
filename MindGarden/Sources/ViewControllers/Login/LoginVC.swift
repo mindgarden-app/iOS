@@ -23,11 +23,11 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     }
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var loginBtn: UIButton!
+    
+    var slides: [DescriptionSlide] = [];
     var webView: WKWebView!
     var authType: AuthType!
     
-    let decoder = JSONDecoder()
-    var slides: [DescriptionSlide] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,6 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
-
-        pageControl.numberOfPages = slides.count
-        pageControl.currentPage = 0
-        view.bringSubviewToFront(pageControl)
     }
     
     func createSlides() -> [DescriptionSlide] {
@@ -66,6 +62,10 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
             slides[i].frame = CGRect(x: 301 * CGFloat(i), y: 0, width: 301, height: 208)
             descriptionSV.addSubview(slides[i])
         }
+        
+        pageControl.numberOfPages = slides.count
+        pageControl.currentPage = 0
+        view.bringSubviewToFront(pageControl)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -90,7 +90,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
 
 extension LoginVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        let size = CGSize(width: 60, height: 60)
+        let size = CGSize(width: 50, height: 50)
         let activityData = ActivityData(size: size, message: "Loading", type: .lineSpinFadeLoader, color: UIColor.lightGreen, textColor: UIColor.lightGreen)
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
@@ -101,14 +101,12 @@ extension LoginVC: WKNavigationDelegate {
             if url == "http://13.125.190.74:3000/auth/login/success" {
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
                     let dataStr = data as! String
-                    print(dataStr)
                     if let result = dataStr.data(using: .utf8) {
                         if self.authType == .kakao {
                             do {
                                 let kakao = try JSONDecoder().decode(Login.self, from: result)
                                 print("로그인 \(kakao.data.userIdx)")
                                 UserDefaults.standard.set(kakao.data.userIdx, forKey: "userIdx")
-                                print("userIdx \(UserDefaults.standard.integer(forKey: "userIdx"))")
                                 UserDefaults.standard.set(kakao.data.email, forKey: "email")
                                 UserDefaults.standard.set(kakao.data.name, forKey: "name")
                             } catch {
@@ -137,5 +135,4 @@ extension LoginVC: WKNavigationDelegate {
             }
         }
     }
-    
 }
