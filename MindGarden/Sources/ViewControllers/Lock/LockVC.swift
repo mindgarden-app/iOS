@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import NVActivityIndicatorView
 
 public enum LockMode {
     case validate
@@ -28,15 +29,19 @@ class LockVC: UIViewController {
     let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     var mode: LockMode!
+    var selectedNumIdx: Int!
     var stageForChange: Int = 0
     var codeArr: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", "<"]
     var inputNumber: String = ""
     var currentIdx: Int!
     var passcodeTextField: UITextField?
     var error: NSError?
+    var newPasscode: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         
         navigationController?.isNavigationBarHidden = true
         
@@ -111,11 +116,14 @@ class LockVC: UIViewController {
         let alertController = UIAlertController(title: "비밀번호 찾기", message: "전송된 메일의 번호를 하단에 입력하세요", preferredStyle: .alert)
         
         alertController.addTextField()
+        alertController.textFields![0].keyboardType = UIKeyboardType.decimalPad
         
         let okAction = UIAlertAction(title: "입력", style: .default) { (ok) in
             if rand == alertController.textFields?[0].text {
                 
             } else {
+                self.present(alertController, animated: true, completion: nil)
+                alertController.textFields![0].text = ""
                 alertController.message = "올바르지 않은 번호입니다"
             }
         }
@@ -196,14 +204,7 @@ extension LockVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LockCodeCVC", for: indexPath) as! LockCodeCVC
         
         cell.codeLabel.text = codeArr[indexPath.row]
-//        cell.codeLabel.
-//        cell.codeLabel.backgroundColor = UIColor.white
-        
-//        if currentIdx == indexPath.row {
-//            cell.codeLabel.backgroundColor = UIColor.red
-//        } else {
-//            cell.codeLabel.backgroundColor = UIColor.white
-//        }
+        cell.layer.borderColor = UIColor.clear.cgColor
         
         return cell
     }
@@ -216,7 +217,6 @@ extension LockVC: UICollectionViewDelegate {
             
             let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
             
-//            cell.codeLabel.backgroundColor = UIColor.white
 
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
@@ -242,16 +242,30 @@ extension LockVC: UICollectionViewDelegate {
                     self.pop()
                     navigationController?.isNavigationBarHidden = false
                 } else if mode == .change {
-                    if stageForChange == 0 && UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
-                        descriptionLabel.text = "새 비밀번호를 입력해주세요."
-                        stageForChange = 1
+                    if stageForChange == 0 {
+                        if UserDefaults.standard.integer(forKey: "passcode") == Int(inputNumber) {
+                            descriptionLabel.text = "새 비밀번호를 입력해주세요."
+                            stageForChange = 1
+                        } else {
+                            showfailAnimation()
+                        }
                         passcodeCV.reloadData()
                     } else if stageForChange == 1 {
-                        UserDefaults.standard.set(Int(inputNumber), forKey: "passcode")
-                        self.pop()
-                        navigationController?.isNavigationBarHidden = false
+                        newPasscode = Int(inputNumber)
+                        descriptionLabel.text = "한 번 더 입력해주세요."
+                        stageForChange = 2
+                        passcodeCV.reloadData()
+                    } else if stageForChange == 2 {
+                        if newPasscode == Int(inputNumber) {
+                            UserDefaults.standard.set(Int(inputNumber), forKey: "passcode")
+                            self.pop()
+                            navigationController?.isNavigationBarHidden = false
+                        } else {
+                            showfailAnimation()
+                            descriptionLabel.text = "한 번 더 입력해주세요."
+                            passcodeCV.reloadData()
+                        }
                     }
-                    showfailAnimation()
                     inputNumber = ""
                     changePasscodeImg(count: 0)
                 }
@@ -269,7 +283,8 @@ extension LockVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
-        
+    
+//        cell.contentView.backgroundColor = UIColor.white
 //        cell.codeLabel.backgroundColor = UIColor.white
     
     }
