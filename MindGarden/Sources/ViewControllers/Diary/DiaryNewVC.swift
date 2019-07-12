@@ -30,8 +30,8 @@ class DiaryNewVC: UIViewController {
     var date: String!
     var imageView: UIImageView!
     let picker = UIImagePickerController()
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-//    let userIdx = 2
+//    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    let userIdx = 2
     var weatherIdx: Int!
     var placeholder = "내용"
     var moodText: String = "기분 수정 중"
@@ -143,10 +143,9 @@ class DiaryNewVC: UIViewController {
     func setImageView() {
         imageView = UIImageView(image: UIImage(named: "imgWeather11"))
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil)
-        
-        imageView.frame = CGRect(x: self.view.center.x - 166, y: inputTextView.frame.maxY + 5 + inputTextView.contentSize.height, width: 333, height: imageView.frame.size.height * 300 / imageView.frame.size.width)
-        self.view.addSubview(imageView)
+        imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+            self.imageView.frame = CGRect(x: self.view.center.x - 166, y: self.inputTextView.frame.maxY + 5 + self.inputTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
+        })
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
