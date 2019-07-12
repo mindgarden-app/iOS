@@ -45,7 +45,7 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-h2-IKV">
-                                <rect key="frame" x="94" y="323" width="187" height="33"/>
+                                <rect key="frame" x="16" y="323" width="343" height="33"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,16 +88,16 @@
                             <constraint firstItem="FBY-sQ-eOy" firstAttribute="trailing" secondItem="3rr-zS-OOl" secondAttribute="trailing" id="OS2-Pq-p59"/>
                             <constraint firstItem="cv4-02-Ii9" firstAttribute="top" secondItem="3rr-zS-OOl" secondAttribute="bottom" constant="36.666666666666657" id="Tyb-BV-BPw"/>
                             <constraint firstItem="WKE-h2-IKV" firstAttribute="top" secondItem="eNe-kk-G1H" secondAttribute="bottom" constant="27" id="Vej-Kx-apC"/>
+                            <constraint firstItem="FBY-sQ-eOy" firstAttribute="trailing" secondItem="WKE-h2-IKV" secondAttribute="trailing" constant="16" id="bjc-QF-iJn"/>
                             <constraint firstItem="WKE-h2-IKV" firstAttribute="top" secondItem="E1C-pC-zHv" secondAttribute="bottom" constant="27" id="cum-Dc-MJg"/>
                             <constraint firstItem="FBY-sQ-eOy" firstAttribute="trailing" secondItem="cv4-02-Ii9" secondAttribute="trailing" constant="120" id="dl5-jc-yHr"/>
                             <constraint firstItem="3rr-zS-OOl" firstAttribute="width" secondItem="k3U-hr-xMx" secondAttribute="width" id="gQD-ah-Kp5"/>
-                            <constraint firstItem="WKE-h2-IKV" firstAttribute="leading" secondItem="FBY-sQ-eOy" secondAttribute="leading" constant="94" id="i4f-WM-wo8"/>
                             <constraint firstItem="eNe-kk-G1H" firstAttribute="leading" secondItem="zA2-JA-Wdq" secondAttribute="trailing" constant="29" id="kq3-ja-Dkb"/>
                             <constraint firstItem="cv4-02-Ii9" firstAttribute="leading" secondItem="E1C-pC-zHv" secondAttribute="trailing" constant="28" id="nwv-us-VUV"/>
                             <constraint firstItem="E1C-pC-zHv" firstAttribute="top" secondItem="3rr-zS-OOl" secondAttribute="bottom" constant="36.666666666666657" id="pzF-zO-saE"/>
                             <constraint firstItem="T53-LJ-Xfk" firstAttribute="top" secondItem="WKE-h2-IKV" secondAttribute="bottom" constant="131" id="r3E-Qo-m4B"/>
                             <constraint firstItem="eNe-kk-G1H" firstAttribute="top" secondItem="3rr-zS-OOl" secondAttribute="bottom" constant="36.666666666666657" id="r4j-9D-n2y"/>
-                            <constraint firstItem="WKE-h2-IKV" firstAttribute="width" secondItem="k3U-hr-xMx" secondAttribute="height" multiplier="187:812" id="vmu-sG-bkZ"/>
+                            <constraint firstItem="WKE-h2-IKV" firstAttribute="leading" secondItem="FBY-sQ-eOy" secondAttribute="leading" constant="16" id="uSj-qa-2CW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FBY-sQ-eOy"/>
                     </view>

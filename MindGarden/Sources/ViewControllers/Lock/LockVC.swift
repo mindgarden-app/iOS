@@ -93,7 +93,7 @@ class LockVC: UIViewController {
             
             switch data {
             case .success(let rand):
-                self.passcodeResetBtn.setTitle("새 비밀번호를 \(UserDefaults.standard.string(forKey: "email"))로 보냈습니다.", for: .normal)
+                self.passcodeResetBtn.setTitle("메일로 새 비밀번호를 전송했습니다.", for: .normal)
                 UserDefaults.standard.set(rand, forKey: "passcode")
                 break
             case .requestErr(let err):
@@ -217,7 +217,6 @@ extension LockVC: UICollectionViewDelegate {
             
             let cell = collectionView.cellForItem(at: indexPath) as! LockCodeCVC
             
-
             inputNumber += codeArr[indexPath.row]
             print(inputNumber)
             
