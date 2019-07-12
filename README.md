@@ -143,7 +143,7 @@ MindGarden
 |   |   |   |-- SettingsTVC.swift
 |   |   |   |-- SettingsTVC.xib
 |   |   |   |-- SettingsWithSwitchTVC.swift
-|   |   |   `-- SettingsWithSwitchTVC.xib
+|   |   `   `-- SettingsWithSwitchTVC.xib
 `   `-- AppDelegate.swift
 ```
 
