@@ -66,20 +66,28 @@ class DiaryNewVC: UIViewController {
     }
     
     func setNavigationBar() {
-        // 중앙 날짜 버튼
-        let today = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yy.MM.dd"
-        let dateStr = dateFormatter.string(from: today)
-        let dayOfTheWeekStr: String? = today.getDayOfTheWeek(lang: "ko")
-        
-        self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
         
         if mode == .new {
+            let today = Date()
+            
+            let dateStr = dateFormatter.string(from: today)
+            let dayOfTheWeekStr: String? = today.getDayOfTheWeek(lang: "ko")
+            
+            self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
+            
             self.setNavigationBarItem(image: "btnRegister.png", target: self, action: #selector(saveBtnAction), direction: "right")
         } else if mode == .edit {
+            let dateFormatterForInputDate = DateFormatter()
+            dateFormatterForInputDate.dateFormat = "yyyy-MM-dd"
+            let inputDate: Date = dateFormatterForInputDate.date(from: date)!
+            let dateStr = dateFormatter.string(from: inputDate)
+            let dayOfTheWeekStr: String? = inputDate.getDayOfTheWeek(lang: "ko")
+            self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
+            
             self.setNavigationBarItem(image: "btnComplete.png", target: self, action: #selector(completeBtnAction), direction: "right")
         }
     }
@@ -147,12 +155,12 @@ class DiaryNewVC: UIViewController {
         imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
             
             self.imageView.frame = CGRect(x: self.view.center.x - 166, y: 150 + self.inputTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
+            
+            self.scrollViewContentSize += (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!
+            self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
+            
+            self.contentView.insertSubview(self.imageView, belowSubview: self.galleryBtn)
         })
-        
-        scrollViewContentSize += (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!
-        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSize)
-        
-        contentView.insertSubview(imageView, belowSubview: galleryBtn)
     }
 
     @IBAction func backBtnAction(_ sender: Any) {

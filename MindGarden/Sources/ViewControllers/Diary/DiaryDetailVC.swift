@@ -11,10 +11,12 @@ import Kingfisher
 
 class DiaryDetailVC: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var backBtn: UIBarButtonItem!
     @IBOutlet var moodImageView: UIImageView!
     @IBOutlet var moodLabel: UILabel!
-    @IBOutlet var timeLabel: UITextField!
+    @IBOutlet var timeLabel: UILabel!
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var bodyTextViewHeightConstraint: NSLayoutConstraint!
     
@@ -24,20 +26,12 @@ class DiaryDetailVC: UIViewController {
     var diary: Diary!
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
     let userIdx = 2
+    var scrollViewContentSize: CGFloat = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        setNavigationBar(date: nil)
-        
         getData()
-    
-//        setData()
-//        if !image.isEmpty {
-//            print("image is not empty!")
-//            imageView = UIImageView(image: UIImage(named: "imgWeather0"))
-//            setImageView()
-//        }
     }
     
     func setNavigationBar(date: Date?) {
@@ -62,14 +56,12 @@ class DiaryDetailVC: UIViewController {
     }
     
     func getData() {
-        print("getData!!!! \(date!)")
         DiaryService.shared.getDiary(userIdx: userIdx, date: date!) {
             data in
             
             switch data {
             case .success(let res):
                 self.diary = res as! Diary
-                print(self.diary)
                 self.setData()
                 if self.diary.diary_img != nil {
                     self.setImageView()
@@ -116,6 +108,8 @@ class DiaryDetailVC: UIViewController {
         bodyTextView.textContainerInset = UIEdgeInsets.zero
         bodyTextView.textContainer.lineFragmentPadding = 0
         bodyTextViewHeightConstraint.constant = bodyTextView.contentSize.height
+        scrollViewContentSize = bodyTextView.frame.maxY + 10
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
     }
 
     func setImageView() {
@@ -123,12 +117,13 @@ class DiaryDetailVC: UIViewController {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
             
-            self.imageView.frame = CGRect(x: self.view.center.x - 166, y: self.bodyTextView.frame.maxY + 5 + self.bodyTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
+            self.imageView.frame = CGRect(x: self.view.center.x - 166, y: 150 + self.bodyTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
+            
+            self.scrollViewContentSize = (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)! + 150 + self.bodyTextView.contentSize.height
+            self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
+            
+            self.contentView.addSubview(self.imageView)
         })
-        
-        
-        print(imageView.frame.size.width)
-        self.view.addSubview(imageView)
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
@@ -147,6 +142,7 @@ class DiaryDetailVC: UIViewController {
         
         dvc.mode = DiaryMode.edit
         dvc.date = date!
+        print(date!)
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
