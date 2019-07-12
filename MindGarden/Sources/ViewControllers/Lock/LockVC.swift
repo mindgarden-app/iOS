@@ -93,8 +93,8 @@ class LockVC: UIViewController {
             
             switch data {
             case .success(let rand):
-                self.displayPasscodeAlert(rand: rand as! String)
-                
+                self.passcodeResetBtn.setTitle("새 비밀번호를 \(UserDefaults.standard.string(forKey: "email"))로 보냈습니다.", for: .normal)
+                UserDefaults.standard.integer(forKey: "passcode")
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
@@ -112,27 +112,27 @@ class LockVC: UIViewController {
         }
     }
     
-    func displayPasscodeAlert(rand: String) {
-        let alertController = UIAlertController(title: "비밀번호 찾기", message: "전송된 메일의 번호를 하단에 입력하세요", preferredStyle: .alert)
-        
-        alertController.addTextField()
-        alertController.textFields![0].keyboardType = UIKeyboardType.decimalPad
-        
-        let okAction = UIAlertAction(title: "입력", style: .default) { (ok) in
-            if rand == alertController.textFields?[0].text {
-                
-            } else {
-                self.present(alertController, animated: true, completion: nil)
-                alertController.textFields![0].text = ""
-                alertController.message = "올바르지 않은 번호입니다"
-            }
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
-    }
+//    func displayPasscodeAlert(rand: String) {
+//        let alertController = UIAlertController(title: "비밀번호 찾기", message: "전송된 메일의 번호를 하단에 입력하세요", preferredStyle: .alert)
+//
+//        alertController.addTextField()
+//        alertController.textFields![0].keyboardType = UIKeyboardType.decimalPad
+//
+//        let okAction = UIAlertAction(title: "입력", style: .default) { (ok) in
+//            if rand == alertController.textFields?[0].text {
+//
+//            } else {
+//                self.present(alertController, animated: true, completion: nil)
+//                alertController.textFields![0].text = ""
+//                alertController.message = "올바르지 않은 번호입니다"
+//            }
+//        }
+//        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+//        alertController.addAction(okAction)
+//        alertController.addAction(cancelAction)
+//
+//        self.present(alertController, animated: true)
+//    }
     
     func showfailAnimation() {
         UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {

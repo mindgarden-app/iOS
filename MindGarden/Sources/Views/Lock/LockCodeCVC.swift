@@ -15,8 +15,6 @@ class LockCodeCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        codeLabel.makeRounded(cornerRadius: 30
-        )
+        codeLabel.makeRounded(cornerRadius: 30)
     }
-
 }
