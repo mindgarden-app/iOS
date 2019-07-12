@@ -24,15 +24,14 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var inputTextView: UITextView!
     @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
+    let picker = UIImagePickerController()
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
     
     var diary: Diary!
-    
     var mode: DiaryMode!
     var date: String!
     var imageView: UIImageView!
-    let picker = UIImagePickerController()
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var weatherIdx: Int!
     var placeholder = "내용"
     var galleryBtnMinY: CGFloat!
@@ -104,13 +103,9 @@ class DiaryNewVC: UIViewController {
     }
     
     func getData() {
-        
-        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) {
-            data in
-            
+        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) { data in
             switch data {
             case .success(let res):
-                print("success")
                 self.diary = res as? Diary
                 self.setData()
                 if self.diary.diary_img != nil {
@@ -208,8 +203,30 @@ class DiaryNewVC: UIViewController {
                 let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
                 
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-                viewControllers.removeLast(3)
+                
+                for vc in viewControllers {
+                    print(vc)
+                }
+                
+                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                    if viewControllers.count == 4 {
+                        viewControllers.removeLast(1)
+                    } else {
+                        viewControllers.removeLast(2)
+                    }
+                } else {
+                    if viewControllers.count == 3 {
+                        viewControllers.removeLast(1)
+                    } else {
+                        viewControllers.removeLast(2)
+                    }
+                }
+                
+                for vc in viewControllers {
+                    print(vc)
+                }
                 viewControllers.append(dvc)
+                
                 self.navigationController?.setViewControllers(viewControllers, animated: false)
                 
                 break
@@ -258,19 +275,9 @@ class DiaryNewVC: UIViewController {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
         var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-//        for vc in viewControllers {
-//            print(vc)
-//        }
-        if UserDefaults.standard.bool(forKey: "암호 설정") {
-//            print("암호?")
-            viewControllers.removeLast(3)
-        } else {
-//            print("암호??????")
-            viewControllers.removeLast(3)
-        }
-//        for vc in viewControllers {
-//            print(vc)
-//        }
+
+        viewControllers.removeLast(3)
+
         viewControllers.append(dvc)
         self.navigationController?.setViewControllers(viewControllers, animated: false)
         

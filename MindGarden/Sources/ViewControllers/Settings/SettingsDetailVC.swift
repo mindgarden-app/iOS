@@ -24,8 +24,6 @@ class SettingsDetailVC: UIViewController {
     var datePickerIndexPath: IndexPath?
     var isOn: Bool = false
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -223,7 +221,6 @@ extension SettingsDetailVC: DatePickerDelegate {
     func didChangeDate(date: Date, indexPath: IndexPath) {
         UserDefaults.standard.set(date, forKey: "alarmTime")
         settingsDetailTV.reloadRows(at: [indexPath], with: .none)
-        
         
         content.title = "오늘의 정원을 가꿀 시간이에요"
         content.body = "당신의 이야기를 들려주세요"

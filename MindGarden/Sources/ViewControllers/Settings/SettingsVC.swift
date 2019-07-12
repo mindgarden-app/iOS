@@ -100,7 +100,6 @@ extension SettingsVC: UITableViewDataSource {
 extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         if indexPath.section == 1 {
             UserDefaults.standard.set(false, forKey: "암호 설정")
             UserDefaults.standard.set(nil, forKey: "userIdx")

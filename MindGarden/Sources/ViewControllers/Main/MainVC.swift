@@ -102,10 +102,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
     
     func getGarden(date: String) {
         userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-        GardenService.shared.getGarden(userIdx: userIdx, date: date) {
-            [weak self]
-            data in
-            
+        GardenService.shared.getGarden(userIdx: userIdx, date: date) { [weak self] data in
             guard let `self` = self else { return }
             
             switch data {

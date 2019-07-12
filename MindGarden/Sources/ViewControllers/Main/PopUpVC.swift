@@ -20,7 +20,7 @@ class PopUpVC: UIViewController {
     @IBOutlet var leftBtn: UIButton!
     @IBOutlet var rightBtn: UIButton!
     
-    var delegate:DateDelegate? = nil
+    var delegate: DateDelegate? = nil
     var year: Int = 0;
     var currentYear: Int!
     var month: Int = 0;

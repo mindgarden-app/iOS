@@ -208,7 +208,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AhQ-VE-MZp">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AhQ-VE-MZp">
                                                 <rect key="frame" x="22" y="109" width="333" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="cf8-0w-g0a"/>

@@ -98,6 +98,7 @@ extension LoginVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         if let url = webView.url?.absoluteString {
+            print(url)
             if url == "http://13.125.190.74:3000/auth/login/success" {
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
                     let dataStr = data as! String

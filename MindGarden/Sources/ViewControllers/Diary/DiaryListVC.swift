@@ -12,16 +12,17 @@ class DiaryListVC: UIViewController {
 
     
     @IBOutlet var diaryListTV: UITableView!
+    @IBOutlet var settingsBtn: UIBarButtonItem!
+    @IBOutlet var emptyView: UIView!
+    @IBOutlet var grayView: UIView!
+    
+    let userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
+    let dateFormatter = DateFormatter()
+    
+    var isAscending: Bool! = true
     var inputDate: DateComponents!
     var dateStr: String = ""
     var diaryList: [Diary] = []
-    @IBOutlet var settingsBtn: UIBarButtonItem!
-    let dateFormatter = DateFormatter()
-//    var emptyView: UIView!
-    var isAscending: Bool! = true
-    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
-    @IBOutlet var emptyView: UIView!
-    @IBOutlet var grayView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -54,10 +55,7 @@ class DiaryListVC: UIViewController {
     }
     
     func getDiaryList(date: String) {
-        DiaryService.shared.getDiaryList(userIdx: userIdx, date: date) {
-            [weak self]
-            data in
-            
+        DiaryService.shared.getDiaryList(userIdx: userIdx, date: date) { [weak self] data in
             guard let `self` = self else { return }
             
             switch data {
@@ -108,6 +106,8 @@ class DiaryListVC: UIViewController {
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
+        print("back")
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -152,7 +152,6 @@ class DiaryListVC: UIViewController {
 extension DiaryListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if diaryList.count == 0 {
             tableView.setEmptyView()
             grayView.isHidden = true
@@ -167,10 +166,6 @@ extension DiaryListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = diaryListTV.dequeueReusableCell(withIdentifier: "DiaryListTVC") as! DiaryListTVC
-        
-        print(indexPath.row)
-        print(diaryList[indexPath.row].date)
-        
         let date: Date = dateFormatter.date(from: diaryList[indexPath.row].date)!
         let day = Calendar.current.component(.day, from: date)
         
@@ -201,10 +196,7 @@ extension DiaryListVC: UITableViewDelegate {
             let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
             let date = "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
             
-            DiaryService.shared.deleteDiary(userIdx: self.userIdx, date: date) {
-                [weak self]
-                data in
-                
+            DiaryService.shared.deleteDiary(userIdx: self.userIdx, date: date) { [weak self] data in
                 guard let `self` = self else { return }
                 
                 switch data {
@@ -248,7 +240,6 @@ extension DiaryListVC: DateDelegate {
         inputDate = DateComponents(year: year, month: month)
         
         setNavigationBar()
-        print("\(year)-\(String(format: "%02d", month))")
         getDiaryList(date: "\(year)-\(String(format: "%02d", month))")
     }
 }

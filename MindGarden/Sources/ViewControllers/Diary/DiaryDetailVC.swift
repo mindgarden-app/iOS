@@ -20,12 +20,13 @@ class DiaryDetailVC: UIViewController {
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var bodyTextViewHeightConstraint: NSLayoutConstraint!
     
+    let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+    
     var imageView: UIImageView!
     var weatherIdx: Int!
     var date: String!
     var diary: Diary!
-    let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var scrollViewContentSize: CGFloat = 0;
 
     override func viewDidLoad() {
@@ -56,9 +57,7 @@ class DiaryDetailVC: UIViewController {
     }
     
     func getData() {
-        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) {
-            data in
-            
+        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) { data in
             switch data {
             case .success(let res):
                 self.diary = res as! Diary
@@ -108,7 +107,7 @@ class DiaryDetailVC: UIViewController {
         bodyTextView.textContainerInset = UIEdgeInsets.zero
         bodyTextView.textContainer.lineFragmentPadding = 0
         bodyTextViewHeightConstraint.constant = bodyTextView.contentSize.height
-        scrollViewContentSize = bodyTextView.frame.maxY + 10
+        scrollViewContentSize = bodyTextView.frame.minY + bodyTextView.contentSize.height + 10
         scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
     }
 
@@ -128,8 +127,6 @@ class DiaryDetailVC: UIViewController {
     
     @IBAction func backBtnAction(_ sender: Any) {
         self.pop()
-//        backTwo()
-//        self.navigationController?.popViewController(animated: true)
     }
     
     func backTwo() {
@@ -146,5 +143,4 @@ class DiaryDetailVC: UIViewController {
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
-
 }

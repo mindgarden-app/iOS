@@ -79,10 +79,7 @@ class LockVC: UIViewController {
     }
     
     @IBAction func resetBtnAction(_ sender: Any) {
-        AuthService.shared.resetPasscode(userIdx: userIdx) {
-            [weak self]
-            data in
-            
+        AuthService.shared.resetPasscode(userIdx: userIdx) { [weak self] data in
             guard let `self` = self else { return }
             
             switch data {
