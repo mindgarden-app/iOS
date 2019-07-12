@@ -14,7 +14,9 @@ enum DiaryMode {
 }
 
 class DiaryNewVC: UIViewController {
-
+    
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var backBtn: UIBarButtonItem!
     @IBOutlet var moodTextBtn: UIButton!
     @IBOutlet var moodImgBtn: UIButton!
@@ -36,12 +38,14 @@ class DiaryNewVC: UIViewController {
     var placeholder = "내용"
     var galleryBtnMinY: CGFloat!
     var galleryBtnMaxY: CGFloat!
+    var scrollViewContentSize: CGFloat = 0;
+    var scrollViewContentSizeWithText: CGFloat = 0;
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
+        
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         setNavigationBar()
@@ -83,11 +87,12 @@ class DiaryNewVC: UIViewController {
     func setTextView() {
         inputTextView.text = placeholder
         inputTextView.textColor = UIColor.lightGray
-//        inputTextView.textContainerInset = UIEdgeInsets.zero
-//        inputTextView.textContainer.lineFragmentPadding = 0
+        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 36
+        scrollViewContentSize = inputTextView.frame.maxY
     }
     
     func setgalleryBtnY() {
+        self.view.bringSubviewToFront(galleryBtn)
         galleryBtnMaxY = galleryBtn.frame.origin.y
     }
     
@@ -133,15 +138,21 @@ class DiaryNewVC: UIViewController {
         inputTextView.textColor = UIColor.GrayForFont
         inputTextView.textContainerInset = UIEdgeInsets.zero
         inputTextView.textContainer.lineFragmentPadding = 0
-        inputTextViewHeightConstraint.constant = inputTextView.contentSize.height + 50
+        inputTextViewHeightConstraint.constant = inputTextView.contentSize.height + 36
     }
     
     func setImageView() {
         imageView = UIImageView(image: UIImage(named: "imgWeather11"))
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
-            self.imageView.frame = CGRect(x: self.view.center.x - 166, y: self.inputTextView.frame.maxY + 5 + self.inputTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
+            
+            self.imageView.frame = CGRect(x: self.view.center.x - 166, y: 150 + self.inputTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
         })
+        
+        scrollViewContentSize += (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSize)
+        
+        contentView.insertSubview(imageView, belowSubview: galleryBtn)
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
@@ -183,9 +194,6 @@ class DiaryNewVC: UIViewController {
             case .success(let message):
                 if String(describing: message) == "이미 일기를 등록 하셨습니다!" {
                     self.simpleAlertWithPop(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
-//                    self.simpleAlert(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
-//                    self.pop()
-//                    self.navigationController!.popToRootViewController(animated: true)
                     
                     break
                 }
@@ -295,19 +303,22 @@ extension DiaryNewVC: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = placeholder
-            textView.textColor = UIColor.Gray
+            textView.textColor = UIColor.lightGray
         }
     }
     
     func textViewDidChange(_ textView: UITextView) {
         
-        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
+        inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 36
         
         galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: 455, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
         
         if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
-            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 247 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
+            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 150 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
         }
+        
+        scrollViewContentSizeWithText = scrollViewContentSize + inputTextViewHeightConstraint.constant
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSizeWithText)
     }
 }
 
@@ -335,10 +346,18 @@ UINavigationControllerDelegate {
         }
         
         imageView = UIImageView(image: pickedImage)
-        imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5, width: 375, height: pickedImage.size.height * 300 / pickedImage.size.width)
+        imageView.frame = CGRect(x: self.contentView.center.x - 187, y: 150 + self.inputTextView.contentSize.height, width: 375, height: pickedImage.size.height * 300 / pickedImage.size.width)
         imageView.contentMode = .scaleAspectFit
         
-        view.insertSubview(imageView, belowSubview: galleryBtn)
+        if scrollViewContentSizeWithText == nil {
+            scrollViewContentSize += pickedImage.size.height * 300 / pickedImage.size.width
+            scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSize)
+        } else {
+            scrollViewContentSize += pickedImage.size.height * 300 / pickedImage.size.width
+            scrollViewContentSizeWithText += pickedImage.size.height * 300 / pickedImage.size.width
+        }
+        
+        contentView.insertSubview(imageView, belowSubview: galleryBtn)
 
         self.dismiss(animated: true, completion: nil)
     }

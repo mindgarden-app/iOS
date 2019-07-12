@@ -29,44 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-aA-uv6">
-                                <rect key="frame" x="23" y="189" width="333" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="8hY-GX-xDF"/>
-                                </constraints>
-                                <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-0h-esM">
-                                <rect key="frame" x="15" y="105" width="344" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="344" id="26D-4G-A6Q"/>
-                                    <constraint firstAttribute="height" constant="49" id="tX2-J1-xlL"/>
-                                </constraints>
-                                <state key="normal" image="btnWeatherSelect1"/>
-                            </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-eQ-9qR">
-                                <rect key="frame" x="12" y="104" width="52" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="uxo-eQ-9qR" secondAttribute="height" multiplier="52:51" id="3wT-ay-c6e"/>
-                                    <constraint firstAttribute="width" constant="52" id="4EM-ls-5vL"/>
-                                    <constraint firstAttribute="height" constant="51" id="Ooh-NO-Arv"/>
-                                </constraints>
-                                <state key="normal" image="btnWeatherSelect0"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-aa-Jkk">
-                                <rect key="frame" x="17" y="108" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="JS8-bU-3zO"/>
-                                    <constraint firstAttribute="width" constant="40" id="hre-DI-sfs"/>
-                                    <constraint firstAttribute="width" secondItem="aaB-aa-Jkk" secondAttribute="height" multiplier="1:1" id="lUA-aI-YXK"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="imgWeather11"/>
-                                <connections>
-                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="mBb-is-zMN"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-Ek-dRZ">
                                 <rect key="frame" x="325" y="746" width="35" height="35"/>
                                 <constraints>
@@ -78,39 +40,91 @@
                                     <action selector="galleryBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Xmc-cr-u22"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-I7-vXX">
-                                <rect key="frame" x="72" y="112" width="261" height="32"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lI-4m-ENd">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcd-oT-8kX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-0h-esM">
+                                                <rect key="frame" x="15" y="20" width="345" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="49" id="4Y2-jA-NaV"/>
+                                                    <constraint firstAttribute="width" constant="345" id="7vH-g3-8v8"/>
+                                                </constraints>
+                                                <state key="normal" image="btnWeatherSelect1"/>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-aA-uv6">
+                                                <rect key="frame" x="21" y="85" width="333" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="hMb-aU-URN"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxo-eQ-9qR">
+                                                <rect key="frame" x="15" y="19" width="51" height="51"/>
+                                                <state key="normal" image="btnWeatherSelect0"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-I7-vXX">
+                                                <rect key="frame" x="81" y="28" width="234" height="32"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                                <state key="normal" title="기분을 선택하세요">
+                                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Brj-vV-x9Z"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-aa-Jkk">
+                                                <rect key="frame" x="21" y="24" width="40" height="40"/>
+                                                <state key="normal" title="Button" image="imgWeather11"/>
+                                                <connections>
+                                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="mBb-is-zMN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="LFe-I7-vXX" firstAttribute="top" secondItem="gcd-oT-8kX" secondAttribute="top" constant="28" id="4Ns-2F-RvY"/>
+                                            <constraint firstItem="Goe-aA-uv6" firstAttribute="leading" secondItem="gcd-oT-8kX" secondAttribute="leading" constant="21" id="4OO-bI-rKZ"/>
+                                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="uxo-eQ-9qR" secondAttribute="bottom" constant="15" id="6JS-X5-mVM"/>
+                                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="gcd-oT-8kX" secondAttribute="leading" constant="81" id="6fL-dt-D2W"/>
+                                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="gcd-oT-8kX" secondAttribute="leading" constant="15" id="CBK-pw-jQq"/>
+                                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="gcd-oT-8kX" secondAttribute="top" constant="20" id="LhN-Ar-Fvv"/>
+                                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="aaB-aa-Jkk" secondAttribute="bottom" constant="21" id="MhV-BY-dds"/>
+                                            <constraint firstAttribute="trailing" secondItem="LFe-I7-vXX" secondAttribute="trailing" constant="60" id="QZC-cU-3Bw"/>
+                                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="16" id="RhP-qr-Yeq"/>
+                                            <constraint firstAttribute="trailing" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="15" id="VOA-OM-3ya"/>
+                                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="top" secondItem="gcd-oT-8kX" secondAttribute="top" constant="19" id="W30-R0-kXd"/>
+                                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="aaB-aa-Jkk" secondAttribute="trailing" constant="20" id="bKE-xp-ewB"/>
+                                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="leading" secondItem="gcd-oT-8kX" secondAttribute="leading" constant="21" id="ets-xn-Q73"/>
+                                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="top" secondItem="gcd-oT-8kX" secondAttribute="top" constant="24" id="hbA-zP-IyH"/>
+                                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="15" id="jEb-jZ-tNb"/>
+                                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="leading" secondItem="gcd-oT-8kX" secondAttribute="leading" constant="15" id="xhq-om-WF9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Goe-aA-uv6" secondAttribute="trailing" constant="21" id="yVj-MU-Jcr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="LFe-I7-vXX" secondAttribute="height" multiplier="261:32" id="uNi-U6-ETy"/>
+                                    <constraint firstItem="gcd-oT-8kX" firstAttribute="height" secondItem="9lI-4m-ENd" secondAttribute="height" id="2EP-cS-fHY"/>
+                                    <constraint firstItem="gcd-oT-8kX" firstAttribute="leading" secondItem="9lI-4m-ENd" secondAttribute="leading" id="H4G-bk-05i"/>
+                                    <constraint firstAttribute="bottom" secondItem="gcd-oT-8kX" secondAttribute="bottom" id="LJ5-VB-65l"/>
+                                    <constraint firstItem="gcd-oT-8kX" firstAttribute="top" secondItem="9lI-4m-ENd" secondAttribute="top" id="LJx-rg-TZl"/>
+                                    <constraint firstItem="gcd-oT-8kX" firstAttribute="width" secondItem="9lI-4m-ENd" secondAttribute="width" id="OEL-iF-Rhp"/>
+                                    <constraint firstAttribute="trailing" secondItem="gcd-oT-8kX" secondAttribute="trailing" id="c9B-hK-P9B"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                <state key="normal" title="기분을 선택하세요">
-                                    <color key="titleColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="moodBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Brj-vV-x9Z"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="ME0-0h-esM" secondAttribute="trailing" constant="16" id="6eO-dL-Lu4"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="24" id="7wF-6l-nze"/>
-                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="17" id="9j7-Mp-o4Q"/>
-                            <constraint firstItem="aaB-aa-Jkk" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="20" id="JtA-ca-e34"/>
-                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="325" id="PjR-YU-lri"/>
-                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="16" id="R9L-za-XD2"/>
-                            <constraint firstItem="Goe-aA-uv6" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="23" id="TvI-ht-AlK"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="86:203" id="UfC-3P-ZjS"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="qTw-Ek-dRZ" secondAttribute="bottom" constant="-3" id="aAr-sJ-4s0"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="Goe-aA-uv6" secondAttribute="trailing" constant="19" id="fhf-WE-flF"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="15" id="g4L-gy-eEC"/>
-                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="qTw-Ek-dRZ" secondAttribute="trailing" constant="15" id="giO-Gc-Prf"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="width" secondItem="L5z-cd-YcM" secondAttribute="height" multiplier="9:28" id="oS5-31-xoO"/>
-                            <constraint firstItem="LFe-I7-vXX" firstAttribute="leading" secondItem="uxo-eQ-9qR" secondAttribute="trailing" constant="8" id="pbZ-uJ-AN0"/>
-                            <constraint firstItem="Goe-aA-uv6" firstAttribute="top" secondItem="ME0-0h-esM" secondAttribute="bottom" constant="35" id="qCG-wX-jHk"/>
-                            <constraint firstItem="ME0-0h-esM" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" constant="17" id="uib-2N-AOi"/>
-                            <constraint firstItem="uxo-eQ-9qR" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="12" id="wOD-Cz-vbO"/>
+                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="bottom" secondItem="k0h-0G-1Ja" secondAttribute="bottom" constant="3" id="4NI-Xl-ecl"/>
+                            <constraint firstItem="9lI-4m-ENd" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" id="80c-IL-hPF"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="9lI-4m-ENd" secondAttribute="trailing" id="Lez-gR-Bpj"/>
+                            <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="9lI-4m-ENd" secondAttribute="bottom" id="XkA-3c-oOf"/>
+                            <constraint firstItem="9lI-4m-ENd" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" id="ZsO-78-V07"/>
+                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="325" id="ge1-iv-7RW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k0h-0G-1Ja"/>
                     </view>
@@ -124,11 +138,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="pKd-gi-YMd" id="5XK-57-LKX"/>
+                        <outlet property="contentView" destination="gcd-oT-8kX" id="ta6-jQ-sCc"/>
                         <outlet property="galleryBtn" destination="qTw-Ek-dRZ" id="KAc-24-kDJ"/>
                         <outlet property="inputTextView" destination="Goe-aA-uv6" id="ow6-hh-ctF"/>
-                        <outlet property="inputTextViewHeightConstraint" destination="8hY-GX-xDF" id="CAE-Oh-5BM"/>
+                        <outlet property="inputTextViewHeightConstraint" destination="hMb-aU-URN" id="x8O-Jx-Bsp"/>
                         <outlet property="moodImgBtn" destination="aaB-aa-Jkk" id="IuC-dM-TUD"/>
                         <outlet property="moodTextBtn" destination="LFe-I7-vXX" id="6GB-Y5-bRz"/>
+                        <outlet property="scrollView" destination="9lI-4m-ENd" id="RRN-qA-FE7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIn-nz-7ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
