@@ -25,7 +25,7 @@ class DiaryDetailVC: UIViewController {
     var date: String!
     var diary: Diary!
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
-    let userIdx = 2
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var scrollViewContentSize: CGFloat = 0;
 
     override func viewDidLoad() {

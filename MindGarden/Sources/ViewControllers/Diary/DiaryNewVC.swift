@@ -32,8 +32,7 @@ class DiaryNewVC: UIViewController {
     var date: String!
     var imageView: UIImageView!
     let picker = UIImagePickerController()
-//    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-    let userIdx = 2
+    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     var weatherIdx: Int!
     var placeholder = "내용"
     var galleryBtnMinY: CGFloat!
@@ -217,7 +216,14 @@ class DiaryNewVC: UIViewController {
                 
                 dvc.date = dateStr
                 
-                self.navigationController!.pushViewController(dvc, animated: true)
+                var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                if (viewControllers.count) != nil && viewControllers.count > 2 {
+                    viewControllers.removeLast(viewControllers.count - 2)
+                }
+                viewControllers.append(dvc)
+                self.navigationController?.setViewControllers(viewControllers, animated: false)
+                
+//                self.navigationController!.pushViewController(dvc, animated: true)
                 
                 break
             case .requestErr(let err):
@@ -279,7 +285,14 @@ class DiaryNewVC: UIViewController {
         
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
         
-        self.navigationController!.pushViewController(dvc, animated: true)
+        var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        if (viewControllers.count) != nil && viewControllers.count > 2 {
+            viewControllers.removeLast(viewControllers.count - 2)
+        }
+        viewControllers.append(dvc)
+        self.navigationController?.setViewControllers(viewControllers, animated: false)
+        
+//        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @objc func keyboardWillShow(notification: Notification) {

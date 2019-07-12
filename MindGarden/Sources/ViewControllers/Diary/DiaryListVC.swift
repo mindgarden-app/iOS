@@ -19,10 +19,15 @@ class DiaryListVC: UIViewController {
     let dateFormatter = DateFormatter()
 //    var emptyView: UIView!
     var isAscending: Bool! = true
-//    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
+    var userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
     @IBOutlet var emptyView: UIView!
     @IBOutlet var grayView: UIView!
-    let userIdx = 2
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        getDiaryList(date: "2019-07")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

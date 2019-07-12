@@ -16,14 +16,15 @@ struct DiaryService {
         "Content-Type" : "multipart/form-data"
     ]
     
-    func addDiary(userIdx: Int, diaryContent: String, diaryImage: UIImage, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        print("hjere!")
+    func addDiary(userIdx: Int, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         Alamofire.upload(
             multipartFormData: { (multipart) in
                 multipart.append("\(userIdx)".data(using: .utf8)!, withName: "userIdx")
                 multipart.append(diaryContent.data(using: .utf8)!, withName: "diary_content")
-                multipart.append(diaryImage.jpegData(compressionQuality: 0.5)!, withName: "diary_img", fileName: "image.jpeg", mimeType: "image/jpeg")
+                if diaryImage != nil {
+                    multipart.append(diaryImage!.jpegData(compressionQuality: 0.5)!, withName: "diary_img", fileName: "image.jpeg", mimeType: "image/jpeg")
+                }
                 multipart.append("\(weatherIdx)".data(using: .utf8)!, withName: "weatherIdx")
         },
             to: APIConstants.DiaryAddURL,
@@ -44,6 +45,7 @@ struct DiaryService {
                                         
                                         switch result.success {
                                         case true:
+                                            print(result.message)
                                             completion(.success(result.message))
                                         case false:
                                             completion(.requestErr(result.message))
