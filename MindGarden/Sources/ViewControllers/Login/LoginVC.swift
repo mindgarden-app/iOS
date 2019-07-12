@@ -96,10 +96,9 @@ extension LoginVC: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         if let url = webView.url?.absoluteString {
             if url == "http://13.125.190.74:3000/auth/login/success" {
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
                     let dataStr = data as! String
                     print(dataStr)
@@ -107,7 +106,9 @@ extension LoginVC: WKNavigationDelegate {
                         if self.authType == .kakao {
                             do {
                                 let kakao = try JSONDecoder().decode(Login.self, from: result)
+                                print("로그인 \(kakao.data.userIdx)")
                                 UserDefaults.standard.set(kakao.data.userIdx, forKey: "userIdx")
+                                print("userIdx \(UserDefaults.standard.integer(forKey: "userIdx"))")
                                 UserDefaults.standard.set(kakao.data.email, forKey: "email")
                                 UserDefaults.standard.set(kakao.data.name, forKey: "name")
                             } catch {

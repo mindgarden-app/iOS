@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-0h-ZBE">
-                                <rect key="frame" x="32" y="729" width="311" height="40"/>
+                                <rect key="frame" x="32" y="747" width="311" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="311" id="tLE-Me-dVh"/>
                                 </constraints>
@@ -28,11 +28,11 @@
                                     <action selector="loginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="D0m-Zv-YIn"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
                                 <rect key="frame" x="37" y="279" width="301" height="208"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="f97-gM-uCP">
-                                <rect key="frame" x="161" y="518" width="52" height="37"/>
+                                <rect key="frame" x="161" y="536" width="52" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -42,7 +42,6 @@
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="32" id="70O-pA-MRh"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="9" id="7yR-WN-ylH"/>
                             <constraint firstItem="f97-gM-uCP" firstAttribute="top" secondItem="EWV-rU-jIe" secondAttribute="bottom" constant="31" id="E4L-1V-E6N"/>
-                            <constraint firstItem="EWV-rU-jIe" firstAttribute="top" secondItem="Eeo-vs-Qkh" secondAttribute="top" constant="235" id="Qjb-co-DGc"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="f97-gM-uCP" secondAttribute="trailing" constant="162" id="Sdn-sw-flB"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="37" id="T6g-X5-CBL"/>
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="top" secondItem="f97-gM-uCP" secondAttribute="bottom" constant="174" id="XAc-71-boC"/>

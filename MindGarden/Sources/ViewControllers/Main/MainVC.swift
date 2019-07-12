@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, NVActivityIndicatorViewable {
  
     @IBOutlet var newBtn: UIButton!
+    @IBOutlet var treeAddBtn: UIButton!
     @IBOutlet var balloonImageView: UIImageView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var descriptionFirstLabel: UILabel!
     @IBOutlet var descriptionSecondLabel: UILabel!
+    
+    var userIdx: Int! = 0
     
     private var dateStr: String = ""
     var inputDate: DateComponents!
@@ -32,22 +36,25 @@ class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        getGarden(date: "\(inputYear!)-\(String(format: "%02d", inputMonth!))")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        
         balloonImageView.isHidden = true
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false;
         
         setDate()
         setBarButtonItem()
-        getGarden(date: "\(inputYear!)-\(String(format: "%02d", inputMonth!))")
     }
     
     func getGarden(date: String) {
-        let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-        
+        userIdx = UserDefaults.standard.integer(forKey: "userIdx")
         GardenService.shared.getGarden(userIdx: userIdx, date: date) {
             [weak self]
             data in
@@ -57,9 +64,15 @@ class MainVC: UIViewController {
             switch data {
             case .success(let res):
                 self.treeList = res as! [Tree]
-                print(self.treeList)
                 self.makeGarden()
                 self.setDescriptionLabel(treeNum: self.treeList[0].treeNum, current: self.isCurrent)
+                if self.treeList[0].balloon == 1 {
+                    self.balloonImageView.isHidden = false
+                    self.treeAddBtn.setImage(UIImage(named: "btnPlusRed"), for: .normal)
+                } else {
+                    self.balloonImageView.isHidden = true
+                    self.treeAddBtn.setImage(UIImage(named: "btnPlus"), for: .normal)
+                }
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
@@ -82,6 +95,8 @@ class MainVC: UIViewController {
         
         if treeList[0].balloon == 1 {
             balloonImageView.isHidden = false
+        } else {
+            balloonImageView.isHidden = true
         }
         
         for tree in treeList {
@@ -218,7 +233,9 @@ class MainVC: UIViewController {
     
     @IBAction func treeAddBtnAction(_ sender: Any) {
 //        if !balloonImageView.isHidden {
-            let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC")
+            let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainGridVC") as! MainGridVC
+            
+            dvc.date = "\(inputYear!)-\(String(format: "%02d", inputMonth!))"
             
             self.navigationController!.pushViewController(dvc, animated: true)
 //        } else {
