@@ -94,7 +94,7 @@ class LockVC: UIViewController {
             switch data {
             case .success(let rand):
                 self.passcodeResetBtn.setTitle("새 비밀번호를 \(UserDefaults.standard.string(forKey: "email"))로 보냈습니다.", for: .normal)
-                UserDefaults.standard.integer(forKey: "passcode")
+                UserDefaults.standard.set(rand, forKey: "passcode")
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
