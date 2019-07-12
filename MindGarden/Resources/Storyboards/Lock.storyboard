@@ -31,6 +31,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T53-LJ-Xfk">
                                 <rect key="frame" x="15" y="487" width="345" height="246"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="T53-LJ-Xfk" secondAttribute="height" multiplier="115:82" id="GvF-si-NSk"/>
                                     <constraint firstAttribute="width" constant="345" id="SEv-Ic-rYg"/>
