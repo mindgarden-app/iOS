@@ -34,10 +34,6 @@ class DiaryNewVC: UIViewController {
     let userIdx = 2
     var weatherIdx: Int!
     var placeholder = "내용"
-    var moodText: String = "기분 수정 중"
-    var moodImg: String = "imgWeather1"
-    var image: String = "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
-    var body: String = "본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 본문 수정 중 "
     var galleryBtnMinY: CGFloat!
     var galleryBtnMaxY: CGFloat!
 
@@ -304,27 +300,13 @@ extension DiaryNewVC: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-//        print(self.inputTextView.contentSize.height)
         
         inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 50
-//        let fixedWidth = textView.frame.size.width
-//        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        var newFrame = textView.frame
-//        print(newSize.height)
-//        newFrame.size = CGSize(width: fixedWidth, height: newSize.height)
-//        textView.frame = newFrame
-//        print("==============================")
-//        print(galleryBtn.frame.origin.y)
-//        print("==============================")
         
         galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: 455, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
-//
+        
         if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
             imageView.frame = CGRect(x: imageView.frame.origin.x, y: 247 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
-            // 위에거는 부드럷게 내려가는데 폭이 너무 큼.. 아래는 부드럽지 않은데 폭 유지.
-            // 아무래도 같이 바뀌지않아서 텀때문에 부드럽지 않아 보이는 것 같음..
-//            imageView.frame = CGRect(x: imageView.frame.origin.x, y: inputTextView.frame.maxY + 5, width: imageView.frame.size.width, height: imageView.frame.size.height)
         }
     }
 }
@@ -356,11 +338,7 @@ UINavigationControllerDelegate {
         imageView.frame = CGRect(x: self.view.center.x - 187, y: inputTextView.frame.maxY + 5, width: 375, height: pickedImage.size.height * 300 / pickedImage.size.width)
         imageView.contentMode = .scaleAspectFit
         
-        view.addSubview(imageView)
-        
-//        let verticalSpace = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: inputTextView, attribute: .bottom, multiplier: 1, constant: 100)
-//
-//        NSLayoutConstraint.activate([verticalSpace])
+        view.insertSubview(imageView, belowSubview: galleryBtn)
 
         self.dismiss(animated: true, completion: nil)
     }
