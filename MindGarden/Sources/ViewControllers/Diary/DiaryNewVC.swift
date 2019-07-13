@@ -254,7 +254,15 @@ class DiaryNewVC: UIViewController {
             
             switch data {
             case .success(_):
-                self.simpleAlert(title: "수정 완료", message: "일기가 수정되었습니다")
+                
+                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+                
+                var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                
+                viewControllers.removeLast(3)
+                
+                viewControllers.append(dvc)
+                self.navigationController?.setViewControllers(viewControllers, animated: false)
                 
                 break
             case .requestErr(let err):
@@ -271,15 +279,6 @@ class DiaryNewVC: UIViewController {
                 break
             }
         }
-        
-        let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
-        
-        var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-
-        viewControllers.removeLast(3)
-
-        viewControllers.append(dvc)
-        self.navigationController?.setViewControllers(viewControllers, animated: false)
         
     }
     
