@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 enum DiaryMode {
     case new
@@ -31,6 +32,7 @@ class DiaryNewVC: UIViewController {
     var diary: Diary!
     var mode: DiaryMode!
     var date: String!
+    var inputDate: Date!
     var imageView: UIImageView!
     var weatherIdx: Int!
     var placeholder = "내용"
@@ -81,7 +83,7 @@ class DiaryNewVC: UIViewController {
         } else if mode == .edit {
             let dateFormatterForInputDate = DateFormatter()
             dateFormatterForInputDate.dateFormat = "yyyy-MM-dd"
-            let inputDate: Date = dateFormatterForInputDate.date(from: date)!
+            inputDate = dateFormatterForInputDate.date(from: date)!
             let dateStr = dateFormatter.string(from: inputDate)
             let dayOfTheWeekStr: String? = inputDate.getDayOfTheWeek(lang: "ko")
             self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
@@ -204,10 +206,6 @@ class DiaryNewVC: UIViewController {
                 
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
                 
-                for vc in viewControllers {
-                    print(vc)
-                }
-                
                 if UserDefaults.standard.bool(forKey: "암호 설정") {
                     if viewControllers.count == 4 {
                         viewControllers.removeLast(1)
@@ -221,10 +219,7 @@ class DiaryNewVC: UIViewController {
                         viewControllers.removeLast(2)
                     }
                 }
-                
-                for vc in viewControllers {
-                    print(vc)
-                }
+
                 viewControllers.append(dvc)
                 
                 self.navigationController?.setViewControllers(viewControllers, animated: false)
@@ -247,6 +242,11 @@ class DiaryNewVC: UIViewController {
     }
     
     @IBAction func completeBtnAction(_ sender: Any) {
+        if inputTextView.text == "" {
+            self.simpleAlert(title: "Oops!", message: "일기를 작성해주세요")
+            return
+        }
+        
         let image = imageView != nil ? imageView.image : nil
         
         DiaryService.shared.editDiary(userIdx: userIdx, date: date!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
@@ -255,13 +255,17 @@ class DiaryNewVC: UIViewController {
             switch data {
             case .success(_):
                 
-                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC") as! DiaryListVC
                 
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
                 
                 viewControllers.removeLast(3)
                 
                 viewControllers.append(dvc)
+                
+                
+                dvc.inputDate = Calendar.current.dateComponents([.year, .month], from: self.inputDate)
+                
                 self.navigationController?.setViewControllers(viewControllers, animated: false)
                 
                 break
