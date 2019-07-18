@@ -27,14 +27,19 @@ class DiaryListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        getDiaryList(date: "2019-07")
+    
+        if inputDate == nil {
+            getDiaryList(date: "2019-07")
+        } else {
+            getDiaryList(date: "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))")
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        getDiaryList(date: "2019-07")
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        print("willdidappear")
+//        getDiaryList(date: "2019-07")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +52,11 @@ class DiaryListVC: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "KST") as TimeZone?
         
-        getDiaryList(date: "2019-07")
+        if inputDate == nil {
+            getDiaryList(date: "2019-07")
+        } else {
+            getDiaryList(date: "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!)))")
+        }
         setNavigationBar()
         registerTVC()
         diaryListTV.delegate = self
