@@ -35,8 +35,8 @@
                             <constraint firstAttribute="width" secondItem="eXx-Wc-kH5" secondAttribute="height" multiplier="1:1" id="v28-dI-3ET"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-R4-OoY">
-                        <rect key="frame" x="68" y="17" width="40" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-R4-OoY">
+                        <rect key="frame" x="68" y="17" width="64" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="qft-i7-2ZD"/>
                         </constraints>
@@ -44,27 +44,6 @@
                         <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thZ-iK-VXo">
-                        <rect key="frame" x="117" y="21" width="46" height="15"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdX-v4-Nux">
-                                <rect key="frame" x="1" y="0.0" width="44" height="15"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10"/>
-                                <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="VdX-v4-Nux" firstAttribute="width" secondItem="thZ-iK-VXo" secondAttribute="height" multiplier="44:15" id="Eox-mz-AIV"/>
-                            <constraint firstItem="VdX-v4-Nux" firstAttribute="centerX" secondItem="thZ-iK-VXo" secondAttribute="centerX" id="GV4-BH-JKr"/>
-                            <constraint firstAttribute="width" constant="46" id="J8z-Al-VNY"/>
-                            <constraint firstAttribute="width" secondItem="thZ-iK-VXo" secondAttribute="height" multiplier="46:15" id="Tkq-KN-GOV"/>
-                            <constraint firstItem="VdX-v4-Nux" firstAttribute="height" secondItem="thZ-iK-VXo" secondAttribute="height" id="Zm1-Ik-W1b"/>
-                            <constraint firstAttribute="height" constant="15" id="jv8-mZ-IER"/>
-                            <constraint firstItem="VdX-v4-Nux" firstAttribute="centerY" secondItem="thZ-iK-VXo" secondAttribute="centerY" id="rXl-c2-ock"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwx-MW-Gjp">
                         <rect key="frame" x="69" y="42" width="140" height="17"/>
                         <constraints>
@@ -77,11 +56,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="BIC-R4-OoY" firstAttribute="leading" secondItem="eXx-Wc-kH5" secondAttribute="trailing" constant="14" id="759-a3-ihE"/>
+                    <constraint firstAttribute="trailing" secondItem="BIC-R4-OoY" secondAttribute="trailing" constant="243" id="9sF-mC-p1f"/>
                     <constraint firstItem="BIC-R4-OoY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="S6f-Yc-aLs"/>
                     <constraint firstItem="Wwx-MW-Gjp" firstAttribute="leading" secondItem="eXx-Wc-kH5" secondAttribute="trailing" constant="15" id="WZe-h1-evP"/>
-                    <constraint firstAttribute="bottom" secondItem="thZ-iK-VXo" secondAttribute="bottom" constant="41.5" id="c6M-Q5-wBu"/>
                     <constraint firstAttribute="bottom" secondItem="Wwx-MW-Gjp" secondAttribute="bottom" constant="18.5" id="cnQ-o7-X0O"/>
-                    <constraint firstItem="thZ-iK-VXo" firstAttribute="leading" secondItem="BIC-R4-OoY" secondAttribute="trailing" constant="11" id="dM2-N1-rES"/>
                     <constraint firstAttribute="bottom" secondItem="eXx-Wc-kH5" secondAttribute="bottom" constant="18.5" id="ioj-dU-dVb"/>
                     <constraint firstItem="eXx-Wc-kH5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="l78-qf-PGo"/>
                     <constraint firstItem="Wwx-MW-Gjp" firstAttribute="top" secondItem="BIC-R4-OoY" secondAttribute="bottom" constant="3" id="lmf-5y-VRs"/>
@@ -95,10 +73,8 @@
                 <outlet property="nameLabel" destination="BIC-R4-OoY" id="FqE-qf-1YO"/>
                 <outlet property="profileCell" destination="H2p-sc-9uM" id="Uk3-u6-4fd"/>
                 <outlet property="profileImage" destination="eXx-Wc-kH5" id="mEo-U3-BkF"/>
-                <outlet property="typeLabel" destination="VdX-v4-Nux" id="oiA-u3-PCT"/>
-                <outlet property="typeView" destination="thZ-iK-VXo" id="ynF-QU-c8r"/>
             </connections>
-            <point key="canvasLocation" x="-105" y="48"/>
+            <point key="canvasLocation" x="-105.07246376811595" y="47.544642857142854"/>
         </tableViewCell>
     </objects>
     <resources>

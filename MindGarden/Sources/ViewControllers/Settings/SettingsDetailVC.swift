@@ -245,10 +245,3 @@ extension SettingsDetailVC: SwitchDelegate {
         }
     }
 }
-
-
-extension SettingsDetailVC: FontSizeDelegate {
-    func changeFontSizeText() {
-        self.settingsDetailTV.reloadData()
-    }
-}

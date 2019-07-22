@@ -71,7 +71,6 @@ extension SettingsVC: UITableViewDataSource {
 
             cell.profileImage.image = UIImage(named: "imgProfile")
             cell.nameLabel.text = UserDefaults.standard.string(forKey: "name")
-            cell.typeLabel.text = "무료회원"
             cell.emailLabel.text = UserDefaults.standard.string(forKey: "email")
             
             cell.layer.borderWidth = 1
