@@ -16,7 +16,7 @@ class SettingsVC: UIViewController {
     var items = [
         [""],
         ["로그아웃"],
-        ["암호 설정", "글꼴 설정", "알림 설정", "프리미엄 전환 (광고 제거)"]
+        ["암호 설정", "알림 설정"]
     ]
     
     override func viewDidLoad() {
@@ -86,10 +86,6 @@ extension SettingsVC: UITableViewDataSource {
             cell.settingsNameLabel.text = settingsName
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor
-            
-            if indexPath.row == 3 {
-                cell.selectionStyle = .none
-            }
 
             return cell
         }
@@ -107,7 +103,7 @@ extension SettingsVC: UITableViewDelegate {
             UserDefaults.standard.set(nil, forKey: "name")
             navigationController?.isNavigationBarHidden = true
             performSegue(withIdentifier: "unwindToLogin", sender: self)
-        } else if indexPath.section == 2 && indexPath.row != 3{
+        } else {
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
 
             dvc.paramSettings = indexPath.row

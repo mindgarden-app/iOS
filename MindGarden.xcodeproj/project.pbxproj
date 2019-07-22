@@ -46,8 +46,6 @@
 		DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */; };
 		DE7BC6F522CBB46C00AD77EC /* SettingsWithSwitchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */; };
 		DE7BC6F622CBB46C00AD77EC /* SettingsWithSwitchTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */; };
-		DE7BC6FB22CBB8B500AD77EC /* SettingsFontTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */; };
-		DE7BC6FC22CBB8B500AD77EC /* SettingsFontTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */; };
 		DE7BC6FE22CC37A300AD77EC /* SettingsPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6FD22CC37A300AD77EC /* SettingsPopUpVC.swift */; };
 		DE7BC70222CC863800AD77EC /* LockCodeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */; };
 		DE7BC70322CC863800AD77EC /* LockCodeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */; };
@@ -142,8 +140,6 @@
 		DE7BC6F122CB992B00AD77EC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWithSwitchTVC.swift; sourceTree = "<group>"; };
 		DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsWithSwitchTVC.xib; sourceTree = "<group>"; };
-		DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFontTVC.swift; sourceTree = "<group>"; };
-		DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsFontTVC.xib; sourceTree = "<group>"; };
 		DE7BC6FD22CC37A300AD77EC /* SettingsPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpVC.swift; sourceTree = "<group>"; };
 		DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockCodeCVC.swift; sourceTree = "<group>"; };
 		DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockCodeCVC.xib; sourceTree = "<group>"; };
@@ -368,8 +364,6 @@
 				DE7BC6EC22CB4A9A00AD77EC /* SettingsTVC.xib */,
 				DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */,
 				DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */,
-				DE7BC6F922CBB8B500AD77EC /* SettingsFontTVC.swift */,
-				DE7BC6FA22CBB8B500AD77EC /* SettingsFontTVC.xib */,
 				DE2D927322CD132A00A391E1 /* DatePickerTVC.swift */,
 				DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */,
 			);
@@ -586,7 +580,6 @@
 				DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */,
 				DEB561A922D1CEC200763A85 /* Main.storyboard in Resources */,
 				DE8D710022D25B0400A29973 /* MontserratAlternates-ExtraLightItalic.ttf in Resources */,
-				DE7BC6FC22CBB8B500AD77EC /* SettingsFontTVC.xib in Resources */,
 				DE7BC6F622CBB46C00AD77EC /* SettingsWithSwitchTVC.xib in Resources */,
 				DE8D70FD22D25B0400A29973 /* MontserratAlternates-Thin.ttf in Resources */,
 				DE8D710C22D25B0400A29973 /* MontserratAlternates-ThinItalic.ttf in Resources */,
@@ -693,7 +686,6 @@
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
 				DE8D714622D3919F00A29973 /* DiaryService.swift in Sources */,
-				DE7BC6FB22CBB8B500AD77EC /* SettingsFontTVC.swift in Sources */,
 				DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */,
 				DE2D927522CD132A00A391E1 /* DatePickerTVC.swift in Sources */,
 				DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */,

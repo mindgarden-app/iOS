@@ -17,8 +17,7 @@ class SettingsDetailVC: UIViewController {
     let dateFormatter = DateFormatter()
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
-    let settingsTitleArr: [String] = ["암호 설정", "글꼴 설정", "알림 설정"]
-    let fontSizeStrArr: [String] = ["아주 작게", "작게", "보통", "크게", "아주 크게"]
+    let settingsTitleArr: [String] = ["암호 설정", "알림 설정"]
     
     var paramSettings: Int = 0
     var datePickerIndexPath: IndexPath?
@@ -50,18 +49,13 @@ class SettingsDetailVC: UIViewController {
     
     func registerTVC() {
         if paramSettings == 1 {
-            let settingsFontNibName = UINib(nibName: "SettingsFontTVC", bundle: nil)
-            settingsDetailTV.register(settingsFontNibName, forCellReuseIdentifier: "SettingsFontTVC")
-        } else {
-            if paramSettings == 2 {
-                let datePickerNibName = UINib(nibName: "DatePickerTVC", bundle: nil)
-                settingsDetailTV.register(datePickerNibName, forCellReuseIdentifier: "DatePickerTVC")
-            }
-            let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
-            let settingsWithSwitchNibName = UINib(nibName: "SettingsWithSwitchTVC", bundle: nil)
-            settingsDetailTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
-            settingsDetailTV.register(settingsWithSwitchNibName, forCellReuseIdentifier: "SettingsWithSwitchTVC")
+            let datePickerNibName = UINib(nibName: "DatePickerTVC", bundle: nil)
+            settingsDetailTV.register(datePickerNibName, forCellReuseIdentifier: "DatePickerTVC")
         }
+        let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
+        let settingsWithSwitchNibName = UINib(nibName: "SettingsWithSwitchTVC", bundle: nil)
+        settingsDetailTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
+        settingsDetailTV.register(settingsWithSwitchNibName, forCellReuseIdentifier: "SettingsWithSwitchTVC")
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
@@ -81,7 +75,7 @@ extension SettingsDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var num = 1
         
-        if paramSettings != 1 {
+        if paramSettings == 1 {
             if datePickerIndexPath != nil {
                 num += 1
             }
@@ -118,16 +112,6 @@ extension SettingsDetailVC: UITableViewDataSource {
 
                 return cell
             }
-        } else if paramSettings == 1 {
-            let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsFontTVC") as! SettingsFontTVC
-            
-            cell.settingsNameLabel.text = "크기"
-            cell.fontSizeLabel.text = fontSizeStrArr[UserDefaults.standard.integer(forKey: "fontSize")] ?? "보통"
-            
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
-            
-            return cell
         } else {
             if indexPath.row == 0 {
                 let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
@@ -182,14 +166,7 @@ extension SettingsDetailVC: UITableViewDelegate {
                 self.navigationController!.pushViewController(dvc, animated: true)
             }
             
-        } else if paramSettings == 1 {
-            let popUpVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsPopUpVC") as! SettingsPopUpVC
-            popUpVC.delegate = self
-            self.addChild(popUpVC)
-            self.view.addSubview(popUpVC.view)
-            popUpVC.didMove(toParent: self)
-            
-        } else if paramSettings == 2 && indexPath.row == 1 {
+        } else if paramSettings == 1 && indexPath.row == 1 {
             tableView.beginUpdates()
             if let datePickerIndexPath = datePickerIndexPath, datePickerIndexPath.row - 1 == indexPath.row {
                 tableView.deleteRows(at: [datePickerIndexPath], with: .fade)
