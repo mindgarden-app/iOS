@@ -154,6 +154,9 @@
                     <navigationItem key="navigationItem" title="이메일 로그인" id="LAO-3i-jRV">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="fSy-89-YUa">
                             <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="d6K-tg-jA6" id="Ohc-vz-Trh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -230,6 +233,9 @@
                     <navigationItem key="navigationItem" title="비밀번호 재설정" id="yIp-LX-tAD">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="EiQ-WN-822">
                             <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="5us-ZC-3a1" id="LiZ-e7-miZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -259,6 +265,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qHC-49-836" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="1584.9753694581282"/>
+        </scene>
+        <!--비밀번호 재설정-->
+        <scene sceneID="24D-SN-ztU">
+            <objects>
+                <viewController storyboardIdentifier="ResetPw2VC" id="uvf-CO-jSa" customClass="ResetPw2VC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cx1-16-KMc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gE-Ws-0GQ">
+                                <rect key="frame" x="22" y="104" width="337" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBW-cC-8lD">
+                                <rect key="frame" x="22" y="174" width="102" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <state key="normal" title="다시 메일 보내기">
+                                    <color key="titleColor" red="0.47058823529411764" green="0.87058823529411766" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmailBtn:" destination="uvf-CO-jSa" eventType="touchUpInside" id="Twl-v0-ejx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OtU-kW-w8E"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="비밀번호 재설정" id="cAu-gY-2L1">
+                        <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="sXI-Vu-yK2">
+                            <color key="tintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="uvf-CO-jSa" id="OHu-MK-do7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descLabel" destination="6gE-Ws-0GQ" id="K2V-h7-U6Q"/>
+                        <outlet property="sendEmailBtn" destination="RBW-cC-8lD" id="Cjk-ZI-W3y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2n-zK-re5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1925.5999999999999" y="2284.729064039409"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nj4-px-O3G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aCh-p1-jSo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jHw-Zq-4le">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uvf-CO-jSa" kind="relationship" relationship="rootViewController" id="JQs-ax-sS6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDz-3Y-QrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="2285"/>
         </scene>
     </scenes>
     <resources>

@@ -31,7 +31,6 @@ class ResetPw1VC: UIViewController {
             .normal("를 메일로 보내드립니다.")
         
         descLabel.attributedText = formattedString
-        descLabel.textColor = UIColor.gray
         
         emailTF.makeRounded(cornerRadius: 4)
         emailTF.setBorder(borderColor: UIColor.grayForBorder, borderWidth: 0.5)
@@ -56,10 +55,16 @@ class ResetPw1VC: UIViewController {
     }
     
     @IBAction func sendEmailBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "ResetPw2VC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     
-
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

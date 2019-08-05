@@ -97,7 +97,7 @@ extension SettingsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             UserDefaults.standard.set(false, forKey: "암호 설정")
-            UserDefaults.standard.set(nil, forKey: "userIdx")
+            UserDefaults.standard.set(nil, forKey: "token")
             UserDefaults.standard.set(nil, forKey: "email")
             UserDefaults.standard.set(nil, forKey: "name")
             navigationController?.isNavigationBarHidden = true

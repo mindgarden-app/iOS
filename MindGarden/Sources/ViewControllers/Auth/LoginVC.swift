@@ -74,15 +74,19 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     }
 
     @IBAction func loginBtnAction(_ sender: Any) {
-        authType = .kakao
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "EmailLoginVC")
         
-        let url = NSURL(string: authType.rawValue)
-        let request = NSURLRequest(url: url! as URL)
+        self.navigationController!.pushViewController(dvc, animated: true)
         
-        webView = WKWebView(frame: self.view.frame)
-        webView.navigationDelegate = self
-        webView.load(request as URLRequest)
-        self.view.addSubview(webView)
+//        authType = .kakao
+//
+//        let url = NSURL(string: authType.rawValue)
+//        let request = NSURLRequest(url: url! as URL)
+//
+//        webView = WKWebView(frame: self.view.frame)
+//        webView.navigationDelegate = self
+//        webView.load(request as URLRequest)
+//        self.view.addSubview(webView)
     }
     
     @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}

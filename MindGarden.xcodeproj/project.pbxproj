@@ -92,6 +92,7 @@
 		DE94673E22F8686E00D4A891 /* EmailLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */; };
 		DE94674022F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94673F22F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift */; };
 		DE94674222F8793900D4A891 /* ResetPw1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94674122F8793900D4A891 /* ResetPw1VC.swift */; };
+		DE94674422F87DB200D4A891 /* ResetPw2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94674322F87DB200D4A891 /* ResetPw2VC.swift */; };
 		DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235022D04668009657C3 /* NetworkResult.swift */; };
 		DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235222D046A5009657C3 /* APIConstants.swift */; };
 		DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235422D0471A009657C3 /* ResponseString.swift */; };
@@ -189,6 +190,7 @@
 		DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginVC.swift; sourceTree = "<group>"; };
 		DE94673F22F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		DE94674122F8793900D4A891 /* ResetPw1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPw1VC.swift; sourceTree = "<group>"; };
+		DE94674322F87DB200D4A891 /* ResetPw2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPw2VC.swift; sourceTree = "<group>"; };
 		DE9F235022D04668009657C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		DE9F235222D046A5009657C3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		DE9F235422D0471A009657C3 /* ResponseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseString.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				DEFBBCBE22E6960A00331B80 /* SigninVC.swift */,
 				DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */,
 				DE94674122F8793900D4A891 /* ResetPw1VC.swift */,
+				DE94674322F87DB200D4A891 /* ResetPw2VC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				DE8D70E622D1EA0500A29973 /* MainGridVC.swift in Sources */,
 				DE06595F22C90F4C00D000BC /* PopUpVC.swift in Sources */,
 				DE7BC6F222CB992B00AD77EC /* UIColor+Extensions.swift in Sources */,
+				DE94674422F87DB200D4A891 /* ResetPw2VC.swift in Sources */,
 				DE06595722C9005C00D000BC /* DiaryNewVC.swift in Sources */,
 				DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */,
 				DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */,

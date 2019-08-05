@@ -69,6 +69,11 @@ class EmailLoginVC: UIViewController {
     
     @IBAction func signupBtnAction(_ sender: Any) {
     }
+    
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }
 
