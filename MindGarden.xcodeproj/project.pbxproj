@@ -93,12 +93,13 @@
 		DE94674022F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94673F22F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift */; };
 		DE94674222F8793900D4A891 /* ResetPw1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94674122F8793900D4A891 /* ResetPw1VC.swift */; };
 		DE94674422F87DB200D4A891 /* ResetPw2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94674322F87DB200D4A891 /* ResetPw2VC.swift */; };
+		DE94674622F897CB00D4A891 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94674522F897CB00D4A891 /* String+Extensions.swift */; };
 		DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235022D04668009657C3 /* NetworkResult.swift */; };
 		DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235222D046A5009657C3 /* APIConstants.swift */; };
 		DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235422D0471A009657C3 /* ResponseString.swift */; };
 		DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235622D04737009657C3 /* ResponseArray.swift */; };
 		DEB561A922D1CEC200763A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB561A822D1CEC200763A85 /* Main.storyboard */; };
-		DEFBBCBF22E6960A00331B80 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBBCBE22E6960A00331B80 /* SigninVC.swift */; };
+		DEFBBCBF22E6960A00331B80 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBBCBE22E6960A00331B80 /* SignupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,12 +192,13 @@
 		DE94673F22F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		DE94674122F8793900D4A891 /* ResetPw1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPw1VC.swift; sourceTree = "<group>"; };
 		DE94674322F87DB200D4A891 /* ResetPw2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPw2VC.swift; sourceTree = "<group>"; };
+		DE94674522F897CB00D4A891 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DE9F235022D04668009657C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		DE9F235222D046A5009657C3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		DE9F235422D0471A009657C3 /* ResponseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseString.swift; sourceTree = "<group>"; };
 		DE9F235622D04737009657C3 /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 		DEB561A822D1CEC200763A85 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DEFBBCBE22E6960A00331B80 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
+		DEFBBCBE22E6960A00331B80 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindGarden.release.xcconfig"; path = "Target Support Files/Pods-MindGarden/Pods-MindGarden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -339,6 +341,7 @@
 				DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */,
 				DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */,
 				DE94673F22F878AF00D4A891 /* NSMutableAttributedString+Extensions.swift */,
+				DE94674522F897CB00D4A891 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,7 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				DE7BC6C322CA780A00AD77EC /* LoginVC.swift */,
-				DEFBBCBE22E6960A00331B80 /* SigninVC.swift */,
+				DEFBBCBE22E6960A00331B80 /* SignupVC.swift */,
 				DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */,
 				DE94674122F8793900D4A891 /* ResetPw1VC.swift */,
 				DE94674322F87DB200D4A891 /* ResetPw2VC.swift */,
@@ -688,7 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */,
-				DEFBBCBF22E6960A00331B80 /* SigninVC.swift in Sources */,
+				DEFBBCBF22E6960A00331B80 /* SignupVC.swift in Sources */,
 				DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */,
 				DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */,
 				DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */,
@@ -699,6 +702,7 @@
 				DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */,
 				DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */,
 				DE8D714622D3919F00A29973 /* DiaryService.swift in Sources */,
+				DE94674622F897CB00D4A891 /* String+Extensions.swift in Sources */,
 				DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */,
 				DE2D927522CD132A00A391E1 /* DatePickerTVC.swift in Sources */,
 				DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */,

@@ -68,6 +68,9 @@ class EmailLoginVC: UIViewController {
     }
     
     @IBAction func signupBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignupVC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
