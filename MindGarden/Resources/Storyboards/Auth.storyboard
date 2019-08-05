@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-0h-ZBE">
-                                <rect key="frame" x="32" y="700" width="311" height="40"/>
+                                <rect key="frame" x="32" y="729" width="311" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="311" id="tLE-Me-dVh"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-rU-jIe">
                                 <rect key="frame" x="37" y="279" width="301" height="208"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="f97-gM-uCP">
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="f97-gM-uCP">
                                 <rect key="frame" x="161" y="518" width="52" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,14 +39,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="9" id="39m-ZG-Lm0"/>
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="32" id="70O-pA-MRh"/>
                             <constraint firstItem="f97-gM-uCP" firstAttribute="top" secondItem="EWV-rU-jIe" secondAttribute="bottom" constant="31" id="E4L-1V-E6N"/>
+                            <constraint firstItem="EWV-rU-jIe" firstAttribute="top" secondItem="Eeo-vs-Qkh" secondAttribute="top" constant="235" id="Goz-EZ-Gha"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="f97-gM-uCP" secondAttribute="trailing" constant="162" id="Sdn-sw-flB"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="37" id="T6g-X5-CBL"/>
                             <constraint firstItem="f97-gM-uCP" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="161" id="XAz-ko-zYd"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="EWV-rU-jIe" secondAttribute="trailing" constant="37" id="aNz-c7-M86"/>
-                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="38" id="bQB-M4-9Eg"/>
-                            <constraint firstItem="MGH-0h-ZBE" firstAttribute="top" secondItem="f97-gM-uCP" secondAttribute="bottom" constant="145" id="rth-pU-k9j"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="thi-iw-HIb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eeo-vs-Qkh"/>
@@ -62,6 +62,21 @@
                 <exit id="FJg-7g-qhL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="983.20000000000005" y="168.4729064039409"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1SV-4M-eyI">
+            <objects>
+                <viewController id="d6K-tg-jA6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j1s-E1-Mqm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="E3V-kC-WYT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxd-hA-7bT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="168"/>
         </scene>
     </scenes>
     <resources>

@@ -45,7 +45,7 @@
 - Swift 5.0.1
 - Xcode 10.2.1
 - Dependencies
-  - [DLRadioButton](https://github.com/DavydLiu/DLRadioButton) 1.4.12
+  - ~~DLRadioButton 1.4.12~~
   - [Kingfisher](https://github.com/onevcat/Kingfisher) 4.8.2
   - [Alamofire](https://github.com/Alamofire/Alamofire) 4.8.2
   - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) 4.7.0
@@ -157,10 +157,13 @@ MindGarden
 
 ## Features
 
-- 회원 관련
-  - [x] Kakao 로그인
-  - [x] 로그아웃
+**07.13**
 
+- 회원 관련
+  
+  - [x] Kakao 로그인
+- [x] 로그아웃
+  
 - 메인 화면
 
   - [x] 현재 달 정원 보여주기
@@ -205,3 +208,8 @@ MindGarden
 - 기타
 
   - [x] 스와이프로 뒤로가기
+
+<br/>
+
+
+

@@ -6,15 +6,11 @@
 //  Copyright © 2019 Sunghee Lee. All rights reserved.
 //
 
-struct User: Codable {
-    let userIdx: Int
-    let email: String
-    let name: String
-}
-
 struct Login: Codable {
-    let status: Int
-    let success: Bool
-    let message: String
-    let data: User
+    let userIdx: Int
+    let refreshToken: String
+    let token: String
+    let name: String
+    let email: String
+    let expires_in: Int
 }

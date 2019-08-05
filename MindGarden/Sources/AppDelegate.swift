@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginVC")
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = navigationController

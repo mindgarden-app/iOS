@@ -12,4 +12,5 @@ struct Tree: Codable {
     let treeIdx: Int
     let balloon: Int
     let treeNum: Int
+    let check: Int
 }

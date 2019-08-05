@@ -182,7 +182,6 @@ extension LockVC: UICollectionViewDelegate {
         if (0 <= indexPath.row && indexPath.row < 9) || indexPath.row == 10 {
             
             inputNumber += codeArr[indexPath.row]
-            print(inputNumber)
             
             changePasscodeImg(count: inputNumber.count)
             

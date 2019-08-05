@@ -14,10 +14,11 @@ struct GardenService {
     static let shared = GardenService()
     let header: HTTPHeaders = [
         "Content-Type" : "application/x-www-form-urlencoded",
+        "token" : UserDefaults.standard.string(forKey: "token")!
     ]
     
-    func getGarden(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.GardenURL + "/\(userIdx)/\(date)"
+    func getGarden(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.GardenURL + "/\(date)"
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)
             .responseData { response in

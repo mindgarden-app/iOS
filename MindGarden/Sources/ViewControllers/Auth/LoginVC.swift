@@ -105,11 +105,10 @@ extension LoginVC: WKNavigationDelegate {
                     if let result = dataStr.data(using: .utf8) {
                         if self.authType == .kakao {
                             do {
-                                let kakao = try JSONDecoder().decode(Login.self, from: result)
-                                print("로그인 \(kakao.data.userIdx)")
-                                UserDefaults.standard.set(kakao.data.userIdx, forKey: "userIdx")
-                                UserDefaults.standard.set(kakao.data.email, forKey: "email")
-                                UserDefaults.standard.set(kakao.data.name, forKey: "name")
+                                let kakao = try JSONDecoder().decode(ResponseArray<Login>.self, from: result)
+                                UserDefaults.standard.set(kakao.data![0].token, forKey: "token")
+                                UserDefaults.standard.set(kakao.data![0].email, forKey: "email")
+                                UserDefaults.standard.set(kakao.data![0].name, forKey: "name")
                             } catch {
                                 print(error)
                             }

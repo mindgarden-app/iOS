@@ -290,16 +290,12 @@ class DiaryNewVC: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
             galleryBtnMinY = galleryBtnMaxY - keyboardSize.size.height
-            print(galleryBtn.frame.origin.y)
-            print("show")
         }
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: (galleryBtnMinY == nil ? 746 :  galleryBtnMinY + keyboardSize.size.height), width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
-            print(galleryBtn.frame.origin.y)
-            print("hide")
         }
     }
 }

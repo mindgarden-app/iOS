@@ -55,7 +55,7 @@ class MainGridVC: UIViewController {
     }
     
     func getGardenData() {
-        GardenService.shared.getGarden(userIdx: userIdx, date: date) {
+        GardenService.shared.getGarden(date: date) {
             [weak self]
             data in
             
@@ -207,7 +207,6 @@ extension MainGridVC: UICollectionViewDelegate {
         if collectionView == self.gardenGridCV {
             if selectedTree != nil {
                 if treeDict.keys.contains(gridIdxArr[indexPath.row]) {
-                    print("...???")
                     return }
                 selectedGrid = indexPath.row
                 
