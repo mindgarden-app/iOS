@@ -13,7 +13,8 @@ class EmailLoginVC: UIViewController {
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var loginBtn: UIButton!
-
+    @IBOutlet var alarmLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +42,8 @@ class EmailLoginVC: UIViewController {
         loginBtn.alpha = 0.6
         loginBtn.isEnabled = false
         
+//        alarmLabel.isHidden = true
+        
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: UITextField.textDidChangeNotification, object: nil)
     }
     
@@ -55,6 +58,9 @@ class EmailLoginVC: UIViewController {
     }
     
     @IBAction func resetBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "ResetPw1VC")
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
     }
     
     
