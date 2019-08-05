@@ -89,6 +89,7 @@
 		DE8D714A22D492D800A29973 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714922D492D800A29973 /* Login.swift */; };
 		DE8D714C22D4F4F100A29973 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714B22D4F4F100A29973 /* Tree.swift */; };
 		DE8D714E22D5265E00A29973 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D714D22D5265E00A29973 /* Diary.swift */; };
+		DE94673E22F8686E00D4A891 /* EmailLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */; };
 		DE9F235122D04668009657C3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235022D04668009657C3 /* NetworkResult.swift */; };
 		DE9F235322D046A5009657C3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235222D046A5009657C3 /* APIConstants.swift */; };
 		DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235422D0471A009657C3 /* ResponseString.swift */; };
@@ -183,6 +184,7 @@
 		DE8D714922D492D800A29973 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DE8D714B22D4F4F100A29973 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		DE8D714D22D5265E00A29973 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginVC.swift; sourceTree = "<group>"; };
 		DE9F235022D04668009657C3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		DE9F235222D046A5009657C3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		DE9F235422D0471A009657C3 /* ResponseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseString.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			children = (
 				DE7BC6C322CA780A00AD77EC /* LoginVC.swift */,
 				DEFBBCBE22E6960A00331B80 /* SigninVC.swift */,
+				DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				DE7BC6E922CB464100AD77EC /* ProfileTVC.swift in Sources */,
 				DE8D714422D390A400A29973 /* DefaultRes.swift in Sources */,
 				DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */,
+				DE94673E22F8686E00D4A891 /* EmailLoginVC.swift in Sources */,
 				DE06595C22C9012300D000BC /* DiaryDetailVC.swift in Sources */,
 				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,
 				DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */,
