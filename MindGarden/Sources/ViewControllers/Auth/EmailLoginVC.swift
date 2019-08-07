@@ -42,7 +42,7 @@ class EmailLoginVC: UIViewController {
         loginBtn.alpha = 0.6
         loginBtn.isEnabled = false
         
-//        alarmLabel.isHidden = true
+        alarmLabel.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: UITextField.textDidChangeNotification, object: nil)
     }
@@ -65,6 +65,48 @@ class EmailLoginVC: UIViewController {
     
     
     @IBAction func LoginBtnAction(_ sender: Any) {
+        AuthService.shared.login(email: emailTF.text!, password: passwordTF.text!) { [weak self] data in
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let res):
+                let data = res as! Login
+                
+                UserDefaults.standard.set(data.token, forKey: "token")
+                UserDefaults.standard.set(data.email, forKey: "email")
+                UserDefaults.standard.set(data.name, forKey: "name")
+                
+                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                    
+                    dvc.mode = LockMode.validate
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                } else {
+                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                }
+                
+                break
+            case .requestErr(let err):
+                self.alarmLabel.isHidden = false
+                self.alarmLabel.text = String(describing: err)
+                self.emailTF.text = ""
+                self.passwordTF.text = ""
+                print(".requestErr(\(err))")
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                break
+            }
+        }
     }
     
     @IBAction func signupBtnAction(_ sender: Any) {

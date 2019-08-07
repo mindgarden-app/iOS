@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-DemiLight.otf">
+            <string>NotoSansCJKkr-DemiLight</string>
+        </array>
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
@@ -398,8 +401,8 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 (영문, 숫자 조합 8자 이상)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-aq-0T4">
-                                <rect key="frame" x="20" y="362" width="249" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 재확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIK-aq-0T4">
+                                <rect key="frame" x="20" y="362" width="249" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -440,56 +443,54 @@
                                 <color key="textColor" red="1" green="0.23921568630000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마인드 가든의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-73-Q8S">
-                                <rect key="frame" x="19" y="457" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입시 Mindgarden의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-73-Q8S">
+                                <rect key="frame" x="20" y="457" width="124" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-c9-QZf">
-                                <rect key="frame" x="104" y="457" width="56" height="21"/>
+                                <rect key="frame" x="145" y="457" width="56" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <state key="normal" title="이용 약관">
                                     <color key="titleColor" red="0.47058823529411764" green="0.87058823529411766" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tosBtnAction:" destination="03a-FN-2J1" eventType="touchUpInside" id="Zzw-rN-mZP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="및" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-Na-IF0">
-                                <rect key="frame" x="163" y="457" width="13" height="21"/>
+                                <rect key="frame" x="202" y="457" width="12" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="에 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-s5-qeK">
-                                <rect key="frame" x="288" y="457" width="43" height="21"/>
+                                <rect key="frame" x="319" y="457" width="40" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltq-5s-fZH">
-                                <rect key="frame" x="20" y="477" width="43" height="21"/>
+                                <rect key="frame" x="20" y="477" width="40" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHS-Q9-hq7">
-                                <rect key="frame" x="180" y="457" width="107" height="21"/>
+                                <rect key="frame" x="213" y="457" width="107" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <state key="normal" title="개인정보 취급방침">
                                     <color key="titleColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAN-Lk-nAt">
-                                <rect key="frame" x="338" y="446" width="41" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="btnCheckboxOff"/>
                                 <connections>
-                                    <action selector="agreeBtnAction:" destination="03a-FN-2J1" eventType="touchUpInside" id="YPY-JW-2e0"/>
+                                    <action selector="privacyPolicyBtnAction:" destination="03a-FN-2J1" eventType="touchUpInside" id="jDf-bF-rqR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -511,7 +512,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="agreeBtn" destination="bAN-Lk-nAt" id="dVN-qE-Vfs"/>
                         <outlet property="emailDescLabel" destination="ePL-sa-9Hm" id="CcF-jl-hxi"/>
                         <outlet property="emailTF" destination="zbQ-Ik-geP" id="ahw-L2-Wo4"/>
                         <outlet property="nameDescLabel" destination="o2m-Ry-kOL" id="sZR-pZ-toA"/>
@@ -578,6 +578,54 @@
             </objects>
             <point key="canvasLocation" x="1938.4000000000001" y="3732.2660098522169"/>
         </scene>
+        <!--개인정보처리방침-->
+        <scene sceneID="DCd-1h-o0D">
+            <objects>
+                <viewController storyboardIdentifier="PolicyVC" id="pQZ-mY-yDb" customClass="PolicyVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" id="rBo-kG-lll">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMZ-0B-1tI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilF-o9-ndo">
+                                        <rect key="frame" x="27" y="30" width="322" height="1000"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fMZ-0B-1tI" firstAttribute="height" secondItem="rBo-kG-lll" secondAttribute="height" id="2q4-s8-9zi"/>
+                            <constraint firstItem="fMZ-0B-1tI" firstAttribute="leading" secondItem="rBo-kG-lll" secondAttribute="leading" id="MkJ-e6-to7"/>
+                            <constraint firstItem="fMZ-0B-1tI" firstAttribute="width" secondItem="rBo-kG-lll" secondAttribute="width" id="nO1-ih-8hC"/>
+                            <constraint firstAttribute="bottom" secondItem="fMZ-0B-1tI" secondAttribute="bottom" id="o1y-4a-am9"/>
+                            <constraint firstAttribute="trailing" secondItem="fMZ-0B-1tI" secondAttribute="trailing" id="rR0-UH-g83"/>
+                            <constraint firstItem="fMZ-0B-1tI" firstAttribute="top" secondItem="rBo-kG-lll" secondAttribute="top" id="vyQ-oT-cHT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QLq-lK-RhW"/>
+                    </scrollView>
+                    <navigationItem key="navigationItem" title="개인정보처리방침" id="0EF-35-U5a">
+                        <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="mej-tz-Bf3">
+                            <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="pQZ-mY-yDb" id="bjA-ZR-e9a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="policyText" destination="ilF-o9-ndo" id="Irs-At-QIk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GX9-YM-u3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="4442"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uzx-5p-hb8">
             <objects>
@@ -596,10 +644,27 @@
             </objects>
             <point key="canvasLocation" x="988" y="2966.7487684729067"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kia-C4-Wly">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fi6-bf-rTw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YtG-ux-rX9">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pQZ-mY-yDb" kind="relationship" relationship="rootViewController" id="08C-lC-p0A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f25-Uq-Ub3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.5999999999999" y="4441.6256157635471"/>
+        </scene>
     </scenes>
     <resources>
         <image name="btnBack" width="13" height="27"/>
-        <image name="btnCheckboxOff" width="20" height="20"/>
         <image name="btnKakaoLogIn" width="333" height="43"/>
     </resources>
 </document>
