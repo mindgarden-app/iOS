@@ -75,7 +75,13 @@ extension SettingsDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var num = 1
         
-        if paramSettings == 1 {
+        if paramSettings == 0 {
+            if UserDefaults.standard.bool(forKey: "암호 설정") {
+                num += 1
+            } else if isOn {
+                num += 1
+            }
+        } else if paramSettings == 1{
             if datePickerIndexPath != nil {
                 num += 1
             }
@@ -223,6 +229,7 @@ extension SettingsDetailVC: SwitchDelegate {
     
     func OnSwitch(name: String, isOn: Bool) {
         self.isOn = isOn
+        UserDefaults.standard.set(isOn, forKey: name)
         settingsDetailTV.beginUpdates()
         if isOn {
             settingsDetailTV.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
@@ -234,7 +241,6 @@ extension SettingsDetailVC: SwitchDelegate {
             }
         }
         settingsDetailTV.endUpdates()
-        UserDefaults.standard.set(isOn, forKey: name)
         
         if name == "암호 설정" && isOn {
             let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
