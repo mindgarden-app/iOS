@@ -33,7 +33,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.isNavigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)

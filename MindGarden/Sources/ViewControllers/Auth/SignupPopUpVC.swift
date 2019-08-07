@@ -10,6 +10,7 @@ import UIKit
 
 class SignupPopUpVC: UIViewController {
 
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet var popUpView: UIView!
     
     override func viewDidLoad() {
@@ -17,13 +18,17 @@ class SignupPopUpVC: UIViewController {
 
         // Do any additional setup after loading the view.
         setView()
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
     }
     
     func setView() {
         popUpView.makeRounded(cornerRadius: 8)
     }
     
-
+    @IBAction func loginBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

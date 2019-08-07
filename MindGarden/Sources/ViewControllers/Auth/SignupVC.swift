@@ -22,7 +22,9 @@ class SignupVC: UIViewController {
     @IBOutlet var signupBtn: UIBarButtonItem!
     
     var isAgree: Bool = false
-    var isError: Bool = true
+    var emailError: Bool = true
+    var passwordError: Bool = true
+    var passwordCheckError: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,20 +73,24 @@ class SignupVC: UIViewController {
     
     @objc func emailTFDidChange(textField: UITextField) {
         if emailTF.text!.validateEmail() {
+            emailError = false
             emailDescLabel.isHidden = true
             emailTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
         } else {
+            emailError = true
             emailDescLabel.isHidden = false
+            emailDescLabel.text = "올바른 이메일 형식이 아닙니다."
             emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
         }
     }
     
     @objc func passwordTFDidChange(textField: UITextField) {
-        print(passwordTF.text!.validatePassword())
         if passwordTF.text!.validatePassword() {
+            passwordError = false
             passwordDescLabel.isHidden = true
             passwordTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
         } else {
+            passwordError = true
             passwordDescLabel.isHidden = false
             passwordTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
         }
@@ -92,18 +98,18 @@ class SignupVC: UIViewController {
     
     @objc func passwordCheckTFDidChange(textField: UITextField) {
         if passwordTF.text! != passwordCheckTF.text! {
-            isError = true
+            passwordCheckError = true
             passwordCheckDescLabel.isHidden = false
             passwordCheckTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
         } else {
-            isError = false
+            passwordCheckError = false
             passwordCheckDescLabel.isHidden = true
             passwordCheckTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
         }
     }
     
     @objc func textChanged(_ notification: NSNotification) {
-        if !emailTF.text!.isEmpty && !nameTF.text!.isEmpty && !passwordTF.text!.isEmpty && !passwordCheckTF.text!.isEmpty {
+        if !emailError && !nameTF.text!.isEmpty && !passwordError && !passwordCheckError {
             signupBtn.isEnabled = true
         } else {
             signupBtn.isEnabled = false
@@ -125,33 +131,39 @@ class SignupVC: UIViewController {
     }
     
     @IBAction func signupBtnAction(_ sender: Any) {
-        var isError = false
-        
-        if !emailTF.text!.validateEmail() {
-            isError = true
-            emailDescLabel.isHidden = false
-            emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
-        }
-        
-        if !passwordTF.text!.validatePassword() {
-            isError = true
-            passwordDescLabel.isHidden = false
-            passwordDescLabel.setBorder(borderColor: UIColor.red, borderWidth: 1)
-        }
-        
-        if passwordTF.text! != passwordCheckTF.text! {
-            isError = true
-            passwordCheckDescLabel.isHidden = false
-            passwordCheckDescLabel.setBorder(borderColor: UIColor.red, borderWidth: 1)
-        }
-        
-        if !isAgree {
-            isError = true
-        }
-        
-        if !isError {
-            // 가입 api
-            
+        if !emailError && !passwordError && !passwordCheckError {
+            AuthService.shared.signup(email: emailTF.text!, password: passwordTF.text!, name: nameTF.text!) { [weak self] data in
+                guard let `self` = self else { return }
+                
+                switch data {
+                case .success(let res):
+                    let popUpVC = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignupPopUpVC") as! SignupPopUpVC
+                    self.addChild(popUpVC)
+                    popUpVC.view.frame = self.view.frame
+                    self.view.addSubview(popUpVC.view)
+                    popUpVC.didMove(toParent: self)
+                    
+                    break
+                case .requestErr(let err):
+                    if(String(describing: err) == "중복된 email이 존재합니다.") {
+                        self.emailError = true
+                        self.emailDescLabel.isHidden = false
+                        self.emailDescLabel.text = "이미 등록된 이메일입니다."
+                        self.emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+                    }
+                    print(".requestErr(\(err))")
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
+                }
+            }
         }
     }
 }
