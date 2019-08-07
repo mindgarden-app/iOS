@@ -22,9 +22,10 @@ class SignupVC: UIViewController {
     @IBOutlet var signupBtn: UIBarButtonItem!
     
     var isAgree: Bool = false
-    var emailError: Bool = true
-    var passwordError: Bool = true
-    var passwordCheckError: Bool = true
+    var emailError: Bool = false
+    var nameError: Bool = false
+    var passwordError: Bool = false
+    var passwordCheckError: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class SignupVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: UITextField.textDidChangeNotification, object: nil)
         
         emailTF.addTarget(self, action: #selector(emailTFDidChange(textField:)), for: .editingChanged)
+        nameTF.addTarget(self, action: #selector(nameTFDidChange(textField:)), for: .editingChanged)
         passwordTF.addTarget(self, action: #selector(passwordTFDidChange(textField:)), for: .editingChanged)
         passwordCheckTF.addTarget(self, action: #selector(passwordCheckTFDidChange(textField:)), for: .editingChanged)
     }
@@ -81,6 +83,18 @@ class SignupVC: UIViewController {
             emailDescLabel.isHidden = false
             emailDescLabel.text = "올바른 이메일 형식이 아닙니다."
             emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+        }
+    }
+    
+    @objc func nameTFDidChange(textField: UITextField) {
+        if nameTF.text!.validateName() {
+            nameError = false
+            nameDescLabel.isHidden = true
+            nameTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
+        } else {
+            nameError = true
+            nameDescLabel.isHidden = false
+            nameTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
         }
     }
     
@@ -166,17 +180,76 @@ class SignupVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func tosBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PolicyVC") as! PolicyVC
+        
+        dvc.policyNum = 1
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func privacyPolicyBtnAction(_ sender: Any) {
+        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PolicyVC") as! PolicyVC
+        
+        dvc.policyNum = 2
+        
+        self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
 }
 
 extension SignupVC : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGreen.cgColor
+        
+        switch textField {
+        case emailTF:
+            if emailError {
+                emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case nameTF:
+            if nameError {
+                nameTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case passwordTF:
+            if passwordError {
+                passwordTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case passwordCheckTF:
+            if passwordError {
+                passwordCheckTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        default:
+            break
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.grayForBorder.cgColor
+        
+        switch textField {
+        case emailTF:
+            if emailError {
+                emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case nameTF:
+            if nameError {
+                nameTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case passwordTF:
+            if passwordError {
+                passwordTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        case passwordCheckTF:
+            if passwordError {
+                passwordCheckTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+            }
+        default:
+            break
+        }
     }
 }
 
