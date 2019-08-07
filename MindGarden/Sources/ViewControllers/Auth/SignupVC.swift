@@ -22,6 +22,7 @@ class SignupVC: UIViewController {
     @IBOutlet var signupBtn: UIBarButtonItem!
     
     var isAgree: Bool = false
+    var isError: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,49 @@ class SignupVC: UIViewController {
         passwordCheckTF.leftViewMode = .always
         
         signupBtn.isEnabled = false
+        emailDescLabel.isHidden = true
+        nameDescLabel.isHidden = true
+        passwordDescLabel.isHidden = true
+        passwordCheckDescLabel.isHidden = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(textChanged(_:)), name: UITextField.textDidChangeNotification, object: nil)
+        
+        emailTF.addTarget(self, action: #selector(emailTFDidChange(textField:)), for: .editingChanged)
+        passwordTF.addTarget(self, action: #selector(passwordTFDidChange(textField:)), for: .editingChanged)
+        passwordCheckTF.addTarget(self, action: #selector(passwordCheckTFDidChange(textField:)), for: .editingChanged)
+    }
+    
+    @objc func emailTFDidChange(textField: UITextField) {
+        if emailTF.text!.validateEmail() {
+            emailDescLabel.isHidden = true
+            emailTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
+        } else {
+            emailDescLabel.isHidden = false
+            emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+        }
+    }
+    
+    @objc func passwordTFDidChange(textField: UITextField) {
+        print(passwordTF.text!.validatePassword())
+        if passwordTF.text!.validatePassword() {
+            passwordDescLabel.isHidden = true
+            passwordTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
+        } else {
+            passwordDescLabel.isHidden = false
+            passwordTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+        }
+    }
+    
+    @objc func passwordCheckTFDidChange(textField: UITextField) {
+        if passwordTF.text! != passwordCheckTF.text! {
+            isError = true
+            passwordCheckDescLabel.isHidden = false
+            passwordCheckTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
+        } else {
+            isError = false
+            passwordCheckDescLabel.isHidden = true
+            passwordCheckTF.setBorder(borderColor: UIColor.lightGreen, borderWidth: 1)
+        }
     }
     
     @objc func textChanged(_ notification: NSNotification) {
@@ -88,23 +130,30 @@ class SignupVC: UIViewController {
         if !emailTF.text!.validateEmail() {
             isError = true
             emailDescLabel.isHidden = false
+            emailTF.setBorder(borderColor: UIColor.red, borderWidth: 1)
         }
         
         if !passwordTF.text!.validatePassword() {
             isError = true
             passwordDescLabel.isHidden = false
+            passwordDescLabel.setBorder(borderColor: UIColor.red, borderWidth: 1)
         }
         
         if passwordTF.text! != passwordCheckTF.text! {
             isError = true
             passwordCheckDescLabel.isHidden = false
+            passwordCheckDescLabel.setBorder(borderColor: UIColor.red, borderWidth: 1)
+        }
+        
+        if !isAgree {
+            isError = true
         }
         
         if !isError {
             // 가입 api
+            
         }
     }
-    
 }
 
 extension SignupVC : UITextFieldDelegate {

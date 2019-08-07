@@ -21,6 +21,7 @@
 		DE06597122C9846400D000BC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06597022C9846400D000BC /* Settings.storyboard */; };
 		DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597322C9E15E00D000BC /* Date+Extensions.swift */; };
 		DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597622C9EE9600D000BC /* SettingsVC.swift */; };
+		DE0DF3C022FAF7AC00D6F912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */; };
 		DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */; };
 		DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */; };
 		DE1C6DDD22D79B150099477A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDC22D79B150099477A /* AuthService.swift */; };
@@ -29,8 +30,8 @@
 		DE2D927622CD132A00A391E1 /* DatePickerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */; };
 		DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */; };
 		DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */; };
-		DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */; };
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
+		DE3E69BD22F9388700F0BFB4 /* SignupPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */; };
 		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
 		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
 		DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */; };
@@ -118,6 +119,7 @@
 		DE06597022C9846400D000BC /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		DE06597322C9E15E00D000BC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DE06597622C9EE9600D000BC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDC22D79B150099477A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -127,9 +129,9 @@
 		DE33D70122C8C12C00F0F4E4 /* MindGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE33D71422C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPopUpVC.swift; sourceTree = "<group>"; };
 		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
 		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
@@ -227,9 +229,9 @@
 		DE06594A22C8EC6200D000BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */,
 				DE8D70E722D25AE900A29973 /* Fonts */,
 				DE06594B22C8EC7200D000BC /* Storyboards */,
-				DE33D71122C8C12D00F0F4E4 /* Assets.xcassets */,
 				DE33D71622C8C12D00F0F4E4 /* Info.plist */,
 			);
 			path = Resources;
@@ -417,6 +419,7 @@
 				DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */,
 				DE94674122F8793900D4A891 /* ResetPw1VC.swift */,
 				DE94674322F87DB200D4A891 /* ResetPw2VC.swift */,
+				DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -604,8 +607,8 @@
 				DE8D710622D25B0400A29973 /* MontserratAlternates-ExtraBoldItalic.ttf in Resources */,
 				DE8D713A22D25C1100A29973 /* NotoSansCJKkr-Light.otf in Resources */,
 				DE8D713722D25C1100A29973 /* NotoSansCJKkr-Black.otf in Resources */,
+				DE0DF3C022FAF7AC00D6F912 /* Assets.xcassets in Resources */,
 				DE8D710B22D25B0400A29973 /* MontserratAlternates-Regular.ttf in Resources */,
-				DE33D71222C8C12D00F0F4E4 /* Assets.xcassets in Resources */,
 				DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */,
 				DE8D713622D25C1100A29973 /* NotoSansCJKkr-DemiLight.otf in Resources */,
 				DE8D710922D25B0400A29973 /* MontserratAlternates-Light.ttf in Resources */,
@@ -713,6 +716,7 @@
 				DE7BC70622CC871C00AD77EC /* LockVC.swift in Sources */,
 				DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */,
 				DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */,
+				DE3E69BD22F9388700F0BFB4 /* SignupPopUpVC.swift in Sources */,
 				DE8D714C22D4F4F100A29973 /* Tree.swift in Sources */,
 				DE7BC6F022CB5C6A00AD77EC /* SettingsDetailVC.swift in Sources */,
 				DE94674222F8793900D4A891 /* ResetPw1VC.swift in Sources */,
@@ -872,6 +876,7 @@
 			baseConfigurationReference = 4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
@@ -891,6 +896,7 @@
 			baseConfigurationReference = E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";

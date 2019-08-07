@@ -23,6 +23,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     }
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var loginBtn: UIButton!
+    @IBOutlet var emailLoginBtn: UIButton!
     
     var slides: [DescriptionSlide] = [];
     var webView: WKWebView!
@@ -36,6 +37,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
+        emailLoginBtn.makeRounded(cornerRadius: 4)
     }
     
     func createSlides() -> [DescriptionSlide] {
@@ -72,21 +74,22 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         let pageIndex = round(descriptionSV.contentOffset.x/301)
         pageControl.currentPage = Int(pageIndex)
     }
-
-    @IBAction func loginBtnAction(_ sender: Any) {
+    @IBAction func emailLoginBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "EmailLoginVC")
         
         self.navigationController!.pushViewController(dvc, animated: true)
-        
-//        authType = .kakao
-//
-//        let url = NSURL(string: authType.rawValue)
-//        let request = NSURLRequest(url: url! as URL)
-//
-//        webView = WKWebView(frame: self.view.frame)
-//        webView.navigationDelegate = self
-//        webView.load(request as URLRequest)
-//        self.view.addSubview(webView)
+    }
+    
+    @IBAction func loginBtnAction(_ sender: Any) {
+        authType = .kakao
+
+        let url = NSURL(string: authType.rawValue)
+        let request = NSURLRequest(url: url! as URL)
+
+        webView = WKWebView(frame: self.view.frame)
+        webView.navigationDelegate = self
+        webView.load(request as URLRequest)
+        self.view.addSubview(webView)
     }
     
     @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}

@@ -16,6 +16,58 @@ struct AuthService {
         "Content-Type" : "application/x-www-form-urlencoded",
     ]
     
+    func signup(email: String, password: String, name: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let body: Parameters = [
+            "email": email,
+            "password": password,
+            "name": name
+        ]
+        
+        Alamofire.request(APIConstants.SignupURL, method: .post, parameters: body, encoding: URLEncoding.httpBody, headers: header)
+            .responseData { response in
+                print(response)
+                switch response.result {
+                case .success:
+                    if let value = response.result.value {
+                        if let status = response.response?.statusCode {
+                            switch status {
+                            case 200:
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let result = try decoder.decode(DefaultRes.self, from: value)
+                                    
+                                    switch result.success {
+                                    case true:
+                                        print(result.message)
+                                        completion(.success(result.message))
+                                    case false:
+                                        print(result.message)
+                                        completion(.requestErr(result.message))
+                                    }
+                                } catch {
+                                    completion(.pathErr)
+                                }
+                            case 400:
+                                completion(.pathErr)
+                            case 500:
+                                completion(.serverErr)
+                                
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    break
+                    
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(.networkFail)
+                    break
+                }
+        }
+    }
+    
     func resetPasscode(userIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let URL = APIConstants.ResetPasscodeURL + "/\(userIdx)"
         
