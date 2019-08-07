@@ -53,6 +53,8 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         let slide4: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
         slide4.logoImage.image = UIImage(named: "imgLogIn1")
         
+        print(slide2.frame.size.width)
+        
         return [slide1, slide2, slide3, slide4]
     }
     
