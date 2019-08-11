@@ -27,6 +27,7 @@ class ResetPw2VC: UIViewController {
             .normal("\n메일에 안내된 내용에 따라 새 비밀번호를 설정하세요.")
         
         descLabel.attributedText = formattedString
+        descLabel.frame.size.height = descLabel.intrinsicContentSize.height
     }
     
 

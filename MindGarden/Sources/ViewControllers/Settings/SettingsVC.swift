@@ -15,7 +15,7 @@ class SettingsVC: UIViewController {
     var sectionsArr: [String] = ["Profile", "Logout", "Settings"]
     var items = [
         [""],
-        ["로그아웃"],
+        ["로그아웃", "계정 삭제"],
         ["암호 설정", "알림 설정"]
     ]
     
@@ -96,12 +96,52 @@ extension SettingsVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            UserDefaults.standard.set(false, forKey: "암호 설정")
-            UserDefaults.standard.set(nil, forKey: "token")
-            UserDefaults.standard.set(nil, forKey: "email")
-            UserDefaults.standard.set(nil, forKey: "name")
-            navigationController?.isNavigationBarHidden = true
-            performSegue(withIdentifier: "unwindToLogin", sender: self)
+            if indexPath.row == 0 {
+                UserDefaults.standard.set(false, forKey: "암호 설정")
+                UserDefaults.standard.set(nil, forKey: "token")
+                UserDefaults.standard.set(nil, forKey: "email")
+                UserDefaults.standard.set(nil, forKey: "name")
+                navigationController?.isNavigationBarHidden = true
+                performSegue(withIdentifier: "unwindToLogin", sender: self)
+            } else {
+                let alert = UIAlertController(title: "정말 계정을 삭제하겠습니까?", message: "삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: { action in
+                    AuthService.shared.deleteUser() { [weak self] data in
+                        guard let `self` = self else { return }
+                        
+                        switch data {
+                        case .success(let message):
+                            if String(describing: message) == "user 계정 삭제 성공!" {
+                                UserDefaults.standard.set(false, forKey: "암호 설정")
+                                UserDefaults.standard.set(nil, forKey: "token")
+                                UserDefaults.standard.set(nil, forKey: "email")
+                                UserDefaults.standard.set(nil, forKey: "name")
+                                self.navigationController?.isNavigationBarHidden = true
+                                self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+                            }
+                            break
+                        case .requestErr(let err):
+                            print(".requestErr(\(err))")
+                            break
+                        case .pathErr:
+                            print("경로 에러")
+                            break
+                        case .serverErr:
+                            print("서버 에러")
+                            break
+                        case .networkFail:
+                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                            break
+                        }
+                        
+                    }
+                })
+                let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+                cancelAction.setValue(UIColor.Gray, forKey: "titleTextColor")
+                alert.addAction(cancelAction)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+            }
         } else {
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
 

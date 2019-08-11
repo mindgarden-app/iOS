@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rRL-nA-YOz">
-                                <rect key="frame" x="57" y="354" width="261" height="45"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rRL-nA-YOz">
+                                <rect key="frame" x="57" y="354" width="261" height="114"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rRL-nA-YOz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SS3-Nd-RNx"/>
-                            <constraint firstItem="rRL-nA-YOz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="9:28" id="bp7-30-5cf"/>
+                            <constraint firstItem="rRL-nA-YOz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YaQ-1b-9eS"/>
                             <constraint firstItem="rRL-nA-YOz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="lzE-B8-ngq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

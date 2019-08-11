@@ -79,28 +79,38 @@ class LockVC: UIViewController {
     }
     
     @IBAction func resetBtnAction(_ sender: Any) {
-        AuthService.shared.resetPasscode(userIdx: userIdx) { [weak self] data in
-            guard let `self` = self else { return }
-            
-            switch data {
-            case .success(let rand):
-                self.passcodeResetBtn.setTitle("메일로 발송된 번호를 입력하세요.", for: .normal)
-                UserDefaults.standard.set(rand, forKey: "passcode")
-                break
-            case .requestErr(let err):
-                print(".requestErr(\(err))")
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+        let message = "\(String(describing: UserDefaults.standard.string(forKey: "email")!))으로\n새로운 비밀번호를 보내겠습니까?"
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "메일 보내기", style: .destructive, handler: { action in
+            AuthService.shared.resetPasscode() { [weak self] data in
+                guard let `self` = self else { return }
+                
+                switch data {
+                case .success(let rand):
+                    self.passcodeResetBtn.setTitle("메일로 발송된 번호를 입력하세요.", for: .normal)
+                    UserDefaults.standard.set(rand, forKey: "passcode")
+                    break
+                case .requestErr(let err):
+                    print(".requestErr(\(err))")
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
+                }
             }
-        }
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.Gray, forKey: "titleTextColor")
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     func showfailAnimation() {

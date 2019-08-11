@@ -72,6 +72,8 @@ class EmailLoginVC: UIViewController {
             case .success(let res):
                 let data = res as! Login
                 
+                print(data.token)
+                
                 UserDefaults.standard.set(data.token, forKey: "token")
                 UserDefaults.standard.set(data.email, forKey: "email")
                 UserDefaults.standard.set(data.name, forKey: "name")
@@ -91,7 +93,6 @@ class EmailLoginVC: UIViewController {
                 break
             case .requestErr(let err):
                 self.alarmLabel.isHidden = false
-                self.alarmLabel.text = String(describing: err)
                 self.emailTF.text = ""
                 self.passwordTF.text = ""
                 print(".requestErr(\(err))")

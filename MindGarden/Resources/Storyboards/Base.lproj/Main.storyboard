@@ -319,11 +319,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s21-Dr-KaT">
-                                <rect key="frame" x="0.0" y="704.66666666666674" width="375" height="108"/>
+                                <rect key="frame" x="0.0" y="704" width="375" height="108"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tAl-U6-dHl">
-                                <rect key="frame" x="0.0" y="704.66666666666674" width="375" height="74"/>
+                                <rect key="frame" x="0.0" y="704" width="375" height="74"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="KWe-Dh-DaN"/>
@@ -346,7 +346,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sbm-UM-ivu">
-                                <rect key="frame" x="16" y="288.33333333333331" width="343" height="342.99999999999994"/>
+                                <rect key="frame" x="16" y="287.66666666666669" width="343" height="343.00000000000006"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="FuX-TZ-8jq"/>
@@ -377,21 +377,21 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPointN" translatesAutoresizingMaskIntoConstraints="NO" id="HwS-YR-dlJ">
-                                <rect key="frame" x="17" y="259.33333333333331" width="20" height="20"/>
+                                <rect key="frame" x="17" y="258.66666666666669" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HwS-YR-dlJ" secondAttribute="height" multiplier="1:1" id="wPU-62-mZ6"/>
                                     <constraint firstAttribute="width" constant="20" id="yZw-ZN-VSN"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPointS" translatesAutoresizingMaskIntoConstraints="NO" id="FTa-4e-Mti">
-                                <rect key="frame" x="338" y="641.33333333333337" width="21.333333333333314" height="20.333333333333371"/>
+                                <rect key="frame" x="338" y="640.66666666666663" width="21.333333333333314" height="20.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="21.333333333333314" id="1T6-VW-pum"/>
                                     <constraint firstAttribute="width" secondItem="FTa-4e-Mti" secondAttribute="height" multiplier="21:20" id="nGD-gP-mdH"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-Yk-5og">
-                                <rect key="frame" x="132" y="404.33333333333331" width="111" height="110.99999999999994"/>
+                                <rect key="frame" x="132" y="403.66666666666669" width="111" height="111.00000000000006"/>
                                 <color key="backgroundColor" red="0.49019607843137253" green="0.9137254901960784" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FZC-Yk-5og" secondAttribute="height" multiplier="1:1" id="RP4-wM-ISz"/>

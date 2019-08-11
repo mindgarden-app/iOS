@@ -7,7 +7,6 @@
 //
 
 struct Login: Codable {
-    let userIdx: Int
     let refreshToken: String
     let token: String
     let name: String

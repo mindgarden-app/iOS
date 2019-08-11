@@ -302,8 +302,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBL-Do-rbG">
-                                <rect key="frame" x="56" y="151" width="263" height="550"/>
+                                <rect key="frame" x="56" y="136" width="263" height="550"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="263" id="8sl-Ik-bMS"/>
+                                    <constraint firstAttribute="width" secondItem="xBL-Do-rbG" secondAttribute="height" multiplier="263:550" id="iSk-NJ-i6B"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryPopUpTVC" rowHeight="45" id="c4z-yn-gBN">
                                         <rect key="frame" x="0.0" y="28" width="263" height="45"/>
@@ -318,10 +322,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MYU-DA-Go3" firstAttribute="bottom" secondItem="xBL-Do-rbG" secondAttribute="bottom" constant="77" id="UNp-6P-Hzm"/>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="leading" secondItem="MYU-DA-Go3" secondAttribute="leading" constant="56" id="Vxa-Cm-WtS"/>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="width" secondItem="98R-rk-iJc" secondAttribute="height" multiplier="263:812" id="nV1-0t-kD4"/>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="top" secondItem="MYU-DA-Go3" secondAttribute="top" constant="107" id="uvP-LS-ucC"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerX" secondItem="MYU-DA-Go3" secondAttribute="centerX" id="56c-aT-obQ"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerY" secondItem="MYU-DA-Go3" secondAttribute="centerY" id="5Fy-78-0ZH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MYU-DA-Go3"/>
                     </view>

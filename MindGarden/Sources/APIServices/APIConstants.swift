@@ -14,6 +14,8 @@ struct APIConstants {
     static let KaKaoLoginURL = AuthURL + "/login/kakao"
     static let LoginURL = BaseURL + "/user/signin"
     static let ResetPasscodeURL = AuthURL + "/mail"
+    static let ResetPasswordURL = BaseURL + "/user/mail"
+    static let UserDeleteURL = BaseURL + "/user/delete"
     
     static let GardenURL = BaseURL + "/garden"
     static let GardenAddURL = GardenURL + "/plant"

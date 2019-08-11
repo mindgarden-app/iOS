@@ -13,7 +13,8 @@ struct DiaryService {
     
     static let shared = DiaryService()
     let headers: HTTPHeaders = [
-        "Content-Type" : "multipart/form-data"
+        "Content-Type" : "multipart/form-data",
+        "token" : UserDefaults.standard.string(forKey: "token")!
     ]
     
     func addDiary(userIdx: Int, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -135,7 +136,8 @@ struct DiaryService {
         let URL = APIConstants.DiaryDetailURL + "/\(userIdx)/\(date)"
         
         let header: HTTPHeaders = [
-            "Content-Type" : "application/x-www-form-urlencoded"
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
         ]
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)
@@ -185,7 +187,8 @@ struct DiaryService {
         let URL = APIConstants.DiaryDeleteURL + "/\(userIdx)/\(date)"
         
         let header: HTTPHeaders = [
-            "Content-Type" : "application/x-www-form-urlencoded"
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
         ]
         
         Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: header)
@@ -235,7 +238,8 @@ struct DiaryService {
         let URL = APIConstants.DiaryListURL + "/\(userIdx)/\(date)"
         
         let header: HTTPHeaders = [
-            "Content-Type" : "application/x-www-form-urlencoded"
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
         ]
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)

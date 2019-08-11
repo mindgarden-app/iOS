@@ -55,9 +55,33 @@ class ResetPw1VC: UIViewController {
     }
     
     @IBAction func sendEmailBtnAction(_ sender: Any) {
-        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "ResetPw2VC")
-        
-        self.navigationController!.pushViewController(dvc, animated: true)
+        AuthService.shared.resetPassword(email: emailTF.text!) { [weak self] data in
+            guard let `self` = self else { return }
+            
+            switch data {
+            case .success(let message):
+                if String(describing: message) == "메일 전송 성공" {
+                    let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "ResetPw2VC")
+                    
+                    self.navigationController!.pushViewController(dvc, animated: true)
+                } else {
+                    print(message)
+                }
+                break
+            case .requestErr(let err):
+                print(".requestErr(\(err))")
+                break
+            case .pathErr:
+                print("경로 에러")
+                break
+            case .serverErr:
+                print("서버 에러")
+                break
+            case .networkFail:
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                break
+            }
+        }
     }
     
     
