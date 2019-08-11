@@ -16,7 +16,6 @@ class DiaryListVC: UIViewController {
     @IBOutlet var emptyView: UIView!
     @IBOutlet var grayView: UIView!
     
-    let userIdx: Int = UserDefaults.standard.integer(forKey: "userIdx")
     let dateFormatter = DateFormatter()
     
     var isAscending: Bool! = true
@@ -64,7 +63,7 @@ class DiaryListVC: UIViewController {
     }
     
     func getDiaryList(date: String) {
-        DiaryService.shared.getDiaryList(userIdx: userIdx, date: date) { [weak self] data in
+        DiaryService.shared.getDiaryList(date: date) { [weak self] data in
             guard let `self` = self else { return }
             
             switch data {
@@ -205,7 +204,7 @@ extension DiaryListVC: UITableViewDelegate {
             let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
             let date = "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
             
-            DiaryService.shared.deleteDiary(userIdx: self.userIdx, date: date) { [weak self] data in
+            DiaryService.shared.deleteDiary(date: date) { [weak self] data in
                 guard let `self` = self else { return }
                 
                 switch data {

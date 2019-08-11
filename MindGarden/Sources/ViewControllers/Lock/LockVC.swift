@@ -26,8 +26,6 @@ class LockVC: UIViewController {
     @IBOutlet var passcodeImg3: UIImageView!
     @IBOutlet var passcodeImg4: UIImageView!
     
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
-    
     var mode: LockMode!
     var selectedNumIdx: Int!
     var stageForChange: Int = 0

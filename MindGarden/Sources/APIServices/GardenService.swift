@@ -63,10 +63,9 @@ struct GardenService {
             }
     }
     
-    func addTree(userIdx: Int, location: Int, treeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func addTree(location: Int, treeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let body: Parameters = [
-            "userIdx": userIdx,
             "location": location,
             "treeIdx": treeIdx
         ]

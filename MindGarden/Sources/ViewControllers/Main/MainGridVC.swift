@@ -21,7 +21,6 @@ class MainGridVC: UIViewController {
     let treeInventoryCellSize = 55
     let gardenGridSpacing: CGFloat = 7
     let treeInventorySpacing: CGFloat = 8
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     
     var date: String!
     var selectedTree: Int? = nil
@@ -124,7 +123,7 @@ class MainGridVC: UIViewController {
         
         let location = gridIdxArr[selectedGrid!]
         
-        GardenService.shared.addTree(userIdx: userIdx, location: location, treeIdx: selectedTree!) {
+        GardenService.shared.addTree(location: location, treeIdx: selectedTree!) {
             data in
             
             switch data {

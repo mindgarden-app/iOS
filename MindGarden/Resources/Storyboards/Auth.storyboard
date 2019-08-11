@@ -150,7 +150,7 @@
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="처음 오셨나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAN-MZ-yJ9">
-                                <rect key="frame" x="131.66666666666674" y="364" width="110" height="20"/>
+                                <rect key="frame" x="132.66666666666666" y="364" width="110" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="7lL-hW-8yz"/>
@@ -361,7 +361,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBW-cC-8lD">
-                                <rect key="frame" x="22" y="174" width="93" height="20"/>
+                                <rect key="frame" x="22" y="174" width="98" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="vAk-RG-XT9"/>
                                 </constraints>
@@ -722,7 +722,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilF-o9-ndo">
-                                        <rect key="frame" x="27" y="30" width="322" height="2894"/>
+                                        <rect key="frame" x="26" y="30" width="323" height="2894"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
@@ -745,6 +745,9 @@
                     <navigationItem key="navigationItem" title="개인정보처리방침" id="0EF-35-U5a">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="mej-tz-Bf3">
                             <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="pQZ-mY-yDb" id="RQG-gg-gnV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

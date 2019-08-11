@@ -17,11 +17,10 @@ struct DiaryService {
         "token" : UserDefaults.standard.string(forKey: "token")!
     ]
     
-    func addDiary(userIdx: Int, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func addDiary(diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         Alamofire.upload(
             multipartFormData: { (multipart) in
-                multipart.append("\(userIdx)".data(using: .utf8)!, withName: "userIdx")
                 multipart.append(diaryContent.data(using: .utf8)!, withName: "diary_content")
                 if diaryImage != nil {
                     multipart.append(diaryImage!.jpegData(compressionQuality: 0.5)!, withName: "diary_img", fileName: "image.jpeg", mimeType: "image/jpeg")
@@ -74,11 +73,10 @@ struct DiaryService {
         }
     }
     
-    func editDiary(userIdx: Int, date: String, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func editDiary(date: String, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         Alamofire.upload(
             multipartFormData: { (multipart) in
-                multipart.append("\(userIdx)".data(using: .utf8)!, withName: "userIdx")
                 multipart.append(diaryContent.data(using: .utf8)!, withName: "diary_content")
                 if diaryImage != nil {
                     multipart.append(diaryImage!.jpegData(compressionQuality: 0.5)!, withName: "diary_img", fileName: "image.jpeg", mimeType: "image/jpeg")
@@ -132,8 +130,8 @@ struct DiaryService {
         }
     }
     
-    func getDiary(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.DiaryDetailURL + "/\(userIdx)/\(date)"
+    func getDiary(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryDetailURL + "/\(date)"
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/x-www-form-urlencoded",
@@ -183,8 +181,8 @@ struct DiaryService {
         }
     }
     
-    func deleteDiary(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.DiaryDeleteURL + "/\(userIdx)/\(date)"
+    func deleteDiary(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryDeleteURL + "/\(date)"
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/x-www-form-urlencoded",
@@ -234,8 +232,8 @@ struct DiaryService {
         }
     }
     
-    func getDiaryList(userIdx: Int, date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.DiaryListURL + "/\(userIdx)/\(date)"
+    func getDiaryList(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryListURL + "/\(date)"
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/x-www-form-urlencoded",

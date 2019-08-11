@@ -34,6 +34,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         super.viewDidLoad()
 
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
@@ -54,6 +55,9 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         slide4.logoImage.image = UIImage(named: "imgLogIn1")
         
         print(slide2.frame.size.width)
+        print(slide2.logoImage.image?.size.width)
+        print(DescriptionSlide.frame)
+        print(descriptionSV.frame.size.width)
         
         return [slide1, slide2, slide3, slide4]
     }
@@ -116,6 +120,7 @@ extension LoginVC: WKNavigationDelegate {
                             do {
                                 let kakao = try JSONDecoder().decode(ResponseArray<Login>.self, from: result)
                                 UserDefaults.standard.set(kakao.data![0].token, forKey: "token")
+                                UserDefaults.standard.set(kakao.data![0].refreshToken, forKey: "refreshtoken")
                                 UserDefaults.standard.set(kakao.data![0].email, forKey: "email")
                                 UserDefaults.standard.set(kakao.data![0].name, forKey: "name")
                             } catch {

@@ -98,6 +98,7 @@ extension SettingsVC: UITableViewDelegate {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
                 UserDefaults.standard.set(false, forKey: "암호 설정")
+                UserDefaults.standard.set(nil, forKey: "refreshtoken")
                 UserDefaults.standard.set(nil, forKey: "token")
                 UserDefaults.standard.set(nil, forKey: "email")
                 UserDefaults.standard.set(nil, forKey: "name")
@@ -113,6 +114,7 @@ extension SettingsVC: UITableViewDelegate {
                         case .success(let message):
                             if String(describing: message) == "user 계정 삭제 성공!" {
                                 UserDefaults.standard.set(false, forKey: "암호 설정")
+                                UserDefaults.standard.set(nil, forKey: "refreshtoken")
                                 UserDefaults.standard.set(nil, forKey: "token")
                                 UserDefaults.standard.set(nil, forKey: "email")
                                 UserDefaults.standard.set(nil, forKey: "name")
@@ -142,7 +144,7 @@ extension SettingsVC: UITableViewDelegate {
                 alert.addAction(okAction)
                 present(alert, animated: true, completion: nil)
             }
-        } else {
+        } else if indexPath.section == 2 {
             let dvc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsDetailVC") as! SettingsDetailVC
 
             dvc.paramSettings = indexPath.row

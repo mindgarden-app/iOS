@@ -26,7 +26,6 @@ class DiaryNewVC: UIViewController {
     @IBOutlet var inputTextViewHeightConstraint: NSLayoutConstraint!
     
     let picker = UIImagePickerController()
-    let userIdx = UserDefaults.standard.integer(forKey: "userIdx")
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
     
     var diary: Diary!
@@ -105,7 +104,7 @@ class DiaryNewVC: UIViewController {
     }
     
     func getData() {
-        DiaryService.shared.getDiary(userIdx: userIdx, date: date!) { data in
+        DiaryService.shared.getDiary(date: date!) { data in
             switch data {
             case .success(let res):
                 self.diary = res as? Diary
@@ -191,7 +190,7 @@ class DiaryNewVC: UIViewController {
         
         let image = imageView != nil ? imageView.image : nil
         
-        DiaryService.shared.addDiary(userIdx: userIdx, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
+        DiaryService.shared.addDiary(diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
             data in
             
             switch data {
@@ -249,7 +248,7 @@ class DiaryNewVC: UIViewController {
         
         let image = imageView != nil ? imageView.image : nil
         
-        DiaryService.shared.editDiary(userIdx: userIdx, date: date!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
+        DiaryService.shared.editDiary(date: date!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
             data in
             
             switch data {

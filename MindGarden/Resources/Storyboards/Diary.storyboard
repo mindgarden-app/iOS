@@ -195,11 +195,17 @@
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnWeatherSelect0" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-IM-psz">
                                                 <rect key="frame" x="15" y="20" width="51" height="51"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="51" id="YZa-Er-oxY"/>
+                                                    <constraint firstAttribute="height" constant="51" id="gOM-sv-bTy"/>
+                                                </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWeather11" translatesAutoresizingMaskIntoConstraints="NO" id="2CG-An-4rs">
                                                 <rect key="frame" x="21" y="24" width="40" height="40"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="3HF-8g-Ri3"/>
                                                     <constraint firstAttribute="width" secondItem="2CG-An-4rs" secondAttribute="height" multiplier="1:1" id="5ys-Bi-iMH"/>
+                                                    <constraint firstAttribute="width" constant="40" id="dDF-cq-sbq"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6Y-DK-NAG">
@@ -217,9 +223,11 @@
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2R-dx-ijn">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2R-dx-ijn">
                                                 <rect key="frame" x="79" y="34" width="220" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="HWd-pI-PoT"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13.5"/>
                                                 <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -227,16 +235,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="I80-1T-7YR" firstAttribute="leading" secondItem="RsN-IM-psz" secondAttribute="trailing" constant="-51" id="398-Gp-ekF"/>
+                                            <constraint firstItem="N2R-dx-ijn" firstAttribute="top" secondItem="9qZ-Wu-ez6" secondAttribute="top" constant="34" id="1ed-fV-Qg3"/>
                                             <constraint firstItem="2CG-An-4rs" firstAttribute="top" secondItem="9qZ-Wu-ez6" secondAttribute="top" constant="24" id="7VS-sW-guc"/>
-                                            <constraint firstItem="I80-1T-7YR" firstAttribute="leading" secondItem="2CG-An-4rs" secondAttribute="trailing" constant="-46" id="99h-EZ-fhk"/>
                                             <constraint firstAttribute="trailing" secondItem="I80-1T-7YR" secondAttribute="trailing" constant="15" id="B8k-dc-sv5"/>
                                             <constraint firstItem="y6Y-DK-NAG" firstAttribute="top" secondItem="RsN-IM-psz" secondAttribute="bottom" constant="14" id="SOv-Mn-9KB"/>
                                             <constraint firstItem="2CG-An-4rs" firstAttribute="leading" secondItem="9qZ-Wu-ez6" secondAttribute="leading" constant="21" id="VaV-fk-xGS"/>
                                             <constraint firstItem="y6Y-DK-NAG" firstAttribute="leading" secondItem="9qZ-Wu-ez6" secondAttribute="leading" constant="23" id="WBj-oV-1Qi"/>
                                             <constraint firstItem="AhQ-VE-MZp" firstAttribute="leading" secondItem="9qZ-Wu-ez6" secondAttribute="leading" constant="22" id="X32-Zz-9M5"/>
+                                            <constraint firstItem="N2R-dx-ijn" firstAttribute="leading" secondItem="RsN-IM-psz" secondAttribute="trailing" constant="13" id="ag0-aU-sHy"/>
+                                            <constraint firstAttribute="trailing" secondItem="2CG-An-4rs" secondAttribute="trailing" constant="314" id="bsP-79-bRB"/>
                                             <constraint firstItem="RsN-IM-psz" firstAttribute="top" secondItem="9qZ-Wu-ez6" secondAttribute="top" constant="20" id="clh-5t-oas"/>
+                                            <constraint firstAttribute="trailing" secondItem="RsN-IM-psz" secondAttribute="trailing" constant="309" id="eQM-W4-Hpe"/>
                                             <constraint firstAttribute="trailing" secondItem="y6Y-DK-NAG" secondAttribute="trailing" constant="300" id="kVj-pA-Tiq"/>
+                                            <constraint firstAttribute="trailing" secondItem="N2R-dx-ijn" secondAttribute="trailing" constant="76" id="l9U-b2-6KI"/>
                                             <constraint firstItem="y6Y-DK-NAG" firstAttribute="top" secondItem="2CG-An-4rs" secondAttribute="bottom" constant="21" id="mw2-9p-dLV"/>
                                             <constraint firstItem="AhQ-VE-MZp" firstAttribute="top" secondItem="y6Y-DK-NAG" secondAttribute="bottom" constant="6" id="pdi-Z6-qtA"/>
                                             <constraint firstItem="I80-1T-7YR" firstAttribute="top" secondItem="9qZ-Wu-ez6" secondAttribute="top" constant="20" id="xOj-W0-iAT"/>
@@ -345,7 +356,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="K54-TS-XQJ">
                             <rect key="frame" x="0.0" y="72" width="375" height="654"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" red="0.97255557775497437" green="0.9725373387336731" blue="0.97254973649978638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <prototypes>

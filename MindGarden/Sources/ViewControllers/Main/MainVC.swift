@@ -17,8 +17,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var descriptionFirstLabel: UILabel!
     @IBOutlet var descriptionSecondLabel: UILabel!
-    
-    var userIdx: Int! = 0
+   
     var dateStr: String = ""
     var inputDate: DateComponents!
     var inputYear: Int!
