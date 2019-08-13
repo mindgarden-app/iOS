@@ -512,21 +512,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입시 Mindgarden의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbW-73-Q8S">
-                                <rect key="frame" x="20" y="457" width="124" height="20"/>
+                                <rect key="frame" x="20" y="453" width="124" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="yaS-i3-xuW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12.5"/>
                                 <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-c9-QZf">
-                                <rect key="frame" x="145" y="457" width="56" height="20"/>
+                                <rect key="frame" x="16" y="469" width="56" height="18"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="GjW-Nc-WGg"/>
                                     <constraint firstAttribute="width" constant="56" id="Hqt-Ay-ryP"/>
-                                    <constraint firstAttribute="height" constant="20" id="Xke-Yc-pMD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12.5"/>
                                 <state key="normal" title="이용 약관">
                                     <color key="titleColor" red="0.47058823529411764" green="0.87058823529411766" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -535,36 +535,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="및" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWf-Na-IF0">
-                                <rect key="frame" x="202" y="457" width="12" height="20"/>
+                                <rect key="frame" x="72" y="469" width="12" height="18"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="FkE-mo-rxJ"/>
                                     <constraint firstAttribute="width" constant="12" id="avB-j1-nf9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12.5"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-s5-qeK">
-                                <rect key="frame" x="319" y="457" width="40" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-s5-qeK">
+                                <rect key="frame" x="182" y="469" width="40" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="6jW-ef-IjB"/>
+                                    <constraint firstAttribute="height" constant="18" id="lZH-rP-J3u"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
-                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltq-5s-fZH">
-                                <rect key="frame" x="20" y="477" width="40" height="20"/>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12.5"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHS-Q9-hq7">
-                                <rect key="frame" x="213" y="457" width="107" height="20"/>
+                                <rect key="frame" x="81" y="469" width="107" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Y8V-Co-eQY"/>
                                     <constraint firstAttribute="width" constant="107" id="j0F-fR-efX"/>
+                                    <constraint firstAttribute="height" constant="18" id="zE3-fY-6IH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12.5"/>
                                 <state key="normal" title="개인정보 취급방침">
                                     <color key="titleColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -582,6 +578,16 @@
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동의한 것으로 간주합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltq-5s-fZH">
+                                <rect key="frame" x="20" y="485" width="148" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="NMq-N2-cmN"/>
+                                    <constraint firstAttribute="height" constant="18" id="a2J-3l-YSc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12.5"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -590,40 +596,42 @@
                             <constraint firstItem="DIK-aq-0T4" firstAttribute="top" secondItem="OPF-L6-k3m" secondAttribute="bottom" constant="2" id="2rR-Lw-zRx"/>
                             <constraint firstItem="o2m-Ry-kOL" firstAttribute="top" secondItem="H0J-Pf-swV" secondAttribute="bottom" constant="1" id="2rh-dU-WYF"/>
                             <constraint firstItem="H0J-Pf-swV" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="324-XO-Vec"/>
+                            <constraint firstItem="ubX-s5-qeK" firstAttribute="top" secondItem="UbW-73-Q8S" secondAttribute="bottom" constant="-2" id="4bd-YP-piI"/>
+                            <constraint firstItem="Ltq-5s-fZH" firstAttribute="top" secondItem="RHS-Q9-hq7" secondAttribute="bottom" constant="-2" id="4ht-W6-CpY"/>
                             <constraint firstItem="KNl-mz-oss" firstAttribute="top" secondItem="HAQ-6j-0U4" secondAttribute="bottom" constant="2" id="5oO-zL-oTO"/>
                             <constraint firstItem="H0J-Pf-swV" firstAttribute="centerX" secondItem="TV7-NJ-tjb" secondAttribute="centerX" id="7cj-QX-IlZ"/>
                             <constraint firstItem="ePL-sa-9Hm" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="8S4-fK-Yd0"/>
                             <constraint firstItem="HAQ-6j-0U4" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="9mf-9a-Kka"/>
                             <constraint firstItem="HAQ-6j-0U4" firstAttribute="top" secondItem="o2m-Ry-kOL" secondAttribute="bottom" constant="2" id="BNI-qU-iQ9"/>
-                            <constraint firstItem="TV7-NJ-tjb" firstAttribute="trailing" secondItem="ubX-s5-qeK" secondAttribute="trailing" constant="16" id="BdM-MQ-WEH"/>
-                            <constraint firstItem="lHK-c9-QZf" firstAttribute="leading" secondItem="UbW-73-Q8S" secondAttribute="trailing" constant="1" id="Bsb-Cd-b0B"/>
-                            <constraint firstItem="HWf-Na-IF0" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="11" id="CTR-do-vn4"/>
                             <constraint firstItem="OPF-L6-k3m" firstAttribute="top" secondItem="KNl-mz-oss" secondAttribute="bottom" constant="1" id="DOF-gi-t8z"/>
-                            <constraint firstItem="ubX-s5-qeK" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="11" id="GKe-Vs-ref"/>
-                            <constraint firstItem="lHK-c9-QZf" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="11" id="KaK-ug-FEX"/>
-                            <constraint firstItem="RHS-Q9-hq7" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="11" id="M4s-2P-R4z"/>
+                            <constraint firstItem="Ltq-5s-fZH" firstAttribute="top" secondItem="lHK-c9-QZf" secondAttribute="bottom" constant="-2" id="Dws-QF-IFz"/>
+                            <constraint firstItem="Ltq-5s-fZH" firstAttribute="top" secondItem="ubX-s5-qeK" secondAttribute="bottom" constant="-2" id="M6r-CI-uaT"/>
+                            <constraint firstItem="lHK-c9-QZf" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="16" id="M9D-Z0-6w6"/>
                             <constraint firstItem="Ltq-5s-fZH" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="Mt2-vw-zAx"/>
-                            <constraint firstItem="Ltq-5s-fZH" firstAttribute="top" secondItem="UbW-73-Q8S" secondAttribute="bottom" id="Ssy-Mi-oVK"/>
+                            <constraint firstItem="HWf-Na-IF0" firstAttribute="top" secondItem="UbW-73-Q8S" secondAttribute="bottom" constant="-2" id="Nx9-yz-yGW"/>
                             <constraint firstItem="ePL-sa-9Hm" firstAttribute="top" secondItem="zbQ-Ik-geP" secondAttribute="bottom" constant="1" id="To3-eQ-GX9"/>
-                            <constraint firstItem="ubX-s5-qeK" firstAttribute="leading" secondItem="RHS-Q9-hq7" secondAttribute="trailing" constant="-1" id="UEc-5U-sDe"/>
-                            <constraint firstItem="RHS-Q9-hq7" firstAttribute="leading" secondItem="HWf-Na-IF0" secondAttribute="trailing" constant="-1" id="V0o-e7-fDR"/>
                             <constraint firstItem="zbQ-Ik-geP" firstAttribute="top" secondItem="fhS-QP-Hap" secondAttribute="bottom" constant="3" id="XCW-8f-E5Q"/>
                             <constraint firstItem="dyI-JJ-T8e" firstAttribute="top" secondItem="ePL-sa-9Hm" secondAttribute="bottom" constant="3" id="XFv-ko-t9a"/>
                             <constraint firstItem="zbQ-Ik-geP" firstAttribute="centerX" secondItem="TV7-NJ-tjb" secondAttribute="centerX" id="Y41-tr-XQR"/>
+                            <constraint firstItem="lHK-c9-QZf" firstAttribute="top" secondItem="UbW-73-Q8S" secondAttribute="bottom" constant="-2" id="YII-WF-k58"/>
+                            <constraint firstItem="RHS-Q9-hq7" firstAttribute="top" secondItem="UbW-73-Q8S" secondAttribute="bottom" constant="-2" id="Z1e-nh-pgF"/>
                             <constraint firstItem="q8J-Jb-l6l" firstAttribute="top" secondItem="DIK-aq-0T4" secondAttribute="bottom" constant="1" id="Zks-Om-tO6"/>
+                            <constraint firstItem="Ltq-5s-fZH" firstAttribute="top" secondItem="HWf-Na-IF0" secondAttribute="bottom" constant="-2" id="b10-V6-RA8"/>
+                            <constraint firstItem="UbW-73-Q8S" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="7" id="bTx-gN-Lht"/>
                             <constraint firstItem="H0J-Pf-swV" firstAttribute="top" secondItem="dyI-JJ-T8e" secondAttribute="bottom" constant="1" id="ebh-DU-6xh"/>
                             <constraint firstItem="DIK-aq-0T4" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="enQ-pC-JPU"/>
-                            <constraint firstItem="UbW-73-Q8S" firstAttribute="top" secondItem="bJN-QB-lpP" secondAttribute="bottom" constant="11" id="evz-HW-YZc"/>
                             <constraint firstItem="fhS-QP-Hap" firstAttribute="top" secondItem="TV7-NJ-tjb" secondAttribute="top" constant="14" id="f4w-lK-P1P"/>
                             <constraint firstItem="UbW-73-Q8S" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="f5M-UJ-PCY"/>
                             <constraint firstItem="zbQ-Ik-geP" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="h9Z-Fb-ei9"/>
                             <constraint firstItem="bJN-QB-lpP" firstAttribute="top" secondItem="q8J-Jb-l6l" secondAttribute="bottom" constant="1" id="hKZ-We-GeF"/>
-                            <constraint firstItem="HWf-Na-IF0" firstAttribute="leading" secondItem="lHK-c9-QZf" secondAttribute="trailing" constant="1" id="piv-sN-pi1"/>
+                            <constraint firstItem="ubX-s5-qeK" firstAttribute="leading" secondItem="RHS-Q9-hq7" secondAttribute="trailing" constant="-6" id="n8Z-DV-MRo"/>
                             <constraint firstItem="bJN-QB-lpP" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="qIt-q6-pof"/>
                             <constraint firstItem="o2m-Ry-kOL" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="qQP-lx-b4c"/>
                             <constraint firstItem="q8J-Jb-l6l" firstAttribute="centerX" secondItem="TV7-NJ-tjb" secondAttribute="centerX" id="r7q-at-oBP"/>
+                            <constraint firstItem="RHS-Q9-hq7" firstAttribute="leading" secondItem="HWf-Na-IF0" secondAttribute="trailing" constant="-3" id="shl-fR-nAO"/>
                             <constraint firstItem="KNl-mz-oss" firstAttribute="centerX" secondItem="TV7-NJ-tjb" secondAttribute="centerX" id="t58-22-Uw0"/>
                             <constraint firstItem="fhS-QP-Hap" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="tQi-aV-ohe"/>
+                            <constraint firstItem="HWf-Na-IF0" firstAttribute="leading" secondItem="lHK-c9-QZf" secondAttribute="trailing" id="tiA-cP-RxB"/>
                             <constraint firstItem="dyI-JJ-T8e" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="ufE-7a-3d8"/>
                             <constraint firstItem="q8J-Jb-l6l" firstAttribute="leading" secondItem="TV7-NJ-tjb" secondAttribute="leading" constant="20" id="vRt-Dc-SWB"/>
                         </constraints>
