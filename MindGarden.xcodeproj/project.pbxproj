@@ -31,7 +31,6 @@
 		DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */; };
 		DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */; };
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
-		DE3E69BD22F9388700F0BFB4 /* SignupPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */; };
 		DE49FB9522FB2027008F0A68 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49FB9422FB2027008F0A68 /* PolicyVC.swift */; };
 		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
 		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
@@ -133,7 +132,6 @@
 		DE33D70C22C8C12D00F0F4E4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		DE33D71422C8C12D00F0F4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPopUpVC.swift; sourceTree = "<group>"; };
 		DE49FB9422FB2027008F0A68 /* PolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyVC.swift; sourceTree = "<group>"; };
 		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 				DE94673D22F8686E00D4A891 /* EmailLoginVC.swift */,
 				DE94674122F8793900D4A891 /* ResetPw1VC.swift */,
 				DE94674322F87DB200D4A891 /* ResetPw2VC.swift */,
-				DE3E69BC22F9388700F0BFB4 /* SignupPopUpVC.swift */,
 				DE49FB9422FB2027008F0A68 /* PolicyVC.swift */,
 			);
 			path = Auth;
@@ -724,7 +721,6 @@
 				DEA95CD0230084E400FF6A92 /* Token.swift in Sources */,
 				DE33D70D22C8C12D00F0F4E4 /* MainVC.swift in Sources */,
 				DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */,
-				DE3E69BD22F9388700F0BFB4 /* SignupPopUpVC.swift in Sources */,
 				DE8D714C22D4F4F100A29973 /* Tree.swift in Sources */,
 				DE7BC6F022CB5C6A00AD77EC /* SettingsDetailVC.swift in Sources */,
 				DE94674222F8793900D4A891 /* ResetPw1VC.swift in Sources */,

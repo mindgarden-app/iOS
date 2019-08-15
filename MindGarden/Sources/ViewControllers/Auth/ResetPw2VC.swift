@@ -28,6 +28,8 @@ class ResetPw2VC: UIViewController {
         
         descLabel.attributedText = formattedString
         descLabel.frame.size.height = descLabel.intrinsicContentSize.height
+        descLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        descLabel.sizeToFit()
     }
     
 

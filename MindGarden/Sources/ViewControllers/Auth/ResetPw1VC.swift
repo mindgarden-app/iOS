@@ -66,6 +66,7 @@ class ResetPw1VC: UIViewController {
                     self.navigationController!.pushViewController(dvc, animated: true)
                 } else {
                     print(message)
+                    self.simpleAlert(title: "잠깐!", message: "이메일이 존재하지 않습니다.")
                 }
                 break
             case .requestErr(let err):

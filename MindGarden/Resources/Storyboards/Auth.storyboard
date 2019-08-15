@@ -351,7 +351,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gE-Ws-0GQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gE-Ws-0GQ">
                                 <rect key="frame" x="22" y="104" width="337" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="Gqg-EX-fjU"/>
@@ -376,7 +376,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6gE-Ws-0GQ" firstAttribute="centerX" secondItem="OtU-kW-w8E" secondAttribute="centerX" id="79b-Lt-5fv"/>
+                            <constraint firstItem="OtU-kW-w8E" firstAttribute="trailing" secondItem="6gE-Ws-0GQ" secondAttribute="trailing" constant="16" id="0P6-b5-8DB"/>
                             <constraint firstItem="RBW-cC-8lD" firstAttribute="leading" secondItem="OtU-kW-w8E" secondAttribute="leading" constant="22" id="8Ux-hw-bzy"/>
                             <constraint firstItem="6gE-Ws-0GQ" firstAttribute="leading" secondItem="OtU-kW-w8E" secondAttribute="leading" constant="22" id="8Z4-hx-OS8"/>
                             <constraint firstItem="RBW-cC-8lD" firstAttribute="top" secondItem="6gE-Ws-0GQ" secondAttribute="bottom" constant="19" id="AQB-1t-ibl"/>
@@ -666,57 +666,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkG-IK-VPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1930.4000000000001" y="2966.7487684729067"/>
-        </scene>
-        <!--Signup Pop UpVC-->
-        <scene sceneID="J4r-cA-t6g">
-            <objects>
-                <viewController storyboardIdentifier="SignupPopUpVC" id="1t6-GS-LQ9" customClass="SignupPopUpVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="40y-ap-x7Q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSs-92-DiJ">
-                                <rect key="frame" x="56" y="335" width="263" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입이 완료됐습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-Y5-uL9">
-                                        <rect key="frame" x="60" y="37" width="144" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwT-1q-nLn">
-                                        <rect key="frame" x="0.0" y="88" width="263" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-LO-TBZ">
-                                        <rect key="frame" x="98" y="103" width="69" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
-                                        <state key="normal" title="로그인하기">
-                                            <color key="titleColor" red="0.47058823529411764" green="0.87058823529411766" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="loginBtn:" destination="1t6-GS-LQ9" eventType="touchUpInside" id="lnE-G4-OLh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="6oB-fX-Pc8"/>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundView" destination="40y-ap-x7Q" id="cgQ-SW-6iV"/>
-                        <outlet property="popUpView" destination="gSs-92-DiJ" id="u5d-yM-Oja"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kae-Iw-M3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1938.4000000000001" y="3732.2660098522169"/>
         </scene>
         <!--개인정보처리방침-->
         <scene sceneID="DCd-1h-o0D">

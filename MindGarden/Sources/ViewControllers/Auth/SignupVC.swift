@@ -151,11 +151,13 @@ class SignupVC: UIViewController {
                 
                 switch data {
                 case .success(let res):
-                    let popUpVC = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "SignupPopUpVC") as! SignupPopUpVC
-                    self.addChild(popUpVC)
-                    popUpVC.view.frame = self.view.frame
-                    self.view.addSubview(popUpVC.view)
-                    popUpVC.didMove(toParent: self)
+                    let alert = UIAlertController(title: "", message: "가입이 완료됐습니다.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "로그인하기", style: .destructive, handler: { action in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
                     
                     break
                 case .requestErr(let err):
