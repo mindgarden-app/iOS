@@ -36,7 +36,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="kAt-Yz-mjg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="00s-6K-pin"/>
-                    <constraint firstItem="kAt-Yz-mjg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="2a3-Uw-BfR"/>
                     <constraint firstAttribute="trailing" secondItem="LcY-Y4-dzd" secondAttribute="trailing" id="99S-0j-R9D"/>
                     <constraint firstItem="kAt-Yz-mjg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MW3-IX-SRV"/>
                     <constraint firstItem="LcY-Y4-dzd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="McO-Xb-TZh"/>

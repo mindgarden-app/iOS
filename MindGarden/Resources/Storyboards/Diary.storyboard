@@ -29,17 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-Ek-dRZ">
-                                <rect key="frame" x="325" y="746" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="4ft-HM-aDc"/>
-                                    <constraint firstAttribute="width" constant="35" id="xK3-Tf-HJ2"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="icnGallery"/>
-                                <connections>
-                                    <action selector="galleryBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Xmc-cr-u22"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lI-4m-ENd">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
@@ -116,15 +105,26 @@
                                     <constraint firstAttribute="trailing" secondItem="gcd-oT-8kX" secondAttribute="trailing" id="c9B-hK-P9B"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-Ek-dRZ">
+                                <rect key="frame" x="325" y="746" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4ft-HM-aDc"/>
+                                    <constraint firstAttribute="width" constant="35" id="xK3-Tf-HJ2"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icnGallery"/>
+                                <connections>
+                                    <action selector="galleryBtnAction:" destination="Y2I-Wb-1oe" eventType="touchUpInside" id="Xmc-cr-u22"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="bottom" secondItem="k0h-0G-1Ja" secondAttribute="bottom" constant="3" id="4NI-Xl-ecl"/>
                             <constraint firstItem="9lI-4m-ENd" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" id="80c-IL-hPF"/>
                             <constraint firstItem="k0h-0G-1Ja" firstAttribute="trailing" secondItem="9lI-4m-ENd" secondAttribute="trailing" id="Lez-gR-Bpj"/>
                             <constraint firstItem="k0h-0G-1Ja" firstAttribute="bottom" secondItem="9lI-4m-ENd" secondAttribute="bottom" id="XkA-3c-oOf"/>
                             <constraint firstItem="9lI-4m-ENd" firstAttribute="top" secondItem="k0h-0G-1Ja" secondAttribute="top" id="ZsO-78-V07"/>
                             <constraint firstItem="qTw-Ek-dRZ" firstAttribute="leading" secondItem="k0h-0G-1Ja" secondAttribute="leading" constant="325" id="ge1-iv-7RW"/>
+                            <constraint firstItem="qTw-Ek-dRZ" firstAttribute="bottom" secondItem="L5z-cd-YcM" secondAttribute="bottom" constant="-31" id="lfq-yY-bHb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k0h-0G-1Ja"/>
                     </view>
@@ -313,11 +313,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xBL-Do-rbG">
-                                <rect key="frame" x="56" y="136" width="263" height="550"/>
+                                <rect key="frame" x="56" y="161" width="263" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="263" id="8sl-Ik-bMS"/>
-                                    <constraint firstAttribute="width" secondItem="xBL-Do-rbG" secondAttribute="height" multiplier="263:550" id="iSk-NJ-i6B"/>
+                                    <constraint firstAttribute="height" constant="500" id="Kdj-e6-2lP"/>
+                                    <constraint firstAttribute="width" constant="263" id="Tym-c9-9Dl"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiaryPopUpTVC" rowHeight="45" id="c4z-yn-gBN">
@@ -333,8 +333,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerX" secondItem="MYU-DA-Go3" secondAttribute="centerX" id="56c-aT-obQ"/>
-                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerY" secondItem="MYU-DA-Go3" secondAttribute="centerY" id="5Fy-78-0ZH"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerX" secondItem="MYU-DA-Go3" secondAttribute="centerX" id="EUW-6h-0XH"/>
+                            <constraint firstItem="xBL-Do-rbG" firstAttribute="centerY" secondItem="MYU-DA-Go3" secondAttribute="centerY" id="F1E-AK-0ww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MYU-DA-Go3"/>
                     </view>

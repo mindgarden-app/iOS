@@ -99,7 +99,6 @@
                             <constraint firstItem="E1C-pC-zHv" firstAttribute="top" secondItem="3rr-zS-OOl" secondAttribute="bottom" constant="36.666666666666657" id="pzF-zO-saE"/>
                             <constraint firstItem="eNe-kk-G1H" firstAttribute="top" secondItem="3rr-zS-OOl" secondAttribute="bottom" constant="36.666666666666657" id="r4j-9D-n2y"/>
                             <constraint firstItem="WKE-h2-IKV" firstAttribute="leading" secondItem="FBY-sQ-eOy" secondAttribute="leading" constant="16" id="uSj-qa-2CW"/>
-                            <constraint firstItem="cv4-02-Ii9" firstAttribute="centerX" secondItem="FBY-sQ-eOy" secondAttribute="centerX" id="vxE-Wg-B5b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FBY-sQ-eOy"/>
                     </view>
