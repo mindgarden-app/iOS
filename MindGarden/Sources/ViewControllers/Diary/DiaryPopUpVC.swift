@@ -21,9 +21,6 @@ class DiaryPopUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(moodTV.rowHeight)
-        print(moodTV.estimatedRowHeight)
-        print(moodTV.contentSize.height)
 
         registerTVC()
         moodTV.delegate = self

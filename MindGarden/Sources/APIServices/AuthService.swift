@@ -124,7 +124,7 @@ struct AuthService {
             "refreshtoken" : UserDefaults.standard.string(forKey: "refreshtoken")!
         ]
         
-        Alamofire.request(APIConstants.ResetPasswordURL, method: .post, parameters: nil, encoding: URLEncoding.httpBody, headers: header_incld_token)
+        Alamofire.request(APIConstants.refreshTokenURL, method: .post, parameters: nil, encoding: URLEncoding.httpBody, headers: header_incld_token)
             .responseData { response in
                 print(response)
                 switch response.result {
@@ -140,7 +140,7 @@ struct AuthService {
                                     switch result.success {
                                     case true:
                                         print(result.message)
-                                        completion(.success(result.message))
+                                        completion(.success(result.data![0]))
                                     case false:
                                         print(result.message)
                                         completion(.requestErr(result.message))

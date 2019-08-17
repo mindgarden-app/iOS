@@ -124,6 +124,60 @@ extension SettingsVC: UITableViewDelegate {
                             break
                         case .requestErr(let err):
                             print(".requestErr(\(err))")
+                            if String(describing: err) == "만료된 토큰입니다." {
+                                AuthService.shared.refreshAccesstoken() { [weak self] data in
+                                    guard let `self` = self else { return }
+                                    
+                                    switch data {
+                                    case .success(let res):
+                                        let data = res as! Token
+                                        UserDefaults.standard.set(data.token, forKey: "token")
+                                        AuthService.shared.deleteUser() { [weak self] data in
+                                            guard let `self` = self else { return }
+                                            
+                                            switch data {
+                                            case .success(let message):
+                                                if String(describing: message) == "user 계정 삭제 성공!" {
+                                                    UserDefaults.standard.set(false, forKey: "암호 설정")
+                                                    UserDefaults.standard.set(nil, forKey: "refreshtoken")
+                                                    UserDefaults.standard.set(nil, forKey: "token")
+                                                    UserDefaults.standard.set(nil, forKey: "email")
+                                                    UserDefaults.standard.set(nil, forKey: "name")
+                                                    self.navigationController?.isNavigationBarHidden = true
+                                                    self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+                                                }
+                                                break
+                                            case .requestErr(let err):
+                                                print(".requestErr(\(err))")
+                                                break
+                                            case .pathErr:
+                                                print("경로 에러")
+                                                break
+                                            case .serverErr:
+                                                print("서버 에러")
+                                                break
+                                            case .networkFail:
+                                                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                                break
+                                            }
+                                            
+                                        }
+                                        break
+                                    case .requestErr(let err):
+                                        print(".requestErr(\(err))")
+                                        break
+                                    case .pathErr:
+                                        print("경로 에러")
+                                        break
+                                    case .serverErr:
+                                        print("서버 에러")
+                                        break
+                                    case .networkFail:
+                                        self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                        break
+                                    }
+                                }
+                            }
                             break
                         case .pathErr:
                             print("경로 에러")

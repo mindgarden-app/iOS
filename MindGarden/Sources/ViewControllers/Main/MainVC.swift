@@ -118,6 +118,60 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
+                if String(describing: err) == "만료된 토큰입니다." {
+                    AuthService.shared.refreshAccesstoken() { [weak self] data in
+                        guard let `self` = self else { return }
+                        
+                        switch data {
+                        case .success(let res):
+                            let data = res as! Token
+                            UserDefaults.standard.set(data.token, forKey: "token")
+                            GardenService.shared.getGarden(date: date) { [weak self] data in
+                                guard let `self` = self else { return }
+                                
+                                switch data {
+                                case .success(let res):
+                                    self.treeList = res as! [Tree]
+                                    self.makeGarden()
+                                    self.setDescriptionLabel(treeNum: self.treeList[0].treeNum, current: self.isCurrent)
+                                    if self.treeList[0].balloon == 1 {
+                                        self.balloonImageView.isHidden = false
+                                        self.treeAddBtn.setImage(UIImage(named: "btnPlusRed"), for: .normal)
+                                    } else {
+                                        self.balloonImageView.isHidden = true
+                                        self.treeAddBtn.setImage(UIImage(named: "btnPlus"), for: .normal)
+                                    }
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                                }
+                            }
+                            break
+                        case .requestErr(let err):
+                            print(".requestErr(\(err))")
+                            break
+                        case .pathErr:
+                            print("경로 에러")
+                            break
+                        case .serverErr:
+                            print("서버 에러")
+                            break
+                        case .networkFail:
+                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                            break
+                        }
+                    }
+                }
                 break
             case .pathErr:
                 print("경로 에러")

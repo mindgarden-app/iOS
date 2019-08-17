@@ -29,7 +29,6 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     var webView: WKWebView!
     var authType: AuthType!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,21 +42,16 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     
     func createSlides() -> [DescriptionSlide] {
         let slide1: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide1.logoImage.image = UIImage(named: "imgLogIn1")
+        slide1.logoImage.image = UIImage(named: "imgLogInNew1")
         
         let slide2: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide2.logoImage.image = UIImage(named: "imgLogIn2")
+        slide2.logoImage.image = UIImage(named: "imgLogInNew2")
         
         let slide3: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide3.logoImage.image = UIImage(named: "imgLogIn3")
+        slide3.logoImage.image = UIImage(named: "imgLogInNew3")
         
         let slide4: DescriptionSlide = Bundle.main.loadNibNamed("DescriptionSlide", owner: self, options: nil)?.first as! DescriptionSlide
-        slide4.logoImage.image = UIImage(named: "imgLogIn1")
-        
-        print(slide2.frame.size.width)
-        print(slide2.logoImage.image?.size.width)
-        print(DescriptionSlide.frame)
-        print(descriptionSV.frame.size.width)
+        slide4.logoImage.image = UIImage(named: "imgLogInNew4")
         
         return [slide1, slide2, slide3, slide4]
     }
@@ -92,7 +86,9 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         let url = NSURL(string: authType.rawValue)
         let request = NSURLRequest(url: url! as URL)
 
-        webView = WKWebView(frame: self.view.frame)
+        let config = WKWebViewConfiguration()
+        config.websiteDataStore = WKWebsiteDataStore.nonPersistent()
+        webView = WKWebView(frame: self.view.frame, configuration: config)
         webView.navigationDelegate = self
         webView.load(request as URLRequest)
         self.view.addSubview(webView)
@@ -111,7 +107,6 @@ extension LoginVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         if let url = webView.url?.absoluteString {
-            print(url)
             if url == "http://13.125.190.74:3000/auth/login/success" {
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
                     let dataStr = data as! String
@@ -129,6 +124,7 @@ extension LoginVC: WKNavigationDelegate {
                         }
                     }
                 })
+                
                 webView.removeFromSuperview()
                 
                 if UserDefaults.standard.bool(forKey: "암호 설정") {

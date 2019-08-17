@@ -67,6 +67,31 @@ class DiaryDetailVC: UIViewController {
                 break
             case .requestErr(let err):
                 print(err)
+                if String(describing: err) == "만료된 토큰입니다." {
+                    AuthService.shared.refreshAccesstoken() { [weak self] data in
+                        guard let `self` = self else { return }
+                        
+                        switch data {
+                        case .success(let res):
+                            let data = res as! Token
+                            print(res)
+                            UserDefaults.standard.set(data.token, forKey: "token")
+                            break
+                        case .requestErr(let err):
+                            print(".requestErr(\(err))")
+                            break
+                        case .pathErr:
+                            print("경로 에러")
+                            break
+                        case .serverErr:
+                            print("서버 에러")
+                            break
+                        case .networkFail:
+                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                            break
+                        }
+                    }
+                }
                 break
             case .pathErr:
                 print("경로 에러")

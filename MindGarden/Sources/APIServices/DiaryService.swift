@@ -12,12 +12,13 @@ import Alamofire
 struct DiaryService {
     
     static let shared = DiaryService()
-    let headers: HTTPHeaders = [
-        "Content-Type" : "multipart/form-data",
-        "token" : UserDefaults.standard.string(forKey: "token")!
-    ]
     
     func addDiary(diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let headers: HTTPHeaders = [
+            "Content-Type" : "multipart/form-data",
+            "token" : UserDefaults.standard.string(forKey: "token")!
+        ]
         
         Alamofire.upload(
             multipartFormData: { (multipart) in
@@ -74,6 +75,11 @@ struct DiaryService {
     }
     
     func editDiary(date: String, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let headers: HTTPHeaders = [
+            "Content-Type" : "multipart/form-data",
+            "token" : UserDefaults.standard.string(forKey: "token")!
+        ]
         
         Alamofire.upload(
             multipartFormData: { (multipart) in

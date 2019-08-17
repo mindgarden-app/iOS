@@ -12,13 +12,14 @@ import Alamofire
 struct GardenService {
     
     static let shared = GardenService()
-    let header: HTTPHeaders = [
-        "Content-Type" : "application/x-www-form-urlencoded",
-        "token" : UserDefaults.standard.string(forKey: "token")!
-    ]
     
     func getGarden(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         let URL = APIConstants.GardenURL + "/\(date)"
+        
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
+        ]
         
         Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header)
             .responseData { response in
@@ -65,6 +66,11 @@ struct GardenService {
     
     func addTree(location: Int, treeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
+        ]
+        
         let body: Parameters = [
             "location": location,
             "treeIdx": treeIdx
@@ -80,7 +86,6 @@ struct GardenService {
                             switch status {
                             case 200:
                                 do {
-                                    print(APIConstants.GardenAddURL)
                                     let decoder = JSONDecoder()
                                     let result = try decoder.decode(ResponseArray<Grid>.self, from: value)
                                     
@@ -115,6 +120,11 @@ struct GardenService {
     }
     
     func writeComment(epIdx: Int, content: String, cmtImg: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/x-www-form-urlencoded",
+            "token" : UserDefaults.standard.string(forKey: "token")!
+        ]
         
         Alamofire.upload(
             multipartFormData: { (multipart) in

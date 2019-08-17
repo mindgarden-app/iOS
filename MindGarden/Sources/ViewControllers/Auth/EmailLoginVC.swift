@@ -73,7 +73,7 @@ class EmailLoginVC: UIViewController {
                 let data = res as! Login
                 
                 print(data.token)
-                
+                UserDefaults.standard.set(data.refreshToken, forKey: "refreshtoken")
                 UserDefaults.standard.set(data.token, forKey: "token")
                 UserDefaults.standard.set(data.email, forKey: "email")
                 UserDefaults.standard.set(data.name, forKey: "name")

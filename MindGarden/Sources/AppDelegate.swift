@@ -21,12 +21,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-        let navigationController = UINavigationController(rootViewController: viewController)
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
-        
+        if (UserDefaults.standard.string(forKey: "token") == nil ||
+            UserDefaults.standard.string(forKey: "refreshtoken") == nil) ||
+            UserDefaults.standard.string(forKey: "token")!.isEmpty &&
+            UserDefaults.standard.string(forKey: "refreshtoken")!.isEmpty {
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            let navigationController = UINavigationController(rootViewController: viewController)
+            self.window?.rootViewController = navigationController
+            self.window?.makeKeyAndVisible()
+        } else {
+            if UserDefaults.standard.bool(forKey: "암호 설정") {
+                let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                
+                dvc.mode = LockMode.validate
+                
+                let navigationController = UINavigationController(rootViewController: dvc)
+                self.window?.rootViewController = navigationController
+                self.window?.makeKeyAndVisible()
+            } else {
+                let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                let navigationController = UINavigationController(rootViewController: dvc)
+                self.window?.rootViewController = navigationController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+    
         return true
     }
 
