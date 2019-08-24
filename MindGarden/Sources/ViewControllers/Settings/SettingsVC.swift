@@ -102,8 +102,13 @@ extension SettingsVC: UITableViewDelegate {
                 UserDefaults.standard.set(nil, forKey: "token")
                 UserDefaults.standard.set(nil, forKey: "email")
                 UserDefaults.standard.set(nil, forKey: "name")
-                navigationController?.isNavigationBarHidden = true
-                performSegue(withIdentifier: "unwindToLogin", sender: self)
+//                navigationController?.isNavigationBarHidden = true
+//                performSegue(withIdentifier: "unwindToLogin", sender: self)
+                let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                viewControllers.removeAll()
+                viewControllers.append(dvc)
+                self.navigationController?.setViewControllers(viewControllers, animated: false)
             } else {
                 let alert = UIAlertController(title: "정말 계정을 삭제하겠습니까?", message: "삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: { action in
