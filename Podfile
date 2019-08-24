@@ -6,7 +6,6 @@ target 'MindGarden' do
   use_frameworks!
 
   # Pods for MindGarden
-  pod 'DLRadioButton', '~> 1.4'
   pod 'Kingfisher'
   pod 'Alamofire', '~> 4.8.2'
   pod 'NVActivityIndicatorView'
