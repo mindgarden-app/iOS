@@ -141,7 +141,7 @@
                                 <rect key="frame" x="217" y="422" width="54" height="61"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-ZP-4Bc">
-                                <rect key="frame" x="170" y="404.66666666666669" width="36" height="16"/>
+                                <rect key="frame" x="170" y="408.66666666666669" width="36" height="16"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVd-u5-m1h">
                                 <rect key="frame" x="321" y="211.66666666666666" width="25" height="25"/>
@@ -189,7 +189,7 @@
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="cLB-J0-U2G" secondAttribute="bottom" constant="-93" id="0AE-8B-S3n"/>
                             <constraint firstItem="vEk-9U-NC1" firstAttribute="leading" secondItem="ffC-pr-KEd" secondAttribute="trailing" constant="-1" id="0ee-dq-ine"/>
                             <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="g8q-Uq-1Wi" secondAttribute="bottom" constant="-109" id="1vN-2Y-RAn"/>
-                            <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="Gnd-ZP-4Bc" secondAttribute="bottom" constant="-101" id="3fE-lm-HvY"/>
+                            <constraint firstItem="bBN-cr-a7K" firstAttribute="top" secondItem="Gnd-ZP-4Bc" secondAttribute="bottom" constant="-104.99999999999994" id="3fE-lm-HvY"/>
                             <constraint firstItem="cLB-J0-U2G" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-133" id="3nQ-VE-Ocq"/>
                             <constraint firstItem="sUR-FC-n1R" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-159" id="3rb-pt-SIu"/>
                             <constraint firstItem="GK4-F7-8bM" firstAttribute="leading" secondItem="bBN-cr-a7K" secondAttribute="trailing" constant="-159" id="5KU-QM-6Bd"/>
@@ -387,7 +387,6 @@
                                 <rect key="frame" x="338" y="640.66666666666663" width="21.333333333333314" height="20.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="21.333333333333314" id="1T6-VW-pum"/>
-                                    <constraint firstAttribute="width" secondItem="FTa-4e-Mti" secondAttribute="height" multiplier="21:20" id="nGD-gP-mdH"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-Yk-5og">

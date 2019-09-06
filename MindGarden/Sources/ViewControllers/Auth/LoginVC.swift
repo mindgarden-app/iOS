@@ -108,36 +108,45 @@ extension LoginVC: WKNavigationDelegate {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         if let url = webView.url?.absoluteString {
             if url == "http://13.125.190.74:3000/auth/login/success" {
+                webView.load(URLRequest(url: URL(string:"about:blank")!))
+                
                 webView.evaluateJavaScript("document.body.innerText", completionHandler: { (data, error) in
+                    
                     let dataStr = data as! String
+                    
                     if let result = dataStr.data(using: .utf8) {
                         if self.authType == .kakao {
                             do {
                                 let kakao = try JSONDecoder().decode(ResponseArray<Login>.self, from: result)
+                                
                                 UserDefaults.standard.set(kakao.data![0].token, forKey: "token")
                                 UserDefaults.standard.set(kakao.data![0].refreshToken, forKey: "refreshtoken")
                                 UserDefaults.standard.set(kakao.data![0].email, forKey: "email")
                                 UserDefaults.standard.set(kakao.data![0].name, forKey: "name")
+                                
+                                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+
+                                    dvc.mode = LockMode.validate
+
+                                    self.navigationController!.pushViewController(dvc, animated: true)
+
+                                    webView.removeFromSuperview()
+                                } else {
+                                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+
+                                    self.navigationController!.pushViewController(dvc, animated: true)
+
+                                    webView.removeFromSuperview()
+                                }
                             } catch {
                                 print(error)
                             }
                         }
+                        
+                        
                     }
                 })
-                
-                webView.removeFromSuperview()
-                
-                if UserDefaults.standard.bool(forKey: "암호 설정") {
-                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
-                    
-                    dvc.mode = LockMode.validate
-                    
-                    self.navigationController!.pushViewController(dvc, animated: true)
-                } else {
-                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-                    
-                    self.navigationController!.pushViewController(dvc, animated: true)
-                }
                 
             } else if url == "http://13.125.190.74:3000/auth/login/fail" {
                 self.simpleAlert(title: "Oops!", message: "로그인을 다시 시도해주세요")
