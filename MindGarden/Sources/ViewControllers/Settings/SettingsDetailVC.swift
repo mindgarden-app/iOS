@@ -239,6 +239,12 @@ extension SettingsDetailVC: SwitchDelegate {
                 settingsDetailTV.deleteRows(at: [IndexPath(row: 2, section: 0)], with: .fade)
                 self.datePickerIndexPath = nil
             }
+            
+            if name == "알림 설정" {
+                center.removeAllDeliveredNotifications()
+                center.removeAllPendingNotificationRequests()
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
         }
         settingsDetailTV.endUpdates()
         
