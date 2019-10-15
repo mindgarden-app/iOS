@@ -63,10 +63,22 @@ class MainGridVC: UIViewController {
             switch data {
             case .success(let res):
                 self.treeList = res as! [Tree]
-                self.treeDict = Dictionary(uniqueKeysWithValues: self.treeList.map { ($0.location, $0) })
-
-                self.gardenGridCV.reloadData()
+                //-- 서버의 중복 데이터때문에 추가한 코드 (서버 수정 시 삭제)
+                var uniqueTreeList: [Tree] = []
+                self.treeList.forEach{(tree) -> () in
+                    if !uniqueTreeList.contains(where: {$0.location == tree.location}) {
+                        uniqueTreeList.append(tree)
+                    }
+                }
+                //--
                 
+                do {
+                    try self.treeDict = Dictionary(uniqueKeysWithValues: uniqueTreeList.map { ($0.location, $0) })
+
+                    self.gardenGridCV.reloadData()
+                } catch {
+                    self.simpleAlert(title: "Oops!", message: "서버 수정 중입니다")
+                }
                 break
             case .requestErr(let err):
                 print(".requestErr(\(err))")
