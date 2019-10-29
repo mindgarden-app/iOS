@@ -13,9 +13,49 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func checkUpdate() -> Bool {
+        guard
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(bundleId)"),
+            let data = try? Data(contentsOf: url),
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+            let results = json["results"] as? [[String: Any]],
+            results.count > 0,
+            let appStoreVersion = results[0]["version"] as? String
+            else { return false }
+        if !(version == appStoreVersion) { return true }
+        else{ return false }
+    }
+    
+    func openAppStore() {
+        if let url = URL(string: "itms-apps://itunes.apple.com/app/apple-store/id\(appId)?mt=8"),
+            UIApplication.shared.canOpenURL(url){
+            UIApplication.shared.open(url, options: [:]) { (opened) in
+                if(opened){
+                    print("App Store Opened")
+                }
+            }
+        } else {
+            print("Can't Open URL on Simulator")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // 앱 강제 업데이트
+        if(checkUpdate()) {
+            let alertController = UIAlertController.init(title: "안내", message: "필수 업데이트가 있습니다. \n업데이트하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction.init(title: "업데이트", style: UIAlertAction.Style.default, handler: { (action) in
+                self.openAppStore()
+            }))
+            
+            let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+            alertWindow.rootViewController = UIViewController()
+            alertWindow.windowLevel = UIWindow.Level.alert + 1;
+            alertWindow.makeKeyAndVisible()
+            alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in })
         application.applicationIconBadgeNumber = 0
