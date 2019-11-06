@@ -109,5 +109,6 @@ class PopUpVC: UIViewController {
                        completion: {(value: Bool) in
                         self.view.removeFromSuperview()
         })
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true;
     }
 }
