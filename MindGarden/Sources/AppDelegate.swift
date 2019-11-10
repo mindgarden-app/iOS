@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func checkUpdate() -> Bool {
         guard
             let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(bundleId)"),
+            let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(AppConstants.BundleId)"),
             let data = try? Data(contentsOf: url),
             let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
             let results = json["results"] as? [[String: Any]],
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func openAppStore() {
-        if let url = URL(string: "itms-apps://itunes.apple.com/app/apple-store/id\(appId)?mt=8"),
+        if let url = URL(string: "itms-apps://itunes.apple.com/app/apple-store/id\(AppConstants.AppId)?mt=8"),
             UIApplication.shared.canOpenURL(url){
             UIApplication.shared.open(url, options: [:]) { (opened) in
                 if(opened){

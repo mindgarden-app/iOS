@@ -50,6 +50,7 @@
 		DE7BC70222CC863800AD77EC /* LockCodeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */; };
 		DE7BC70322CC863800AD77EC /* LockCodeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */; };
 		DE7BC70622CC871C00AD77EC /* LockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC70522CC871C00AD77EC /* LockVC.swift */; };
+		DE8D40E72377FECB0035D610 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D40E62377FECB0035D610 /* AppConstants.swift */; };
 		DE8D70E322D1E7C000A29973 /* TreeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D70E122D1E7C000A29973 /* TreeCVC.swift */; };
 		DE8D70E422D1E7C000A29973 /* TreeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE8D70E222D1E7C000A29973 /* TreeCVC.xib */; };
 		DE8D70E622D1EA0500A29973 /* MainGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8D70E522D1EA0500A29973 /* MainGridVC.swift */; };
@@ -151,6 +152,7 @@
 		DE7BC70022CC863800AD77EC /* LockCodeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockCodeCVC.swift; sourceTree = "<group>"; };
 		DE7BC70122CC863800AD77EC /* LockCodeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockCodeCVC.xib; sourceTree = "<group>"; };
 		DE7BC70522CC871C00AD77EC /* LockVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockVC.swift; sourceTree = "<group>"; };
+		DE8D40E62377FECB0035D610 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		DE8D70E122D1E7C000A29973 /* TreeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeCVC.swift; sourceTree = "<group>"; };
 		DE8D70E222D1E7C000A29973 /* TreeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TreeCVC.xib; sourceTree = "<group>"; };
 		DE8D70E522D1EA0500A29973 /* MainGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridVC.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				DE06594E22C8ED3A00D000BC /* Models */,
 				DE06594D22C8ED3200D000BC /* APIServices */,
 				DE33D70422C8C12C00F0F4E4 /* AppDelegate.swift */,
+				DE8D40E62377FECB0035D610 /* AppConstants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				DE06596722C978B200D000BC /* DiaryListVC.swift in Sources */,
 				DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */,
 				DE7BC6C922CA797E00AD77EC /* DescriptionSlide.swift in Sources */,
+				DE8D40E72377FECB0035D610 /* AppConstants.swift in Sources */,
 				DE1C6DE122D86AAB0099477A /* Grid.swift in Sources */,
 				DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */,
 				DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */,
