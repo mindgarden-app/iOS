@@ -14,7 +14,7 @@
 
 - 매일 기록할 수록 정원이 더욱 풍요로워집니다.
 
-  ![](https://screenshot-for-github.s3.ap-northeast-2.amazonaws.com/mindgarden.jpeg){: width="400" height="400"}
+  <img src="https://screenshot-for-github.s3.ap-northeast-2.amazonaws.com/mindgarden.jpeg" alt="drawing" width="400"/>
   
   <br/>
 
