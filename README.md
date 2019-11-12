@@ -14,6 +14,8 @@
 
 - 매일 기록할 수록 정원이 더욱 풍요로워집니다.
 
+  ![](https://screenshot-for-github.s3.ap-northeast-2.amazonaws.com/mindgarden.jpeg){: width="400" height="400"}
+  
   <br/>
 
 ## Table of Contents
@@ -45,7 +47,6 @@
 - Swift 5.0.1
 - Xcode 10.2.1
 - Dependencies
-  - ~~DLRadioButton 1.4.12~~
   - [Kingfisher](https://github.com/onevcat/Kingfisher) 4.8.2
   - [Alamofire](https://github.com/Alamofire/Alamofire) 4.8.2
   - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) 4.7.0
@@ -73,10 +74,10 @@ MindGarden
 |   |-- Assets.xcassets
 |   |-- Storyboards
 |   |   |-- LaunchScreen.storyboard
+|   |   |-- Auth.storyboard
 |   |   |-- Main.storyboard
 |   |   |-- Diary.storyboard
 |   |   |-- Lock.storyboard
-|   |   |-- Login.storyboard
 |   |   `-- Settings.storyboard
 |   `-- Info.plist
 |-- Sources
@@ -90,6 +91,8 @@ MindGarden
 |   |   |-- UIColor+Extensions.swift
 |   |   |-- UITableView+Extensions.swift
 |   |   |-- UIView+Extensions.swift
+|   |   |-- NSMutableAttributedString+Extensions.swift
+|   |   |-- String+Extensions.swift
 |   |   `-- UIViewController+Extensions.swift
 |   |-- Models
 |   |   |-- DefaultRes.swift
@@ -99,6 +102,7 @@ MindGarden
 |   |   |-- NetworkResult.swift
 |   |   |-- ResponseArray.swift
 |   |   |-- ResponseString.swift
+|   |   |-- Token.swift
 |   |   `-- Tree.swift
 |   |-- ViewControllers
 |   |   |-- Diary
@@ -108,7 +112,12 @@ MindGarden
 |   |   |   `-- DiaryPopUpVC.swift
 |   |   |-- Lock
 |   |   |   `-- LockVC.swift
-|   |   |-- Login
+|   |   |-- Auth
+|   |   |   |-- SignupVC.swift
+|   |   |   |-- EmailLoginVC.swift
+|   |   |   |-- ResetPw1VC.swift
+|   |   |   |-- ResetPw2VC.swift
+|   |   |   |-- PolicyVC.swift
 |   |   |   `-- LoginVC.swift
 |   |   |-- Main
 |   |   |   |-- MainGridVC.swift
@@ -116,7 +125,6 @@ MindGarden
 |   |   |   `-- PopUpVC.swift
 |   |   `-- Settings
 |   |   |   |-- SettingsDetailVC.swift
-|   |   |   |-- SettingsPopUpVC.swift
 |   |   |   `-- SettingsVC.swift
 |   |-- Views
 |   |   |-- Diary
@@ -144,7 +152,8 @@ MindGarden
 |   |   |   |-- SettingsTVC.xib
 |   |   |   |-- SettingsWithSwitchTVC.swift
 |   |   `   `-- SettingsWithSwitchTVC.xib
-`   `-- AppDelegate.swift
+`   |-- AppDelegate.swift
+`   `-- AppConstants.swift
 ```
 
 <br/>
@@ -157,12 +166,13 @@ MindGarden
 
 ## Features
 
-**07.13**
-
 - 회원 관련
   
+  - [x] 회원가입
+  - [x] 이메일 로그인
   - [x] Kakao 로그인
-- [x] 로그아웃
+  - [x] 비밀번호 찾기
+  - [x] 로그아웃
   
 - 메인 화면
 
@@ -197,14 +207,11 @@ MindGarden
     - [x] 암호 설정 
     - [x] 암호 변경
     - [x] 암호 분실시 비밀번호 재설정
-  - [ ] 글꼴 설정
-    - [x] 글씨 크기 선택
-    - [ ] 크기 적용
   - [x] 알림 설정 
     - [x] 시간 설정
     - [x] 푸시 알림
     - [x] 알림 뱃지
-
+  
 - 기타
 
   - [x] 스와이프로 뒤로가기
