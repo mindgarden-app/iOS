@@ -95,6 +95,7 @@ class EmailLoginVC: UIViewController {
                 self.alarmLabel.isHidden = false
                 self.emailTF.text = ""
                 self.passwordTF.text = ""
+                self.emailTF.becomeFirstResponder()
                 print(".requestErr(\(err))")
                 break
             case .pathErr:
