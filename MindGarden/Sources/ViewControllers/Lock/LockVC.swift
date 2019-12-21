@@ -44,6 +44,8 @@ class LockVC: UIViewController {
         registerCVC()
         passcodeCV.delegate = self
         passcodeCV.dataSource = self
+        
+        useBiometricAuthentication()
     }
     
     func setDescriptionLabel() {
@@ -181,35 +183,27 @@ class LockVC: UIViewController {
     
     func useBiometricAuthentication() {
         let authContext = LAContext()
-        authContext.localizedFallbackTitle = ""
+        var error: NSError?
 
         var description: String!
         
         if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            switch authContext.biometryType {
-            case .faceID:
-                description = "앱에 접근하기 위해서 Face ID로 인증합니다."
-                break
-            case .touchID:
-                description = "앱에 접근하기 위해서 Touch ID로 인증합니다"
-                break
-            case .none:
-                description = ""
-                break
-            }
+
+            description = "앱에 접근하기 위해서 인증이 필요합니다"
         
-        authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: description) { (success, error) in
-            if success {
-                print("인증 성공")
-                let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
-                self.navigationController!.pushViewController(dvc, animated: true)
-            } else {
-                print("인증 실패")
-                if let error = error {
-                    print(error.localizedDescription)
+            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: description) { (success, authenticationError) in
+                DispatchQueue.main.async {
+                    if success {
+                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                        
+                        self.navigationController!.pushViewController(dvc, animated: true)
+                    } else {
+                        let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(ac, animated: true)
+                    }
                 }
             }
-        }
         }
     }
 }
