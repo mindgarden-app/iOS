@@ -250,6 +250,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC") as! DiaryNewVC
 
         dvc.mode = .new
+        dvc.location = .main
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }

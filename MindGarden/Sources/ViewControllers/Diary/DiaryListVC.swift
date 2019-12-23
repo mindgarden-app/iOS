@@ -128,6 +128,7 @@ class DiaryListVC: UIViewController {
         let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryNewVC") as! DiaryNewVC
         
         dvc.mode = DiaryMode.new
+        dvc.location = .list
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
@@ -236,7 +237,7 @@ extension DiaryListVC: UITableViewDelegate {
                 guard let `self` = self else { return }
                 
                 switch data {
-                case .success(let message):
+                case .success(let _):
                     self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
                 
                     tableView.beginUpdates()

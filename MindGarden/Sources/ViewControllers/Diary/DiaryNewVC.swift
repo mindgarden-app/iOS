@@ -14,6 +14,11 @@ enum DiaryMode {
     case edit
 }
 
+public enum WriteLocation {
+    case list
+    case main
+}
+
 class DiaryNewVC: UIViewController {
     
     @IBOutlet var scrollView: UIScrollView!
@@ -30,6 +35,7 @@ class DiaryNewVC: UIViewController {
     
     var diary: Diary!
     var mode: DiaryMode!
+    var location: WriteLocation!
     var date: String!
     var inputDate: Date!
     var imageView: UIImageView!
@@ -44,7 +50,7 @@ class DiaryNewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        var viewControllers: [UIViewController] = self.navigationController!.viewControllers
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         setNavigationBar()
@@ -229,18 +235,10 @@ class DiaryNewVC: UIViewController {
                 
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
                 
-                if UserDefaults.standard.bool(forKey: "암호 설정") {
-                    if viewControllers.count == 4 {
-                        viewControllers.removeLast(1)
-                    } else {
-                        viewControllers.removeLast(2)
-                    }
+                if self.location == .main {
+                    viewControllers.removeLast(1)
                 } else {
-                    if viewControllers.count == 3 {
-                        viewControllers.removeLast(1)
-                    } else {
-                        viewControllers.removeLast(2)
-                    }
+                    viewControllers.removeLast(2)
                 }
 
                 viewControllers.append(dvc)
