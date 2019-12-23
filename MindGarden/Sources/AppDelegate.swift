@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             results.count > 0,
             let appStoreVersion = results[0]["version"] as? String
             else { return false }
-        if !(version == appStoreVersion) { return true }
+        if !(version >= appStoreVersion) { return true }
         else{ return false }
     }
     
