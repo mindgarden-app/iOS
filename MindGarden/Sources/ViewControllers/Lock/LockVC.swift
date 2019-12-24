@@ -45,7 +45,9 @@ class LockVC: UIViewController {
         passcodeCV.delegate = self
         passcodeCV.dataSource = self
         
-        useBiometricAuthentication()
+        if mode == .validate {
+            useBiometricAuthentication()
+        }
     }
     
     func setDescriptionLabel() {
