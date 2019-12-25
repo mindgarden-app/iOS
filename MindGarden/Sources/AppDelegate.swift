@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             alertController.addAction(UIAlertAction.init(title: "업데이트", style: UIAlertAction.Style.default, handler: { (action) in
                 self.openAppStore()
             }))
+            alertController.view.tintColor = UIColor.lightGreen
             
             let alertWindow = UIWindow(frame: UIScreen.main.bounds)
             alertWindow.rootViewController = UIViewController()

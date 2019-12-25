@@ -25,6 +25,7 @@ extension UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default)
         alert.addAction(okAction)
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         present(alert, animated: true)
     }
     
@@ -34,6 +35,7 @@ extension UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(OKAction)
+        OKAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -41,6 +43,8 @@ extension UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인",style: .default, handler: okHandler)
         let cancelAction = UIAlertAction(title: "취소",style: .cancel, handler: cancleHandler)
+        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.Gray, forKey: "titleTextColor")
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

@@ -201,7 +201,9 @@ class LockVC: UIViewController {
                         self.navigationController!.pushViewController(dvc, animated: true)
                     } else {
                         let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified.", preferredStyle: .alert)
-                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        okAction.setValue(UIColor.lightGreen, forKey: "titleTextColor")
+                        ac.addAction(okAction)
                         self.present(ac, animated: true)
                     }
                 }
