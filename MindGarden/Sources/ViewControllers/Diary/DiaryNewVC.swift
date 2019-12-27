@@ -154,7 +154,7 @@ class DiaryNewVC: UIViewController {
                 print("서버 에러")
                 break
             case .networkFail:
-                print("네트워크 에러")
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
                 break
             }
         }
@@ -281,7 +281,7 @@ class DiaryNewVC: UIViewController {
                 print("서버 에러")
                 break
             case .networkFail:
-                print("네트워크 에러")
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
                 break
             }
         }
@@ -350,7 +350,7 @@ class DiaryNewVC: UIViewController {
                 print("서버 에러")
                 break
             case .networkFail:
-                print("네트워크 에러")
+                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
                 break
             }
         }
