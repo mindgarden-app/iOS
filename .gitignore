@@ -45,6 +45,8 @@ DerivedData/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+## Assets
+*.xcassets
 
 ## for ClientID
 MindGarden/Resources/Info.plist
