@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import NVActivityIndicatorView
 
 class DiaryDetailVC: UIViewController {
 
@@ -62,7 +63,9 @@ class DiaryDetailVC: UIViewController {
                 self.diary = res as! Diary
                 self.setData()
                 if self.diary.diary_img != nil {
-                    self.setImageView()
+                    DispatchQueue.main.async {
+                        self.setImageView()
+                    }
                 }
                 break
             case .requestErr(let err):
@@ -107,18 +110,14 @@ class DiaryDetailVC: UIViewController {
     }
     
     func setData() {
-        print("\(diary.weatherIdx)")
         let moodImage = "imgWeather\(diary.weatherIdx + 1)"
-        print(moodImage)
         moodImageView.image = UIImage(named: moodImage)
         moodLabel.text = moodTextArr[diary.weatherIdx]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd EEE HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone(name: "KST") as TimeZone?
-        print(diary.date)
         let date: Date = dateFormatter.date(from: diary.date)!
-        print(date)
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
@@ -136,6 +135,10 @@ class DiaryDetailVC: UIViewController {
     }
 
     func setImageView() {
+        let size = CGSize(width: 50, height: 50)
+        let activityData = ActivityData(size: size, message: "Loading", type: .lineSpinFadeLoader, color: UIColor.lightGreen, textColor: UIColor.lightGreen)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         imageView = UIImageView(image: UIImage(named: "imgWeather11"))
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: diary.diary_img!), placeholder: nil, options:  [.transition(.fade(0.7))], progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
@@ -146,6 +149,7 @@ class DiaryDetailVC: UIViewController {
             self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
             
             self.contentView.addSubview(self.imageView)
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         })
     }
     
