@@ -81,6 +81,10 @@ class LockVC: UIViewController {
     }
     
     @IBAction func resetBtnAction(_ sender: Any) {
+        if UserDefaults.standard.string(forKey: "email") == "not email" {
+            self.simpleAlert(title: "이메일 없음", message: "이메일 제공 동의를 하지 않으셨습니다.\n ")
+            return;
+        }
         let message = "\(String(describing: UserDefaults.standard.string(forKey: "email")!))으로\n새로운 비밀번호를 보내겠습니까?"
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "메일 보내기", style: .destructive, handler: { action in

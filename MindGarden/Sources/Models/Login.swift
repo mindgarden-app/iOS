@@ -10,6 +10,6 @@ struct Login: Codable {
     let refreshToken: String
     let token: String
     let name: String
-    let email: String
+    let email: String?
     let expires_in: Int
 }

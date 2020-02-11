@@ -113,7 +113,13 @@ extension LoginVC: WKNavigationDelegate {
                             
                             UserDefaults.standard.set(kakao.data![0].token, forKey: "token")
                             UserDefaults.standard.set(kakao.data![0].refreshToken, forKey: "refreshtoken")
-                            UserDefaults.standard.set(kakao.data![0].email, forKey: "email")
+                            
+                            if kakao.data![0].email != nil{
+                                UserDefaults.standard.set(kakao.data![0].email, forKey: "email")
+                            } else {
+                                UserDefaults.standard.set("not email", forKey: "email")
+                            }
+                            
                             UserDefaults.standard.set(kakao.data![0].name, forKey: "name")
                             
                             if UserDefaults.standard.bool(forKey: "암호 설정") {
@@ -132,6 +138,7 @@ extension LoginVC: WKNavigationDelegate {
                                 webView.removeFromSuperview()
                             }
                         } catch {
+                            self.simpleAlert(title: "통신 실패", message: error as! String)
                             print(error)
                         }
                     }
