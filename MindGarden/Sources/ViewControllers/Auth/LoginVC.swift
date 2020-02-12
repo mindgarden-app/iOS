@@ -138,7 +138,6 @@ extension LoginVC: WKNavigationDelegate {
                                 webView.removeFromSuperview()
                             }
                         } catch {
-                            self.simpleAlert(title: "통신 실패", message: error as! String)
                             print(error)
                         }
                     }
