@@ -171,6 +171,7 @@ class DiaryListVC: UIViewController {
     @objc func dateBtnAction() {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
         popUpVC.delegate = self
+        popUpVC.year = inputDate.year!
         
         self.navigationController?.navigationBar.isUserInteractionEnabled = false;
         
@@ -237,7 +238,7 @@ extension DiaryListVC: UITableViewDelegate {
                 guard let `self` = self else { return }
                 
                 switch data {
-                case .success(let _):
+                case .success(_):
                     self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
                 
                     tableView.beginUpdates()
