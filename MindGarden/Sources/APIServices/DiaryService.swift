@@ -42,7 +42,7 @@ struct DiaryService {
                                 case 200:
                                     do {
                                         let decoder = JSONDecoder()
-                                        let result = try decoder.decode(ResponseString.self, from: value)
+                                        let result = try decoder.decode(ResponseInt.self, from: value)
                                         
                                         switch result.success {
                                         case true:
