@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,6 @@
 		DE06597122C9846400D000BC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06597022C9846400D000BC /* Settings.storyboard */; };
 		DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597322C9E15E00D000BC /* Date+Extensions.swift */; };
 		DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597622C9EE9600D000BC /* SettingsVC.swift */; };
-		DE0DF3C022FAF7AC00D6F912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */; };
 		DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */; };
 		DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */; };
 		DE1C6DDD22D79B150099477A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDC22D79B150099477A /* AuthService.swift */; };
@@ -33,6 +32,7 @@
 		DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE33D71322C8C12D00F0F4E4 /* LaunchScreen.storyboard */; };
 		DE49FB9522FB2027008F0A68 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49FB9422FB2027008F0A68 /* PolicyVC.swift */; };
 		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
+		DE5ED266240F319B00422BD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */; };
 		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
 		DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */; };
 		DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6C322CA780A00AD77EC /* LoginVC.swift */; };
@@ -102,6 +102,7 @@
 		DE9F235722D04737009657C3 /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F235622D04737009657C3 /* ResponseArray.swift */; };
 		DEA95CD0230084E400FF6A92 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA95CCF230084E400FF6A92 /* Token.swift */; };
 		DEB561A922D1CEC200763A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB561A822D1CEC200763A85 /* Main.storyboard */; };
+		DEE0474B23EDDCF0009DFC79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE0474A23EDDCF0009DFC79 /* Assets.xcassets */; };
 		DEFBBCBF22E6960A00331B80 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBBCBE22E6960A00331B80 /* SignupVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,7 +122,6 @@
 		DE06597022C9846400D000BC /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		DE06597322C9E15E00D000BC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DE06597622C9EE9600D000BC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDC22D79B150099477A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -135,6 +135,7 @@
 		DE33D71622C8C12D00F0F4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE49FB9422FB2027008F0A68 /* PolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyVC.swift; sourceTree = "<group>"; };
 		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
+		DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
 		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
 		DE7BC6C322CA780A00AD77EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 		DE9F235622D04737009657C3 /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 		DEA95CCF230084E400FF6A92 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DEB561A822D1CEC200763A85 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DEE0474A23EDDCF0009DFC79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEFBBCBE22E6960A00331B80 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindGarden.release.xcconfig"; path = "Target Support Files/Pods-MindGarden/Pods-MindGarden.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,10 +235,10 @@
 		DE06594A22C8EC6200D000BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE0DF3BF22FAF7AC00D6F912 /* Assets.xcassets */,
 				DE8D70E722D25AE900A29973 /* Fonts */,
 				DE06594B22C8EC7200D000BC /* Storyboards */,
 				DE33D71622C8C12D00F0F4E4 /* Info.plist */,
+				DEE0474A23EDDCF0009DFC79 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -411,6 +413,7 @@
 		DE33D70322C8C12C00F0F4E4 /* MindGarden */ = {
 			isa = PBXGroup;
 			children = (
+				DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */,
 				DE06594C22C8ED0200D000BC /* Sources */,
 				DE06594A22C8EC6200D000BC /* Resources */,
 			);
@@ -541,6 +544,8 @@
 				DE33D6FE22C8C12C00F0F4E4 /* Frameworks */,
 				DE33D6FF22C8C12C00F0F4E4 /* Resources */,
 				5A4DCE761021AA590CB83462 /* [CP] Embed Pods Frameworks */,
+				DE5ED263240F2CF400422BD8 /* ShellScript */,
+				DE5ED267240F330400422BD8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -613,7 +618,7 @@
 				DE8D710622D25B0400A29973 /* MontserratAlternates-ExtraBoldItalic.ttf in Resources */,
 				DE8D713A22D25C1100A29973 /* NotoSansCJKkr-Light.otf in Resources */,
 				DE8D713722D25C1100A29973 /* NotoSansCJKkr-Black.otf in Resources */,
-				DE0DF3C022FAF7AC00D6F912 /* Assets.xcassets in Resources */,
+				DEE0474B23EDDCF0009DFC79 /* Assets.xcassets in Resources */,
 				DE8D710B22D25B0400A29973 /* MontserratAlternates-Regular.ttf in Resources */,
 				DE33D71522C8C12D00F0F4E4 /* LaunchScreen.storyboard in Resources */,
 				DE8D713622D25C1100A29973 /* NotoSansCJKkr-DemiLight.otf in Resources */,
@@ -630,6 +635,7 @@
 				DE2D927622CD132A00A391E1 /* DatePickerTVC.xib in Resources */,
 				DE8D713422D25C1100A29973 /* NotoSansMonoCJKkr-Bold.otf in Resources */,
 				DE7BC70322CC863800AD77EC /* LockCodeCVC.xib in Resources */,
+				DE5ED266240F319B00422BD8 /* GoogleService-Info.plist in Resources */,
 				DE8D710A22D25B0400A29973 /* MontserratAlternates-ExtraLight.ttf in Resources */,
 				DE8D710222D25B0400A29973 /* MontserratAlternates-LightItalic.ttf in Resources */,
 				DE8D710722D25B0400A29973 /* MontserratAlternates-BoldItalic.ttf in Resources */,
@@ -648,25 +654,50 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MindGarden/Pods-MindGarden-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DE5ED263240F2CF400422BD8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+		DE5ED267240F330400422BD8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		FFDA491F830E9B2647D50D10 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -882,7 +913,6 @@
 			baseConfigurationReference = 4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
@@ -902,7 +932,6 @@
 			baseConfigurationReference = E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
