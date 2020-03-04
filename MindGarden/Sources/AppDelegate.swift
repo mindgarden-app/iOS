@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
         // 앱 강제 업데이트
         if(checkUpdate()) {
             let alertController = UIAlertController.init(title: "안내", message: "필수 업데이트가 있습니다. \n업데이트하시겠습니까?", preferredStyle: UIAlertController.Style.alert)

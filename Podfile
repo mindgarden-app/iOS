@@ -9,4 +9,7 @@ target 'MindGarden' do
   pod 'Kingfisher'
   pod 'Alamofire', '~> 4.8.2'
   pod 'NVActivityIndicatorView'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Firebase/Analytics'
 end
