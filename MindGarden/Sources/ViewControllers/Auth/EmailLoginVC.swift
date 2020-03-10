@@ -19,6 +19,7 @@ class EmailLoginVC: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
 
         setView()
         // Do any additional setup after loading the view.
