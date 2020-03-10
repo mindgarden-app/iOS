@@ -56,6 +56,11 @@
                                     <action selector="emailLoginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Cae-pv-5Ja"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-rl-sDu">
+                                <rect key="frame" x="21" y="600" width="333" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -78,6 +83,7 @@
                         <viewLayoutGuide key="safeArea" id="Eeo-vs-Qkh"/>
                     </view>
                     <connections>
+                        <outlet property="appleLoginView" destination="0IH-rl-sDu" id="K5a-s0-u7D"/>
                         <outlet property="descriptionSV" destination="EWV-rU-jIe" id="TRr-OR-TbY"/>
                         <outlet property="emailLoginBtn" destination="CNg-xW-Bik" id="vOO-05-ikz"/>
                         <outlet property="loginBtn" destination="MGH-0h-ZBE" id="gkV-VA-GqY"/>
@@ -211,7 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="이메일 로그인" id="LAO-3i-jRV">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="fSy-89-YUa">
-                            <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="d6K-tg-jA6" id="Ohc-vz-Trh"/>
                             </connections>
@@ -308,7 +314,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="비밀번호 재설정" id="yIp-LX-tAD">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="EiQ-WN-822">
-                            <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="5us-ZC-3a1" id="LiZ-e7-miZ"/>
                             </connections>
@@ -385,7 +391,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="비밀번호 재설정" id="cAu-gY-2L1">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="sXI-Vu-yK2">
-                            <color key="tintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="uvf-CO-jSa" id="OHu-MK-do7"/>
                             </connections>
@@ -638,7 +644,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="이메일 회원가입" id="xbm-G9-xSW">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="PXP-br-DQF">
-                            <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="03a-FN-2J1" id="jTm-3f-e52"/>
                             </connections>
@@ -700,7 +706,7 @@
                     </scrollView>
                     <navigationItem key="navigationItem" title="개인정보처리방침" id="0EF-35-U5a">
                         <barButtonItem key="leftBarButtonItem" image="btnBack" width="40" id="mej-tz-Bf3">
-                            <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtnAction:" destination="pQZ-mY-yDb" id="RQG-gg-gnV"/>
                             </connections>
@@ -752,7 +758,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btnBack" width="13" height="27"/>
+        <image name="btnBack" width="16" height="16"/>
         <image name="btnKakaoLogIn" width="333" height="43"/>
     </resources>
 </document>
