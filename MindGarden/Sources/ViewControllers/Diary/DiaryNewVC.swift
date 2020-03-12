@@ -37,6 +37,7 @@ class DiaryNewVC: UIViewController {
     var mode: DiaryMode!
     var location: WriteLocation!
     var date: String!
+    var diaryIdx: Int!
     var inputDate: Date!
     var imageView: UIImageView!
     var weatherIdx: Int!
@@ -110,7 +111,7 @@ class DiaryNewVC: UIViewController {
     }
     
     func getData() {
-        DiaryService.shared.getDiary(date: date!) { data in
+        DiaryService.shared.getDiary(diaryIdx: diaryIdx) { data in
             switch data {
             case .success(let res):
                 self.diary = res as? Diary

@@ -168,7 +168,7 @@ class DiaryDetailVC: UIViewController {
         
         dvc.mode = DiaryMode.edit
         dvc.date = date!
-        print(date!)
+        dvc.diaryIdx = diaryIdx
         
         self.navigationController!.pushViewController(dvc, animated: true)
     }
