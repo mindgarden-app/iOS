@@ -187,8 +187,8 @@ struct DiaryService {
         }
     }
     
-    func deleteDiary(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.DiaryDeleteURL + "/\(date)"
+    func deleteDiary(diaryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryDeleteURL + "/\(String(diaryIdx))"
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/x-www-form-urlencoded",

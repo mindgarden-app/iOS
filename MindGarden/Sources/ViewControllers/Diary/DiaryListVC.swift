@@ -234,68 +234,64 @@ extension DiaryListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "삭제", handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
             
-            let alert = UIAlertController(title: "정말 일기를 삭제하겠습니까?", message: "삭제된 일기는 되돌릴 수 없습니다.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "정말 일기를 삭제하겠습니까?", message: "삭제된 일기는 복구할 수 없습니다.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "삭제하기", style: .destructive, handler: { action in
-                        let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
-                            let date = "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
+                    let cell = tableView.cellForRow(at: indexPath) as! DiaryListTVC
+                    let diaryIdx = cell.diaryIdx
+                    DiaryService.shared.deleteDiary(diaryIdx: diaryIdx!) { [weak self] data in
+                        guard let `self` = self else { return }
+                        
+                        switch data {
+                        case .success(_):
+                            self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
+                        
+                            tableView.beginUpdates()
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
                             
-                            DiaryService.shared.deleteDiary(date: date) { [weak self] data in
-                                guard let `self` = self else { return }
-                                
-                                switch data {
-                                case .success(_):
-                                    self.simpleAlert(title: "삭제", message: "일기가 삭제되었습니다")
-                                
-                                    tableView.beginUpdates()
-                                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                            self.diaryList.remove(at: indexPath.row)
+                            
+                            tableView.endUpdates()
+                            
+                            break
+                        case .requestErr(let err):
+                            print(".requestErr(\(err))")
+                            if String(describing: err) == "만료된 토큰입니다." {
+                                AuthService.shared.refreshAccesstoken() { [weak self] data in
+                                    guard let `self` = self else { return }
                                     
-                                    self.diaryList.remove(at: indexPath.row)
-                                    
-                                    tableView.endUpdates()
-                                    
-                                    break
-                                case .requestErr(let err):
-                                    print(".requestErr(\(err))")
-                                    if String(describing: err) == "만료된 토큰입니다." {
-                                        AuthService.shared.refreshAccesstoken() { [weak self] data in
-                                            guard let `self` = self else { return }
-                                            
-                                            switch data {
-                                            case .success(let res):
-                                                let data = res as! Token
-                                                print(res)
-                                                UserDefaults.standard.set(data.token, forKey: "token")
-                                                break
-                                            case .requestErr(let err):
-                                                print(".requestErr(\(err))")
-                                                break
-                                            case .pathErr:
-                                                print("경로 에러")
-                                                break
-                                            case .serverErr:
-                                                print("서버 에러")
-                                                break
-                                            case .networkFail:
-                                                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                                                break
-                                            }
-                                        }
+                                    switch data {
+                                    case .success(let res):
+                                        let data = res as! Token
+                                        print(res)
+                                        UserDefaults.standard.set(data.token, forKey: "token")
+                                        break
+                                    case .requestErr(let err):
+                                        print(".requestErr(\(err))")
+                                        break
+                                    case .pathErr:
+                                        print("경로 에러")
+                                        break
+                                    case .serverErr:
+                                        print("서버 에러")
+                                        break
+                                    case .networkFail:
+                                        self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                        break
                                     }
-                                    break
-                                case .pathErr:
-                                    print("경로 에러")
-                                    break
-                                case .serverErr:
-                                    print("서버 에러")
-                                    break
-                                case .networkFail:
-                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                                    break
                                 }
-                            
+                            }
+                            break
+                        case .pathErr:
+                            print("경로 에러")
+                            break
+                        case .serverErr:
+                            print("서버 에러")
+                            break
+                        case .networkFail:
+                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                            break
+                        }
                     }
-                            
-
                 })
                 let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
                 cancelAction.setValue(UIColor.Gray, forKey: "titleTextColor")
