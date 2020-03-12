@@ -115,11 +115,11 @@ class DiaryListVC: UIViewController {
     @IBAction func sortBtnAction(_ sender: Any) {
         if isAscending {
             isAscending = false
-            diaryList.sort() { $0.date > $1.date }
+            diaryList.sort() { $0.diaryIdx > $1.diaryIdx }
             diaryListTV.reloadData()
         } else {
             isAscending = true
-            diaryList.sort() { $0.date < $1.date }
+            diaryList.sort() { $0.diaryIdx < $1.diaryIdx }
             diaryListTV.reloadData()
         }
     }
