@@ -1,5 +1,5 @@
 //
-//  SettingsForVersionTVC.swift
+//  VersionTVC.swift
 //  MindGarden
 //
 //  Created by Sunghee Lee on 2020/03/11.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SettingsForVersionTVC: UITableViewCell {
-
+class VersionTVC: UITableViewCell {
+    
     @IBOutlet var versionNumberLabel: UILabel!
     @IBOutlet var versionAlertLabel: UILabel!
     let newVersionString = "현재 최신 버전 사용 중입니다."
@@ -26,12 +26,12 @@ class SettingsForVersionTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // only old version
-        openAppStore()
+//        openAppStore()
     }
     
     func initView() {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            versionNumberLabel.text = version
+            versionNumberLabel.text = "V \(version)"
             
             if(checkLatestVersion()) {
                 versionAlertLabel.text = oldVersionString

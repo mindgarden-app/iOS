@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VersionTVC" customModule="MindGarden" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vo-mr-0vR">
+                        <rect key="frame" x="18" y="16" width="56" height="21"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                        <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE5-YS-kCv">
+                        <rect key="frame" x="79" y="16" width="38" height="21"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvc-gy-knG">
+                        <rect key="frame" x="18" y="37" width="342" height="19"/>
+                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12.5"/>
+                        <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mvc-gy-knG" firstAttribute="top" secondItem="4vo-mr-0vR" secondAttribute="bottom" id="3z4-rs-B8D"/>
+                    <constraint firstItem="4vo-mr-0vR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="cnJ-j8-gta"/>
+                    <constraint firstAttribute="bottom" secondItem="mvc-gy-knG" secondAttribute="bottom" constant="17" id="eoP-Jn-8X3"/>
+                    <constraint firstItem="iE5-YS-kCv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="jPy-sJ-BNR"/>
+                    <constraint firstItem="iE5-YS-kCv" firstAttribute="leading" secondItem="4vo-mr-0vR" secondAttribute="trailing" constant="5" id="lfi-2g-kIj"/>
+                    <constraint firstItem="mvc-gy-knG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="nfg-2y-roa"/>
+                    <constraint firstItem="mvc-gy-knG" firstAttribute="top" secondItem="iE5-YS-kCv" secondAttribute="bottom" id="pdE-Ru-LuO"/>
+                    <constraint firstItem="4vo-mr-0vR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="r2s-WR-uvV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="versionAlertLabel" destination="mvc-gy-knG" id="lmG-Uc-CIH"/>
+                <outlet property="versionNumberLabel" destination="iE5-YS-kCv" id="Zks-82-bHc"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="136.94196428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
