@@ -172,6 +172,7 @@ class DiaryListVC: UIViewController {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
         popUpVC.delegate = self
         popUpVC.year = inputDate.year!
+        popUpVC.inputMonth = inputDate.month!
         
         self.navigationController?.navigationBar.isUserInteractionEnabled = false;
         

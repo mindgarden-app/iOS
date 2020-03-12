@@ -25,11 +25,17 @@ class PopUpVC: UIViewController {
     var currentYear: Int!
     var month: Int = 0;
     
+    var inputYear: Int!
+    var inputMonth: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        inputYear = year
+        
         setYearLabel(year: year)
         setBtn()
+        setCircle()
 
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         popUpView.setBorder(borderColor: UIColor.gray, borderWidth: 1.0)
@@ -41,6 +47,23 @@ class PopUpVC: UIViewController {
         if touches.first?.view?.tag != 100 {
             removePopUp()
             super.touchesEnded(touches , with: event)
+        }
+    }
+    
+    func setCircle() {
+        for case let btn as UIButton in self.popUpView.subviews {
+            if btn.tag == inputMonth {
+                btn.makeRounded(cornerRadius: 19)
+                btn.setBorder(borderColor: UIColor.lightGreenForButton, borderWidth: 2)
+            }
+        }
+    }
+    
+    func removeCircle() {
+        for case let btn as UIButton in self.popUpView.subviews {
+            if btn.tag == inputMonth {
+                btn.setBorder(borderColor: .white, borderWidth: 0)
+            }
         }
     }
     
@@ -78,6 +101,12 @@ class PopUpVC: UIViewController {
             if year == currentYear - 5 {
                 leftBtn.isHidden = true
             }
+            
+            if year == inputYear {
+                setCircle()
+            } else {
+                removeCircle()
+            }
         }
     }
     
@@ -90,6 +119,12 @@ class PopUpVC: UIViewController {
             
             if year == currentYear + 5 {
                 rightBtn.isHidden = true
+            }
+            
+            if year == inputYear {
+                setCircle()
+            } else {
+                removeCircle()
             }
         }
     }

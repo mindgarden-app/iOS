@@ -271,6 +271,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpVC") as! PopUpVC
         popUpVC.delegate = self
         popUpVC.year = inputYear
+        popUpVC.inputMonth = inputMonth
         
         self.navigationController?.navigationBar.isUserInteractionEnabled = false;
         
