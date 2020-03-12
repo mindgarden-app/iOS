@@ -34,6 +34,8 @@
 		DE4E393722CA23AB00788887 /* DiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */; };
 		DE5ED266240F319B00422BD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */; };
 		DE5ED269240F935500422BD8 /* ResponseInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ED268240F935500422BD8 /* ResponseInt.swift */; };
+		DE5ED2732418BDC200422BD8 /* VersionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5ED2712418BDC200422BD8 /* VersionTVC.swift */; };
+		DE5ED2742418BDC200422BD8 /* VersionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE5ED2722418BDC200422BD8 /* VersionTVC.xib */; };
 		DE7BC6C022CA6F3A00AD77EC /* DiaryPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */; };
 		DE7BC6C122CA6F3A00AD77EC /* DiaryPopUpTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */; };
 		DE7BC6C422CA780A00AD77EC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BC6C322CA780A00AD77EC /* LoginVC.swift */; };
@@ -138,6 +140,9 @@
 		DE4E393622CA23AB00788887 /* DiaryPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpVC.swift; sourceTree = "<group>"; };
 		DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE5ED268240F935500422BD8 /* ResponseInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseInt.swift; sourceTree = "<group>"; };
+		DE5ED26A24134E8C00422BD8 /* MindGarden.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MindGarden.entitlements; sourceTree = "<group>"; };
+		DE5ED2712418BDC200422BD8 /* VersionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VersionTVC.swift; path = MindGarden/Sources/Views/VersionTVC.swift; sourceTree = SOURCE_ROOT; };
+		DE5ED2722418BDC200422BD8 /* VersionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VersionTVC.xib; path = MindGarden/Sources/Views/VersionTVC.xib; sourceTree = SOURCE_ROOT; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
 		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
 		DE7BC6C322CA780A00AD77EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -390,6 +395,8 @@
 				DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */,
 				DE2D927322CD132A00A391E1 /* DatePickerTVC.swift */,
 				DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */,
+				DE5ED2712418BDC200422BD8 /* VersionTVC.swift */,
+				DE5ED2722418BDC200422BD8 /* VersionTVC.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -416,6 +423,7 @@
 		DE33D70322C8C12C00F0F4E4 /* MindGarden */ = {
 			isa = PBXGroup;
 			children = (
+				DE5ED26A24134E8C00422BD8 /* MindGarden.entitlements */,
 				DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */,
 				DE06594C22C8ED0200D000BC /* Sources */,
 				DE06594A22C8EC6200D000BC /* Resources */,
@@ -604,6 +612,7 @@
 				DE06596D22C97E0D00D000BC /* DiaryListTVC.xib in Resources */,
 				DE8D70E422D1E7C000A29973 /* TreeCVC.xib in Resources */,
 				DE8D710D22D25B0400A29973 /* MontserratAlternates-SemiBold.ttf in Resources */,
+				DE5ED2742418BDC200422BD8 /* VersionTVC.xib in Resources */,
 				DE06595422C8FE5300D000BC /* Diary.storyboard in Resources */,
 				DE7BC6EE22CB4A9A00AD77EC /* SettingsTVC.xib in Resources */,
 				DE8D713522D25C1100A29973 /* NotoSansMonoCJKkr-Regular.otf in Resources */,
@@ -749,6 +758,7 @@
 				DE2D927522CD132A00A391E1 /* DatePickerTVC.swift in Sources */,
 				DE7BC6ED22CB4A9A00AD77EC /* SettingsTVC.swift in Sources */,
 				DE06596C22C97E0D00D000BC /* DiaryListTVC.swift in Sources */,
+				DE5ED2732418BDC200422BD8 /* VersionTVC.swift in Sources */,
 				DE7BC6F522CBB46C00AD77EC /* SettingsWithSwitchTVC.swift in Sources */,
 				DE8D714A22D492D800A29973 /* Login.swift in Sources */,
 				DE9F235522D0471A009657C3 /* ResponseString.swift in Sources */,
@@ -917,6 +927,7 @@
 			baseConfigurationReference = 4EFDD3FFC4FCEC91B258429C /* Pods-MindGarden.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MindGarden/MindGarden.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
@@ -936,6 +947,7 @@
 			baseConfigurationReference = E94F331B13346CB260DF9A91 /* Pods-MindGarden.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MindGarden/MindGarden.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";

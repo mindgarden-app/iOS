@@ -12,11 +12,12 @@ class SettingsVC: UIViewController {
     
     @IBOutlet var settingsTV: UITableView!
     
-    var sectionsArr: [String] = ["Profile", "Logout", "Settings"]
+    var sectionsArr: [String] = ["Profile", "Logout", "Settings", "Version"]
     var items = [
         [""],
         ["로그아웃", "계정 삭제"],
-        ["암호 설정", "알림 설정"]
+        ["암호 설정", "알림 설정"],
+        ["버전 정보"]
     ]
     
     override func viewDidLoad() {
@@ -38,8 +39,10 @@ class SettingsVC: UIViewController {
     func registerTVC() {
         let profileNibName = UINib(nibName: "ProfileTVC", bundle: nil)
         let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
+        let versionNibName = UINib(nibName: "VersionTVC", bundle: nil)
         settingsTV.register(profileNibName, forCellReuseIdentifier: "ProfileTVC")
         settingsTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
+        settingsTV.register(versionNibName, forCellReuseIdentifier: "VersionTVC")
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
@@ -77,6 +80,10 @@ extension SettingsVC: UITableViewDataSource {
             cell.layer.borderColor = UIColor.whiteForBorder.cgColor
 
             return cell
+        } else if indexPath.section == 3 {
+            let cell = settingsTV.dequeueReusableCell(withIdentifier: "VersionTVC") as! VersionTVC
+            
+            return cell
         } else {
             let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
 
@@ -102,8 +109,8 @@ extension SettingsVC: UITableViewDelegate {
                 UserDefaults.standard.set(nil, forKey: "token")
                 UserDefaults.standard.set(nil, forKey: "email")
                 UserDefaults.standard.set(nil, forKey: "name")
-//                navigationController?.isNavigationBarHidden = true
-//                performSegue(withIdentifier: "unwindToLogin", sender: self)
+                //                navigationController?.isNavigationBarHidden = true
+                //                performSegue(withIdentifier: "unwindToLogin", sender: self)
                 let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                 var viewControllers: [UIViewController] = self.navigationController!.viewControllers
                 viewControllers.removeAll()
@@ -210,6 +217,19 @@ extension SettingsVC: UITableViewDelegate {
 
             self.navigationController!.pushViewController(dvc, animated: true)
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        } else if indexPath.section == 3 {
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/apple-store/id\(AppConstants.AppId)?mt=8"),
+                UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url, options: [:]) { (opened) in
+                    if(opened){
+                        print("App Store Opened")
+                    }
+                }
+                tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            } else {
+                print("Can't Open URL on Simulator")
+                tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            }
         }
     }
 }
