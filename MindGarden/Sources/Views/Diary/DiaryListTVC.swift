@@ -14,6 +14,7 @@ class DiaryListTVC: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var dayOfWeekLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var weatherImage: UIImageView!
     
     var diaryIdx: Int!
     

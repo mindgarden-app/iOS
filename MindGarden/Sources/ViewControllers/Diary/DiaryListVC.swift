@@ -204,13 +204,16 @@ extension DiaryListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = diaryListTV.dequeueReusableCell(withIdentifier: "DiaryListTVC") as! DiaryListTVC
-        let date: Date = dateFormatter.date(from: diaryList[indexPath.row].date)!
+        let diary = diaryList[indexPath.row]
+        let date: Date = dateFormatter.date(from: diary.date)!
         let day = Calendar.current.component(.day, from: date)
+        let weatherImage = "imgListWeather\(diary.weatherIdx + 1)"
         
-        cell.diaryIdx = diaryList[indexPath.row].diaryIdx
+        cell.diaryIdx = diary.diaryIdx
         cell.dateLabel.text = String(day)
         cell.dayOfWeekLabel.text = date.getDayOfTheWeek(lang: "ko")
-        cell.titleLabel.text = diaryList[indexPath.row].diary_content
+        cell.titleLabel.text = diary.diary_content
+        cell.weatherImage.image = UIImage(named: weatherImage)
         
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.whiteForBorder.cgColor
