@@ -27,6 +27,7 @@ class DiaryDetailVC: UIViewController {
     var weatherIdx: Int!
     var date: String!
     var diary: Diary!
+    var diaryIdx: Int!
     var scrollViewContentSize: CGFloat = 0;
 
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class DiaryDetailVC: UIViewController {
     }
     
     func getData() {
-        DiaryService.shared.getDiary(date: date!) { data in
+        DiaryService.shared.getDiary(diaryIdx: diaryIdx!) { data in
             switch data {
             case .success(let res):
                 self.diary = res as! Diary

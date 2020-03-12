@@ -136,8 +136,8 @@ struct DiaryService {
         }
     }
     
-    func getDiary(date: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let URL = APIConstants.DiaryDetailURL + "/\(date)"
+    func getDiary(diaryIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let URL = APIConstants.DiaryDetailURL + "/\(String(diaryIdx))"
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/x-www-form-urlencoded",

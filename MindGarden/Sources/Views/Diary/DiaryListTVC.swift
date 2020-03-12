@@ -15,6 +15,8 @@ class DiaryListTVC: UITableViewCell {
     @IBOutlet var dayOfWeekLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     
+    var diaryIdx: Int!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

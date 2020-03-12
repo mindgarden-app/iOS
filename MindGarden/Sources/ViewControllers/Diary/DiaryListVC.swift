@@ -207,6 +207,7 @@ extension DiaryListVC: UITableViewDataSource {
         let date: Date = dateFormatter.date(from: diaryList[indexPath.row].date)!
         let day = Calendar.current.component(.day, from: date)
         
+        cell.diaryIdx = diaryList[indexPath.row].diaryIdx
         cell.dateLabel.text = String(day)
         cell.dayOfWeekLabel.text = date.getDayOfTheWeek(lang: "ko")
         cell.titleLabel.text = diaryList[indexPath.row].diary_content
@@ -225,6 +226,7 @@ extension DiaryListVC: UITableViewDelegate {
         let dvc = storyboard?.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
     
         dvc.date = "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))-\(String(format: "%02d", Int(cell.dateLabel.text!)!))"
+        dvc.diaryIdx = cell.diaryIdx
 
         navigationController?.pushViewController(dvc, animated: true)
     }
