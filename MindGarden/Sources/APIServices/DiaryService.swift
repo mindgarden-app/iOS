@@ -74,7 +74,7 @@ struct DiaryService {
         }
     }
     
-    func editDiary(date: String, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func editDiary(diaryIdx: Int, diaryContent: String, diaryImage: UIImage?, weatherIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let headers: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
@@ -88,7 +88,7 @@ struct DiaryService {
                     multipart.append(diaryImage!.jpegData(compressionQuality: 0.5)!, withName: "diary_img", fileName: "image.jpeg", mimeType: "image/jpeg")
                 }
                 multipart.append("\(weatherIdx)".data(using: .utf8)!, withName: "weatherIdx")
-                multipart.append(date.data(using: .utf8)!, withName: "date")
+                multipart.append(String(diaryIdx).data(using: .utf8)!, withName: "diaryIdx")
         },
             to: APIConstants.DiaryEditURL,
             method: .put,

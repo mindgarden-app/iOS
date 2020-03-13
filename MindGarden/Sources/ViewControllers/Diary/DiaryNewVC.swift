@@ -296,7 +296,7 @@ class DiaryNewVC: UIViewController {
         
         let image = imageView != nil ? imageView.image : nil
         
-        DiaryService.shared.editDiary(date: date!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
+        DiaryService.shared.editDiary(diaryIdx: diaryIdx!, diaryContent: inputTextView.text!, diaryImage: image, weatherIdx: weatherIdx!) {
             data in
             
             switch data {
