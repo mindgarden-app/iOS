@@ -16,7 +16,7 @@ class SettingsVC: UIViewController {
     var items = [
         [""],
         ["로그아웃", "계정 삭제"],
-        ["암호 설정", "알림 설정"],
+        ["암호 설정", "알림 설정", "iCloud 백업 설정"],
         ["버전 정보"]
     ]
     
@@ -39,9 +39,11 @@ class SettingsVC: UIViewController {
     func registerTVC() {
         let profileNibName = UINib(nibName: "ProfileTVC", bundle: nil)
         let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
+        let switchNibName = UINib(nibName: "SettingsWithSwitchTVC", bundle: nil)
         let versionNibName = UINib(nibName: "VersionTVC", bundle: nil)
         settingsTV.register(profileNibName, forCellReuseIdentifier: "ProfileTVC")
         settingsTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
+        settingsTV.register(switchNibName, forCellReuseIdentifier: "SettingsWithSwitchTVC")
         settingsTV.register(versionNibName, forCellReuseIdentifier: "VersionTVC")
     }
     
@@ -85,17 +87,31 @@ extension SettingsVC: UITableViewDataSource {
             
             return cell
         } else {
-            let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
+            if indexPath.row < 2 {
+                let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
 
-            let settingsName = items[indexPath.section][indexPath.row]
+                let settingsName = items[indexPath.section][indexPath.row]
 
-            cell.settingsNameLabel.text = settingsName
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+                cell.settingsNameLabel.text = settingsName
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
 
-            return cell
+                return cell
+            } else {
+                let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
+
+                let settingsName = items[indexPath.section][indexPath.row]
+
+                cell.settingsNameLabel.text = settingsName
+                cell.setSwitch()
+                
+                cell.delegate = self
+                cell.layer.borderWidth = 1
+                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+
+                return cell
+            }
         }
-
     }
 }
 
@@ -242,5 +258,43 @@ extension SettingsVC : UIGestureRecognizerDelegate {
         }
         
         return false
+    }
+}
+
+extension SettingsVC: SwitchDelegate {
+    
+    func OnSwitch(name: String, isOn: Bool) {
+        if isOn {
+            
+        } else {
+            
+        }
+//        self.isOn = isOn
+//        UserDefaults.standard.set(isOn, forKey: name)
+//        settingsDetailTV.beginUpdates()
+//        if isOn {
+//            settingsDetailTV.insertRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+//        } else {
+//            settingsDetailTV.deleteRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
+//            if datePickerIndexPath != nil {
+//                settingsDetailTV.deleteRows(at: [IndexPath(row: 2, section: 0)], with: .fade)
+//                self.datePickerIndexPath = nil
+//            }
+//
+//            if name == "알림 설정" {
+//                center.removeAllDeliveredNotifications()
+//                center.removeAllPendingNotificationRequests()
+//                UIApplication.shared.applicationIconBadgeNumber = 0
+//            }
+//        }
+//        settingsDetailTV.endUpdates()
+//
+//        if name == "암호 설정" && isOn {
+//            let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+//
+//            dvc.mode = LockMode.create
+//
+//            self.navigationController!.pushViewController(dvc, animated: true)
+//        }
     }
 }

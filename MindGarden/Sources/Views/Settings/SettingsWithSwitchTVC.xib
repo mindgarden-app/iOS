@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,17 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settings name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceK-q9-B5s">
-                        <rect key="frame" x="15" y="17" width="93" height="19.5"/>
+                        <rect key="frame" x="15" y="17" width="166" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="166" id="2Sz-Gm-MTw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                         <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-hM-TkG">
-                        <rect key="frame" x="316" y="11.5" width="50" height="30.5"/>
+                        <rect key="frame" x="315" y="11.5" width="51" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="gXO-hM-TkG" secondAttribute="height" multiplier="49:31" id="Ce9-Dm-ZZy"/>
                         </constraints>
@@ -39,7 +40,6 @@
                     </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ceK-q9-B5s" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="92:53" id="6fl-zD-bof"/>
                     <constraint firstItem="ceK-q9-B5s" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7lE-gr-Tig"/>
                     <constraint firstItem="gXO-hM-TkG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11.5" id="Cwr-Tb-wEG"/>
                     <constraint firstAttribute="trailing" secondItem="gXO-hM-TkG" secondAttribute="trailing" constant="11" id="h8i-r2-DFS"/>
