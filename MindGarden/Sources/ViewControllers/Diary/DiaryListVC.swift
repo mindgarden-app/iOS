@@ -27,10 +27,12 @@ class DiaryListVC: UIViewController {
         super.viewWillAppear(true)
         
     
-        if inputDate == nil {
-            getDiaryList(date: "2019-07")
-        } else {
-            getDiaryList(date: "\(inputDate.year!)-\(String(format: "%02d", inputDate.month!))")
+        DispatchQueue.main.async {
+            if self.inputDate == nil {
+                self.getDiaryList(date: "2019-07")
+            } else {
+                self.getDiaryList(date: "\(self.inputDate.year!)-\(String(format: "%02d", self.inputDate.month!))")
+            }
         }
     }
     
