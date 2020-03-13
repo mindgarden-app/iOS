@@ -23,6 +23,11 @@ class SettingsDetailVC: UIViewController {
     var datePickerIndexPath: IndexPath?
     var isOn: Bool = false
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  

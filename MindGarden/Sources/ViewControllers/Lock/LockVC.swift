@@ -18,6 +18,7 @@ public enum LockMode {
 
 class LockVC: UIViewController {
     
+    @IBOutlet var closeBtn: UIButton!
     @IBOutlet var passcodeCV: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var passcodeResetBtn: UIButton!
@@ -46,7 +47,10 @@ class LockVC: UIViewController {
         passcodeCV.dataSource = self
         
         if mode == .validate {
+            closeBtn.isHidden = true
             useBiometricAuthentication()
+        } else {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         }
     }
     
@@ -61,6 +65,10 @@ class LockVC: UIViewController {
             descriptionLabel.textAlignment = .center
             descriptionLabel.frame = CGRect(x: 0, y: 0, width: descriptionLabel.intrinsicContentSize.width, height: descriptionLabel.intrinsicContentSize.width)
         }
+    }
+    
+    @IBAction func closeBtnAction(_ sender: Any) {
+        self.pop()
     }
     
     func changePasscodeImg(count: Int) {
