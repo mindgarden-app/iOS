@@ -36,12 +36,6 @@ class DiaryListVC: UIViewController {
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        print("willdidappear")
-//        getDiaryList(date: "2019-07")
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -215,7 +209,7 @@ extension DiaryListVC: UITableViewDataSource {
         cell.diaryIdx = diary.diaryIdx
         cell.dateLabel.text = String(day)
         cell.dayOfWeekLabel.text = date.getDayOfTheWeek(lang: "ko")
-        cell.titleLabel.text = diary.diary_content
+        cell.titleLabel.text = diary.diary_content.replacingOccurrences(of: "\n", with: " ", options: .literal, range: nil)
         cell.weatherImage.image = UIImage(named: weatherImage)
         
         cell.layer.borderWidth = 1
