@@ -24,11 +24,13 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     var slides: [DescriptionSlide] = [];
     var webView: WKWebView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.isNavigationBarHidden = true
         
         slides = createSlides()
         setupSlideScrollView(slides: slides)
