@@ -45,6 +45,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
         
         balloonImageView.isHidden = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         setDate()
         setBarButtonItem()

@@ -55,6 +55,7 @@ class DiaryDetailVC: UIViewController {
             
             self.navigationItem.title = "\(dateStr) (\(String(dayOfTheWeekStr!)))"
         }
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     func getData() {
