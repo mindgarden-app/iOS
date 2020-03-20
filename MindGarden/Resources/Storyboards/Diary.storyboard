@@ -212,7 +212,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AhQ-VE-MZp">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="확인" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AhQ-VE-MZp">
                                                 <rect key="frame" x="22" y="109" width="333" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="cf8-0w-g0a"/>
@@ -351,21 +351,21 @@
         <scene sceneID="d2L-JB-DD2">
             <objects>
                 <viewController storyboardIdentifier="DiaryListVC" id="8Ul-5h-2rS" customClass="DiaryListVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwC-PG-u57">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KwC-PG-u57">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="K54-TS-XQJ">
-                            <rect key="frame" x="0.0" y="99.666667938232422" width="375" height="654"/>
+                        <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="K54-TS-XQJ">
+                            <rect key="frame" x="0.0" y="130" width="375" height="654"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" red="0.97255557775497437" green="0.9725373387336731" blue="0.97254973649978638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" id="DXQ-e8-evD" customClass="DiaryListTVC" customModule="MindGarden" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTVC" rowHeight="74" id="DXQ-e8-evD" customClass="DiaryListTVC" customModule="MindGarden" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DXQ-e8-evD" id="h9T-Ky-fQo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -411,7 +411,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jk5-uf-JXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5aY-27-WGz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4708" y="3245"/>
+            <point key="canvasLocation" x="4708" y="3244.5812807881775"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Mn-W9-tAT">

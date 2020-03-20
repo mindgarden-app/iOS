@@ -132,6 +132,7 @@ class DiaryDetailVC: UIViewController {
         bodyTextView.textContainerInset = UIEdgeInsets.zero
         bodyTextView.textContainer.lineFragmentPadding = 0
         bodyTextViewHeightConstraint.constant = bodyTextView.contentSize.height
+        bodyTextView.isEditable = false
         scrollViewContentSize = bodyTextView.frame.minY + bodyTextView.contentSize.height + 10
         scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
     }
