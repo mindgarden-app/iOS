@@ -50,9 +50,6 @@ class DiaryNewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         setNavigationBar()
         setTextView()
@@ -96,6 +93,9 @@ class DiaryNewVC: UIViewController {
             
             self.setNavigationBarItem(image: "btnComplete.png", target: self, action: #selector(completeBtnAction), direction: "right")
         }
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     func setTextView() {
@@ -440,16 +440,5 @@ UINavigationControllerDelegate {
         contentView.insertSubview(imageView, belowSubview: galleryBtn)
 
         self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension DiaryNewVC : UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        if (self.navigationController?.viewControllers.count)! > 1 {
-            return true
-        }
-        
-        return false
     }
 }
