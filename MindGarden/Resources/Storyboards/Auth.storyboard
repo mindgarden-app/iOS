@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGH-0h-ZBE">
-                                <rect key="frame" x="21" y="715" width="333" height="43"/>
+                                <rect key="frame" x="21" y="664" width="333" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="mcy-UV-7cZ"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNg-xW-Bik">
-                                <rect key="frame" x="21" y="662" width="333" height="43"/>
+                                <rect key="frame" x="21" y="610" width="333" height="43"/>
                                 <color key="backgroundColor" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="14"/>
                                 <state key="normal" title="이메일로 시작하기">
@@ -56,25 +56,28 @@
                                     <action selector="emailLoginBtnAction:" destination="Jwh-Mv-Bll" eventType="touchUpInside" id="Cae-pv-5Ja"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-rl-sDu">
-                                <rect key="frame" x="21" y="600" width="333" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-rl-sDu">
+                                <rect key="frame" x="21" y="715" width="333" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="height" secondItem="CNg-xW-Bik" secondAttribute="height" id="8Z2-iH-V21"/>
-                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="20" id="CMb-gz-pOf"/>
-                            <constraint firstItem="MGH-0h-ZBE" firstAttribute="top" secondItem="CNg-xW-Bik" secondAttribute="bottom" constant="10" id="LUq-Je-bDR"/>
+                            <constraint firstItem="0IH-rl-sDu" firstAttribute="top" secondItem="MGH-0h-ZBE" secondAttribute="bottom" constant="8" id="9ys-eD-gwr"/>
+                            <constraint firstItem="0IH-rl-sDu" firstAttribute="height" secondItem="MGH-0h-ZBE" secondAttribute="height" id="Clm-ZB-Cwq"/>
+                            <constraint firstItem="CNg-xW-Bik" firstAttribute="top" secondItem="f97-gM-uCP" secondAttribute="bottom" constant="100" id="FGj-rz-Yxa"/>
+                            <constraint firstItem="0IH-rl-sDu" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="KCW-Xp-PL0"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="f97-gM-uCP" secondAttribute="trailing" constant="162" id="Sdn-sw-flB"/>
-                            <constraint firstItem="CNg-xW-Bik" firstAttribute="top" secondItem="f97-gM-uCP" secondAttribute="bottom" constant="152" id="Wt5-1H-tJW"/>
                             <constraint firstItem="f97-gM-uCP" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="161" id="XAz-ko-zYd"/>
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="21" id="Xa2-hx-okX"/>
                             <constraint firstItem="MGH-0h-ZBE" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="bhx-mj-jmt"/>
                             <constraint firstItem="Eeo-vs-Qkh" firstAttribute="trailing" secondItem="EWV-rU-jIe" secondAttribute="trailing" constant="37" id="eA6-ZG-hwV"/>
                             <constraint firstItem="f97-gM-uCP" firstAttribute="top" secondItem="EWV-rU-jIe" secondAttribute="bottom" constant="7" id="eba-xC-hjk"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="top" secondItem="Eeo-vs-Qkh" secondAttribute="top" constant="214" id="gec-1y-DyS"/>
+                            <constraint firstItem="0IH-rl-sDu" firstAttribute="width" secondItem="MGH-0h-ZBE" secondAttribute="width" id="jUi-XK-tIj"/>
+                            <constraint firstItem="Eeo-vs-Qkh" firstAttribute="bottom" secondItem="0IH-rl-sDu" secondAttribute="bottom" constant="20" id="k37-jX-Pka"/>
+                            <constraint firstItem="MGH-0h-ZBE" firstAttribute="top" secondItem="CNg-xW-Bik" secondAttribute="bottom" constant="11" id="kcv-c0-Ooq"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="leading" secondItem="Eeo-vs-Qkh" secondAttribute="leading" constant="37" id="sVo-G8-mnz"/>
                             <constraint firstItem="EWV-rU-jIe" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="thi-iw-HIb"/>
                             <constraint firstItem="CNg-xW-Bik" firstAttribute="centerX" secondItem="Eeo-vs-Qkh" secondAttribute="centerX" id="viF-8g-PXt"/>

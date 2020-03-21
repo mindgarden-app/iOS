@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import NVActivityIndicatorView
+import AuthenticationServices
 
 class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewable {
     
@@ -20,6 +21,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var emailLoginBtn: UIButton!
+    @IBOutlet var appleLoginView: UIView!
     
     var slides: [DescriptionSlide] = [];
     var webView: WKWebView!
@@ -35,6 +37,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         slides = createSlides()
         setupSlideScrollView(slides: slides)
         emailLoginBtn.makeRounded(cornerRadius: 4)
+        addAppleLoginButton()
     }
     
     func createSlides() -> [DescriptionSlide] {
@@ -71,6 +74,7 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         let pageIndex = round(descriptionSV.contentOffset.x/301)
         pageControl.currentPage = Int(pageIndex)
     }
+    
     @IBAction func emailLoginBtnAction(_ sender: Any) {
         let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "EmailLoginVC")
         
@@ -87,6 +91,33 @@ class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewab
         webView.navigationDelegate = self
         webView.load(request as URLRequest)
         self.view.addSubview(webView)
+    }
+    
+    func addAppleLoginButton() {
+        if #available(iOS 13.0, *) {
+            let button = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline)
+            button.addTarget(self, action: #selector(handleAppleSignInButton), for: .touchUpInside)
+            appleLoginView.addSubview(button)
+            
+            button.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                button.centerXAnchor.constraint(equalTo: appleLoginView.centerXAnchor),
+                button.centerYAnchor.constraint(equalTo: appleLoginView.centerYAnchor),
+                button.widthAnchor.constraint(equalToConstant: appleLoginView.frame.size.width),
+                button.heightAnchor.constraint(equalToConstant: appleLoginView.frame.size.height)
+            ])
+        }
+    }
+    
+    @objc func handleAppleSignInButton() {
+        if #available(iOS 13.0, *) {
+            let request = ASAuthorizationAppleIDProvider().createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+            controller.delegate = self as? ASAuthorizationControllerDelegate
+            controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+            controller.performRequests()
+        }
     }
     
     @IBAction func unwindToLogin(_ unwindSegue : UIStoryboardSegue) {}
@@ -151,4 +182,63 @@ extension LoginVC: WKNavigationDelegate {
             }
         }
     }
+}
+
+@available(iOS 13.0, *)
+extension LoginVC: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+         switch authorization.credential {
+           case let appleIDCredential as ASAuthorizationAppleIDCredential:
+               
+               let userIdentifier = appleIDCredential.user
+               let fullName = appleIDCredential.fullName
+               let email = appleIDCredential.email
+               
+            
+            
+               print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+               print("\(appleIDCredential.authorizationCode! as NSData),, \(appleIDCredential.identityToken! as NSData)")
+               // For the purpose of this demo app, store the `userIdentifier` in the keychain.
+//               self.saveUserInKeychain(userIdentifier)
+               
+               // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`
+           
+           case let passwordCredential as ASPasswordCredential:
+           
+               // Sign in using an existing iCloud Keychain credential.
+               let username = passwordCredential.user
+               let password = passwordCredential.password
+               
+               // For the purpose of this demo app, show the password credential as an alert.
+               DispatchQueue.main.async {
+                   //alert
+               }
+               
+           default:
+               break
+           }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        
+    }
+    
+//    private func registerNewAccount(credential: ASAuthorizationAppleIDCredential) {
+//        let userData = UserData(email: credential.email!, name: credential.fullName!, identifier: credential.user)
+//
+//        let keychain = UserDataKeychain()
+//
+//        // icloud 넣기
+//        do {
+//            try keychain.store(userData)
+//        } catch {
+//            // fail
+//        }
+//
+//        do {
+//            let success = try WebApi.Register( user: userData, identityToken: credential.identityToken, authorizationCode: credential.authorizationCode )
+//            self.signInSucceeded(success)
+//
+//        } catch { self.signInSucceeded(false) }
+//    }
 }
