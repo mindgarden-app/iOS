@@ -25,43 +25,88 @@ struct AuthService {
         
         Alamofire.request(APIConstants.LoginURL, method: .post, parameters: body, encoding: URLEncoding.httpBody, headers: header)
             .responseData { response in
-                print(response)
                 switch response.result {
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseArray<Login>.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        completion(.success(result.data![0]))
-                                    case false:
-                                        completion(.requestErr(result.message))
-                                    }
-                                } catch {
-                                    completion(.pathErr)
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(ResponseArray<Login>.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                    completion(.success(result.data![0]))
+                                                case false:
+                                                    completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
                                 }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
-                                
-                            default:
-                                break
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
+        }
+    }
+    
+    func appleLogin(fullName: String?, email: String?, user: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let body: Parameters = [
+            "fullName": fullName,
+            "email": email,
+            "user": user
+        ]
+        
+        Alamofire.request(APIConstants.AppleLogin, method: .post, parameters: body, encoding: URLEncoding.httpBody, headers: header).responseData { response in
+                switch response.result {
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(ResponseArray<Login>.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                    completion(.success(result.data![0]))
+                                                case false:
+                                                    completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
+                                    }
+                            }
+                        }
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
+            }
         }
     }
     
@@ -75,44 +120,40 @@ struct AuthService {
         
         Alamofire.request(APIConstants.SignupURL, method: .post, parameters: body, encoding: URLEncoding.httpBody, headers: header)
             .responseData { response in
-                print(response)
                 switch response.result {
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(DefaultRes.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        print(result.message)
-                                        completion(.success(result.message))
-                                    case false:
-                                        print(result.message)
-                                        completion(.requestErr(result.message))
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(DefaultRes.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                completion(.success(result.message))
+                                                case false:
+                                                completion(.requestErr(result.message))
+                                        }
+                                    } catch {
+                                        completion(.pathErr)
                                     }
-                                } catch {
+                                case 400:
                                     completion(.pathErr)
+                                case 500:
+                                    completion(.serverErr)
+                                    
+                                default:
+                                    break
                                 }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
-                                
-                            default:
-                                break
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
         }
     }
@@ -126,44 +167,40 @@ struct AuthService {
         
         Alamofire.request(APIConstants.refreshTokenURL, method: .post, parameters: nil, encoding: URLEncoding.httpBody, headers: header_incld_token)
             .responseData { response in
-                print(response)
                 switch response.result {
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseArray<Token>.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        print(result.message)
-                                        completion(.success(result.data![0]))
-                                    case false:
-                                        print(result.message)
-                                        completion(.requestErr(result.message))
-                                    }
-                                } catch {
-                                    completion(.pathErr)
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(ResponseArray<Token>.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                completion(.success(result.data![0]))
+                                                case false:
+                                                completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
                                 }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
-                                
-                            default:
-                                break
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
         }
     }
@@ -178,42 +215,39 @@ struct AuthService {
             .responseData { response in
                 print(response)
                 switch response.result {
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseString.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        print(result.message)
-                                        completion(.success(result.message))
-                                    case false:
-                                        print(result.message)
-                                        completion(.requestErr(result.message))
-                                    }
-                                } catch {
-                                    completion(.pathErr)
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(ResponseString.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                completion(.success(result.message))
+                                                case false:
+                                                completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
                                 }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
-                                
-                            default:
-                                break
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
         }
     }
@@ -227,43 +261,40 @@ struct AuthService {
         Alamofire.request(APIConstants.ResetPasscodeURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header_incld_token)
             .responseData { response in
                 switch response.result {
-                    
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(ResponseString.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        completion(.success(result.data))
-                                    case false:
-                                        completion(.requestErr(result.message))
-                                    }
-                                } catch {
-                                    print(error)
-                                    completion(.pathErr)
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(ResponseString.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                        completion(.success(result.data))
+                                                case false:
+                                                    completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            print(error)
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
                                 }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
-                                
-                            default:
-                                break
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
         }
     }
@@ -279,42 +310,40 @@ struct AuthService {
         Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: header_incld_token)
             .responseData { response in
                 switch response.result {
-                    
-                case .success:
-                    if let value = response.result.value {
-                        if let status = response.response?.statusCode {
-                            
-                            switch status {
-                            case 200:
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let result = try decoder.decode(DefaultRes.self, from: value)
-                                    
-                                    switch result.success {
-                                    case true:
-                                        completion(.success(result.message))
-                                    case false:
-                                        completion(.requestErr(result.message))
-                                    }
-                                } catch {
-                                    completion(.pathErr)
-                                }
-                            case 400:
-                                completion(.pathErr)
-                            case 500:
-                                completion(.serverErr)
+                    case .success:
+                        if let value = response.result.value {
+                            if let status = response.response?.statusCode {
                                 
-                            default:
-                                break
+                                switch status {
+                                    case 200:
+                                        do {
+                                            let decoder = JSONDecoder()
+                                            let result = try decoder.decode(DefaultRes.self, from: value)
+                                            
+                                            switch result.success {
+                                                case true:
+                                                    completion(.success(result.message))
+                                                case false:
+                                                    completion(.requestErr(result.message))
+                                            }
+                                        } catch {
+                                            completion(.pathErr)
+                                        }
+                                    case 400:
+                                        completion(.pathErr)
+                                    case 500:
+                                        completion(.serverErr)
+                                        
+                                    default:
+                                        break
+                                }
                             }
                         }
-                    }
-                    break
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    completion(.networkFail)
-                    break
+                        break
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                        completion(.networkFail)
+                        break
                 }
         }
     }
