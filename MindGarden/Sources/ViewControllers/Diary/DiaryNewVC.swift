@@ -46,7 +46,6 @@ class DiaryNewVC: UIViewController {
     var galleryBtnMaxY: CGFloat!
     var scrollViewContentSize: CGFloat = 0;
     var scrollViewContentSizeWithText: CGFloat = 0;
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +62,13 @@ class DiaryNewVC: UIViewController {
         inputTextView.delegate = self
         
         self.hideKeyboardWhenTappedAround()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification , object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification , object: nil)
+        registerNotifications()
+    }
+    
+    func registerNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification , object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification , object: nil)
     }
     
     func setNavigationBar() {
@@ -113,50 +116,50 @@ class DiaryNewVC: UIViewController {
     func getData() {
         DiaryService.shared.getDiary(diaryIdx: diaryIdx) { data in
             switch data {
-            case .success(let res):
-                self.diary = res as? Diary
-                self.setData()
-                if self.diary.diary_img != nil {
-                    self.setImageView()
-                }
-                break
-            case .requestErr(let err):
-                print(err)
-                if String(describing: err) == "만료된 토큰입니다." {
-                    AuthService.shared.refreshAccesstoken() { [weak self] data in
-                        guard let `self` = self else { return }
-                        
-                        switch data {
-                        case .success(let res):
-                            let data = res as! Token
-                            print(res)
-                            UserDefaults.standard.set(data.token, forKey: "token")
-                            break
-                        case .requestErr(let err):
-                            print(".requestErr(\(err))")
-                            break
-                        case .pathErr:
-                            print("경로 에러")
-                            break
-                        case .serverErr:
-                            print("서버 에러")
-                            break
-                        case .networkFail:
-                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                            break
+                case .success(let res):
+                    self.diary = res as? Diary
+                    self.setData()
+                    if self.diary.diary_img != nil {
+                        self.setImageView()
+                    }
+                    break
+                case .requestErr(let err):
+                    print(err)
+                    if String(describing: err) == "만료된 토큰입니다." {
+                        AuthService.shared.refreshAccesstoken() { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Token
+                                    print(res)
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
                         }
                     }
-                }
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
             }
         }
     }
@@ -173,6 +176,20 @@ class DiaryNewVC: UIViewController {
         inputTextView.textContainerInset = UIEdgeInsets.zero
         inputTextView.textContainer.lineFragmentPadding = 0
         inputTextViewHeightConstraint.constant = inputTextView.contentSize.height + 36
+        scrollViewContentSize = inputTextView.frame.maxY
+        
+        if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
+            imageView.frame = CGRect(x: imageView.frame.origin.x, y: 150 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
+        }
+        scrollViewContentSizeWithText = scrollViewContentSize + inputTextViewHeightConstraint.constant
+//        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSizeWithText)
+        scrollView.isScrollEnabled = true
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: 3000)
+        
+        print(inputTextView.contentSize.height)
+        print(scrollViewContentSize)
+        print(self.inputTextView.contentSize.height)
+        print("\(scrollViewContentSizeWithText) 1111")
     }
     
     func setImageView() {
@@ -225,65 +242,65 @@ class DiaryNewVC: UIViewController {
             data in
             
             switch data {
-            case .success(let message):
-                if String(describing: message) == "이미 일기를 등록 하셨습니다!" {
-                    self.simpleAlertWithPop(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
+                case .success(let message):
+                    if String(describing: message) == "이미 일기를 등록 하셨습니다!" {
+                        self.simpleAlertWithPop(title: "Oops!", message: "일기는 하루에 하나만 쓸 수 있어요!ㅠㅠ")
+                        
+                        break
+                    }
+                    
+                    let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
+                    
+                    var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                    
+                    if self.location == .main {
+                        viewControllers.removeLast(1)
+                    } else {
+                        viewControllers.removeLast(2)
+                    }
+
+                    viewControllers.append(dvc)
+                    
+                    self.navigationController?.setViewControllers(viewControllers, animated: false)
                     
                     break
-                }
-                
-                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC")
-                
-                var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-                
-                if self.location == .main {
-                    viewControllers.removeLast(1)
-                } else {
-                    viewControllers.removeLast(2)
-                }
-
-                viewControllers.append(dvc)
-                
-                self.navigationController?.setViewControllers(viewControllers, animated: false)
-                
-                break
-            case .requestErr(let err):
-                print(err)
-                if String(describing: err) == "만료된 토큰입니다." {
-                    AuthService.shared.refreshAccesstoken() { [weak self] data in
-                        guard let `self` = self else { return }
-                        
-                        switch data {
-                        case .success(let res):
-                            let data = res as! Token
-                            print(res)
-                            UserDefaults.standard.set(data.token, forKey: "token")
-                            break
-                        case .requestErr(let err):
-                            print(".requestErr(\(err))")
-                            break
-                        case .pathErr:
-                            print("경로 에러")
-                            break
-                        case .serverErr:
-                            print("서버 에러")
-                            break
-                        case .networkFail:
-                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                            break
+                case .requestErr(let err):
+                    print(err)
+                    if String(describing: err) == "만료된 토큰입니다." {
+                        AuthService.shared.refreshAccesstoken() { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Token
+                                    print(res)
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
                         }
                     }
-                }
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
             }
         }
     }
@@ -300,75 +317,88 @@ class DiaryNewVC: UIViewController {
             data in
             
             switch data {
-            case .success(_):
-                
-                let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC") as! DiaryListVC
-                
-                var viewControllers: [UIViewController] = self.navigationController!.viewControllers
-                
-                viewControllers.removeLast(3)
-                
-                viewControllers.append(dvc)
-                
-                
-                dvc.inputDate = Calendar.current.dateComponents([.year, .month], from: self.inputDate)
-                
-                self.navigationController?.setViewControllers(viewControllers, animated: false)
-                
-                break
-            case .requestErr(let err):
-                print(err)
-                if String(describing: err) == "만료된 토큰입니다." {
-                    AuthService.shared.refreshAccesstoken() { [weak self] data in
-                        guard let `self` = self else { return }
-                        
-                        switch data {
-                        case .success(let res):
-                            let data = res as! Token
-                            print(res)
-                            UserDefaults.standard.set(data.token, forKey: "token")
-                            break
-                        case .requestErr(let err):
-                            print(".requestErr(\(err))")
-                            break
-                        case .pathErr:
-                            print("경로 에러")
-                            break
-                        case .serverErr:
-                            print("서버 에러")
-                            break
-                        case .networkFail:
-                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                            break
+                case .success(_):
+                    
+                    let dvc = UIStoryboard(name: "Diary", bundle: nil).instantiateViewController(withIdentifier: "DiaryListVC") as! DiaryListVC
+                    
+                    var viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                    
+                    viewControllers.removeLast(3)
+                    
+                    viewControllers.append(dvc)
+                    
+                    
+                    dvc.inputDate = Calendar.current.dateComponents([.year, .month], from: self.inputDate)
+                    
+                    self.navigationController?.setViewControllers(viewControllers, animated: false)
+                    
+                    break
+                case .requestErr(let err):
+                    print(err)
+                    if String(describing: err) == "만료된 토큰입니다." {
+                        AuthService.shared.refreshAccesstoken() { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Token
+                                    print(res)
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
                         }
                     }
-                }
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
             }
         }
         
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        var userInfo = notification.userInfo!
+        
+        if let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
             galleryBtnMinY = galleryBtnMaxY - keyboardSize.size.height
         }
+        
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+        scrollView.scrollIndicatorInsets = contentInset
     }
-    
+
     @objc func keyboardWillHide(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: (galleryBtnMinY == nil ? 746 :  galleryBtnMinY + keyboardSize.size.height), width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
         }
+    
+        scrollView.contentInset.bottom = 0
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
 
