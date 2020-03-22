@@ -54,4 +54,8 @@ extension UIColor {
         return UIColor(red: 255.0 / 255.0, green: 61.0 / 255.0, blue: 50.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var springPink: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 182.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0)
+    }
+    
 }

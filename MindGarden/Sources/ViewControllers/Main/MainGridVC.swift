@@ -21,18 +21,17 @@ class MainGridVC: UIViewController {
     let treeInventoryCellSize = 55
     let gardenGridSpacing: CGFloat = 7
     let treeInventorySpacing: CGFloat = 8
+    let gridIdxArr: [Int] = [1, 3, 6, 10, 14, 18, 2, 5, 9, 13, 17, 22, 4, 8, 0, 0, 21, 26, 7, 12, 0, 0, 25, 29, 11, 16, 20, 24, 28, 31, 15, 19, 23, 27, 30, 32]
+    let gridInverseIdxArr: [Int] = [0, 6, 1, 12, 7, 2, 18, 13, 8, 3, 24, 19, 9, 4, 30, 25, 10, 5, 31, 26, 16, 11, 32, 27, 22, 17, 33, 28, 23, 34, 29, 35]
+    let treeImageArr: [String] = ["ios_tree1", "ios_tree2", "ios_tree3", "ios_tree4", "ios_tree5", "ios_tree6", "ios_tree7", "ios_tree8", "ios_tree9", "ios_tree10", "ios_tree11", "ios_tree12", "ios_tree13", "ios_tree14", "ios_tree15", "ios_tree16"]
+    let springTreeImageArr: [String] = ["ios_spring_tree1", "ios_spring_tree2", "ios_spring_tree3", "ios_spring_tree4", "ios_spring_tree5", "ios_spring_tree6", "ios_spring_tree7", "ios_spring_tree8", "ios_spring_tree9", "ios_spring_tree10", "ios_spring_tree11", "ios_spring_tree12", "ios_spring_tree13", "ios_spring_tree14", "ios_spring_tree15", "ios_spring_tree16"]
     
+    var isSpring: Bool = false
     var date: String!
     var selectedTree: Int? = nil
     var selectedGrid: Int? = nil
     var treeList: [Tree]!
     var treeDict: Dictionary = [Int: Tree]()
-    
-    let gridIdxArr: [Int] = [1, 3, 6, 10, 14, 18, 2, 5, 9, 13, 17, 22, 4, 8, 0, 0, 21, 26, 7, 12, 0, 0, 25, 29, 11, 16, 20, 24, 28, 31, 15, 19, 23, 27, 30, 32]
-    let gridInverseIdxArr: [Int] = [0, 6, 1, 12, 7, 2, 18, 13, 8, 3, 24, 19, 9, 4, 30, 25, 10, 5, 31, 26, 16, 11, 32, 27, 22, 17, 33, 28, 23, 34, 29, 35]
-    
-    let treeImageArr: [String] = ["ios_tree1", "ios_tree2", "ios_tree3", "ios_tree4", "ios_tree5", "ios_tree6", "ios_tree7", "ios_tree8", "ios_tree9", "ios_tree10", "ios_tree11", "ios_tree12", "ios_tree13", "ios_tree14", "ios_tree15", "ios_tree16"]
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,62 +60,62 @@ class MainGridVC: UIViewController {
             guard let `self` = self else { return }
             
             switch data {
-            case .success(let res):
-                self.treeList = res as! [Tree]
-                //-- 서버의 중복 데이터때문에 추가한 코드 (서버 수정 시 삭제)
-                var uniqueTreeList: [Tree] = []
-                self.treeList.forEach{(tree) -> () in
-                    if !uniqueTreeList.contains(where: {$0.location == tree.location}) {
-                        uniqueTreeList.append(tree)
-                    }
-                }
-                //--
-                
-                do {
-                    try self.treeDict = Dictionary(uniqueKeysWithValues: uniqueTreeList.map { ($0.location, $0) })
-
-                    self.gardenGridCV.reloadData()
-                } catch {
-                    self.simpleAlert(title: "Oops!", message: "서버 수정 중입니다")
-                }
-                break
-            case .requestErr(let err):
-                print(".requestErr(\(err))")
-                if String(describing: err) == "만료된 토큰입니다." {
-                    AuthService.shared.refreshAccesstoken() { [weak self] data in
-                        guard let `self` = self else { return }
-                        
-                        switch data {
-                        case .success(let res):
-                            let data = res as! Token
-                            print(res)
-                            UserDefaults.standard.set(data.token, forKey: "token")
-                            break
-                        case .requestErr(let err):
-                            print(".requestErr(\(err))")
-                            break
-                        case .pathErr:
-                            print("경로 에러")
-                            break
-                        case .serverErr:
-                            print("서버 에러")
-                            break
-                        case .networkFail:
-                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                            break
+                case .success(let res):
+                    self.treeList = res as! [Tree]
+                    //-- 서버의 중복 데이터때문에 추가한 코드 (서버 수정 시 삭제)
+                    var uniqueTreeList: [Tree] = []
+                    self.treeList.forEach{(tree) -> () in
+                        if !uniqueTreeList.contains(where: {$0.location == tree.location}) {
+                            uniqueTreeList.append(tree)
                         }
                     }
-                }
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+                    //--
+                    
+                    do {
+                        try self.treeDict = Dictionary(uniqueKeysWithValues: uniqueTreeList.map { ($0.location, $0) })
+
+                        self.gardenGridCV.reloadData()
+                    } catch {
+                        self.simpleAlert(title: "Oops!", message: "서버 수정 중입니다")
+                    }
+                    break
+                case .requestErr(let err):
+                    print(".requestErr(\(err))")
+                    if String(describing: err) == "만료된 토큰입니다." {
+                        AuthService.shared.refreshAccesstoken() { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Token
+                                    print(res)
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
+                        }
+                    }
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
             }
         }
     }
@@ -164,52 +163,52 @@ class MainGridVC: UIViewController {
             data in
             
             switch data {
-            case .success(let message):
-                let messageStr = String(describing: message)
-                if messageStr == "일기를 써야 심을 수 있어요!" {
-                    self.simpleAlertWithPop(title: "Oops!", message: messageStr)
-                } else if messageStr == "이미 심으셨습니다!" {
-                    self.simpleAlertWithPop(title: "Oops!", message: messageStr)
-                } else {
-                    self.simpleAlertWithPop(title: "성공!", message: "오늘의 나무를 심으셨습니다.")
-                }
-                break
-            case .requestErr(let err):
-                if String(describing: err) == "만료된 토큰입니다." {
-                    AuthService.shared.refreshAccesstoken() { [weak self] data in
-                        guard let `self` = self else { return }
-                        
-                        switch data {
-                        case .success(let res):
-                            let data = res as! Token
-                            print(res)
-                            UserDefaults.standard.set(data.token, forKey: "token")
-                            break
-                        case .requestErr(let err):
-                            print(".requestErr(\(err))")
-                            break
-                        case .pathErr:
-                            print("경로 에러")
-                            break
-                        case .serverErr:
-                            print("서버 에러")
-                            break
-                        case .networkFail:
-                            self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                            break
+                case .success(let message):
+                    let messageStr = String(describing: message)
+                    if messageStr == "일기를 써야 심을 수 있어요!" {
+                        self.simpleAlertWithPop(title: "Oops!", message: messageStr)
+                    } else if messageStr == "이미 심으셨습니다!" {
+                        self.simpleAlertWithPop(title: "Oops!", message: messageStr)
+                    } else {
+                        self.simpleAlertWithPop(title: "성공!", message: "오늘의 나무를 심으셨습니다.")
+                    }
+                    break
+                case .requestErr(let err):
+                    if String(describing: err) == "만료된 토큰입니다." {
+                        AuthService.shared.refreshAccesstoken() { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Token
+                                    print(res)
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
                         }
                     }
-                }
-                break
-            case .pathErr:
-                print("경로 에러")
-                break
-            case .serverErr:
-                print("서버 에러")
-                break
-            case .networkFail:
-                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
-                break
+                    break
+                case .pathErr:
+                    print("경로 에러")
+                    break
+                case .serverErr:
+                    print("서버 에러")
+                    break
+                case .networkFail:
+                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                    break
             }
         }
     }
@@ -217,9 +216,7 @@ class MainGridVC: UIViewController {
 
 
 extension MainGridVC: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if collectionView == self.gardenGridCV {
             return gardenGridNum
         } else {
@@ -236,18 +233,18 @@ extension MainGridVC: UICollectionViewDataSource {
 
             if treeDict.keys.contains(gridIdxArr[indexPath.row]) {
                 let treeIdx: Int = treeDict[gridIdxArr[indexPath.row]]!.treeIdx
-                cell.treeImageView.image = UIImage(named: treeIdx == 16 ? "ios_weeds" : "ios_tree\(treeIdx + 1)")
+                cell.treeImageView.image = UIImage(named: treeIdx == 16 ? (isSpring ? "ios_spring_weeds": "ios_weeds") : "ios_tree\(treeIdx + 1)")
                 cell.backgroundColor = UIColor.white
             } else if selectedGrid == indexPath.row {
                 cell.backgroundColor = UIColor.lightGreenForGrid
-                cell.treeImageView.image = UIImage(named: treeImageArr[selectedTree!])
+                cell.treeImageView.image = UIImage(named: isSpring ? springTreeImageArr[selectedTree!] : treeImageArr[selectedTree!])
             } else {
                 cell.backgroundColor = UIColor.white
                 cell.treeImageView.image = nil
             }
             
         } else {
-            cell.treeImageView.image = UIImage(named: treeImageArr[indexPath.row])
+            cell.treeImageView.image = UIImage(named: isSpring ? springTreeImageArr[indexPath.row] : treeImageArr[indexPath.row])
             cell.backgroundColor = UIColor.whiteForBorder
             cell.makeRounded(cornerRadius: 4)
             
@@ -295,7 +292,6 @@ extension MainGridVC: UICollectionViewDelegate {
 extension MainGridVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let width: CGFloat!
         let height: CGFloat!
         
@@ -311,7 +307,6 @@ extension MainGridVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         if collectionView == self.gardenGridCV {
             return gardenGridSpacing
         } else {
@@ -324,7 +319,6 @@ extension MainGridVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
         if collectionView == self.gardenGridCV {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
@@ -335,7 +329,6 @@ extension MainGridVC: UICollectionViewDelegateFlowLayout {
 
 extension MainGridVC : UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
         if (self.navigationController?.viewControllers.count)! > 1 {
             return true
         }
