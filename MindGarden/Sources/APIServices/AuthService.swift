@@ -65,11 +65,21 @@ struct AuthService {
     
     func appleLogin(fullName: String?, email: String?, user: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        let body: Parameters = [
-            "fullName": fullName,
-            "email": email,
-            "user": user
-        ]
+        let body: Parameters
+        
+        if (fullName != nil), (email != nil) {
+            body = [
+                "fullName": fullName!,
+                "email": email!,
+                "user": user
+            ]
+        } else {
+            body = [
+                "fullName": "",
+                "email": "",
+                "user": user
+            ]
+        }
         
         Alamofire.request(APIConstants.AppleLogin, method: .post, parameters: body, encoding: URLEncoding.httpBody, headers: header).responseData { response in
                 switch response.result {

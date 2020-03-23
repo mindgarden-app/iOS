@@ -191,36 +191,97 @@ extension LoginVC: ASAuthorizationControllerDelegate {
            case let appleIDCredential as ASAuthorizationAppleIDCredential:
                
                let userIdentifier = appleIDCredential.user
-               let fullName = appleIDCredential.fullName
-               let email = appleIDCredential.email
-               
-            
-            
-               print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
-               print("\(appleIDCredential.authorizationCode! as NSData),, \(appleIDCredential.identityToken! as NSData)")
-               // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-//               self.saveUserInKeychain(userIdentifier)
-               
-               // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`
-           
-           case let passwordCredential as ASPasswordCredential:
-           
-               // Sign in using an existing iCloud Keychain credential.
-               let username = passwordCredential.user
-               let password = passwordCredential.password
-               
-               // For the purpose of this demo app, show the password credential as an alert.
-               DispatchQueue.main.async {
-                   //alert
+               if let email: String = appleIDCredential.email, let fullName = appleIDCredential.fullName {
+                    let name = fullName.givenName
+                    AuthService.shared.appleLogin(fullName: name!, email: email, user: userIdentifier) { [weak self] data in
+                            guard let `self` = self else { return }
+                            
+                            switch data {
+                                case .success(let res):
+                                    let data = res as! Login
+                                    
+                                    print(data.token)
+                                    UserDefaults.standard.set(data.refreshToken, forKey: "refreshtoken")
+                                    UserDefaults.standard.set(data.token, forKey: "token")
+                                    UserDefaults.standard.set(data.email, forKey: "email")
+                                    UserDefaults.standard.set(data.name, forKey: "name")
+                                    
+                                    if UserDefaults.standard.bool(forKey: "암호 설정") {
+                                        let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                                        
+                                        dvc.mode = LockMode.validate
+                                        
+                                        self.navigationController!.pushViewController(dvc, animated: true)
+                                    } else {
+                                        let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                                        
+                                        self.navigationController!.pushViewController(dvc, animated: true)
+                                    }
+                                    
+                                    break
+                                case .requestErr(let err):
+                                    print(".requestErr(\(err))")
+                                    break
+                                case .pathErr:
+                                    print("경로 에러")
+                                    break
+                                case .serverErr:
+                                    print("서버 에러")
+                                    break
+                                case .networkFail:
+                                    self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                    break
+                            }
+                        }
+               } else {
+                    AuthService.shared.appleLogin(fullName: nil, email: nil, user: userIdentifier) { [weak self] data in
+                        guard let `self` = self else { return }
+                        
+                        switch data {
+                            case .success(let res):
+                                let data = res as! Login
+                                
+                                UserDefaults.standard.set(data.refreshToken, forKey: "refreshtoken")
+                                UserDefaults.standard.set(data.token, forKey: "token")
+                                UserDefaults.standard.set(data.email, forKey: "email")
+                                UserDefaults.standard.set(data.name, forKey: "name")
+                                
+                                if UserDefaults.standard.bool(forKey: "암호 설정") {
+                                    let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
+                                    
+                                    dvc.mode = LockMode.validate
+                                    
+                                    self.navigationController!.pushViewController(dvc, animated: true)
+                                } else {
+                                    let dvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+                                    
+                                    self.navigationController!.pushViewController(dvc, animated: true)
+                                }
+                                
+                                break
+                            case .requestErr(let err):
+                                print(".requestErr(\(err))")
+                                break
+                            case .pathErr:
+                                print("경로 에러")
+                                break
+                            case .serverErr:
+                                print("서버 에러")
+                                break
+                            case .networkFail:
+                                self.simpleAlert(title: "통신 실패", message: "네트워크 상태를 확인하세요.")
+                                break
+                        }
+                    }
                }
-               
-           default:
-               break
-           }
+         default:
+            break;
+        }
     }
     
+    // Handle error
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        
+        print(error.localizedDescription)
     }
     
 //    private func registerNewAccount(credential: ASAuthorizationAppleIDCredential) {
