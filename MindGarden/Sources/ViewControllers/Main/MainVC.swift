@@ -20,7 +20,7 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet var descriptionSecondLabel: UILabel!
    
     let descriptionArr: [[String]] = [["이번 달 정원도 잘 꾸며볼까요?", "함께 멋있는 정원을 만들어보아요."], ["오늘 기분은 어땠어요?", "정원이 조금씩 채워지고 있어요"], ["정원이 복작복작 해졌어요", "이번 달 마무리를 잘해봅시다!"], ["축하해요!", "정원을 멋지게 완성했네요"]]
-    let previousDescriptionArr: [[String]] = [["나무가 하나도 없어요", "정원이 휑하네요"], ["개의 나무를 심었네요", "많이 바빴나요?"], ["개의 나무를 심었네요", "꽤 멋있는데요!"], ["개의 나무를 심었네요", "수고했어요 짝짝짝"]]
+    let previousDescriptionArr: [[String]] = [["나무가 아직 없어요ㅠㅠ", "일기 쓰는 습관을 들여보아요 :)"], ["개의 나무를 심었네요", "많이 바빴나요?"], ["개의 나무를 심었네요", "꽤 멋있는데요!"], ["개의 나무를 심었네요", "수고했어요 짝짝짝"]]
     let springMonth: [Int] = [3, 4, 5]
     var dateStr: String = ""
     var inputDate: DateComponents!
