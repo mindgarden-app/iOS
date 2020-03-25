@@ -1,5 +1,7 @@
 # Mind Garden
 
+<div style="text-align:right">
+
 ### 2019 OPEN SOPT 24th iOS Project 
 
 소개 홈페이지 : https://dounik5802.wixsite.com/mind-garden
@@ -14,9 +16,13 @@
 
 - 매일 기록할 수록 정원이 더욱 풍요로워집니다.
 
+
+
   <img src="https://screenshot-for-github.s3.ap-northeast-2.amazonaws.com/mindgarden.jpeg" alt="drawing" width="400"/>
   
   <br/>
+  
+</div>
 
 ## Table of Contents
 
