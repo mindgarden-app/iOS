@@ -32,6 +32,7 @@ class DiaryNewVC: UIViewController {
     
     let picker = UIImagePickerController()
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
+    let fontSizeArr: [Float] = [13, 13.5, 14, 14.5, 15]
     
     var diary: Diary!
     var mode: DiaryMode!
@@ -104,6 +105,7 @@ class DiaryNewVC: UIViewController {
     func setTextView() {
         inputTextView.text = placeholder
         inputTextView.textColor = UIColor.lightGray
+        inputTextView.font = UIFont(name:"NotoSansCJKkr-DemiLight", size: CGFloat(fontSizeArr[UserDefaults.standard.integer(forKey: "fontSize")]))
         inputTextViewHeightConstraint.constant = self.inputTextView.contentSize.height + 36
         scrollViewContentSize = inputTextView.frame.maxY
     }
@@ -376,7 +378,7 @@ class DiaryNewVC: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        var userInfo = notification.userInfo!
+        let userInfo = notification.userInfo!
         
         if let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)

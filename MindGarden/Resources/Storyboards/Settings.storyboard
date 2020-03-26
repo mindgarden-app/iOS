@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Regular.otf">
+            <string>NotoSansCJKkr-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--환경설정-->
         <scene sceneID="zy1-Tc-arG">
@@ -195,6 +200,233 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBB-Ly-30t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-487.19999999999999" y="542.36453201970448"/>
+        </scene>
+        <!--Settings Pop UpVC-->
+        <scene sceneID="d1l-Au-Qkx">
+            <objects>
+                <viewController storyboardIdentifier="SettingsPopUpVC" id="G5t-Dx-n5C" customClass="SettingsPopUpVC" customModule="MindGarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cgg-WV-Eoc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nok-Ke-5a0">
+                                <rect key="frame" x="56" y="303" width="263" height="216"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzF-EK-mbE" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="26" width="92" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="92" id="Vi7-Pf-Vg8"/>
+                                            <constraint firstAttribute="height" constant="19" id="lQ4-ro-MgJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13"/>
+                                        <state key="normal" title="아주 작게">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="G5t-Dx-n5C" eventType="touchUpInside" id="t2Q-a6-mIE"/>
+                                            <outletCollection property="otherButtons" destination="cuY-R3-JYX" id="v31-jc-5qn"/>
+                                            <outletCollection property="otherButtons" destination="joh-yx-aIb" id="EBq-IF-M1D"/>
+                                            <outletCollection property="otherButtons" destination="wVm-v8-IVY" id="jeQ-MC-QBA"/>
+                                            <outletCollection property="otherButtons" destination="Cbd-na-VwM" id="8Xb-BY-e1a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVm-v8-IVY" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="104" width="87" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9JO-fU-AyA"/>
+                                            <constraint firstAttribute="width" constant="87" id="e7Y-a9-Bds"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                        <state key="normal" title="보통">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="G5t-Dx-n5C" eventType="touchUpInside" id="uB8-ZV-M8E"/>
+                                            <outletCollection property="otherButtons" destination="BzF-EK-mbE" id="IaN-DA-1dl"/>
+                                            <outletCollection property="otherButtons" destination="cuY-R3-JYX" id="tGR-tV-FsU"/>
+                                            <outletCollection property="otherButtons" destination="joh-yx-aIb" id="M2a-RD-2mT"/>
+                                            <outletCollection property="otherButtons" destination="Cbd-na-VwM" id="iYo-IV-fjJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joh-yx-aIb" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="143" width="101" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="101" id="PWa-LP-UzZ"/>
+                                            <constraint firstAttribute="height" constant="22" id="Xzm-6B-Kvy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14.5"/>
+                                        <state key="normal" title="크게">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="G5t-Dx-n5C" eventType="touchUpInside" id="DaM-XG-zqj"/>
+                                            <outletCollection property="otherButtons" destination="BzF-EK-mbE" id="rMY-Hr-Um6"/>
+                                            <outletCollection property="otherButtons" destination="cuY-R3-JYX" id="eda-NI-qZu"/>
+                                            <outletCollection property="otherButtons" destination="wVm-v8-IVY" id="Y6z-pc-5oS"/>
+                                            <outletCollection property="otherButtons" destination="Cbd-na-VwM" id="nHB-eI-iuD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbd-na-VwM" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="182" width="129" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="pNV-JC-Ga0"/>
+                                            <constraint firstAttribute="width" constant="129" id="xbb-4o-NvX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
+                                        <state key="normal" title="아주 크게">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="G5t-Dx-n5C" eventType="touchUpInside" id="CS5-Ki-Ju0"/>
+                                            <outletCollection property="otherButtons" destination="BzF-EK-mbE" id="coY-MI-GnK"/>
+                                            <outletCollection property="otherButtons" destination="cuY-R3-JYX" id="TzA-b7-l68"/>
+                                            <outletCollection property="otherButtons" destination="wVm-v8-IVY" id="vNw-ne-q6v"/>
+                                            <outletCollection property="otherButtons" destination="joh-yx-aIb" id="X4f-3L-gzv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuY-R3-JYX" customClass="DLRadioButton">
+                                        <rect key="frame" x="24" y="65" width="129" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Q6t-VG-ZSD"/>
+                                            <constraint firstAttribute="width" constant="129" id="vl5-LV-yUh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="13.5"/>
+                                        <state key="normal" title="작게">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.47058823529999999" green="0.87058823529999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fontBtnAction:" destination="G5t-Dx-n5C" eventType="touchUpInside" id="gn9-RW-E9K"/>
+                                            <outletCollection property="otherButtons" destination="BzF-EK-mbE" id="1rs-7J-FUA"/>
+                                            <outletCollection property="otherButtons" destination="wVm-v8-IVY" id="UlQ-jb-Fw8"/>
+                                            <outletCollection property="otherButtons" destination="joh-yx-aIb" id="3Z0-l4-N1n"/>
+                                            <outletCollection property="otherButtons" destination="Cbd-na-VwM" id="gfu-p8-Xv1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="4bW-qo-ZGa"/>
+                                    <constraint firstItem="Cbd-na-VwM" firstAttribute="leading" secondItem="Nok-Ke-5a0" secondAttribute="leading" constant="24" id="8Ki-jr-tdl"/>
+                                    <constraint firstItem="wVm-v8-IVY" firstAttribute="top" secondItem="cuY-R3-JYX" secondAttribute="bottom" constant="19" id="9bH-hm-JwE"/>
+                                    <constraint firstItem="BzF-EK-mbE" firstAttribute="leading" secondItem="Nok-Ke-5a0" secondAttribute="leading" constant="24" id="D2N-C4-hTq"/>
+                                    <constraint firstItem="joh-yx-aIb" firstAttribute="top" secondItem="wVm-v8-IVY" secondAttribute="bottom" constant="19" id="DOM-cH-WUD"/>
+                                    <constraint firstAttribute="height" constant="216" id="G98-m8-MHC"/>
+                                    <constraint firstItem="cuY-R3-JYX" firstAttribute="top" secondItem="BzF-EK-mbE" secondAttribute="bottom" constant="20" id="GqA-Rz-eVn"/>
+                                    <constraint firstItem="Cbd-na-VwM" firstAttribute="top" secondItem="joh-yx-aIb" secondAttribute="bottom" constant="17" id="It1-yg-kK6"/>
+                                    <constraint firstItem="joh-yx-aIb" firstAttribute="leading" secondItem="Nok-Ke-5a0" secondAttribute="leading" constant="24" id="QIc-kN-X97"/>
+                                    <constraint firstItem="BzF-EK-mbE" firstAttribute="top" secondItem="Nok-Ke-5a0" secondAttribute="top" constant="26" id="a9D-12-jQ6"/>
+                                    <constraint firstItem="cuY-R3-JYX" firstAttribute="leading" secondItem="Nok-Ke-5a0" secondAttribute="leading" constant="24" id="gzQ-fs-N4y"/>
+                                    <constraint firstItem="wVm-v8-IVY" firstAttribute="leading" secondItem="Nok-Ke-5a0" secondAttribute="leading" constant="24" id="hKV-ht-bfk"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cbd-na-VwM" secondAttribute="bottom" constant="12" id="wWj-xf-ekW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h0x-Jz-yCr" firstAttribute="trailing" secondItem="Nok-Ke-5a0" secondAttribute="trailing" constant="56" id="XbX-iZ-mO6"/>
+                            <constraint firstItem="Nok-Ke-5a0" firstAttribute="centerY" secondItem="h0x-Jz-yCr" secondAttribute="centerY" id="ZfW-1w-Wxk"/>
+                            <constraint firstItem="Nok-Ke-5a0" firstAttribute="centerX" secondItem="Cgg-WV-Eoc" secondAttribute="centerX" id="h7d-S1-Ife"/>
+                            <constraint firstItem="Nok-Ke-5a0" firstAttribute="leading" secondItem="h0x-Jz-yCr" secondAttribute="leading" constant="56" id="k74-1v-mkV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h0x-Jz-yCr"/>
+                    </view>
+                    <connections>
+                        <outlet property="fontSizeBtn1" destination="BzF-EK-mbE" id="z70-W3-bSI"/>
+                        <outlet property="fontSizeBtn2" destination="cuY-R3-JYX" id="1B4-Oc-M12"/>
+                        <outlet property="fontSizeBtn3" destination="wVm-v8-IVY" id="eDY-yw-636"/>
+                        <outlet property="fontSizeBtn4" destination="joh-yx-aIb" id="qZo-6w-Mcy"/>
+                        <outlet property="fontSizeBtn5" destination="Cbd-na-VwM" id="HdB-Hr-Zqa"/>
+                        <outlet property="popUpView" destination="Nok-Ke-5a0" id="xAq-dR-lI0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgB-g5-QY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.19999999999999" y="1218.4729064039409"/>
         </scene>
     </scenes>
     <resources>

@@ -22,6 +22,8 @@ class DiaryDetailVC: UIViewController {
     @IBOutlet var bodyTextViewHeightConstraint: NSLayoutConstraint!
     
     let moodTextArr: [String] = ["좋아요", "신나요", "그냥 그래요", "심심해요", "재미있어요", "설레요", "별로예요", "우울해요", "짜증나요", "화가 나요", "기분 없음"]
+    let bodyFontSizeArr: [Float] = [13, 13.5, 14, 14.5, 15]
+    let timeFontSizeArr: [Float] = [12, 12.5, 13, 13.5, 14]
     
     var imageView: UIImageView!
     var weatherIdx: Int!
@@ -71,7 +73,6 @@ class DiaryDetailVC: UIViewController {
                 }
                 break
             case .requestErr(let err):
-                print(err)
                 if String(describing: err) == "만료된 토큰입니다." {
                     AuthService.shared.refreshAccesstoken() { [weak self] data in
                         guard let `self` = self else { return }
@@ -79,7 +80,7 @@ class DiaryDetailVC: UIViewController {
                         switch data {
                         case .success(let res):
                             let data = res as! Token
-                            print(res)
+                            
                             UserDefaults.standard.set(data.token, forKey: "token")
                             break
                         case .requestErr(let err):
@@ -128,6 +129,8 @@ class DiaryDetailVC: UIViewController {
         setNavigationBar(date: date)
         
         timeLabel.text = "\(String(format: "%02d", hour)):\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))"
+        timeLabel.font = UIFont(name:"NotoSansCJKkr-Bold", size: CGFloat(timeFontSizeArr[UserDefaults.standard.integer(forKey: "fontSize")]))
+        bodyTextView.font = UIFont(name:"NotoSansCJKkr-DemiLight", size: CGFloat(bodyFontSizeArr[UserDefaults.standard.integer(forKey: "fontSize")]))
         bodyTextView.text = diary.diary_content
         bodyTextView.textContainerInset = UIEdgeInsets.zero
         bodyTextView.textContainer.lineFragmentPadding = 0

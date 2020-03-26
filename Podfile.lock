@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.8.2)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
+  - DLRadioButton (1.4.12)
   - Fabric (1.10.2)
   - Firebase/Analytics (6.18.0):
     - Firebase/Core
@@ -77,6 +78,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - Crashlytics
+  - DLRadioButton (~> 1.4)
   - Fabric
   - Firebase/Analytics
   - Kingfisher
@@ -89,6 +91,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
   trunk:
     - Crashlytics
+    - DLRadioButton
     - Fabric
     - Firebase
     - FirebaseAnalytics
@@ -106,6 +109,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
   FirebaseAnalytics: 058d71e714a1a6804d9e0f25e3bb18e377a51579
@@ -122,6 +126,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: e59f15f7144ba5245b4a543c3f47659c4de62790
+PODFILE CHECKSUM: f70d0657702ae3c4a568b1ba1b5037c96aa77eae
 
 COCOAPODS: 1.9.0

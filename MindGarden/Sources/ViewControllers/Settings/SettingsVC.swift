@@ -16,7 +16,7 @@ class SettingsVC: UIViewController {
     var items = [
         [""],
         ["로그아웃", "계정 삭제"],
-        ["암호 설정", "알림 설정", "iCloud 백업 설정"],
+        ["암호 설정", "알림 설정", "글꼴 설정"],
         ["버전 정보"]
     ]
     
@@ -87,7 +87,7 @@ extension SettingsVC: UITableViewDataSource {
             
             return cell
         } else {
-            if indexPath.row < 2 {
+//            if indexPath.row < 2 {
                 let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsTVC") as! SettingsTVC
 
                 let settingsName = items[indexPath.section][indexPath.row]
@@ -97,20 +97,20 @@ extension SettingsVC: UITableViewDataSource {
                 cell.layer.borderColor = UIColor.whiteForBorder.cgColor
 
                 return cell
-            } else {
-                let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
-
-                let settingsName = items[indexPath.section][indexPath.row]
-
-                cell.settingsNameLabel.text = settingsName
-                cell.setSwitch()
-                
-                cell.delegate = self
-                cell.layer.borderWidth = 1
-                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
-
-                return cell
-            }
+//            } else {
+//                let cell = settingsTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
+//
+//                let settingsName = items[indexPath.section][indexPath.row]
+//
+//                cell.settingsNameLabel.text = settingsName
+//                cell.setSwitch()
+//
+//                cell.delegate = self
+//                cell.layer.borderWidth = 1
+//                cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+//
+//                return cell
+//            }
         }
     }
 }

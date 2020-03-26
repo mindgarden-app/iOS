@@ -21,6 +21,9 @@
 		DE06597122C9846400D000BC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE06597022C9846400D000BC /* Settings.storyboard */; };
 		DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597322C9E15E00D000BC /* Date+Extensions.swift */; };
 		DE06597722C9EE9600D000BC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06597622C9EE9600D000BC /* SettingsVC.swift */; };
+		DE16ED31242D209100F17AC1 /* SettingsFontTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16ED2F242D209100F17AC1 /* SettingsFontTVC.swift */; };
+		DE16ED32242D209100F17AC1 /* SettingsFontTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE16ED30242D209100F17AC1 /* SettingsFontTVC.xib */; };
+		DE16ED36242D235100F17AC1 /* SettingsPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16ED35242D235100F17AC1 /* SettingsPopUpVC.swift */; };
 		DE1992CD22CF71A9009B08F3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */; };
 		DE1C6DDB22D738860099477A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */; };
 		DE1C6DDD22D79B150099477A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6DDC22D79B150099477A /* AuthService.swift */; };
@@ -125,6 +128,9 @@
 		DE06597022C9846400D000BC /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		DE06597322C9E15E00D000BC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		DE06597622C9EE9600D000BC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DE16ED2F242D209100F17AC1 /* SettingsFontTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFontTVC.swift; sourceTree = "<group>"; };
+		DE16ED30242D209100F17AC1 /* SettingsFontTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsFontTVC.xib; sourceTree = "<group>"; };
+		DE16ED35242D235100F17AC1 /* SettingsPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpVC.swift; sourceTree = "<group>"; };
 		DE1992CC22CF71A9009B08F3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDA22D738860099477A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		DE1C6DDC22D79B150099477A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -380,6 +386,7 @@
 			children = (
 				DE06597622C9EE9600D000BC /* SettingsVC.swift */,
 				DE7BC6EF22CB5C6A00AD77EC /* SettingsDetailVC.swift */,
+				DE16ED35242D235100F17AC1 /* SettingsPopUpVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -397,6 +404,8 @@
 				DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */,
 				DE5ED2712418BDC200422BD8 /* VersionTVC.swift */,
 				DE5ED2722418BDC200422BD8 /* VersionTVC.xib */,
+				DE16ED2F242D209100F17AC1 /* SettingsFontTVC.swift */,
+				DE16ED30242D209100F17AC1 /* SettingsFontTVC.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -610,6 +619,7 @@
 				DE8D710E22D25B0400A29973 /* MontserratAlternates-ExtraBold.ttf in Resources */,
 				DE8D710522D25B0400A29973 /* MontserratAlternates-Italic.ttf in Resources */,
 				DE06596D22C97E0D00D000BC /* DiaryListTVC.xib in Resources */,
+				DE16ED32242D209100F17AC1 /* SettingsFontTVC.xib in Resources */,
 				DE8D70E422D1E7C000A29973 /* TreeCVC.xib in Resources */,
 				DE8D710D22D25B0400A29973 /* MontserratAlternates-SemiBold.ttf in Resources */,
 				DE5ED2742418BDC200422BD8 /* VersionTVC.xib in Resources */,
@@ -769,6 +779,7 @@
 				DE06597422C9E15E00D000BC /* Date+Extensions.swift in Sources */,
 				DE8D714C22D4F4F100A29973 /* Tree.swift in Sources */,
 				DE7BC6F022CB5C6A00AD77EC /* SettingsDetailVC.swift in Sources */,
+				DE16ED31242D209100F17AC1 /* SettingsFontTVC.swift in Sources */,
 				DE94674222F8793900D4A891 /* ResetPw1VC.swift in Sources */,
 				DE8D70E322D1E7C000A29973 /* TreeCVC.swift in Sources */,
 				DE8D70E622D1EA0500A29973 /* MainGridVC.swift in Sources */,
@@ -788,6 +799,7 @@
 				DE1C6DE122D86AAB0099477A /* Grid.swift in Sources */,
 				DE06596222C911E000D000BC /* UIView+Extensions.swift in Sources */,
 				DE33D70522C8C12C00F0F4E4 /* AppDelegate.swift in Sources */,
+				DE16ED36242D235100F17AC1 /* SettingsPopUpVC.swift in Sources */,
 				DE7BC70222CC863800AD77EC /* LockCodeCVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,8 @@ class SettingsDetailVC: UIViewController {
     let dateFormatter = DateFormatter()
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
-    let settingsTitleArr: [String] = ["암호 설정", "알림 설정"]
+    let settingsTitleArr: [String] = ["암호 설정", "알림 설정", "글꼴 설정"]
+    let fontSizeStrArr: [String] = ["아주 작게", "작게", "보통", "크게", "아주 크게"]
     
     var paramSettings: Int = 0
     var datePickerIndexPath: IndexPath?
@@ -59,8 +60,10 @@ class SettingsDetailVC: UIViewController {
         }
         let settingsNibName = UINib(nibName: "SettingsTVC", bundle: nil)
         let settingsWithSwitchNibName = UINib(nibName: "SettingsWithSwitchTVC", bundle: nil)
+        let settingsFontNibName = UINib(nibName: "SettingsFontTVC", bundle: nil)
         settingsDetailTV.register(settingsNibName, forCellReuseIdentifier: "SettingsTVC")
         settingsDetailTV.register(settingsWithSwitchNibName, forCellReuseIdentifier: "SettingsWithSwitchTVC")
+        settingsDetailTV.register(settingsFontNibName, forCellReuseIdentifier: "SettingsFontTVC")
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
@@ -86,7 +89,7 @@ extension SettingsDetailVC: UITableViewDataSource {
             } else if isOn {
                 num += 1
             }
-        } else if paramSettings == 1{
+        } else if paramSettings == 1 {
             if datePickerIndexPath != nil {
                 num += 1
             }
@@ -123,7 +126,7 @@ extension SettingsDetailVC: UITableViewDataSource {
 
                 return cell
             }
-        } else {
+        } else if paramSettings == 1 {
             if indexPath.row == 0 {
                 let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsWithSwitchTVC") as! SettingsWithSwitchTVC
                 
@@ -161,6 +164,16 @@ extension SettingsDetailVC: UITableViewDataSource {
                     return cell
                 }
             }
+        } else {
+            let cell = settingsDetailTV.dequeueReusableCell(withIdentifier: "SettingsFontTVC") as! SettingsFontTVC
+
+            cell.settingsNameLabel.text = "크기"
+            cell.fontSizeLabel.text = fontSizeStrArr[UserDefaults.standard.integer(forKey: "fontSize")]
+
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.whiteForBorder.cgColor
+
+            return cell
         }
     }
 }
@@ -191,7 +204,14 @@ extension SettingsDetailVC: UITableViewDelegate {
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             tableView.endUpdates()
+        } else {
+            let popUpVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsPopUpVC") as! SettingsPopUpVC
+            popUpVC.delegate = self as FontSizeDelegate
+            self.addChild(popUpVC)
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParent: self)
         }
+        
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
@@ -260,5 +280,11 @@ extension SettingsDetailVC: SwitchDelegate {
             
             self.navigationController!.pushViewController(dvc, animated: true)
         }
+    }
+}
+
+extension SettingsDetailVC: FontSizeDelegate {
+    func changeFontSizeText() {
+        self.settingsDetailTV.reloadData()
     }
 }

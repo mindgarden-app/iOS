@@ -12,4 +12,5 @@ target 'MindGarden' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Firebase/Analytics'
+  pod 'DLRadioButton', '~> 1.4'
 end
