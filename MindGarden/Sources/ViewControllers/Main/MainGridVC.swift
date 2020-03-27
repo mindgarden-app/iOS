@@ -233,7 +233,7 @@ extension MainGridVC: UICollectionViewDataSource {
 
             if treeDict.keys.contains(gridIdxArr[indexPath.row]) {
                 let treeIdx: Int = treeDict[gridIdxArr[indexPath.row]]!.treeIdx
-                cell.treeImageView.image = UIImage(named: treeIdx == 16 ? (isSpring ? "ios_spring_weeds": "ios_weeds") : "ios_tree\(treeIdx + 1)")
+                cell.treeImageView.image = UIImage(named: treeIdx == 16 ? (isSpring ? "ios_spring_weeds": "ios_weeds") : (isSpring ? "ios_spring_tree\(treeIdx + 1)" : "ios_tree\(treeIdx + 1)"))
                 cell.backgroundColor = UIColor.white
             } else if selectedGrid == indexPath.row {
                 cell.backgroundColor = UIColor.lightGreenForGrid
