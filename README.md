@@ -1,10 +1,8 @@
 # Mind Garden
 
-<div style="text-align:right">
-
 ### 2019 OPEN SOPT 24th iOS Project 
 
-소개 홈페이지 : https://dounik5802.wixsite.com/mind-garden
+소개 홈페이지 : https://www.mindgarden11.net
 
 - **Mind Garden**은 하루의 이야기로 나만의 정원을 가꿔나가는 🌱**힐링 다이어리앱**🌱입니다. 
 
@@ -17,12 +15,23 @@
 - 매일 기록할 수록 정원이 더욱 풍요로워집니다.
 
 
+## 🎊 🥳 🎊 🥳 🎊 🥳 🎊 🥳 
 
-  <img src="https://screenshot-for-github.s3.ap-northeast-2.amazonaws.com/mindgarden.jpeg" alt="drawing" width="400"/>
+1. 2019.08.27 : 1.0 배포 🎉
+2. 2020.01.18 : 앱스토어 '이번 주 에디터의 발견' 추천 🎉
+
+   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2203.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2201.jpg" alt="drawing" width="250"/>
+
+3. 2020.03.16 : 앱스토어 투데이 추천 + 18위 🎉
+
+   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2476.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2541.jpg" alt="drawing" width="250"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2503.JPG" alt="drawing" width="300"/>
+  
+4. 2020.03.24 : 앱스토어 투데이 **오늘의 앱** 선정 🎉
+
+   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2526.jpg" alt="drawing" width="250"/>
   
   <br/>
   
-</div>
 
 ## Table of Contents
 
@@ -177,8 +186,10 @@ MindGarden
   - [x] 회원가입
   - [x] 이메일 로그인
   - [x] Kakao 로그인
+  - [x] Apple 로그인
   - [x] 비밀번호 찾기
   - [x] 로그아웃
+  - [x] 탈퇴
   
 - 메인 화면
 
@@ -189,6 +200,8 @@ MindGarden
 
   - [x] 심고 싶은 나무 선택
   - [x] 나무를 심을 위치 선택
+  
+  - [x] 봄 시즌 정원
 
   > 달 별로 정원을 확인할 수 있습니다. 
   >
@@ -205,7 +218,7 @@ MindGarden
     - [x] 일 별로 정렬
   - [x] 일기 상세 보기 
 
-  > 일기는 하루에 한 번만 작성할 수 있습니다.
+  > 일기는 여러 개 작성 가능
 
 - 환경 설정
   - [x] 프로필 확인 (이름, 이메일)
@@ -217,10 +230,14 @@ MindGarden
     - [x] 시간 설정
     - [x] 푸시 알림
     - [x] 알림 뱃지
+  - [x] 글꼴 설정
+    - [x] 글씨 크기 변경
+  - [x] 버전 확인
   
 - 기타
 
   - [x] 스와이프로 뒤로가기
+  - [x] firebase crashlytics
 
 <br/>
 
