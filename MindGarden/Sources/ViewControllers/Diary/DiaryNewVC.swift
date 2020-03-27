@@ -47,6 +47,7 @@ class DiaryNewVC: UIViewController {
     var galleryBtnMaxY: CGFloat!
     var scrollViewContentSize: CGFloat = 0;
     var scrollViewContentSizeWithText: CGFloat = 0;
+    var keyboardHeight: CGFloat = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,21 +178,23 @@ class DiaryNewVC: UIViewController {
         inputTextView.textColor = UIColor.GrayForFont
         inputTextView.textContainerInset = UIEdgeInsets.zero
         inputTextView.textContainer.lineFragmentPadding = 0
+        inputTextView.sizeToFit()
         inputTextViewHeightConstraint.constant = inputTextView.contentSize.height + 36
         scrollViewContentSize = inputTextView.frame.maxY
         
         if imageView != nil && imageView.frame.origin.y != inputTextView.frame.maxY + 10 {
             imageView.frame = CGRect(x: imageView.frame.origin.x, y: 150 + self.inputTextView.contentSize.height, width: imageView.frame.size.width, height: imageView.frame.size.height)
+            scrollViewContentSize += imageView.frame.size.height
         }
-        scrollViewContentSizeWithText = scrollViewContentSize + inputTextViewHeightConstraint.constant
-//        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSizeWithText)
+        scrollViewContentSizeWithText += inputTextViewHeightConstraint.constant
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSizeWithText + 200)
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: 3000)
-        
-        print(inputTextView.contentSize.height)
-        print(scrollViewContentSize)
-        print(self.inputTextView.contentSize.height)
-        print("\(scrollViewContentSizeWithText) 1111")
+//        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: 3000)
+//
+//        print(inputTextView.contentSize.height)
+//        print(scrollViewContentSize)
+//        print(self.inputTextView.contentSize.height)
+//        print("\(scrollViewContentSizeWithText) 1111")
     }
     
     func setImageView() {
@@ -381,6 +384,7 @@ class DiaryNewVC: UIViewController {
         let userInfo = notification.userInfo!
         
         if let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.size.height
             galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
             galleryBtnMinY = galleryBtnMaxY - keyboardSize.size.height
         }
@@ -431,6 +435,31 @@ extension DiaryNewVC: UITextViewDelegate {
         
         scrollViewContentSizeWithText = scrollViewContentSize + inputTextViewHeightConstraint.constant
         scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: scrollViewContentSizeWithText)
+        
+//        var userInfo = notification.userInfo!
+//
+//        if let keyboardSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            galleryBtn.frame = CGRect(x: galleryBtn.frame.origin.x, y: galleryBtnMaxY - keyboardSize.size.height, width: galleryBtn.frame.size.width, height: galleryBtn.frame.size.height)
+//            galleryBtnMinY = galleryBtnMaxY - keyboardSize.size.height
+//        }
+
+//        if let cursorPosition = inputTextView.selectedTextRange?.start {
+//            let startPosition: UITextPosition = inputTextView.beginningOfDocument
+//            let caretPositionRectangle: CGRect = inputTextView.caretRect(for: cursorPosition)
+//            let caretPositionRectangleForStart: CGRect = inputTextView.caretRect(for: startPosition)
+//
+//            var topbarHeight: CGFloat {
+//                return UIApplication.shared.statusBarFrame.size.height +
+//                (self.navigationController?.navigationBar.frame.height ?? 0.0)
+//            }
+//
+//            print("\(UIScreen.main.bounds.size.height) \(inputTextView.frame.origin.y) \(caretPositionRectangleForStart.minY) \(UIScreen.main.bounds.size.height - caretPositionRectangleForStart.minY - keyboardHeight - topbarHeight) \(caretPositionRectangle.minY) \(caretPositionRectangle.maxY - 350)")
+//            if caretPositionRectangle.minY + 100 > UIScreen.main.bounds.size.height - inputTextView.frame.origin.y - keyboardHeight - topbarHeight && 0 < inputTextView.frame.size.height - keyboardHeight {
+//                DispatchQueue.main.async {
+//                    self.scrollView.contentOffset.y = CGFloat(200)
+//                }
+//            }
+//        }
     }
 }
 

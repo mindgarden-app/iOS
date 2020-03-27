@@ -134,6 +134,7 @@ class DiaryDetailVC: UIViewController {
         bodyTextView.text = diary.diary_content
         bodyTextView.textContainerInset = UIEdgeInsets.zero
         bodyTextView.textContainer.lineFragmentPadding = 0
+        bodyTextView.sizeToFit()
         bodyTextViewHeightConstraint.constant = bodyTextView.contentSize.height
         bodyTextView.isEditable = false
         scrollViewContentSize = bodyTextView.frame.minY + bodyTextView.contentSize.height + 10
@@ -151,7 +152,8 @@ class DiaryDetailVC: UIViewController {
             
             self.imageView.frame = CGRect(x: self.view.center.x - 166, y: 150 + self.bodyTextView.contentSize.height, width: 333, height: (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!)
             
-            self.scrollViewContentSize = (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)! + 150 + self.bodyTextView.contentSize.height
+            self.scrollViewContentSize += (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)!
+//            self.scrollViewContentSize = (self.imageView.image?.size.height)! * 333 / (self.imageView.image?.size.width)! + 150 + self.bodyTextView.contentSize.height
             self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: self.scrollViewContentSize)
             
             self.contentView.addSubview(self.imageView)
