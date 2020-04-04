@@ -51,7 +51,6 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
         
         setDate()
         setBarButtonItem()
-        getGarden(date: "\(inputYear!)-\(String(format: "%02d", inputMonth!))")
     }
 
     func setDate() {
@@ -120,7 +119,6 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
                     }
                     break
                 case .requestErr(let err):
-                    print(".requestErr(\(err))")
                     if String(describing: err) == "만료된 토큰입니다." {
                         AuthService.shared.refreshAccesstoken() { [weak self] data in
                             guard let `self` = self else { return }
@@ -162,6 +160,11 @@ class MainVC: UIViewController, NVActivityIndicatorViewable {
                                     break
                                 case .requestErr(let err):
                                     print(".requestErr(\(err))")
+                                    if String(describing: err) == "잘못된 형식의 토큰입니다." {
+                                        let dvc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+                                        
+                                        self.navigationController!.pushViewController(dvc, animated: true)
+                                    }
                                     break
                                 case .pathErr:
                                     print("경로 에러")
