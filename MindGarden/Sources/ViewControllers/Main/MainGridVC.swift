@@ -37,6 +37,8 @@ class MainGridVC: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         getGardenData()
         setWaterview()

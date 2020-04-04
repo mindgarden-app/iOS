@@ -162,6 +162,9 @@ class DiaryListVC: UIViewController {
         dateBtn.setTitleColor(.black, for: .normal)
         dateBtn.addTarget(self, action: #selector(dateBtnAction), for: .touchUpInside)
         self.navigationItem.titleView = dateBtn
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     @objc func dateBtnAction() {
