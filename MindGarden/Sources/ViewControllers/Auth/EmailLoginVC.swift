@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EmailLoginVC: UIViewController {
     
@@ -78,6 +79,8 @@ class EmailLoginVC: UIViewController {
                 UserDefaults.standard.set(data.token, forKey: "token")
                 UserDefaults.standard.set(data.email, forKey: "email")
                 UserDefaults.standard.set(data.name, forKey: "name")
+                
+                Crashlytics.sharedInstance().setUserIdentifier(data.email)
                 
                 if UserDefaults.standard.bool(forKey: "암호 설정") {
                     let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC

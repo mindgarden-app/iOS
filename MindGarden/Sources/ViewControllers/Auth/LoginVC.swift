@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import NVActivityIndicatorView
 import AuthenticationServices
+import Firebase
 
 class LoginVC: UIViewController, UIScrollViewDelegate, NVActivityIndicatorViewable {
     
@@ -155,6 +156,8 @@ extension LoginVC: WKNavigationDelegate {
                             
                             UserDefaults.standard.set(kakao.data![0].name, forKey: "name")
                             
+                            Crashlytics.sharedInstance().setUserName(kakao.data![0].name)
+                            
                             if UserDefaults.standard.bool(forKey: "암호 설정") {
                                 let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
 
@@ -205,6 +208,8 @@ extension LoginVC: ASAuthorizationControllerDelegate {
                                     UserDefaults.standard.set(data.token, forKey: "token")
                                     UserDefaults.standard.set(data.email, forKey: "email")
                                     UserDefaults.standard.set(data.name, forKey: "name")
+                                    
+                                    Crashlytics.sharedInstance().setUserIdentifier(data.email)
                                     
                                     if UserDefaults.standard.bool(forKey: "암호 설정") {
                                         let dvc = UIStoryboard(name: "Lock", bundle: nil).instantiateViewController(withIdentifier: "LockVC") as! LockVC
