@@ -17,7 +17,8 @@ class SettingsVC: UIViewController {
         [""],
         ["로그아웃", "계정 삭제"],
         ["암호 설정", "알림 설정", "글꼴 설정"],
-        ["버전 정보"]
+        ["버전 정보"],
+        ["서비스 종료 안내"]
     ]
     
     override func viewDidLoad() {

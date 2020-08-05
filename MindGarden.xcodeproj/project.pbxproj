@@ -147,8 +147,8 @@
 		DE5ED265240F319B00422BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE5ED268240F935500422BD8 /* ResponseInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseInt.swift; sourceTree = "<group>"; };
 		DE5ED26A24134E8C00422BD8 /* MindGarden.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MindGarden.entitlements; sourceTree = "<group>"; };
-		DE5ED2712418BDC200422BD8 /* VersionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VersionTVC.swift; path = MindGarden/Sources/Views/VersionTVC.swift; sourceTree = SOURCE_ROOT; };
-		DE5ED2722418BDC200422BD8 /* VersionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VersionTVC.xib; path = MindGarden/Sources/Views/VersionTVC.xib; sourceTree = SOURCE_ROOT; };
+		DE5ED2712418BDC200422BD8 /* VersionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VersionTVC.swift; path = MindGarden/Sources/Views/Settings/VersionTVC/VersionTVC.swift; sourceTree = SOURCE_ROOT; };
+		DE5ED2722418BDC200422BD8 /* VersionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VersionTVC.xib; path = MindGarden/Sources/Views/Settings/VersionTVC/VersionTVC.xib; sourceTree = SOURCE_ROOT; };
 		DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPopUpTVC.swift; sourceTree = "<group>"; };
 		DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaryPopUpTVC.xib; sourceTree = "<group>"; };
 		DE7BC6C322CA780A00AD77EC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -373,10 +373,8 @@
 		DE06596322C91C6D00D000BC /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */,
-				DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */,
-				DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */,
-				DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */,
+				DE09BC9424DAD8080075F9C7 /* DiaryPopUpTVC */,
+				DE09BC9324DAD7FE0075F9C7 /* DiaryListTVC */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -394,20 +392,86 @@
 		DE06596F22C9844F00D000BC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DE09BC9224DAD7CE0075F9C7 /* SettingsFontTVC */,
+				DE09BC9124DAD7C20075F9C7 /* VersionTVC */,
+				DE09BC9024DAD7B50075F9C7 /* DatePickerTVC */,
+				DE09BC8F24DAD7A60075F9C7 /* SettingsWithSwitchTVC */,
+				DE09BC8E24DAD79A0075F9C7 /* SettingsTVC */,
+				DE09BC8D24DAD7570075F9C7 /* ProfileTVC */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE09BC8D24DAD7570075F9C7 /* ProfileTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE7BC6E722CB464100AD77EC /* ProfileTVC.swift */,
 				DE7BC6E822CB464100AD77EC /* ProfileTVC.xib */,
+			);
+			path = ProfileTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC8E24DAD79A0075F9C7 /* SettingsTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE7BC6EB22CB4A9A00AD77EC /* SettingsTVC.swift */,
 				DE7BC6EC22CB4A9A00AD77EC /* SettingsTVC.xib */,
+			);
+			path = SettingsTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC8F24DAD7A60075F9C7 /* SettingsWithSwitchTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE7BC6F322CBB46C00AD77EC /* SettingsWithSwitchTVC.swift */,
 				DE7BC6F422CBB46C00AD77EC /* SettingsWithSwitchTVC.xib */,
+			);
+			path = SettingsWithSwitchTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC9024DAD7B50075F9C7 /* DatePickerTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE2D927322CD132A00A391E1 /* DatePickerTVC.swift */,
 				DE2D927422CD132A00A391E1 /* DatePickerTVC.xib */,
+			);
+			path = DatePickerTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC9124DAD7C20075F9C7 /* VersionTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE5ED2712418BDC200422BD8 /* VersionTVC.swift */,
 				DE5ED2722418BDC200422BD8 /* VersionTVC.xib */,
+			);
+			path = VersionTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC9224DAD7CE0075F9C7 /* SettingsFontTVC */ = {
+			isa = PBXGroup;
+			children = (
 				DE16ED2F242D209100F17AC1 /* SettingsFontTVC.swift */,
 				DE16ED30242D209100F17AC1 /* SettingsFontTVC.xib */,
 			);
-			path = Settings;
+			path = SettingsFontTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC9324DAD7FE0075F9C7 /* DiaryListTVC */ = {
+			isa = PBXGroup;
+			children = (
+				DE06596A22C97E0D00D000BC /* DiaryListTVC.swift */,
+				DE06596B22C97E0D00D000BC /* DiaryListTVC.xib */,
+			);
+			path = DiaryListTVC;
+			sourceTree = "<group>";
+		};
+		DE09BC9424DAD8080075F9C7 /* DiaryPopUpTVC */ = {
+			isa = PBXGroup;
+			children = (
+				DE7BC6BE22CA6F3A00AD77EC /* DiaryPopUpTVC.swift */,
+				DE7BC6BF22CA6F3A00AD77EC /* DiaryPopUpTVC.xib */,
+			);
+			path = DiaryPopUpTVC;
 			sourceTree = "<group>";
 		};
 		DE33D6F822C8C12C00F0F4E4 = {
@@ -420,6 +484,7 @@
 				FDCE8B3B6BB9CE5792D00149 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		DE33D70222C8C12C00F0F4E4 /* Products */ = {
 			isa = PBXGroup;
@@ -923,7 +988,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MindGarden/MindGarden.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
@@ -931,7 +996,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = sopt.MindGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -946,14 +1011,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MindGarden/MindGarden.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 89U4T49H8F;
 				INFOPLIST_FILE = "$(SRCROOT)/MindGarden/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = sopt.MindGarden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
