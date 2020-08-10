@@ -282,12 +282,20 @@
                                 <action selector="backBtnAction:" destination="bcZ-fZ-7dJ" id="jIb-cg-eD6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="btnEdit" id="KsS-pM-hIr">
-                            <color key="tintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="editBtnAction:" destination="bcZ-fZ-7dJ" id="Ypb-HA-Ibb"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="btnEdit" style="plain" id="KsS-pM-hIr">
+                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-8" maxY="0.0"/>
+                                <connections>
+                                    <action selector="editBtnAction:" destination="bcZ-fZ-7dJ" id="Ypb-HA-Ibb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="btnCopyGreen" style="done" id="hbB-UJ-nag">
+                                <inset key="imageInsets" minX="16" minY="0.0" maxX="-12" maxY="0.0"/>
+                                <connections>
+                                    <action selector="copyBtnAction:" destination="bcZ-fZ-7dJ" id="n1f-ED-gpP"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="qXJ-iW-u92" id="GCk-b9-smj"/>
@@ -451,6 +459,7 @@
     </scenes>
     <resources>
         <image name="btnBack" width="16" height="16"/>
+        <image name="btnCopyGreen" width="44" height="26"/>
         <image name="btnEdit" width="44" height="26"/>
         <image name="btnSetting" width="20" height="20"/>
         <image name="btnUpdown" width="22" height="17.333333969116211"/>

@@ -13,4 +13,5 @@ target 'MindGarden' do
   pod 'Crashlytics'
   pod 'Firebase/Analytics'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'MaterialComponents/Snackbar'
 end

@@ -65,6 +65,72 @@ PODS:
   - GoogleUtilities/UserDefaults (6.5.1):
     - GoogleUtilities/Logger
   - Kingfisher (5.6.0)
+  - MaterialComponents/AnimationTiming (112.0.1)
+  - MaterialComponents/Availability (112.0.1)
+  - MaterialComponents/Buttons (112.0.1):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Elevation (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (112.0.1):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Application (112.0.1)
+  - MaterialComponents/private/Color (112.0.1):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/KeyboardWatcher (112.0.1):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (112.0.1)
+  - MaterialComponents/private/Overlay (112.0.1)
+  - MaterialComponents/Ripple (112.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (112.0.1)
+  - MaterialComponents/ShadowLayer (112.0.1):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (112.0.1):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (112.0.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Snackbar (112.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
+    - MaterialComponents/OverlayWindow
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Overlay
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+  - MaterialComponents/Typography (112.0.1):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+    - MDFTextAccessibility
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -82,6 +148,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Analytics
   - Kingfisher
+  - MaterialComponents/Snackbar
   - NVActivityIndicatorView
 
 SPEC REPOS:
@@ -103,6 +170,9 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - nanopb
     - PromisesObjC
 
@@ -122,10 +192,13 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: 84e4d4bbab642f2e9d83ee65d78aca2b5527d314
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  MaterialComponents: 5be6bf8c20183474a84c9852b5b45703ad49cf3a
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: f70d0657702ae3c4a568b1ba1b5037c96aa77eae
+PODFILE CHECKSUM: 84bf461baa25a9ee7c172cb8b1bccb9f336f5847
 
 COCOAPODS: 1.9.0

@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import NVActivityIndicatorView
+import MaterialComponents.MaterialSnackbar
 
 class DiaryDetailVC: UIViewController {
 
@@ -178,5 +179,16 @@ class DiaryDetailVC: UIViewController {
         dvc.diaryIdx = diaryIdx
         
         self.navigationController!.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func copyBtnAction(_ sender: Any) {
+        UIPasteboard.general.string = "\(diary.date)\n기분 : \(moodTextArr[diary.weatherIdx])\n\(diary.diary_content)"
+        
+        let message = MDCSnackbarMessage()
+        message.text = "일기가 클립보드로 복사되었습니다."
+        message.duration = 2
+        MDCSnackbarManager.messageTextColor = .white
+        MDCSnackbarManager.snackbarMessageViewBackgroundColor = UIColor.gray
+        MDCSnackbarManager.show(message)
     }
 }
