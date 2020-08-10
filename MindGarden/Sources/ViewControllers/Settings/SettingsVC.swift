@@ -251,6 +251,7 @@ extension SettingsVC: UITableViewDelegate {
             }
         } else if indexPath.section == 4 {
             simpleAlert(title: "서비스 종료 안내 😥", message: "지금까지 Mindgarden을 이용해주셔서 진심으로 감사합니다.\n\n 많은 분들이 아껴주시고 사랑해주셨던 MindGarden이 8월 21일 자로 앱스토어에서 서비스를 종료합니다. MindGarden은 그 동안 더욱 편리한 서비스 제공을 위해 노력하였으나 내부 사정으로 많은 고민 끝에 서비스 종료를 결정하게 되었습니다.\n\n기존 사용자분들은 2021년 3월까지 어플을 사용하실 수 있습니다. 어플을 삭제한다면 다시 설치할 수 없으니 유의하시길 바랍니다. \n\n그 동안 MindGarden을 이용해주시고 많은 관심과 응원을 보내주신 분들께 진심으로 감사드리며, 부득이하게 서비스를 종료하게 된 점 깊이 사과드립니다.\n\nApp Store 등록 종료: 2020. 8. 21.\n어플 이용 가능 기간: ~2021. 3. 31")
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         }
     }
 }
