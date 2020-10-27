@@ -1,81 +1,55 @@
-# Mind Garden
-
-### 2019 OPEN SOPT 24th iOS Project 
-
-소개 홈페이지 : https://www.mindgarden11.net
-
-- **Mind Garden**은 하루의 이야기로 나만의 정원을 가꿔나가는 🌱**힐링 다이어리앱**🌱입니다. 
-
-- 매일 일기를 기록하고 받은 나무와 꽃을 통해 정원을 가꿔나갈 수 있습니다. 
-
-- 정원은 달마다 리셋되며 , 지난 정원은 앱 내에서 항상 볼 수 있습니다 . 
-
-- 일기에서 날씨로 나의 상태를 기록하고 아름다운 나무와 꽃을 받아보세요 ! 
-
-- 매일 기록할 수록 정원이 더욱 풍요로워집니다.
-
-
-## 🎊 🥳 🎊 🥳 🎊 🥳 🎊 🥳 
-
-1. 2019.08.27 : 1.0 배포 🎉
-2. 2020.01.18 : 앱스토어 '이번 주 에디터의 발견' 추천 🎉
-
-   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2203.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2201.jpg" alt="drawing" width="250"/>
-
-3. 2020.03.16 : 앱스토어 투데이 추천 + 18위 🎉
-
-   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2476.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2541.jpg" alt="drawing" width="250"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2503.JPG" alt="drawing" width="300"/>
-  
-4. 2020.03.24 : 앱스토어 투데이 **오늘의 앱** 선정 🎉
-
-   <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/IMG_2526.jpg" alt="drawing" width="250"/>
-  
-  <br/>
+<div align="center"><img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/mindgarden_ios_appicon_180.png" width="80" /></div>
+<h1 align="center">Mind Garden</h1>
+<p align="center">
+   <img src="https://img.shields.io/badge/swift-v5.0.1-blue"/>
+   <img src="https://img.shields.io/badge/xcode-v10.2.1-blue"/>
+   <img src="https://img.shields.io/badge/download-15294-success"/>
+   <a href="https://www.mindgarden11.net"><img src="https://img.shields.io/badge/-공식 홈페이지-green"/></a>
+   <br/>
+   <br/>
+   <i>
+      <samp>
+         <b>Mind Garden</b>은 하루의 이야기로 나만의 정원을 가꿔나가는 🌱<b>힐링 다이어리앱</b>🌱입니다. <br/>
+         매일 일기를 기록하고 받은 나무와 꽃을 통해 정원을 가꿔나갈 수 있습니다. <br/>
+         정원은 달마다 리셋되며, 지난 정원은 앱 내에서 항상 볼 수 있습니다. <br/>
+         일기에서 날씨로 나의 상태를 기록하고 아름다운 나무와 꽃을 받아보세요! 
+         매일 기록할 수록 정원이 더욱 풍요로워집니다.
+      </samp>
+   </i>
+</p>
+   <h1 align="center">🎊 🥳 🎊 🥳 🎊 🥳 🎊 🥳 </h1>
+   <p align="center">
+      <samp>
+         1. 2019.08.27 : 배포 <br/>
+         2. 2020.01.18 : 앱스토어 <b>'이번 주 에디터의 발견'</b> 추천 🎉 <br/>
+<img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2203.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2201.jpg" alt="drawing" width="250"/><br/><br/>
+         3. 2020.03.16 : 앱스토어 투데이 추천 + <b>18위</b> 🎉 <br/>
+<img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2476.jpg" alt="drawing" width="200"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2541.jpg" alt="drawing" width="250"/> <img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2503.JPG" alt="drawing" width="300"/><br/><br/>
+         4. 2020.03.24 : 앱스토어 투데이 <b>오늘의 앱</b> 선정 🎉 <br/>
+<img src="https://s3.ap-northeast-2.amazonaws.com/github.readme.image/mindgarden/IMG_2526.jpg" alt="drawing" width="250"/><br/><br/>
+         5. 2020.06.20 : 앱스토어 투데이 <b>오늘의 앱</b> 선정 🎉 <br/>
+         6. 2020.08.14 : 앱스토어 투데이 추천 🎉 <br/>
+         7. 2020.08.21 : 앱스토어 서비스 종료
+      </samp>
+   </p>
+<br/>
   
 
 ## Table of Contents
 
 1. [About](#about)
 
-2. [Development Environment](#development-environment)
+2. [Folder Structure](#folder-structure)
 
-3. [Getting Started](#getting-started)
+3. [Features](#features)
 
-4. [Folder Structure](#folder-structure)
-
-5. [Service Workflow](#service-workflow)
-
-6. [Features](#features)
-
-   <br/>
+<br/>
 
 ## About
 
 - 개발자 : [이성희](https://github.com/Sunghee2)
 - 개발 기간 : 2019년 6월 29일 ~ 2019년 7월 12일
-
-  <br/>
-
-
-## Development Environment
-
-- Swift 5.0.1
-- Xcode 10.2.1
-- Dependencies
-  - [Kingfisher](https://github.com/onevcat/Kingfisher) 4.8.2
-  - [Alamofire](https://github.com/Alamofire/Alamofire) 4.8.2
-  - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) 4.7.0
-
-<br/>
-
-## Getting Started
-
-```
-$ git clone https://github.com/mindgarden-app/iOS.git
-$ cd iOS
-$ pod install
-```
-
+- 운영 기간 : 2019년 8월 27일 ~ 2020년 8월 21일
 <br/>
 
 ## Folder Structure
@@ -170,12 +144,6 @@ MindGarden
 `   |-- AppDelegate.swift
 `   `-- AppConstants.swift
 ```
-
-<br/>
-
-## Service Workflow
-
-![](https://jungah.s3.ap-northeast-2.amazonaws.com/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%AD.png)
 
 <br/>
 
